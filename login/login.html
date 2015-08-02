@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="login_style.css">
+	<script src='../app/lib/angular.min.js'></script>
+	
+</head>
+<body ng-app='myApp' ng-controller='ctrl'>
+
+
+	<header>
+		<label>MUSIC</label>
+		<input type="text" placeholder="Search"/>
+	</header>
+
+	<nav>
+		<ul>
+			<li><a href="../index.html">Home</a></li>
+			<li><a>My Account</a></li>
+			<li><a>My Wishlist</a></li>
+			<li><a>Checkout</a></li>
+			<li><a href="login/login.html">Login</a></li>
+		</ul>
+	</nav>
+
+
+
+	<div id='container' >
+		<div class='header'>
+			<p>Login or Create an Account</p>
+		</div>
+		<div id='left'>
+			<p class='title'>NEW CUSTOMERS</p>
+			<hr width="460">
+			<p class='gray'>By creating an account with our store,you will be able</p>
+			<p class='gray'>to move through the checkout process faster,store multiple </p>
+			<p class='gray'>shipping addresses,view and track your orders in your account and more.</p>
+			<br>
+			<button ng-click='openregister()'>Create An Account</button>
+		</div>
+		
+		<div id='right'>
+			<p class='title'>REGISTERED CUSTOMERS</p>
+			<hr width="460">
+			<p class='gray'>If you have an account with us,please log in. </p>
+			
+			
+			
+			<form name="myForm"   ng-show="flag" class="sample"  action="#"  novalidate >
+				<p class='form-title'>Email Address<span style='color:red'> *</span></p>
+				<input type='email' name="email" ng-model="ctrl.email" ng-class="{ 'notvalid': myForm.email.$error.required && myForm.email.$dirty}" required>
+				
+				<p class='feedback' ng-show="myForm.email.$error.required && myForm.email.$dirty">Email is required.</p>
+				<p  class='feedback' ng-show="myForm.email.$error.email  && myForm.email.$dirty">Invalid email address.</p>
+				
+				<p class='form-title'>Password<span style='color:red'> *</span></p>
+				<input type='password' name="password" ng-model="ctrl.password" ng-class="{ 'notvalid': myForm.password.$error.required && myForm.password.$dirty}" required>
+					<p class='feedback' ng-show="myForm.password.$error.required && myForm.password.$dirty">Password is required.</p>
+			
+				<br>
+				<br>
+				<button  ng-disabled="myForm.password.$dirty && myForm.password.$invalid ||  
+				myForm.email.$dirty && myForm.email.$invalid || myForm.password.$pristine 
+				|| myForm.email.$pristine" class='submit' ng-click="login()" >Login</button> 
+			</form>
+			<p id='note'>*Required fields</p>
+		</div>
+		
+		
+		<div id='register' ng-show='regist'>
+			<span ng-click='closeregistration()' id='close-registration'>X</span>
+			<p style='text-align:center;color:gray;clear:both'>Resitration</p>
+			
+			<form name="formResitration" action="#"   novalidate >
+				<p class='register-title'>Profile Information</p>
+				
+				<input type='text' placeholder='First Name' name='firstname' class='input-registration' ng-model='ctrl.firstname' required>
+				<p class='feedback' ng-show="formResitration.firstname.$error.required && formResitration.firstname.$dirty">First name is required.</p>
+				
+				<div class='space'></div>
+				<input type='text' placeholder='Last Name' name='lastname' class='input-registration' ng-model='ctrl.lastname' required>
+				<p class='feedback' ng-show="formResitration.lastname.$error.required && formResitration.lastname.$dirty">Last name is required.</p>
+				
+				<p class='register-title'>Login Datas</p>
+				<input type='email' placeholder='E-mail address' name='email' class='input-registration' ng-model='ctrl.email' required>
+				<p class='feedback' ng-show="formResitration.email.$error.required && formResitration.email.$dirty">Email is required.</p>
+				<p class='feedback' ng-show="formResitration.email.$error.email">Email is not valid.</p>
+				<div class='space'></div>
+				
+				<input type='password' placeholder='Password'  name='password' class='input-registration' ng-model='ctrl.password' required >
+				<p class='feedback' ng-show="formResitration.password.$error.required && formResitration.password.$dirty">Password is required.</p>
+				<div class='space'></div>
+				<input type='password' placeholder='Password confirmation' name='repassword'  class='input-registration' ng-model='ctrl.repassword' required>
+				<p class='feedback' ng-show="formResitration.repassword.$error.required && formResitration.repassword.$dirty">Confirmation is required.</p>
+				<div class='space'></div>
+				<div class='space'></div>
+				<button id='submitregister' ng-click='registration()' ng-disabled="formResitration.password.$dirty && formResitration.password.$invalid ||  
+				formResitration.email.$dirty && formResitration.email.$invalid || formResitration.password.$pristine 
+				|| formResitration.email.$pristine || formResitration.repassword.$error.required || formResitration.lastname.$error.required  || formResitration.firstname.$error.required"  >Register</button>
+				<div class='space'></div>
+				<div class='space'></div>
+			</form>
+		</div>
+		
+	</div>
+	<div class='footer'></div>
+	<script src="login_app.js"></script>
+</body>
+</html>

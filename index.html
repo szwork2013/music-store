@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="app/lib/angular.min.js"></script>
+    <script src="app/lib/angular-route.js"></script>
+    <script src="app/route.js"></script>
+    <script src="home/home_controller.js"></script>
+    <script src="home/home_factoryAndDirective.js"></script>
+    <script src="category/category_controller.js"></script>
+    <script src="category/category_factory.js"></script>
+    <script src="product/product_controller.js"></script>
+    <script src="product/product_factory.js"></script>
+
+</head>
+<body ng-controller="homeController">
+<nav id="mainNav">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a>My Account</a></li>
+        <li><a>My Wishlist</a></li>
+        <li><a>Checkout</a></li>
+        <li><a href="login/login.html">Login</a></li>
+    </ul>
+</nav>
+
+<header>
+    <label>MUSIC</label>
+    <input type="text" placeholder="Search"/>
+</header>
+
+
+
+
+
+
+<div id="main" ng-view></div>
+
+
+</body>
+</html>

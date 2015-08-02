@@ -1,0 +1,52 @@
+<my-Menu id="categoryNav" class="myNav"></my-Menu>
+
+<h2 class="path">
+	<a href="#"> Home </a> > <a href="#category/{{album.category}}">{{album.category}}</a> > <a id="youAreHere" href="#product/{{album.id}}">{{album.album}}</a>
+</h2>
+<div id='product-container'>
+	<div class='product-images'>
+ 		<img id="big-img" ng-src="{{album.image}}"/>
+		<img ng-src="{{album.image}}"/>
+		<img ng-src="{{album.image}}"/>
+		<img ng-src="{{album.image}}"/>
+	</div>
+	
+	<div id='product-right'>
+		<h1 ng-bind="album.album" id='product-title'></h1>
+		<h2>Availability: </h2><span id='product-in-stock'></span>
+		<hr>
+		<p>only 5 available...<p>
+		<h1 style='color:red' >{{album.price | currency}}</h1>
+		<p>We are glad to welcome you in our store.You've made a right decision by choosing our </p>
+		<p>store.Our company will give you the magic of the music world because we all have the</p>
+		<p>same passion.It is so amazing to fill the rhythm and good vibes, to enjoy the perfect</p>
+		<p>preformance and just to be a devoted fan to this magic of sound.</p>
+	</div>
+	
+	<div id='right-down'>
+		<h3 style='color:red' >{{album.price | currency}}</h3>
+		<hr style='width:400px'>
+		<span style='clear:both'>Qty: </span>
+		<div id='product-qty' >{{Qty}}</div>
+		<img class="QtyBtn" ng-src='icons/plus.jpg' ng-click="countQty('up')"/>
+		<img class="QtyBtn" ng-src='icons/minus.jpg' ng-click="countQty('down')">
+		<hr style='width:400px'>
+		<img  ng-src='icons/add.jpg' ng-click='funcAddToWishList()' style='cursor:pointer;margin-left:20px;'><span> Add to Wishlist</span>
+		<button id='product-button' ng-click='funcAddToCart()'>Add To Cart</button>
+	</div>
+	
+	<div id='product-details' ng-bind="album.details" style='font-family:arial'></div>
+	<br>
+	<div id='product-down'>
+		<p>We are glad to welcome you in our store.You've made a right decision by choosing our store.Our company will give you the magic of the music world </p>
+		<p>because we all have the same passion.It is so amazing to fill the rhythm and good vibes, to enjoy the perfect preformance and just to be a devoted</p>
+		<p>fan to this magic of sound.</p>
+		<p>Our store is one of the best among the varlety of the competing ones.We have the largest choice of diffrent products and we are sure that you'll be</p>
+		<p>satisfied.The main goal of our company is to provide only good and premium quality goods at fair prices.That is why we have got so many faithful</p>
+		<p>clients.You donwt have to doubt about our reputation because it is perfect.And our clients testimonials are proving this and as you know it's the</p>
+		<p>people's opinion what is the most objective and it is more efficacious than any kind of advertising.</p>
+	</div>
+</div>
+
+
+

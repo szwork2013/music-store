@@ -1,0 +1,28 @@
+
+<my-Menu id="categoryNav" class="myNav"></my-Menu>
+
+
+<div>
+    <h2 class="path"><a href="#"> Home > </a><a id="youAreHere">{{category_container}}</a></h2>
+        <div id="category_container">
+            <h3>{{category_container}} (item count)</h3>
+            <div class="album_container"  ng-repeat="album in albums|limitTo:6">
+                <img  ng-src={{album.image}}>
+                <div>
+                    <section>{{album.album}} - {{album.artist}}</section>
+                    <span>
+                        {{album.price| currency}}
+                        <button></button>
+                        <button></button>
+                    </span>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+<div id="myCart">
+    <label>My Cart</label>
+    <my-Cart></my-Cart>
+</div>
