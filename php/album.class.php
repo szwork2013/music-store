@@ -1,7 +1,7 @@
 <?php
 
 include_once(dirname(__FILE__) . '/DB.class.php');
-include_once(dirname(__FILE__) . '/home_controller.php');
+include_once(dirname(__FILE__) . '/album_controller.php');
 
 class Album extends DB{
 
@@ -24,6 +24,7 @@ class Album extends DB{
 	public function insertNewAlbum($name,$artist, $duration, $release_year, $description, $long_description, $price){
 		$sql="INSERT INTO albums(album_name, album_artist,album_duration, album_release_year, album_description, album_long_description, album_price)
 			  VALUES ('$name', '$artist', '$duration', '$release_year', '$description', '$long_description', $price)";
+		$answer=$this->db->query($sql);
 	}
 
 

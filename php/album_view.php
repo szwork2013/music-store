@@ -1,6 +1,6 @@
 <?php
 
-include_once(dirname(__FILE__) . '/home_controller.php');
+include_once(dirname(__FILE__) . '/album_controller.php');
 require 'Slim/Slim.php';
 
 \Slim\Slim::registerAutoloader();
@@ -13,6 +13,12 @@ $app->get('/', function(){echo json_encode( array( "error" => "No method" ) );})
 $app->get('/albums/', function(){
     $GLOBALS['controller']->getAllAlbums();
 });
+
+$app->get('/albums/', function(){
+    $GLOBALS['controller']->getAllAlbums();
+});
+
+
 
 
 

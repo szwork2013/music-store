@@ -2,11 +2,11 @@ app.factory('productFactory',function($http){
 
     var productFactory = {};
 
-    var baseUrl="home/php/index.php/";
+    var baseUrl="php/album_view.php/";
 
 
     productFactory.getProducts=function(){
-        return $http.get(baseUrl+'albums/');
+        return $http.get(baseUrl+'albums/id');
     }
 
 
