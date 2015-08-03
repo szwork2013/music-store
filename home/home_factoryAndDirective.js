@@ -2,7 +2,7 @@ app.factory('HomeFactory',function($http){
 
     var HomeFactory = {};
 
-    var baseUrl="home/php/index.php/";
+    var baseUrl="home/php/home_view.php/";
 
 
     HomeFactory.getAlbums=function(){

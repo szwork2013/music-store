@@ -142,8 +142,9 @@ a{
 .container div{
     background-color: black;
     opacity: 0.8;
-    position: relative;
-    top:250px;
+    position: absolute;
+    width: 320px;
+    bottom: 0px;
     padding:10px;
 }
 

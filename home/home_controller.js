@@ -9,8 +9,9 @@ app.controller( 'homeController', function($scope,$location,$routeParams,HomeFac
 
     $scope.getAlbums=function(){
     HomeFactory.getAlbums().
-        success(function (data) {
-            $scope.albums=data;
+        success(function (albums) {
+            console.log(albums);
+            $scope.albums=albums;
         });
     }
 
