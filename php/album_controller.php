@@ -24,6 +24,17 @@ class AlbumController{
         }
     }
 
+    public  function getAlbum($id){
+        $success=$this->album->getAlbum($id);
+        if($success==true) {
+            $row = $success->fetch_assoc();
+            echo json_encode($row);
+        }
+        else{
+            echo "error";
+        }
+    }
+
 
 }
 

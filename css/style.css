@@ -409,9 +409,8 @@ h3{
     margin-left:140px;
 }
 
-#product-down p,#product-right p{
+#product-down div,#product-right div{
     color:gray;
     font-family:arial;
-    line-height: 70%;
     font-size:11px;
 }

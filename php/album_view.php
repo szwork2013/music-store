@@ -14,8 +14,8 @@ $app->get('/albums/', function(){
     $GLOBALS['controller']->getAllAlbums();
 });
 
-$app->get('/albums/', function(){
-    $GLOBALS['controller']->getAllAlbums();
+$app->get('/album/:id', function($id){
+    $GLOBALS['controller']->getAlbum($id);
 });
 
 

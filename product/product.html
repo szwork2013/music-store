@@ -5,7 +5,7 @@
 </h2>
 <div id='product-container'>
 	<div class='product-images'>
- 		<img id="big-img" ng-src="{{album.image}}"/>
+ 		<img id="big-img" ng-src=images/{{album.image_path}} />
 		<img ng-src="{{album.image}}"/>
 		<img ng-src="{{album.image}}"/>
 		<img ng-src="{{album.image}}"/>
@@ -17,10 +17,7 @@
 		<hr>
 		<p>only 5 available...<p>
 		<h1 style='color:red' >{{album.price | currency}}</h1>
-		<p>We are glad to welcome you in our store.You've made a right decision by choosing our </p>
-		<p>store.Our company will give you the magic of the music world because we all have the</p>
-		<p>same passion.It is so amazing to fill the rhythm and good vibes, to enjoy the perfect</p>
-		<p>preformance and just to be a devoted fan to this magic of sound.</p>
+		<div>{{album.album_description}}</div>
 	</div>
 	
 	<div id='right-down'>
@@ -38,13 +35,7 @@
 	<div id='product-details' ng-bind="album.details" style='font-family:arial'></div>
 	<br>
 	<div id='product-down'>
-		<p>We are glad to welcome you in our store.You've made a right decision by choosing our store.Our company will give you the magic of the music world </p>
-		<p>because we all have the same passion.It is so amazing to fill the rhythm and good vibes, to enjoy the perfect preformance and just to be a devoted</p>
-		<p>fan to this magic of sound.</p>
-		<p>Our store is one of the best among the varlety of the competing ones.We have the largest choice of diffrent products and we are sure that you'll be</p>
-		<p>satisfied.The main goal of our company is to provide only good and premium quality goods at fair prices.That is why we have got so many faithful</p>
-		<p>clients.You donwt have to doubt about our reputation because it is perfect.And our clients testimonials are proving this and as you know it's the</p>
-		<p>people's opinion what is the most objective and it is more efficacious than any kind of advertising.</p>
+		<div>{{album.album_long_description}}</div>
 	</div>
 </div>
 

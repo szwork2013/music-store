@@ -3,7 +3,9 @@
 app.controller( 'productController', function($rootScope,$timeout,$scope,$location,$routeParams,productFactory) {
 	
 	$scope.Qty=0;
-	
+
+	$scope.album={};
+
 	$scope.countQty=function(upOrDown){
 		if(upOrDown=='up') {
 			$scope.Qty++;
@@ -25,9 +27,9 @@ app.controller( 'productController', function($rootScope,$timeout,$scope,$locati
 	$scope.getProducts=function() {
 		$scope.id = $routeParams.id;
 		productFactory.getProducts($scope.id)
-			.success(function (response) {
-				$scope.albums = response;
-				$scope.album = $scope.albums[$scope.id];
+			.success(function (album) {
+				console.log(album);
+				$scope.album= album;
 			});
 	}
 

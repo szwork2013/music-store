@@ -5,8 +5,8 @@ app.factory('productFactory',function($http){
     var baseUrl="php/album_view.php/";
 
 
-    productFactory.getProducts=function(){
-        return $http.get(baseUrl+'albums/id');
+    productFactory.getProducts=function(id){
+        return $http.get(baseUrl+'album/'+id);
     }
 
 
