@@ -31,6 +31,7 @@ $app->get('/categoryInfo/:id', function($genre_id)use ($controller){
    $controller->getCategoryInfo($genre_id);
 });
 
+
 $app->get('/getThisCategory/:id', function($genre_id)use ($controller){
     $controller->getThisCategory($genre_id);
 });
