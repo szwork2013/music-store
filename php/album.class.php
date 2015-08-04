@@ -14,7 +14,10 @@ class Album extends DB{
 
 
 	public function getAllAlbums(){
-		$sql="SELECT * FROM albums INNER JOIN images ON albums.album_id=images.image_id";
+		$sql="SELECT album_id,album_artist,album_price,album_name,image_path
+			  FROM albums
+			  INNER JOIN images
+				  ON albums.album_id=images.image_id";
 		$answer=$this->db->query($sql);
 		return $answer;
 	}
