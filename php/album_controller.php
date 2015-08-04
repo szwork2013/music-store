@@ -52,14 +52,8 @@ class AlbumController{
     }
 
 
-    public function  getCategoryInfo($genre_id){
+    public function getCategoryInfo($genre_id){
         $success=$this->album->getCategoryInfo($genre_id);
-        echo $this->toRows($success);
-    }
-
-
-    public function getCategoryPics($genre_id){
-        $success=$this->album->getCategoryPics($genre_id);
         echo $this->toRows($success);
     }
 

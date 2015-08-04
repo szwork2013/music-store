@@ -10,26 +10,25 @@ app.controller( 'categoryController', function($scope,$route,$location,$routePar
     }
 
 
+    $scope.putInfos=function(){
+        
+    }
 
-    $scope.getCategoryInfo=function(){
+
+    $scope.categoryInfo=function(){
         $scope.category_id=$scope.whereAmI();
-        categoryFactory.getCategoryInfo($scope.category_id).
+        categoryFactory.categoryInfo($scope.category_id).
             success(function (data) {
+                console.log(data);
                 $scope.category=data;
             });
     }
 
 
-    $scope.getCategoryPics=function(){
-        categoryFactory.getCategoryPics($scope.category_id).
-            success(function (pics) {
-                console.log(pics);
-            });
-    }
 
 
-    $scope.getCategoryInfo();
-    $scope.getCategoryPics();
+    $scope.categoryInfo();
+
 
 }); //close categoryController
 

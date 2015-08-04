@@ -1,14 +1,21 @@
-
+<style>
+    #myNav{
+        position: absolute;
+        top:245px;
+        left:375px;
+        width: 270px;
+    }
+</style>
 <div>
     <h2 class="path"><a href="#"> Home > </a><a id="youAreHere">{{category_container}}</a></h2>
         <div id="category_container">
             <h3>{{category_container}} (item count)</h3>
             <div class="album_container"  ng-repeat="album in category|limitTo:6">
-                <img  ng-src={{album.image}}>
+                <img  ng-src="images/{{album.image_path}}">
                 <div>
                     <section>{{album.album_name}} - {{album.album_artist}}</section>
                     <span>
-                        {{album.price| currency}}
+                        {{album.album_price| currency}}
                         <button></button>
                         <button></button>
                     </span>
