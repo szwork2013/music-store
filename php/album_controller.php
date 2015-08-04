@@ -50,8 +50,8 @@ class AlbumController{
     }
 
 
-    public function  getCategory($genre_id){
-        $success=$this->album->getCategory($genre_id);
+    public function  getCategoryInfo($genre_id){
+        $success=$this->album->getCategoryInfo($genre_id);
         if($success) {
             while ($row = $success->fetch_assoc()) {
                 $rows[] = $row;

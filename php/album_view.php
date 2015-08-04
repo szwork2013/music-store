@@ -23,8 +23,8 @@ $app->get('/categories/', function(){
 });
 
 
-$app->get('/category/:id', function($genre_id){
-    $GLOBALS['controller']->getCategory($genre_id);
+$app->get('/categoryInfo/:id', function($genre_id){
+    $GLOBALS['controller']->getCategoryInfo($genre_id);
 });
 
 

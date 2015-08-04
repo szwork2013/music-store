@@ -35,7 +35,7 @@ class Album extends DB{
 		return $answer;
 	}
 
-	public  function  getCategory($genre_id){
+	public  function  getCategoryInfo($genre_id){
 		$sql="SELECT * FROM albums LEFT JOIN genres_to_albums ON albums.album_id=genres_to_albums.album_id WHERE genre_id='$genre_id' ";
 		$answer=$this->db->query($sql);
 		return $answer;

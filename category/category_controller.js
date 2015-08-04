@@ -22,7 +22,10 @@ app.controller( 'categoryController', function($scope,$route,$location,$routePar
 
 
     $scope.getCategoryPics=function(){
-        
+        categoryFactory.getCategoryPics($scope.category_id).
+            success(function (data) {
+                console.log(data);
+            });
     }
 
 
