@@ -88,22 +88,27 @@ a{
 }
 
 
-#myNav{
+my-Menu{
     position: absolute;
-    top:855px;
+    top:720px;
     left:375px;
     width: 270px;
 }
 
+#myMenu{
+    position: absolute;
+    top:120px;
+}
 
-#myNav li{
+
+my-Menu li{
     list-style-type: none;
     background-color:#FD0002 ;
     border-bottom: solid white 1px;
     padding: 7px;
 }
 
-#myNav li:hover {
+my-Menu li:hover {
     -webkit-animation: PopIt 0.5s;
     -webkit-transform: scale(1.1,1.1);
     transform:scale(1.1,1.1);
@@ -116,7 +121,7 @@ a{
 }
 
 
-#myNav a{
+my-Menu a{
     color:white;
     font-size: x-large;
 }
@@ -310,7 +315,7 @@ h3{
 
 #myCart{
  position: absolute;
-    top:550px;
+    top:600px;
     left:415px;
     border: solid;
 }

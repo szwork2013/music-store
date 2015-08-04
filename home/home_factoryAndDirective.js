@@ -18,3 +18,9 @@ app.factory('HomeFactory',function($http){
 });
 
 
+app.directive('myMenu', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'category/category_menu.html'
+    };
+});

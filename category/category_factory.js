@@ -22,3 +22,4 @@ app.directive('myCart', function() {
         templateUrl: 'category/myCart.html'
     };
 });
+
