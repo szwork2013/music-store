@@ -4,7 +4,7 @@
 app.controller( 'categoryController', function($scope,$route,$location,$routeParams,categoryFactory) {
 
     $scope.category_id;
-    $scope.thisAlbumCategory=$routeParams.categoryName;
+    $scope.albumCategory=$routeParams.categoryName;
     $scope.category_id=$routeParams.category_id
 
 
