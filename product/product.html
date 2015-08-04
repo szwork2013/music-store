@@ -23,8 +23,8 @@
 	<div id='right-down'>
 		<h3 style='color:red' >{{album.price | currency}}</h3>
 		<hr style='width:400px'>
-		<span style='clear:both'>Qty: </span>
-		<div id='product-qty' >{{Qty}}</div>
+		<label style='clear:both;margin-left:20px'>Qty: </label>
+		<input type='text' id='product-qty' ng-model='Qty'>
 		<img class="QtyBtn" ng-src='icons/plus.jpg' ng-click="countQty('up')"/>
 		<img class="QtyBtn" ng-src='icons/minus.jpg' ng-click="countQty('down')">
 		<hr style='width:400px'>
