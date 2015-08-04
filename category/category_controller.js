@@ -10,8 +10,12 @@ app.controller( 'categoryController', function($scope,$route,$location,$routePar
     }
 
 
+    $scope.goToProductPage=function(id){
+        $location.path('/product/' +id);
+    }
+
     $scope.putInfos=function(){
-        
+
     }
 
 

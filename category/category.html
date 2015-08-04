@@ -1,7 +1,7 @@
 <style>
     #myNav{
         position: absolute;
-        top:245px;
+        top:205px;
         left:375px;
         width: 270px;
     }
@@ -17,7 +17,7 @@
                     <span>
                         {{album.album_price| currency}}
                         <button></button>
-                        <button></button>
+                         <button ng-click='goToProductPage(album.album_id)'></button>
                     </span>
                 </div>
             </div>
