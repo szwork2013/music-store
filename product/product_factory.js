@@ -11,6 +11,8 @@ app.factory('productFactory',function($http){
 
 
 
+
+
     return productFactory;
 
 }); //close productFactory

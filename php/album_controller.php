@@ -58,6 +58,10 @@ class AlbumController{
     }
 
 
+    public function getThisCategory($genre_id){
+        $success=$this->album->getThisCategory($genre_id);
+        echo $this->toRow($success);
+    }
 
 
 

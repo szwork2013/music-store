@@ -14,8 +14,13 @@ app.controller( 'categoryController', function($scope,$route,$location,$routePar
         $location.path('/product/' +id);
     }
 
-    $scope.putInfos=function(){
+    $scope.getThisCategory=function(){
+        $scope.category_id=$scope.whereAmI();
+        categoryFactory.getThisCategory($scope.category_id).
+            success(function (data) {
+                $scope.thisAlbumCategory=data.genre_name;
 
+            });
     }
 
 
@@ -23,7 +28,7 @@ app.controller( 'categoryController', function($scope,$route,$location,$routePar
         $scope.category_id=$scope.whereAmI();
         categoryFactory.categoryInfo($scope.category_id).
             success(function (data) {
-                console.log(data);
+                //console.log(data);
                 $scope.category=data;
             });
     }
@@ -32,7 +37,7 @@ app.controller( 'categoryController', function($scope,$route,$location,$routePar
 
 
     $scope.categoryInfo();
-
+    $scope.getThisCategory();
 
 }); //close categoryController
 

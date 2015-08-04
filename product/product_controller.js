@@ -1,10 +1,11 @@
 
 
-app.controller( 'productController', function($rootScope,$timeout,$scope,$location,$routeParams,productFactory) {
+app.controller( 'productController', function($timeout,$scope,$location,$routeParams,productFactory) {
 	
 	$scope.Qty=0;
 
 	$scope.album={};
+	$scope.id;
 
 	$scope.countQty=function(upOrDown){
 		if(upOrDown=='up') {
@@ -24,17 +25,23 @@ app.controller( 'productController', function($rootScope,$timeout,$scope,$locati
 	}
 
 
+
+
 	$scope.getProducts=function() {
 		$scope.id = $routeParams.id;
 		productFactory.getProducts($scope.id)
 			.success(function (album) {
-				console.log(album);
 				$scope.album= album;
 			});
 	}
 
-	$scope.getProducts();
 
+
+
+
+
+	$scope.getProducts();
+	
 
 
 
