@@ -41,7 +41,7 @@ app.controller( 'productController', function($timeout,$scope,$location,$routePa
 
 
 	$scope.getProducts();
-	
+
 
 
 

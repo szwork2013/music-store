@@ -9,9 +9,7 @@ app.factory('categoryFactory',function($http){
         return $http.get(baseUrl+'categoryInfo/'+genre_id);
     }
 
-    categoryFactory.getThisCategory=function(genre_id){
-        return $http.get(baseUrl+'getThisCategory/'+genre_id);
-    }
+
 
 
 
