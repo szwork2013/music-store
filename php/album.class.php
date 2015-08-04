@@ -56,7 +56,7 @@ class Album extends DB{
 	}
 
 
-	
+
 
 
 
