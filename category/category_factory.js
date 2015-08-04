@@ -6,7 +6,7 @@ app.factory('categoryFactory',function($http){
 
 
     categoryFactory.getCategoryInfo=function(genre_id){
-        return $http.get(baseUrl+'categoryInfo/'+genre_id);
+        return $http.get(baseUrl+'categoryInfo/' + genre_id);
     }
 
 

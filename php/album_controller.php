@@ -14,7 +14,7 @@ class AlbumController{
 
     private function toRows($success){
         if($success) {
-            while ($row = $success->fetch_assoc()) {
+            while ($row = $success->fetch_assoc() ) {
                 $rows[] = $row;
             }
             return json_encode($rows);
@@ -23,7 +23,6 @@ class AlbumController{
             return "error";
         }
     }
-
 
     private function  toRow($success){
         if($success) {
@@ -34,7 +33,6 @@ class AlbumController{
             return "error";
         }
     }
-
 
 
     public function getAllAlbums(){
@@ -50,7 +48,7 @@ class AlbumController{
 
     public  function  getCategories(){
         $success=$this->album->getCategories();
-        $this->toRows($success);
+        echo $this->toRows($success);
     }
 
 

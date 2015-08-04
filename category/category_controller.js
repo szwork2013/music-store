@@ -15,7 +15,6 @@ app.controller( 'categoryController', function($scope,$route,$location,$routePar
         $scope.category_id=$scope.whereAmI();
         categoryFactory.getCategoryInfo($scope.category_id).
             success(function (data) {
-                console.log(data);
                 $scope.category=data;
             });
     }
@@ -23,13 +22,14 @@ app.controller( 'categoryController', function($scope,$route,$location,$routePar
 
     $scope.getCategoryPics=function(){
         categoryFactory.getCategoryPics($scope.category_id).
-            success(function (data) {
-                console.log(data);
+            success(function (pics) {
+                console.log(pics);
             });
     }
 
 
     $scope.getCategoryInfo();
+    $scope.getCategoryPics();
 
 }); //close categoryController
 
