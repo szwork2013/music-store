@@ -27,9 +27,7 @@ $app->get('/categoryInfo/:id', function($genre_id){
     $GLOBALS['controller']->getCategoryInfo($genre_id);
 });
 
-$app->get('/getThisCategory/:id', function($genre_id){
-    $GLOBALS['controller']->getThisCategory($genre_id);
-});
+
 
 
 
