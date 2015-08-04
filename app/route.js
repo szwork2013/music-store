@@ -9,7 +9,7 @@ app.config( function( $routeProvider ) {
         })
 
 
-        .when( '/category/:categoryName', {
+        .when( '/category/:category_id', {
             templateUrl : 'category/category.html',
             controller  : 'categoryController'
         })

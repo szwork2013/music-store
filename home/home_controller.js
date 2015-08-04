@@ -26,6 +26,16 @@ app.controller( 'homeController', function($scope,$location,$routeParams,HomeFac
     }
 
 
+    $scope.getCategories=function(){
+        HomeFactory.getCategories().
+            success(function (categories) {
+                $scope.categories=categories;
+            });
+    }
+
+    $scope.getCategories();
+
+
 }); //close formController
 
 

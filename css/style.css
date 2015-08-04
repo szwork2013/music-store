@@ -88,22 +88,22 @@ a{
 }
 
 
-.myNav{
+#myNav{
     position: absolute;
-    top:705px;
+    top:855px;
     left:375px;
     width: 270px;
 }
 
 
-.myNav li{
+#myNav li{
     list-style-type: none;
     background-color:#FD0002 ;
     border-bottom: solid white 1px;
     padding: 7px;
 }
 
-.myNav li:hover {
+#myNav li:hover {
     -webkit-animation: PopIt 0.5s;
     -webkit-transform: scale(1.1,1.1);
     transform:scale(1.1,1.1);
@@ -116,7 +116,7 @@ a{
 }
 
 
-.myNav a{
+#myNav a{
     color:white;
     font-size: x-large;
 }
@@ -345,7 +345,9 @@ h3{
     width:450px;
     height:340px;
     float:right;
+
 }
+
 #product-title{
     color:gray;
     font-family:arial;
@@ -390,6 +392,7 @@ h3{
     height:150px;
     position: relative;
     top:-60px;
+
 }
 
 #right-down h3{
@@ -413,5 +416,5 @@ h3{
 #product-down div,#product-right div{
     color:gray;
     font-family:arial;
-    font-size:11px;
+    font-size:larger;
 }

@@ -3,28 +3,31 @@
 
 app.controller( 'categoryController', function($scope,$route,$location,$routeParams,categoryFactory) {
 
+    $scope.category_id;
 
     $scope.whereAmI=function(){
-        return $routeParams.categoryName;
+        return $routeParams.category_id;
     }
 
 
-    $scope.putData=function(){
-        category=$scope.whereAmI();
-        $scope.category_container=category;
-    }
 
-    $scope.getByCategory=function(){
-        categoryFactory.getByCategory().
+    $scope.getCategoryInfo=function(){
+        $scope.category_id=$scope.whereAmI();
+        categoryFactory.getCategoryInfo($scope.category_id).
             success(function (data) {
-                $scope.albums=data;
+                console.log(data);
+                $scope.category=data;
             });
     }
 
 
+    $scope.getCategoryPics=function(){
+        
+    }
 
-    $scope.getByCategory();
-    $scope.putData();
+
+    $scope.getCategoryInfo();
+
 }); //close categoryController
 
 

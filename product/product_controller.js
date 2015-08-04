@@ -28,7 +28,6 @@ app.controller( 'productController', function($rootScope,$timeout,$scope,$locati
 		$scope.id = $routeParams.id;
 		productFactory.getProducts($scope.id)
 			.success(function (album) {
-				console.log(album);
 				$scope.album= album;
 			});
 	}

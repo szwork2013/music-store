@@ -29,6 +29,17 @@ class Album extends DB{
 	}
 
 
+	public  function getCategories(){
+		$sql="SELECT * FROM genres ";
+		$answer=$this->db->query($sql);
+		return $answer;
+	}
+
+	public  function  getCategory($genre_id){
+		$sql="SELECT * FROM albums LEFT JOIN genres_to_albums ON albums.album_id=genres_to_albums.album_id WHERE genre_id='$genre_id' ";
+		$answer=$this->db->query($sql);
+		return $answer;
+	}
 
 
 
@@ -39,12 +50,27 @@ class Album extends DB{
 
 
 
-	public function insertNewAlbum($name,$artist, $duration, $release_year, $description, $long_description, $price){
+	public function insertNewAlbum($name,$artist, $duration, $release_year, $description, $long_description, $price,$genre_id){
 		$sql="INSERT INTO albums(album_name, album_artist,album_duration, album_release_year, album_description, album_long_description, album_price)
 			  VALUES ('$name', '$artist', '$duration', '$release_year', '$description', '$long_description', $price)";
 		$answer=$this->db->query($sql);
+		if($answer){
+			$album_id=$this->db->insert_id;
+			return $album_id;
+		}
 	}
 
+	public  function insertNewGenre($album_id,$genre_id){
+		$sql="INSERT INTO genres_to_albums(album_id,genre_id) VALUES ('$album_id','$genre_id') ";
+		$answer=$this->db->query($sql);
+		return $answer;
+	}
+
+
+
+
+//$sql="INSERT INTO genres(genre_parent_id,genre_name) VALUES (1,'Pop')";
+///$sql="INSERT INTO genres_to_albums(album_id,genre_id) VALUES (1,'Pop')";
 
 
 	public function __destruct() {

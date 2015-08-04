@@ -18,6 +18,17 @@ $app->get('/album/:id', function($id){
     $GLOBALS['controller']->getAlbum($id);
 });
 
+$app->get('/categories/', function(){
+    $GLOBALS['controller']->getCategories();
+});
+
+
+$app->get('/category/:id', function($genre_id){
+    $GLOBALS['controller']->getCategory($genre_id);
+});
+
+
+
 
 
 

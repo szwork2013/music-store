@@ -2,11 +2,11 @@ app.factory('categoryFactory',function($http){
 
     var categoryFactory = {};
 
-    var baseUrl="home/php/index.php/";
+    var baseUrl="php/album_view.php/";
 
 
-    categoryFactory.getByCategory=function(){
-        return $http.get(baseUrl+'albums/');
+    categoryFactory.getCategoryInfo=function(genre_id){
+        return $http.get(baseUrl+'category/'+genre_id);
     }
 
 
@@ -16,13 +16,6 @@ app.factory('categoryFactory',function($http){
 
 
 
-
-app.directive('myMenu', function() {
-    return {
-        restrict: 'E',
-        templateUrl: 'app/menu.html'
-    };
-});
 
 
 app.directive('myCart', function() {

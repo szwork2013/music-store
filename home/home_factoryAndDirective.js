@@ -9,6 +9,9 @@ app.factory('HomeFactory',function($http){
         return $http.get(baseUrl+'albums/');
     }
 
+    HomeFactory.getCategories=function(){
+        return $http.get(baseUrl+'categories/');
+    }
 
 
     return HomeFactory;
