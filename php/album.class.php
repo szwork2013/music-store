@@ -36,13 +36,20 @@ class Album extends DB{
 	}
 
 	public  function  getCategoryInfo($genre_id){
-		$sql="SELECT * FROM albums LEFT JOIN genres_to_albums ON albums.album_id=genres_to_albums.album_id WHERE genre_id='$genre_id' ";
+		$sql="SELECT * FROM albums LEFT JOIN genres_to_albums ON
+				albums.album_id = genres_to_albums.album_id WHERE genre_id='$genre_id' ";
 		$answer=$this->db->query($sql);
 		return $answer;
 	}
 
 
-
+	public  function getCategoryPics($genre_id){
+		$sql="SELECT * FROM images_to_albums INNER JOIN genres_to_albums ON
+				images_to_albums.album_id = genres_to_albums.album_id
+				INNER JOIN images ON images.image_id=images_to_albums.image_id WHERE genre_id='$genre_id' ";
+		$answer=$this->db->query($sql);
+		return $answer;
+	}
 
 
 

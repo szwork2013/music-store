@@ -22,12 +22,13 @@ $app->get('/categories/', function(){
     $GLOBALS['controller']->getCategories();
 });
 
-
 $app->get('/categoryInfo/:id', function($genre_id){
     $GLOBALS['controller']->getCategoryInfo($genre_id);
 });
 
-
+$app->get('/categoryPics/:id', function($genre_id){
+    $GLOBALS['controller']->getCategoryPics($genre_id);
+});
 
 
 

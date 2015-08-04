@@ -11,57 +11,61 @@ class AlbumController{
         $this->album = new Album();
     }
 
-    public function getAllAlbums(){
-        $success=$this->album->getAllAlbums();
+
+    private function toRows($success){
         if($success) {
             while ($row = $success->fetch_assoc()) {
                 $rows[] = $row;
             }
-            echo json_encode($rows);
+            return json_encode($rows);
         }
         else{
-            echo "error";
+            return "error";
         }
+    }
+
+
+    private function  toRow($success){
+        if($success) {
+            $row = $success->fetch_assoc();
+            return json_encode($row);
+        }
+        else{
+            return "error";
+        }
+    }
+
+
+
+    public function getAllAlbums(){
+        $success=$this->album->getAllAlbums();
+        echo $this->toRows($success);
     }
 
     public  function getAlbum($id){
         $success=$this->album->getAlbum($id);
-        if($success) {
-            $row = $success->fetch_assoc();
-            echo json_encode($row);
-        }
-        else{
-            echo "error";
-        }
+        echo $this->toRow($success);
     }
 
 
     public  function  getCategories(){
         $success=$this->album->getCategories();
-        if($success) {
-            while ($row = $success->fetch_assoc()) {
-                $rows[] = $row;
-            }
-            echo json_encode($rows);
-        }
-        else{
-            echo "error";
-        }
+        $this->toRows($success);
     }
 
 
     public function  getCategoryInfo($genre_id){
         $success=$this->album->getCategoryInfo($genre_id);
-        if($success) {
-            while ($row = $success->fetch_assoc()) {
-                $rows[] = $row;
-            }
-            echo json_encode($rows);
-        }
-        else{
-            echo "error";
-        }
+        echo $this->toRows($success);
     }
+
+
+    public function getCategoryPics($genre_id){
+        $success=$this->album->getCategoryPics($genre_id);
+        echo $this->toRows($success);
+    }
+
+
 
 
 
