@@ -20,7 +20,7 @@ class Register extends DB{
 //		$tmp=$data->firstname;
 		$sql="INSERT INTO users ( user_email, user_password, user_firstname, user_lastname) VALUES
 			('$data->email','$data->password','$data->firstname','$data->lastname')";
-		$andwer=$this->db->query($sql);
-		return $andwer;
+		$answer=$this->db->query($sql);
+		return $answer;
 	}
 }
