@@ -16,7 +16,7 @@
 		}
 		
 		$scope.registration=function(){
-			 var baseUrl="http://localhost/music-store/php/album_view.php/";
+			 var baseUrl="../php/album_view.php/";
 			  $http.post(baseUrl+'register', {'firstname': $scope.firstname, 'lastname': $scope.lastname, 'email': $scope.email,'password':$scope.password}).
 			  then(function(response) {
 				  console.log(response);
