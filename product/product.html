@@ -21,14 +21,14 @@
 	</div>
 	
 	<div id='right-down'>
-		<h3 style='color:red' >{{album.price | currency}}</h3>
-		<hr style='width:400px'>
-		<label style='clear:both;margin-left:20px'>Qty: </label>
+		<h3 >{{album.album_price | currency}}</h3>
+		<hr>
+		<span>Qty: </span>
 		<input type='text' id='product-qty' ng-model='Qty'>
 		<img class="QtyBtn" ng-src='icons/plus.jpg' ng-click="countQty('up')"/>
 		<img class="QtyBtn" ng-src='icons/minus.jpg' ng-click="countQty('down')">
-		<hr style='width:400px'>
-		<img  ng-src='icons/add.jpg' ng-click='funcAddToWishList()' style='cursor:pointer;margin-left:20px;'><span> Add to Wishlist</span>
+		<hr>
+		<img  id="heartIcon" ng-src="icons/{{heart}}.jpg"  ng-click="addToWishlist(album.album_id)" ><span> Add to Wishlist</span>
 		<button id='product-button' ng-click='funcAddToCart()'>Add To Cart</button>
 	</div>
 	

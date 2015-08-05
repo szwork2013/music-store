@@ -84,10 +84,6 @@ class Album extends DB{
 
 
 
-//$sql="INSERT INTO genres(genre_parent_id,genre_name) VALUES (1,'Pop')";
-///$sql="INSERT INTO genres_to_albums(album_id,genre_id) VALUES (1,'Pop')";
-
-
 	public function __destruct() {
 		$this->db->close();
 	}

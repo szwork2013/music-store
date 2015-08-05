@@ -13,8 +13,6 @@ $controller = new AlbumController();
 $registerController=new RegisterController();
 
 $app->response->headers->set('Content-Type', 'application/json');
-
-
 $app->get('/', function(){echo json_encode( array( "error" => "No method" ) );});
 
 
@@ -44,7 +42,6 @@ $app->get('/getThisCategory/:id', function($genre_id)use ($controller){
 $app->post('/register/', function()use ($registerController){
 	
    $data = json_decode(file_get_contents("php://input"));
-   
    $success=$registerController->insertNew($data);
    echo $success;
 

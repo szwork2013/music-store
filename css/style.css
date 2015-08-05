@@ -323,7 +323,6 @@ h3{
 /****************  Product page ********************************/
 
 
-
 #big-img{
     width:350px;
     height:400px;
@@ -364,12 +363,10 @@ h3{
     float:right;
 }
 
-#right-down span, #right-down div, .QtyBtn{
+#right-down span, #right-down input, .QtyBtn{
     position: relative;
-    left:32px;
+    left:36px;
 }
-
-
 #product-qty{
     width:30px;
     height:20px;
@@ -384,6 +381,21 @@ h3{
     cursor:pointer;
     position:relative;
     top:5px;
+}
+#right-down h3{
+    color:red;
+}
+#right-down label {
+    clear:both;
+    margin-left:20px;
+}
+#right-down hr{
+    width:400px;
+}
+#heartIcon{
+    cursor:pointer;
+    position: relative;
+    left:30px;
 }
 #product-details{
     width:900px;
@@ -424,3 +436,5 @@ h3{
     font-family:arial;
     font-size:larger;
 }
+
+
