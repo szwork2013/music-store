@@ -8,15 +8,11 @@ class RegisterController{
 		$this->register = new Register();
 	}
 	
+	public function ifEmailExist($email){
+		return ($this->register->ifEmailExist($email));
+	}
 	
 	public function insertNew($data){
-		if(!$this->register->ifEmailExist($data->email)){
-			$this->register->insertNew($data);
-			return "added new";
-		}
-		else {
-			return "email is allready exist";
-		}
-		
+		$this->register->insertNew($data);
 	}
 }

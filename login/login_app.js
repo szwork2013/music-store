@@ -18,19 +18,23 @@
 		$scope.registration=function(){
 			 var baseUrl="../php/album_view.php/";
 			  $http.post(baseUrl+'register', {'firstname': $scope.firstname, 'lastname': $scope.lastname, 'email': $scope.email,'password':$scope.password}).
-			  then(function(response) {
+			  success(function(response) {
 				  console.log(response);
 			  });
 		}
 		
 		
 		///////////////////////ONLY FOR TESTING////////////
-	
+		
+		
 		$scope.firstname="ariel";
+		
 		$scope.lastname="avrani";
-		$scope.email="aw@a.com";
+		
+		$scope.email="d@a.com";
+		
 		$scope.password="123456";
+		
 		$scope.repassword="123456";
 		
-		////////////////////end of "ONLY FOR TESTING"  ////////////
 	});
