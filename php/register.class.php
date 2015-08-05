@@ -15,4 +15,5 @@ class Register extends DB{
 		$answer=$this->db->query($sql);
 		return $answer;
 	}
+
 }

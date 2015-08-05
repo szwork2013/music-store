@@ -1,10 +1,7 @@
 <?php
 
-
-
 include_once(dirname(__FILE__) . '/album_Controller.php');
-
-require 'Slim/Slim.php';
+include_once(dirname(__FILE__) . '/../Slim/Slim.php');
 
 \Slim\Slim::registerAutoloader();
 $app = new \Slim\Slim();
