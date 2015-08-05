@@ -1,8 +1,8 @@
 <?php
 
 
-include_once(dirname(__FILE__) . '/album_controller.php');
-include_once(dirname(__FILE__) . '/registerController.php');
+
+include_once(dirname(__FILE__) . '/album_Controller.php');
 
 require 'Slim/Slim.php';
 
@@ -37,26 +37,6 @@ $app->get('/categoryInfo/:id', function($genre_id)use ($controller){
 
 $app->get('/getThisCategory/:id', function($genre_id)use ($controller){
     $controller->getThisCategory($genre_id);
-});
-
-$app->post('/register/', function()use ($registerController){
-
-   $data = json_decode(file_get_contents("php://input"));
-   $registerController->insertNew($data);
-
-
-
-//
-//   $emailAllreadyExist=$registerController->ifEmailExist($data->email);
-//
-// 	 if(!$emailAllreadyExist){
-// 	 	$registerController->insertNew($data);
-// 	 }
-// 	 else{
-// 	 	echo "email is allready exist!";
-// 	 }
-   
-
 });
 
 $app->run();

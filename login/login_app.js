@@ -16,7 +16,7 @@
 		}
 		
 		$scope.registration=function(){
-			 var baseUrl="../php/album_view.php/";
+			 var baseUrl="../php/register_view.php/";
 			  $http.post(baseUrl+'register', {'firstname': $scope.firstname, 'lastname': $scope.lastname, 'email': $scope.email,'password':$scope.password}).
 			  success(function(response) {
 				  console.log(response);
