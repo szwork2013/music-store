@@ -8,20 +8,15 @@ class RegisterController{
 		$this->register = new Register();
 	}
 	
-	public function ifEmailExist($email){
-		return ($this->register->ifEmailExist($email));
-	}
 	
 	public function insertNew($data){
-		$success=$this->register->insertNew($data);
-		if($success) {
-			echo "New User is created !";
-		}
-		else{
-			echo "Email is allready exist!";
-		}
-
-
+		
+		$invalidEmail=(!filter_var($data->email, FILTER_VALIDATE_EMAIL) ? true : false);
+		$existEmail=(!$sec=$this->register->insertNew($data)? true : false);
+		$rePswEqual=($data->password==$data->repassword? true : false);
+		$lengthPsw=strlen($data->password);
+		$pswGoodLength=($lengthPsw>5 AND $lengthPsw< 9 ? true : false);
+		echo  json_encode( array( "ivalidEmail" =>$invalidEmail, "existEmail" =>  $existEmail,"rePswEqual" =>$rePswEqual,"pswGoodLength"=>$pswGoodLength));
 	}
 
 

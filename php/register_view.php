@@ -24,3 +24,4 @@ $app->post('/register/', function()use ($reg){
 	
 
 $app->run();
+?>

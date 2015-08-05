@@ -17,7 +17,7 @@
 		
 		$scope.registration=function(){
 			 var baseUrl="../php/register_view.php/";
-			  $http.post(baseUrl+'register', {'firstname': $scope.firstname, 'lastname': $scope.lastname, 'email': $scope.email,'password':$scope.password}).
+			  $http.post(baseUrl+'register', {'firstname': $scope.firstname, 'lastname': $scope.lastname, 'email': $scope.email,'password':$scope.password,'repassword':$scope.repassword}).
 			  success(function(response) {
 				  console.log(response);
 			  });
