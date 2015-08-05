@@ -32,45 +32,43 @@ app.controller( 'productController', function($timeout,$scope,$location,$routePa
 
 
 
-
-
-
 	//////////////////////////   Local Storage manage    /////////////////////////////////
 
 	$scope.getWishlistData=function(){
-		var whishlist=angular.fromJson(localStorage.getItem("MyWishList") );
-		if(whishlist==null){
-			$scope.whishlist=[];
+		var wishlist=localStorage.getItem("MyWishList");
+		if(wishlist==null){
+			$scope.wishlist=[];
 		}
 		else{
-			$scope.whishlist= whishlist;
+			$scope.wishlist= angular.fromJson(wishlist);
 		}
 	}
 
-	$scope.addToWishlist=function(albumId){
+	$scope.addToWishlist=function(){
 		$scope.getWishlistData();
-		var newWish={'albumId':albumId};
-		$scope.whishlist.push(newWish);
+		var newWish=$scope.album;
+		$scope.wishlist.push(newWish);
 		$scope.updateWishlist();
 	}
 
 	$scope.updateWishlist=function(){
-		localStorage.setItem("MyWishList", angular.toJson($scope.whishlist) );
+		localStorage.setItem("MyWishList", angular.toJson($scope.wishlist) );
 		$scope.heart='fullHeart';
 	}
 
 
 	$scope.checkIfInWishlist=function(){
-		$scope.getWishlistData();
-		var whishlist=$scope.whishlist;
-		for(var key in whishlist){
-			if( whishlist[key].albumId == $routeParams.id){
-				$scope.heart='fullHeart';
+		    $scope.getWishlistData();
+			var wishlist = $scope.wishlist;
+			for (var key in wishlist) {
+				if (wishlist[key].album_id == $routeParams.id) {
+					$scope.heart = 'fullHeart';
+				}
 			}
-		}
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////////
+
 
 
 	$scope.getProducts();

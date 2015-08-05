@@ -314,7 +314,7 @@ h3{
 
 
 #myCart{
- position: absolute;
+    position: absolute;
     top:600px;
     left:415px;
     border: solid;
@@ -438,3 +438,9 @@ h3{
 }
 
 
+/******************   wishList/Cart  **********************/
+
+#myCart img{
+    width: 175px;
+    height: 175px;
+}
