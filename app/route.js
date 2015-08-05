@@ -19,4 +19,5 @@ app.config( function( $routeProvider ) {
             templateUrl : 'product/product.html',
             controller  : 'productController'
         })
+       
 });

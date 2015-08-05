@@ -7,16 +7,20 @@ require 'Slim/Slim.php';
 $app = new \Slim\Slim();
 
 
-$registerController=new RegisterController();
+$reg=new RegisterController();
 
 $app->response->headers->set('Content-Type', 'application/json');
 
 
-$app->post('/register/', function()use ($registerController){
+$app->post('/register/', function()use ($reg){
 
 	$data = json_decode(file_get_contents("php://input"));
-	$registerController->insertNew($data);
-
+	$reg->insertNew($data);
+	
 });
+
+
+
+	
 
 $app->run();

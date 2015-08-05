@@ -3,6 +3,8 @@
 <head>
 	<link rel="stylesheet" href="login_style.css">
 	<script src='../app/lib/angular.min.js'></script>
+	<script src="login_app.js"></script>
+	
 	
 </head>
 <body ng-app='myApp' ng-controller='ctrl'>
@@ -46,7 +48,7 @@
 			
 			
 			
-			<form name="myForm"   ng-show="flag" class="sample"  action="#"  novalidate >
+			<form name="myForm"   ng-show="flag" class="sample"  action=""  novalidate >
 				<p class='form-title'>Email Address<span style='color:red'> *</span></p>
 				<input type='email' name="email" ng-model="ctrl.email" ng-class="{ 'notvalid': myForm.email.$error.required && myForm.email.$dirty}" required>
 				
@@ -67,11 +69,19 @@
 		</div>
 		
 		
+		
+		
 		<div id='register' ng-show='regist'>
 			<span ng-click='closeregistration()' id='close-registration'>X</span>
 			<p style='text-align:center;color:gray;clear:both'>Resitration</p>
 			
-			<form name="formResitration" action="#"   novalidate >
+			
+			
+			
+			
+			
+			
+			<form name="formResitration" action=""   novalidate >
 				<p class='register-title'>Profile Information</p>
 				
 				<input type='text'   placeholder='First Name' name='firstname' class='input-registration' ng-model='firstname' required >
@@ -94,7 +104,7 @@
 				<p class='feedback' ng-show="formResitration.repassword.$error.required && formResitration.repassword.$dirty">Confirmation is required.</p>
 				<div class='space'></div>
 				<div class='space'></div>
-				<button id='submitregister' ng-click='registration()'     >Register</button>
+				<button id='submitregister' ng-click='registration()' >Register</button>
 				<div class='space'></div>
 				<div class='space'></div>
 			</form>
@@ -102,6 +112,6 @@
 		
 	</div>
 	<div class='footer'></div>
-	<script src="login_app.js"></script>
+	
 </body>
 </html>
