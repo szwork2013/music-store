@@ -45,9 +45,15 @@ $app->post('/register/', function()use ($registerController){
 	
    $data = json_decode(file_get_contents("php://input"));
    
-   $success=$registerController->insertNew($data);
-   echo $success;
-
+   $emailAllreadyExist=$registerController->ifEmailExist($data->email);
+   
+ 	 if(!$emailAllreadyExist){
+ 	 	$registerController->insertNew($data);
+ 	 }
+ 	 else{
+ 	 	echo "email is allready exist!";
+ 	 }
+   
   
    
 });
