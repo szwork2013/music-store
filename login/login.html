@@ -74,29 +74,27 @@
 			<form name="formResitration" action="#"   novalidate >
 				<p class='register-title'>Profile Information</p>
 				
-				<input type='text' placeholder='First Name' name='firstname' class='input-registration' ng-model='ctrl.firstname' required>
+				<input type='text'   placeholder='First Name' name='firstname' class='input-registration' ng-model='firstname' required >
 				<p class='feedback' ng-show="formResitration.firstname.$error.required && formResitration.firstname.$dirty">First name is required.</p>
 				
 				<div class='space'></div>
-				<input type='text' placeholder='Last Name' name='lastname' class='input-registration' ng-model='ctrl.lastname' required>
+				<input type='text' placeholder='Last Name' name='lastname' class='input-registration' ng-model='lastname' required>
 				<p class='feedback' ng-show="formResitration.lastname.$error.required && formResitration.lastname.$dirty">Last name is required.</p>
 				
 				<p class='register-title'>Login Datas</p>
-				<input type='email' placeholder='E-mail address' name='email' class='input-registration' ng-model='ctrl.email' required>
+				<input type='email' placeholder='E-mail address' name='email' class='input-registration' ng-model='email' required>
 				<p class='feedback' ng-show="formResitration.email.$error.required && formResitration.email.$dirty">Email is required.</p>
 				<p class='feedback' ng-show="formResitration.email.$error.email">Email is not valid.</p>
 				<div class='space'></div>
 				
-				<input type='password' placeholder='Password'  name='password' class='input-registration' ng-model='ctrl.password' required >
+				<input type='password' placeholder='Password'  name='password' class='input-registration' ng-model='password' required >
 				<p class='feedback' ng-show="formResitration.password.$error.required && formResitration.password.$dirty">Password is required.</p>
 				<div class='space'></div>
-				<input type='password' placeholder='Password confirmation' name='repassword'  class='input-registration' ng-model='ctrl.repassword' required>
+				<input type='password' placeholder='Password confirmation' name='repassword'  class='input-registration' ng-model='repassword' required>
 				<p class='feedback' ng-show="formResitration.repassword.$error.required && formResitration.repassword.$dirty">Confirmation is required.</p>
 				<div class='space'></div>
 				<div class='space'></div>
-				<button id='submitregister' ng-click='registration()' ng-disabled="formResitration.password.$dirty && formResitration.password.$invalid ||  
-				formResitration.email.$dirty && formResitration.email.$invalid || formResitration.password.$pristine 
-				|| formResitration.email.$pristine || formResitration.repassword.$error.required || formResitration.lastname.$error.required  || formResitration.firstname.$error.required"  >Register</button>
+				<button id='submitregister' ng-click='registration()'     >Register</button>
 				<div class='space'></div>
 				<div class='space'></div>
 			</form>

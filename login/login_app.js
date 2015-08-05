@@ -1,5 +1,5 @@
 	var app=angular.module('myApp',[]);
-	app.controller('ctrl',function($scope){
+	app.controller('ctrl',function($scope,$http){
 		$scope.flag=true;
 		$scope.regist=false;
 		
@@ -16,8 +16,21 @@
 		}
 		
 		$scope.registration=function(){
-				alert();
+			 var baseUrl="http://localhost/music-store/php/album_view.php/";
+			  $http.post(baseUrl+'register', {'firstname': $scope.firstname, 'lastname': $scope.lastname, 'email': $scope.email,'password':$scope.password}).
+			  then(function(response) {
+				  console.log(response);
+			  });
 		}
 		
 		
+		///////////////////////ONLY FOR TESTING////////////
+	
+		$scope.firstname="ariel";
+		$scope.lastname="avrani";
+		$scope.email="aw@a.com";
+		$scope.password="123456";
+		$scope.repassword="123456";
+		
+		////////////////////end of "ONLY FOR TESTING"  ////////////
 	});

@@ -1,11 +1,16 @@
 <?php
 
+
 include_once(dirname(__FILE__) . '/album_controller.php');
+include_once(dirname(__FILE__) . '/registerController.php');
+
 require 'Slim/Slim.php';
 
 \Slim\Slim::registerAutoloader();
 $app = new \Slim\Slim();
+
 $controller = new AlbumController();
+$registerController=new RegisterController();
 
 $app->response->headers->set('Content-Type', 'application/json');
 
@@ -36,6 +41,15 @@ $app->get('/getThisCategory/:id', function($genre_id)use ($controller){
     $controller->getThisCategory($genre_id);
 });
 
+$app->post('/register/', function()use ($registerController){
+	
+   $data = json_decode(file_get_contents("php://input"));
+   
+   $success=$registerController->insertNew($data);
+   echo $success;
 
+  
+   
+});
 
 $app->run();
