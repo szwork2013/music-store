@@ -40,26 +40,23 @@ $app->get('/getThisCategory/:id', function($genre_id)use ($controller){
 });
 
 $app->post('/register/', function()use ($registerController){
-	
+
    $data = json_decode(file_get_contents("php://input"));
-<<<<<<< HEAD
-   $success=$registerController->insertNew($data);
-   echo $success;
+   $registerController->insertNew($data);
 
 
-   
-   $emailAllreadyExist=$registerController->ifEmailExist($data->email);
-   
- 	 if(!$emailAllreadyExist){
- 	 	$registerController->insertNew($data);
- 	 }
- 	 else{
- 	 	echo "email is allready exist!";
- 	 }
+
+//
+//   $emailAllreadyExist=$registerController->ifEmailExist($data->email);
+//
+// 	 if(!$emailAllreadyExist){
+// 	 	$registerController->insertNew($data);
+// 	 }
+// 	 else{
+// 	 	echo "email is allready exist!";
+// 	 }
    
 
-  
-   
 });
 
 $app->run();

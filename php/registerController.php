@@ -13,6 +13,19 @@ class RegisterController{
 	}
 	
 	public function insertNew($data){
-		$this->register->insertNew($data);
+		$success=$this->register->insertNew($data);
+		if($success) {
+			echo "New User is created !";
+		}
+		else{
+			echo "Email is allready exist!";
+		}
+
+
 	}
-}
+
+
+}//close class RegisterController
+
+
+

@@ -26,12 +26,12 @@ app.controller( 'categoryController', function($scope,$route,$location,$routePar
 
 
     $scope.getWishlistData=function(){
-        var myWishlist=angular.fromJson(localStorage.getItem("MyWishList") );
+        var myWishlist=localStorage.getItem("MyWishList");
         if(myWishlist==null){
             //empty message
         }
         else{
-            $scope.myWishlist= myWishlist;
+            $scope.myWishlist=angular.fromJson(myWishlist);
         }
         console.log($scope.myWishlist);
     }
