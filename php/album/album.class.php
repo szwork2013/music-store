@@ -1,6 +1,6 @@
 <?php
 
-include_once(dirname(__FILE__) . '/DB.class.php');
+include_once(dirname(__FILE__) . '/../DB.class.php');
 include_once(dirname(__FILE__) . '/album_controller.php');
 
 class Album extends DB{

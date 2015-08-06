@@ -2,7 +2,7 @@ app.factory('categoryFactory',function($http){
 
     var categoryFactory = {};
 
-    var baseUrl="php/album_view.php/";
+    var baseUrl="php/album/album_view.php/";
 
 
     categoryFactory.categoryInfo=function(genre_id){
