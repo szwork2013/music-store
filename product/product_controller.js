@@ -6,6 +6,7 @@ app.controller( 'productController', function($scope,$location,$routeParams,prod
 	$scope.heart='emptyHeart';
 	$scope.album={};
 	$scope.id;
+	$scope.disableHeartBtn=false;
 
 	$scope.countQty=function(upOrDown){
 		if(upOrDown=='up') {
@@ -35,6 +36,7 @@ app.controller( 'productController', function($scope,$location,$routeParams,prod
 	//////////////////////////   Local Storage manage    /////////////////////////////////
 
 	$scope.getWishlistData=function(){
+
 		var wishlist=localStorage.getItem("MyWishList");
 		if(wishlist==null){
 			$scope.wishlist=[];
@@ -45,26 +47,33 @@ app.controller( 'productController', function($scope,$location,$routeParams,prod
 	}
 
 	$scope.addToWishlist=function(){
-		$scope.getWishlistData();
-		var newWish=$scope.album;
-		$scope.wishlist.push(newWish);
-		$scope.updateWishlist();
+		if($scope.disableHeartBtn==false) {
+			$scope.getWishlistData();
+			var newWish=$scope.album;
+			$scope.wishlist.push(newWish);
+			$scope.updateWishlist();
+		}
+		else{
+			alert('This product already in your wishlist.');
+		}
 	}
 
 	$scope.updateWishlist=function(){
 		localStorage.setItem("MyWishList", angular.toJson($scope.wishlist) );
 		$scope.heart='fullHeart';
+		$scope.disableHeartBtn=true;
 	}
 
 
 	$scope.checkIfInWishlist=function(){
-		    $scope.getWishlistData();
-			var wishlist = $scope.wishlist;
-			for (var key in wishlist) {
-				if (wishlist[key].album_id == $routeParams.id) {
-					$scope.heart = 'fullHeart';
-				}
+		$scope.getWishlistData();
+		var wishlist = $scope.wishlist;
+		for (var key in wishlist) {
+			if (wishlist[key].album_id == $routeParams.id) {
+				$scope.heart = 'fullHeart';
+				$scope.disableHeartBtn=true;
 			}
+		}
 	}
 
 	/////////////////////////////////////////////////////////////////////////////////////////
