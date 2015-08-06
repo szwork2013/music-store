@@ -18,4 +18,6 @@ class Register extends DB{
 		return $answer;
 	}
 
+
+
 }

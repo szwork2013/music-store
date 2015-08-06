@@ -58,13 +58,6 @@ class Album extends DB{
 
 
 
-
-
-
-
-
-
-
 	public function insertNewAlbum($name,$artist, $duration, $release_year, $description, $long_description, $price,$genre_id){
 		$sql="INSERT INTO albums(album_name, album_artist,album_duration, album_release_year, album_description, album_long_description, album_price)
 			  VALUES ('$name', '$artist', '$duration', '$release_year', '$description', '$long_description', $price)";
@@ -80,7 +73,6 @@ class Album extends DB{
 		$answer=$this->db->query($sql);
 		return $answer;
 	}
-
 
 
 

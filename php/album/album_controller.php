@@ -59,10 +59,7 @@ class AlbumController{
 
 
 
-
-
-
-
+    
     public function insertNewAlbum($name,$artist, $duration, $release_year, $description, $long_description, $price,$genre_id){
         $album_id=$this->album->insertNewAlbum($name,$artist, $duration, $release_year, $description, $long_description, $price);
         $success=$this->album->insertNewGenre($album_id,$genre_id);
