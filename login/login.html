@@ -48,6 +48,14 @@
 			
 			
 			
+			
+			
+			
+			
+			
+			
+			
+			
 			<form name="myForm"   ng-show="flag" class="sample"  action=""  novalidate >
 				<p class='form-title'>Email Address<span style='color:red'> *</span></p>
 				<input type='email' name="email" ng-model="ctrl.email" ng-class="{ 'notvalid': myForm.email.$error.required && myForm.email.$dirty}" required>
@@ -88,20 +96,36 @@
 				<p class='feedback' ng-show="formResitration.firstname.$error.required && formResitration.firstname.$dirty">First name is required.</p>
 				
 				<div class='space'></div>
+				
 				<input type='text' placeholder='Last Name' name='lastname' class='input-registration' ng-model='lastname' required>
 				<p class='feedback' ng-show="formResitration.lastname.$error.required && formResitration.lastname.$dirty">Last name is required.</p>
 				
 				<p class='register-title'>Login Datas</p>
 				<input type='email' placeholder='E-mail address' name='email' class='input-registration' ng-model='email' required>
+				
 				<p class='feedback' ng-show="formResitration.email.$error.required && formResitration.email.$dirty">Email is required.</p>
+				
 				<p class='feedback' ng-show="formResitration.email.$error.email">Email is not valid.</p>
+				
 				<div class='space'></div>
 				
-				<input type='password' placeholder='Password'  name='password' class='input-registration' ng-model='password' required >
+				
+				
+				
+				
+				<input type='password' placeholder='Password'  name='password' class='input-registration' ng-model='password' required ng-keyup="valdiateLengthPassword()" >
 				<p class='feedback' ng-show="formResitration.password.$error.required && formResitration.password.$dirty">Password is required.</p>
+				<p class='feedback' ng-show="toSmall" >Password has to be bigger than 5.</p>
+				<p class='feedback' ng-show="toBig" >Password has to be smaller than 9.</p>
+				
+				
+				
+				
 				<div class='space'></div>
-				<input type='password' placeholder='Password confirmation' name='repassword'  class='input-registration' ng-model='repassword' required>
+				<input type='password' placeholder='Password confirmation' name='repassword'  class='input-registration' ng-model='repassword' required  ng-keyup="valdiateRePassword()">
 				<p class='feedback' ng-show="formResitration.repassword.$error.required && formResitration.repassword.$dirty">Confirmation is required.</p>
+				<p class='feedback' ng-show="notEqual">password and repassword not equal.</p>
+				
 				<div class='space'></div>
 				<div class='space'></div>
 				<button id='submitregister' ng-click='registration()' >Register</button>
