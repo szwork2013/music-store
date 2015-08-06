@@ -3,13 +3,14 @@
 
 #checkout-ul li{
 	
-	width:700px;
+	width:680px;
 	height:30px;
 	border:black solid 1px;
 	color:white;
 	list-style-type: none;
 	font-size:12px;
-	
+	padding-top:9px;
+	padding-left:20px;
 }
 #checkout-ul div{
 	height:300px;
@@ -26,7 +27,7 @@
 	font-size:13px;
 	font-weight:bold;
 	margin-left:10px;
-	 line-height: 70%;
+	line-height: 70%;
 }
 #checkout-address{
 	width:525px;
@@ -96,15 +97,25 @@
 .red{
 	background-color:rgb(253,0,2);
 }
+.checkout_circle{
+	width:10px;
+	height:10px;
+	border-radius:5px;
+	background-color:white;
+}
+
+
 </style>
+
+
 
 <div id='checkout_container'>
 	<ul id='checkout-ul'>
 	
-		<li ng-class="x1">Billing Informaition</li>
+		<li ng-class="x1">1-Billing Informaition</li>
 			<br>
-			<div id='checkout-billing' ng-show='billing'>
-				<form name='billingForm'  novalidate>
+			<div id='checkout-billing' ng-show='billing' >
+				<form name='billingForm'  novalidate >
 					<p>Address<span style='color:red'>*</span></p>
 					
 					<input type='text' id='checkout-address' name='address' ng-model= 'address' required>
@@ -138,7 +149,7 @@
 			
 		
 		
-		<li ng-class="x2" >Payment Informaition</li>
+		<li ng-class="x2" >2-Payment Informaition</li>
 			
 			<div id='checkout-order' ng-show='payment' novalidate">
 				
@@ -185,7 +196,7 @@
 			
 		
 		
-		<li ng-class="x3">Order Review</li>
+		<li ng-class="x3">3-Order Review</li>
 		
 			<div id='order' ng-show='order'>
 				

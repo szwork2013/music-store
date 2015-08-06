@@ -16,7 +16,7 @@ header label{
 }
 
 header input{
-	background-image:url("../images/magnifying.png");
+	background-image:url("../icons/magnifying.png");
 	background-size: 28px 28px;
 	background-repeat:no-repeat;
 	background-position: calc(100% - 10px);

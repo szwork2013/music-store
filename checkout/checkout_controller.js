@@ -2,6 +2,16 @@
 
 app.controller( 'checkOutController', function($scope,$route,$location,$routeParams) {
 
+	
+	
+	$scope.func=function(){
+		$scope.billing=false;
+		
+	}
+	
+	
+	
+	
 	$scope.billing=true;
 	$scope.payment=false;
 	$scope.order=false;
