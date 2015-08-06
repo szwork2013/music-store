@@ -12,6 +12,7 @@
 			  });
 		}
 		
+		
 		$scope.openregister=function(){
 				$scope.regist=true;
 		}
@@ -44,8 +45,8 @@
 			}
 		}
 		
+		
 		$scope.registration=function(){
-			if($scope.notEqual==false && $scope.toBig==false && $scope.toSmall==false){
 			 var baseUrl="../php/register_view.php/";
 			  $http.post(baseUrl+'register', {'firstname': $scope.firstname, 'lastname': $scope.lastname, 'email': $scope.email,'password':$scope.password,'repassword':$scope.repassword}).
 			  success(function(response) {
@@ -53,6 +54,5 @@
 			  });
 			  $scope.regist=false;
 			}
-		}
 		
 	});
