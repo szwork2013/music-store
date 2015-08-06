@@ -9,7 +9,7 @@ header{
 
 header label{
 	position: absolute;
-	left:365px;
+	left:240px;
 	color: white;
 	font-size: 85px;
 	font-family: Arial;
@@ -21,10 +21,10 @@ header input{
 	background-repeat:no-repeat;
 	background-position: calc(100% - 10px);
 	position: absolute;
-	left: 770px;
-	top:25px;
-	height: 45px;
-	width: 375px;
+	left: 580px;
+	top:35px;
+	height: 35px;
+	width: 315px;
 	font-size: x-large;
 }
 
