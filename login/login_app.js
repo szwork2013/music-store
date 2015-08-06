@@ -4,7 +4,12 @@
 		$scope.regist=false;
 		
 		$scope.login=function(){
-				alert("login");
+			
+			 var baseUrl="../php/register_view.php/";
+			  $http.post(baseUrl+'login', {'email': $scope.loginEmail,'password':$scope.loginPassword}).
+			  success(function(response) {
+				  console.log(response);
+			  });
 		}
 		
 		$scope.openregister=function(){
@@ -39,29 +44,15 @@
 			}
 		}
 		
-		
-		
 		$scope.registration=function(){
-			
+			if($scope.notEqual==false && $scope.toBig==false && $scope.toSmall==false){
 			 var baseUrl="../php/register_view.php/";
 			  $http.post(baseUrl+'register', {'firstname': $scope.firstname, 'lastname': $scope.lastname, 'email': $scope.email,'password':$scope.password,'repassword':$scope.repassword}).
 			  success(function(response) {
 				  console.log(response);
 			  });
+			  $scope.regist=false;
+			}
 		}
-		
-		
-		///////////////////////ONLY FOR TESTING////////////
-		
-		
-		$scope.firstname="ariel";
-		
-		$scope.lastname="avrani";
-		
-		$scope.email="d@a.com";
-		
-		$scope.password="123456";
-		
-		$scope.repassword="123456";
 		
 	});

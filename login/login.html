@@ -49,43 +49,34 @@
 			
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			<form name="myForm"   ng-show="flag" class="sample"  action=""  novalidate >
+			<form name="loginForm"   ng-show="flag" class="sample"  action=""  novalidate >
 				<p class='form-title'>Email Address<span style='color:red'> *</span></p>
-				<input type='email' name="email" ng-model="ctrl.email" ng-class="{ 'notvalid': myForm.email.$error.required && myForm.email.$dirty}" required>
+				<input type='email' name="loginEmail" ng-model="loginEmail" ng-class="{ 'notvalid': loginForm.loginEmail.$error.required && loginForm.loginEmail.$dirty}" required>
 				
-				<p class='feedback' ng-show="myForm.email.$error.required && myForm.email.$dirty">Email is required.</p>
-				<p  class='feedback' ng-show="myForm.email.$error.email  && myForm.email.$dirty">Invalid email address.</p>
+				<p class='feedback' ng-show="loginForm.loginEmail.$error.required && loginForm.loginEmail.$dirty">Email is required.</p>
+				<p  class='feedback' ng-show="loginForm.loginEmail.$error.email  && loginForm.loginEmail.$dirty">Invalid email address.</p>
+				
+				
+				
+				
 				
 				<p class='form-title'>Password<span style='color:red'> *</span></p>
-				<input type='password' name="password" ng-model="ctrl.password" ng-class="{ 'notvalid': myForm.password.$error.required && myForm.password.$dirty}" required>
-					<p class='feedback' ng-show="myForm.password.$error.required && myForm.password.$dirty">Password is required.</p>
+				<input type='password' name="loginPassword" ng-model="loginPassword" ng-class="{ 'notvalid':loginForm.loginPassword.$error.required && loginForm.loginPassword.$dirty}" required>
+					<p class='feedback' ng-show="loginForm.loginPassword.$error.required && loginForm.loginPassword.$dirty">Password is required.</p>
 			
 				<br>
 				<br>
-				<button  ng-disabled="myForm.password.$dirty && myForm.password.$invalid ||  
-				myForm.email.$dirty && myForm.email.$invalid || myForm.password.$pristine 
-				|| myForm.email.$pristine" class='submit' ng-click="login()" >Login</button> 
+				<button  ng-disabled="loginForm.loginPassword.$dirty && loginForm.loginPassword.$invalid ||  
+				loginForm.loginEmail.$dirty && loginForm.loginEmail.$invalid || loginForm.loginPassword.$pristine 
+				|| loginForm.loginEmail.$pristine" class='submit' ng-click="login()" >Login</button> 
 			</form>
 			<p id='note'>*Required fields</p>
 		</div>
 		
 		
-		
-		
 		<div id='register' ng-show='regist'>
 			<span ng-click='closeregistration()' id='close-registration'>X</span>
 			<p style='text-align:center;color:gray;clear:both'>Resitration</p>
-			
-			
-			
-			
 			
 			
 			
@@ -100,7 +91,7 @@
 				<input type='text' placeholder='Last Name' name='lastname' class='input-registration' ng-model='lastname' required>
 				<p class='feedback' ng-show="formResitration.lastname.$error.required && formResitration.lastname.$dirty">Last name is required.</p>
 				
-				<p class='register-title'>Login Datas</p>
+				<p class='register-title'>Login Data</p>
 				<input type='email' placeholder='E-mail address' name='email' class='input-registration' ng-model='email' required>
 				
 				<p class='feedback' ng-show="formResitration.email.$error.required && formResitration.email.$dirty">Email is required.</p>
