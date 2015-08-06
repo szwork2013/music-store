@@ -33,6 +33,18 @@ app.controller( 'homeController', function($scope,$location,$routeParams,HomeFac
             });
     }
 
+
+    $scope.getWishlistData=function(){
+        var myWishlist=localStorage.getItem("MyWishList");
+        if(myWishlist==null){
+            //empty message
+        }
+        else{
+            $scope.myWishlist=angular.fromJson(myWishlist);
+        }
+    }
+
+    $scope.getWishlistData();
     $scope.getCategories();
 
 

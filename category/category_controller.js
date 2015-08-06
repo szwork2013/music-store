@@ -18,25 +18,12 @@ app.controller( 'categoryController', function($scope,$route,$location,$routePar
     $scope.categoryInfo=function(){
         categoryFactory.categoryInfo($scope.category_id).
             success(function (data) {
-                //console.log(data);
                 $scope.category=data;
-
             });
     }
 
 
-    $scope.getWishlistData=function(){
-        var myWishlist=localStorage.getItem("MyWishList");
-        if(myWishlist==null){
-            //empty message
-        }
-        else{
-            $scope.myWishlist=angular.fromJson(myWishlist);
-        }
-        console.log($scope.myWishlist);
-    }
 
-    $scope.getWishlistData();
     $scope.categoryInfo();
 
 

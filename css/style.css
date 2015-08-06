@@ -323,7 +323,7 @@ h3{
 }
 
 #product-container{
-    top:75px;
+    top:105px;
     left:380px;
     width:900px;
     height:530px;
@@ -436,16 +436,40 @@ h3{
 
 #myCart{
     position: absolute;
-    top:580px;
-    left:150px;
+    top:980px;
+    left:120px;
 
 }
 
-#myCart div{
+.myCart{
+    position: absolute;
+    top:580px;
+    left:120px;
+
+}
+
+.myCart div{
     margin-top: 5px;
 }
 
-#myCart img{
-    width: 75px;
-    height: 75px;
+.myCart img{
+    width:230px;
+    height:230px;
+}
+
+
+.myCart div{
+    background-color:#FD0002 ;
+    width:230px;
+}
+
+.myCart h4{
+    color:white;
+    margin-left: 15px;
+}
+
+.myCart p{
+    position: relative;
+    top:-10px;
+    margin:0px 15px 5px 15px;
 }

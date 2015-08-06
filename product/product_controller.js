@@ -1,6 +1,6 @@
 
 
-app.controller( 'productController', function($timeout,$scope,$location,$routeParams,productFactory) {
+app.controller( 'productController', function($scope,$location,$routeParams,productFactory) {
 	
 	$scope.Qty=0;
 	$scope.heart='emptyHeart';
