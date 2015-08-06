@@ -7,6 +7,7 @@ app.controller( 'productController', function($scope,$location,$routeParams,prod
 	$scope.album={};
 	$scope.id;
 	$scope.disableHeartBtn=false;
+	$scope.localStorageName;
 
 	$scope.countQty=function(upOrDown){
 		if(upOrDown=='up') {
@@ -16,12 +17,6 @@ app.controller( 'productController', function($scope,$location,$routeParams,prod
 			$scope.Qty--;
 		}
 	}
-	
-
-	$scope.funcAddToCart=function(){
-		alert("add to cart!");
-	}
-
 
 	$scope.getProducts=function() {
 		$scope.id = $routeParams.id;
@@ -35,39 +30,54 @@ app.controller( 'productController', function($scope,$location,$routeParams,prod
 
 	//////////////////////////   Local Storage manage    /////////////////////////////////
 
-	$scope.getWishlistData=function(){
-
-		var wishlist=localStorage.getItem("MyWishList");
-		if(wishlist==null){
-			$scope.wishlist=[];
+	$scope.getData=function(){
+		var localData=localStorage.getItem($scope.localStorageName);
+		if(localData==null){
+			$scope.localData=[];
 		}
 		else{
-			$scope.wishlist= angular.fromJson(wishlist);
+			$scope.localData= angular.fromJson(localData);
 		}
 	}
 
-	$scope.addToWishlist=function(){
-		if($scope.disableHeartBtn==false) {
-			$scope.getWishlistData();
-			var newWish=$scope.album;
-			$scope.wishlist.push(newWish);
-			$scope.updateWishlist();
-		}
-		else{
-			alert('This product already in your wishlist.');
-		}
+	$scope.mergeData=function(){
+		var newData=$scope.album;
+		$scope.localData.push(newData);
+		$scope.updateData();
 	}
 
-	$scope.updateWishlist=function(){
-		localStorage.setItem("MyWishList", angular.toJson($scope.wishlist) );
+	$scope.updateData=function(){
+		localStorage.setItem($scope.localStorageName, angular.toJson($scope.localData) );
 		$scope.heart='fullHeart';
 		$scope.disableHeartBtn=true;
 	}
 
 
+
+	$scope.addTo=function(addTo){
+		switch(addTo) {
+			case ('wish'):
+				if($scope.disableHeartBtn==false) {
+					$scope.localStorageName='MyWishList';
+					$scope.getData();
+					$scope.mergeData();
+				}
+				else{
+					alert('This product already in your wishlist.');
+				}
+			case('cart'):
+				$scope.localStorageName='MyCart';
+				$scope.getData();
+				$scope.mergeData();
+		}
+
+	}
+
+
 	$scope.checkIfInWishlist=function(){
-		$scope.getWishlistData();
-		var wishlist = $scope.wishlist;
+		$scope.localStorageName='MyWishList';
+		$scope.getData();
+		var wishlist = $scope.localData;
 		for (var key in wishlist) {
 			if (wishlist[key].album_id == $routeParams.id) {
 				$scope.heart = 'fullHeart';

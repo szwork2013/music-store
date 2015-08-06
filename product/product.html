@@ -31,8 +31,8 @@
 		<img class="QtyBtn" ng-src='icons/plus.jpg' ng-click="countQty('up')"/>
 		<img class="QtyBtn" ng-src='icons/minus.jpg' ng-click="countQty('down')">
 		<hr>
-		<img  id="heartIcon" ng-src="icons/{{heart}}.jpg"  ng-click="addToWishlist()" ><span> Add to Wishlist</span>
-		<button id='product-button' ng-click='funcAddToCart()'>Add To Cart</button>
+		<img  id="heartIcon" ng-src="icons/{{heart}}.jpg"  ng-click="addTo('wish')" ><span> Add to Wishlist</span>
+		<button id='product-button' ng-click="addTo('cart')">Add To Cart</button>
 	</div>
 	
 	<div id='product-details'  style='font-family:arial'>Details</div>
