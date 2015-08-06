@@ -1,0 +1,137 @@
+<style>
+
+
+#checkout-ul li{
+	background-color:red;
+	width:700px;
+	height:30px;
+	border:black solid 1px;
+	color:white;
+	list-style-type: none;
+	font-size:12px;
+	
+}
+#checkout-ul div{
+	height:300px;
+	border:silver solid 1px;
+	width:700px;
+
+}
+#checkout_container{
+	margin:0 auto;
+	border:black solid 1px;
+
+}
+#checkout-ul p{
+	font-size:13px;
+	font-weight:bold;
+	margin-left:10px;
+	 line-height: 70%;
+}
+#checkout-address{
+	width:525px;
+	height:25px;
+	margin-left:10px;
+}
+#checkout-city{
+	width:250px;
+	height:25px;
+	margin-left:10px;
+}
+#checkout-zip{
+	width:250px;
+	height:25px;
+	float:right;
+	margin-right:160px;
+}
+#checkout-zip-feedback{
+	float:right;
+	margin-right:330px;
+}
+
+
+#checkout-telephone{
+	width:250px;
+	height:25px;
+	margin-left:10px;
+}
+.checkout-continue{
+	background-color:black;
+	color:white;
+	float:right;
+	width:90px;
+	height:30px;
+	margin-right:10px;
+	margin-top:-20px;
+}
+.feedback{
+	font-size:6x;
+	color:red;
+}
+#checkout-order label{
+	font-size:12px;
+}
+</style>
+
+<div id='checkout_container'>
+	<ul id='checkout-ul'>
+	
+		<li>Billing Informaition</li>
+			<br>
+			<div id='checkout-billing' ng-show='billing'>
+				<form name='billingForm'  novalidate>
+					<p>Address<span style='color:red'>*</span></p>
+					
+					<input type='text' id='checkout-address' name='address' ng-model= 'address' required>
+					<p class='feedback' style='font-size:8px' ng-show="billingForm.address.$error.required " >This is a required field.</p>
+					
+					
+					<p>City<span style='color:red'>*</span><span style='margin-left:250px'>Zip/Postal Code</span><span style='color:red'>*</span></p>
+					
+					
+					<input type='text' id='checkout-city' name='city' ng-model= 'city' required>
+					
+					
+					<input type='text' id='checkout-zip' name='zip' ng-model= 'zip' required>
+					<p class='feedback' style='font-size:8px' ng-show="billingForm.zip.$error.required " id='checkout-zip-feedback' >This is a required field.</p>
+				
+					<p class='feedback' style='font-size:8px' ng-show="billingForm.city.$error.required " >This is a required field.</p>
+					
+					<p>Telephone<span style='color:red'>*</span></p>
+					
+					<input type='text' id='checkout-telephone' name='telephone'  ng-model='telephone' required>
+					<p class='feedback' style='font-size:8px' ng-show="billingForm.telephone.$error.required " >This is a required field.</p>
+					
+					<p style='color:red'>Requierd Fields*</p>
+					
+					<button class='checkout-continue' ng-click='billingFunc()'
+					ng-disabled='billingForm.address.$error.required || billingForm.zip.$error.required  || 
+					billingForm.city.$error.required || billingForm.telephone.$error.required'>Continue</button>
+				</form>
+					
+			</div>
+			
+		
+		
+		<li >Payment Informaition</li>
+			<br>
+			<div id='checkout-order' ng-show='payment' ">
+				<br>
+				<input type='radio' name='payment' value='check' checked><label>Check/Money Order</label>
+				<br><br>
+				<input type='radio'  name='payment' value='credit_card'><label>Credit Card(saved)</label>
+			</div>
+			
+			
+		
+		
+		<li>Order Review</li>
+		
+			<div id='order' ng-show='order'>
+			
+			
+			</div>
+	
+	</ul>
+
+</div>
