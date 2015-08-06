@@ -2,7 +2,7 @@
 
 
 #checkout-ul li{
-	background-color:red;
+	
 	width:700px;
 	height:30px;
 	border:black solid 1px;
@@ -65,18 +65,43 @@
 	margin-top:-20px;
 }
 .feedback{
-	font-size:6x;
+	font-size:10px;
 	color:red;
 }
 #checkout-order label{
 	font-size:12px;
+}
+#checkout-order p{
+	font-size:12px;
+	 line-height: 20%;
+	
+}
+#checkout_card{
+	width:200px;
+}
+#checkout_verifaction{
+	width:30px;
+}
+#checkout-order input[type='text'],input[type='date'],select{
+	margin-left:15px;
+}
+#checkout_digit{
+	left:350px;
+	margin-top:-100px;
+	position:absolute;
+}
+.black{
+	background-color:rgb(58,58,58);
+}
+.red{
+	background-color:rgb(253,0,2);
 }
 </style>
 
 <div id='checkout_container'>
 	<ul id='checkout-ul'>
 	
-		<li>Billing Informaition</li>
+		<li ng-class="x1">Billing Informaition</li>
 			<br>
 			<div id='checkout-billing' ng-show='billing'>
 				<form name='billingForm'  novalidate>
@@ -113,22 +138,57 @@
 			
 		
 		
-		<li >Payment Informaition</li>
-			<br>
-			<div id='checkout-order' ng-show='payment' ">
+		<li ng-class="x2" >Payment Informaition</li>
+			
+			<div id='checkout-order' ng-show='payment' novalidate">
+				
+				<input type='radio' name='payment' value='check' ng-model="content" ng-checked='true'><label>Check/Money Order</label>
 				<br>
-				<input type='radio' name='payment' value='check' checked><label>Check/Money Order</label>
-				<br><br>
-				<input type='radio'  name='payment' value='credit_card'><label>Credit Card(saved)</label>
+				<input type='radio'  name='payment' value='credit_card' ng-model="content"><label>Credit Card(saved)</label>
+				
+				
+				
+				
+				<form ng-show="content == 'credit_card'" name='paymentForm'>
+					<p>Name on Card<span style='color:red'> *</span></p>
+					<input type='text' name='name_on_card' ng-model='name_on_card' required>
+					<span ng-show='paymentForm.name_on_card.$error.required' class='feedback'>This field is required.</span>
+					
+					<p>Credit Card Type<span style='color:red'> *</span></p>
+					<select id='checkout_card' name='card_type'  >
+						<option>Visa</option>
+						<option>Master Card</option>
+					</select>
+					
+					<p>Credit Card Number<span style='color:red'> *</span></p>
+					<input type='text' name='card_number' ng-model='card_number'  required >
+					<span ng-show='paymentForm.card_number.$error.required' class='feedback'>This field is required.</span><br>
+					
+					<p>Expiration Date<span style='color:red'> *</span></p>
+					<input type='date' name='expiration' ng-model='expiration' required >
+					<span ng-show='paymentForm.expiration.$error.required' class='feedback'>This field is required.</span><br>
+					
+					<p>Card Verifaction<span style='color:red'> *</span></p>
+					<input type='text' name='verifaction' ng-model='verifaction' id='checkout_verifaction' required><span style='font-size:12px;cursor:help' ng-mouseover='x=true'> What is this?</span>
+					<span ng-show='paymentForm.verifaction.$error.required' class='feedback'>This field is required.</span><br>
+					
+					<img ng-show='x' src='icons/digit.jpg' id='checkout_digit'>
+					
+				</form>
+				<button class='checkout-continue' ng-click='paymentFunc()'
+				ng-disabled='paymentForm.name_on_card.$error.required || paymentForm.name_on_card.$error.required
+				||paymentForm.card_number.$error.required ||paymentForm.expiration.$error.required
+				||paymentForm.verifaction.$error.required'>Continue</button>
+				
 			</div>
 			
 			
 		
 		
-		<li>Order Review</li>
+		<li ng-class="x3">Order Review</li>
 		
 			<div id='order' ng-show='order'>
-			
+				
 			
 			</div>
 	
