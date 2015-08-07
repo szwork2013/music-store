@@ -23,11 +23,13 @@
             <img ng-src="images/{{album.image_path}}">
                 <div>
                     <section>{{album.album_name}} - {{album.album_artist}}</section>
-                    <span>
-                        {{album.album_price| currency}}
-                        <button></button>
-                        <button ng-click='goToProductPage(album.album_id)'></button>
-                    </span>
+                    <section>
+                        <span>
+                            {{album.album_price| currency}}
+                            <button></button>
+                            <button ng-click='goToProductPage(album.album_id)'></button>
+                        </span>
+                    </section>
                 </div>
 
         </div>

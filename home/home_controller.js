@@ -29,6 +29,7 @@ app.controller( 'homeController', function($scope,$location,$routeParams,HomeFac
     $scope.getCategories=function(){
         HomeFactory.getCategories().
             success(function (categories) {
+                console.log(categories);
                 $scope.categories=categories;
             });
     }
