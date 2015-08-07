@@ -24,6 +24,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 	$scope.billingFunc=function(){
 		$scope.billing=false;
 		$scope.payment=true;
+		$scope.billing_right=true;
 		$scope.x1="red";
 		$scope.x2="black";
 	}
@@ -31,6 +32,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 	$scope.paymentFunc=function(){
 		$scope.order=true;
 		$scope.payment=false;
+		$scope.payment_right=true;
 		$scope.x2="red";
 		$scope.x3="black";
 	}
