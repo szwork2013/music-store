@@ -14,6 +14,12 @@ app.factory('HomeFactory',function($http){
     }
 
 
+    HomeFactory.checkLogin=function(){
+        return $http.get('php/register_view.php/checkLogin/');
+    }
+
+
+
     return HomeFactory;
 });
 

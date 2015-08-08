@@ -6,6 +6,7 @@ app.controller( 'homeController', function($scope,$location,$routeParams,HomeFac
 
     $scope.album={};
     $scope.albums=[];
+    $scope.login='Login'
 
     $scope.getAlbums=function(){
     HomeFactory.getAlbums().
@@ -14,6 +15,17 @@ app.controller( 'homeController', function($scope,$location,$routeParams,HomeFac
         });
     }
 
+    $scope.checkLogin=function(){
+        HomeFactory.checkLogin().
+            success(function (ifLogin) {
+                if(ifLogin){
+                    $scope.login='Logout'
+                }
+                else{
+                    $scope.login='Login';
+                }
+            });
+    }
 
     $scope.changeBigPic=function(index){
         $scope.i=index;
@@ -44,6 +56,8 @@ app.controller( 'homeController', function($scope,$location,$routeParams,HomeFac
         }
     }
 
+
+    $scope.checkLogin();
     $scope.getWishlistData();
     $scope.getCategories();
 
