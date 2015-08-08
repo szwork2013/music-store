@@ -4,7 +4,7 @@
 #checkout-ul li{
 	
 	width:680px;
-	height:30px;
+	height:20px;
 	border:black solid 1px;
 	color:white;
 	list-style-type: none;
@@ -106,7 +106,7 @@
 #checkout_container_right{
 	float:right;
 	width:200px;
-	height:300px;
+	
 	margin-right:120px;
 	margin-top:20px;
 }
@@ -132,14 +132,19 @@
 
 .checkout_container_right_p + div{
 	width:200px;
-	height:100px;
+	
 	border:silver solid 1px;
 }
 
-.billing_right p{
-	color:gray;
+.payment_right p,.billing_right p{
+	color:siver;
 	font-size:13px;
+	 line-height: 40%;
 	
+}
+
+.gray{
+	color:gray;
 }
 
 </style>
@@ -157,17 +162,20 @@
 		<p id='checkout_container_right_title'>Your CheckOut Progress</p>
 		<p class='checkout_container_right_p'>Billing Information</p>
 			<div ng-show='billing_right' class='billing_right'>
-				<p ng-bind=''></p>
-				<p ng-bind='address'></p>
-				<p ng-bind='city'></p>
-				<p ng-bind='telephone'></p>
+				<p class='gray' ng-bind=''></p>
+				<p class='gray' ng-bind='address'></p>
+				<p class='gray' ng-bind='city'></p>
+				<p class='gray' ng-bind='telephone'></p>
 			</div>
 		<p class='checkout_container_right_p'>Payment Method</p>
-			<div style='height:60px'  ng-show='payment_right'>
-			
-			
-			
-			
+			<div   ng-show='payment_right' class='payment_right'>
+				<p >Credit Card (saved)</p>
+				<p >Credit Card type:</p>
+				<p class='gray' ng-bind='card_type' ></p>
+				<p >Credit Card Number:</p>
+				<p class='gray'>****<span ng-bind='the4last'></span></p>
+				<p >Name On The Card:</p>
+				<p class='gray' ng-bind='name_on_card'></p>
 			
 			</div>
 	</div>
@@ -221,7 +229,7 @@
 					<input type='radio' name='payment' value='check' ng-model="content" ng-checked='true'><label>Check/Money Order</label>
 					<br>
 					<input type='radio'  name='payment' value='credit_card' ng-model="content"><label>Credit Card(saved)</label>
-					
+					<button class='checkout-continue' ng-click='paymentFunc("check")' ng-hide="content == 'credit_card'" style='margin-top:235px'>Continue</button>
 					
 					
 					
@@ -231,7 +239,7 @@
 						<span ng-show='paymentForm.name_on_card.$error.required' class='feedback'>This field is required.</span>
 						
 						<p>Credit Card Type<span style='color:red'> *</span></p>
-						<select id='checkout_card' name='card_type'  >
+						<select id='checkout_card' name='card_type' ng-model='card_type'  >
 							<option>Visa</option>
 							<option>Master Card</option>
 						</select>
@@ -249,12 +257,13 @@
 						<span ng-show='paymentForm.verifaction.$error.required' class='feedback'>This field is required.</span><br>
 						
 						<img ng-show='x' src='icons/digit.jpg' id='checkout_digit'>
-						
-					</form>
-					<button class='checkout-continue' ng-click='paymentFunc()'
+						<button class='checkout-continue' ng-click='paymentFunc("credit")'
 					ng-disabled='paymentForm.name_on_card.$error.required || paymentForm.name_on_card.$error.required
 					||paymentForm.card_number.$error.required ||paymentForm.expiration.$error.required
 					||paymentForm.verifaction.$error.required'>Continue</button>
+						
+					</form>
+					
 					
 				</div>
 				
