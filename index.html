@@ -1,6 +1,21 @@
 
 <!doctype html>
 <html ng-app="myApp">
+<style>
+
+
+#results{
+	width:320px;
+	margin:0 auto;
+	margin-top:80px;
+	left:+80px;
+	background-color:white;
+	z-index:1;
+	position:relative;
+}
+
+
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
@@ -31,8 +46,14 @@
 </nav>
 
 <header>
+
     <label>MUSIC</label>
-    <input type="text" placeholder="Search"/>
+    <div id='main_search_div'>
+	    <input type="text" placeholder="Search" ng-model="word"  ng-keyup="search(word)"/>
+	    <div id='results' >
+	    	<p ng-repeat='x in res' ng-bind='x' style='cursor:pointer' ng-click='getSong(x)'></p>
+	    </div>
+	</div>   
 </header>
 
 

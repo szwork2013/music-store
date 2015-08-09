@@ -1,7 +1,7 @@
 
 
 
-app.controller( 'homeController', function($scope,$location,$routeParams,HomeFactory) {
+app.controller( 'homeController', function($scope,$location,$routeParams,HomeFactory,$http) {
 
 
     $scope.album={};
@@ -61,6 +61,30 @@ app.controller( 'homeController', function($scope,$location,$routeParams,HomeFac
     $scope.getWishlistData();
     $scope.getCategories();
 
+   //////////////////////////////////////////SEARCH////////////////////////////
+    
+    $scope.search=function(word){
+    	
+    	 var baseUrl="php/search_view.php/search/";
+		  $http.get(baseUrl+word).
+		  success(function(response) {
+			  $scope.res=response;
+		  });
+    }
+    
+    
+    $scope.getSong=function(song){
+    	
+   	 alert(song);
+   }
+    
+    
+    
+    
+    
+    
+    
+    
 
 }); //close formController
 
