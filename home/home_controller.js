@@ -63,14 +63,15 @@ app.controller( 'homeController', function($scope,$location,$routeParams,HomeFac
 
    //////////////////////////////////////////SEARCH////////////////////////////
     
-    $scope.search=function(word){
-
-        SearchFactory.search(word).
-		  success(function(response) {
-              if(response) {
-                  $scope.res = response;
-              }
-		  });
+    $scope.search=function(word) {
+        if (word){
+            SearchFactory.search(word).
+                success(function (response) {
+                    if (response) {
+                        $scope.res = response;
+                    }
+                });
+        }
     }
     
     
