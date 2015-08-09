@@ -1,7 +1,7 @@
 
 
 
-app.controller( 'homeController', function($scope,$location,$routeParams,HomeFactory,$http) {
+app.controller( 'homeController', function($scope,$location,$routeParams,HomeFactory,SearchFactory,$http) {
 
 
     $scope.album={};
@@ -64,11 +64,12 @@ app.controller( 'homeController', function($scope,$location,$routeParams,HomeFac
    //////////////////////////////////////////SEARCH////////////////////////////
     
     $scope.search=function(word){
-    	
-    	 var baseUrl="php/search_view.php/search/";
-		  $http.get(baseUrl+word).
+
+        SearchFactory.search(word).
 		  success(function(response) {
-			  $scope.res=response;
+              if(response) {
+                  $scope.res = response;
+              }
 		  });
     }
     
