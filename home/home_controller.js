@@ -1,7 +1,7 @@
 
 
 
-app.controller( 'homeController', function($scope,$location,$routeParams,HomeFactory,SearchFactory,$http) {
+app.controller( 'homeController', function($scope,$location,$routeParams,HomeFactory,$http) {
 
 
     $scope.album={};
@@ -61,27 +61,26 @@ app.controller( 'homeController', function($scope,$location,$routeParams,HomeFac
     $scope.getWishlistData();
     $scope.getCategories();
 
-   //////////////////////////////////////////SEARCH////////////////////////////
+   
     
-    $scope.search=function(word) {
-        if (word){
-            SearchFactory.search(word).
-                success(function (response) {
-                    if (response) {
-                        $scope.res = response;
-                    }
-                });
-        }
+    $scope.search=function(word){
+    	
+    	 var baseUrl="php/search_view.php/search/";
+		  $http.get(baseUrl+word).
+		  success(function(response) {
+			  $scope.res=response;
+		  });
     }
     
     
-    $scope.getSong=function(song){
-    	
-   	 alert(song);
+    $scope.showAlbum=function(song){
+   	 var baseUrl="php/search_view.php/getAlbum/";
+		  $http.get(baseUrl+song).
+		  success(function(response) {
+			  $location.url('/product/'+response);
+		  });
    }
-    
-    
-    
+   
     
     
     

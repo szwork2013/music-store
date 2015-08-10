@@ -32,7 +32,6 @@
     <script src="product/product_factory.js"></script>
 	 <script src="product/product_service.js"></script>
     <script src="checkout/checkout_controller.js"></script>
-    <script src="home/search_factory.js"></script>
    
 </head>
 <body ng-controller="homeController">
@@ -52,7 +51,7 @@
     <div id='main_search_div'>
 	    <input type="text" placeholder="Search" ng-model="word"  ng-keyup="search(word)"/>
 	    <div id='results' >
-	    	<p ng-repeat='x in res' ng-bind='x' style='cursor:pointer' ng-click='getSong(x)'></p>
+	    	<p ng-repeat='x in res' ng-bind='x' style='cursor:pointer' ng-click='showAlbum(x)'></p>
 	    </div>
 	</div>   
 </header>
