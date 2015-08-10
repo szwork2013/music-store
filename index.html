@@ -53,7 +53,8 @@
 	    <input type="text" placeholder="Search" ng-model="word"  ng-keyup="search(word)"/>
 	    <div id='results' ng-init="hideSearch=true" ng-hide="hideSearch"  ng-mouseleave="mouseLeave()">
             <ul>
-	    	    <li ng-repeat='x in res' ng-bind='x'  ng-click='showAlbum(x)'></li>
+	    	    <li ng-repeat='x in res' ng-bind='x'  ng-click='showAlbum(x)' ></li>
+	    	    
             </ul>
 	    </div>
 	</div>   

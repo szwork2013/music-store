@@ -80,6 +80,7 @@ app.controller( 'homeController', function($scope,$timeout,$location,$routeParam
         SearchFactory.showAlbum(song).
 		  success(function(response) {
 			  $location.url('/product/'+response);
+			  $scope.word=song;
 		  });
    }
 
