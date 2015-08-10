@@ -498,3 +498,19 @@ h3{
     top:-10px;
     margin:0px 15px 5px 15px;
 }
+
+#results ul{
+    list-style-type:none;
+    padding: 0px;
+    margin: 0px;
+}
+
+#results li{
+    cursor:pointer;
+    padding: 5px;
+}
+
+#results li:hover{
+    background-color: black;
+    color:white;
+}

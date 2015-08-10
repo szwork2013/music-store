@@ -16,8 +16,6 @@ $app->get('/search/:word', function($word)use($search){
 
 $app->get('/getAlbum/:song', function($song)use($search){
 	$search->getAlbum($song);
-	
-	//echo "hello";
 });	
 
 $app->run();

@@ -27,4 +27,5 @@ class searchController{
 		echo $album_id;
 	}
 
+
 }
