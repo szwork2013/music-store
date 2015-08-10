@@ -1,7 +1,7 @@
 
 
 
-app.controller( 'homeController', function($scope,$location,$routeParams,HomeFactory,SearchFactory,$http) {
+app.controller( 'homeController', function($scope,$timeout,$location,$routeParams,HomeFactory,SearchFactory,$http) {
 
 
     $scope.album={};
@@ -64,6 +64,7 @@ app.controller( 'homeController', function($scope,$location,$routeParams,HomeFac
    
     
     $scope.search=function(word){
+        $scope.hideSearch=false;
         if(word) {
             SearchFactory.search(word).
                 success(function (response) {
@@ -81,9 +82,12 @@ app.controller( 'homeController', function($scope,$location,$routeParams,HomeFac
 			  $location.url('/product/'+response);
 		  });
    }
-   
-    
-    
+
+    $scope.mouseLeave=function(){
+        $timeout(function () {
+            $scope.hideSearch = true;
+        }, 2000);
+    }
     
     
     
