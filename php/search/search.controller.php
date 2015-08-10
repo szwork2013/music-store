@@ -9,24 +9,22 @@ class searchController{
 		$this->search = new Search();
 	}
 	
-	public function getMatching ($word){
-
-		if (!empty($word)) {
-			$success = $this->search->getMatching($word);
-			if( mysqli_num_rows($success) > 0 ) {
-				while ($row = $success->fetch_assoc()) {
-					$rows[] = $row['song_name'];
-				}
-				echo json_encode($rows);
-
+	public function getMatching ($word) {
+		$success=$this->search->getMatching($word);
+		if( mysqli_num_rows($success) > 0 ) {
+			while ( $row = $success->fetch_assoc() ) {
+				$rows[] = $row['song_name'];
 			}
-			else{
-				echo false;
-			}
+			echo json_encode($rows);
 		}
-
-
+		else{
+			echo false;
+		}
+	}
+	
+	public function getAlbum ($song) {
+		$album_id=$this->search->getAlbum($song);
+		echo $album_id;
 	}
 
-
-}//close searchController class
+}
