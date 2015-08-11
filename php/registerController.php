@@ -24,11 +24,14 @@ class RegisterController{
 	public function fbLogin($userFBInfo){
 		$success=$this->register->checkFbRegister($userFBInfo->fbId);
 		if( mysqli_num_rows($success) > 0 ){
+			$row = $success->fetch_assoc();
+			$this->register->createSession($userFBInfo->email , $row['user_password'] );
 			throw new Exception('You are already registerd');
 		}
 		else{
 			$success=$this->register->register($userFBInfo);
 			if($success){
+				$this->register->createSession($userFBInfo->email , $userFBInfo->fbId);
 				throw new Exception('Hello New User');
 			}
 			else{
