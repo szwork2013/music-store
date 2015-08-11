@@ -1,7 +1,5 @@
 <?php
 include_once(dirname(__FILE__) . '/login.class.php');
-session_start();
-
 
 class LoginController{
 	private $login;
@@ -35,6 +33,25 @@ class LoginController{
 		}
 		else{
 			echo false;
+		}
+	}
+
+
+	public function fbLogin($userFBInfo){
+		$success=$this->login->checkFbRegister($userFBInfo->fbId);
+		if( mysqli_num_rows($success) > 0 ){
+			throw new Exception('You are already registerd');
+		}
+		else{
+			$success=$this->login->register($userFBInfo);
+			if($success){
+				throw new Exception('Hello New User');
+			}
+			else{
+				echo false;
+
+			}
+
 		}
 	}
 
