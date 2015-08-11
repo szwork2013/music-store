@@ -20,6 +20,24 @@ class RegisterController{
 	}
 
 
+
+	public function fbLogin($userFBInfo){
+		$success=$this->register->checkFbRegister($userFBInfo->fbId);
+		if( mysqli_num_rows($success) > 0 ){
+			throw new Exception('You are already registerd');
+		}
+		else{
+			$success=$this->register->register($userFBInfo);
+			if($success){
+				throw new Exception('Hello New User');
+			}
+			else{
+				echo false;
+
+			}
+		}
+	}
+
 }//close class RegisterController
 
 

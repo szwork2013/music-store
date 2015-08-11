@@ -37,23 +37,6 @@ class LoginController{
 	}
 
 
-	public function fbLogin($userFBInfo){
-		$success=$this->login->checkFbRegister($userFBInfo->fbId);
-		if( mysqli_num_rows($success) > 0 ){
-			throw new Exception('You are already registerd');
-		}
-		else{
-			$success=$this->login->register($userFBInfo);
-			if($success){
-				throw new Exception('Hello New User');
-			}
-			else{
-				echo false;
-
-			}
-
-		}
-	}
 
 
 	public function logout(){

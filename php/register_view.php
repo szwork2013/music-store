@@ -32,14 +32,14 @@ $app->get('/checkLogin/', function() use ($log){
 	$log->checkLogin();
 });
 
-$app->post('/fbLogin/', function() use ($log) {
+$app->post('/fbLogin/', function() use ($reg) {
 
 	$userFBInfo = json_decode(file_get_contents("php://input"));
 	FacebookSession::setDefaultApplication('1415931842065697', '85c1ca9512a00962dd82af6c616e6c88');
 	$session = new FacebookSession($userFBInfo->accessToken);
 	try {
 		$session->validate();
-		$log->fbLogin($userFBInfo);
+		$reg->fbLogin($userFBInfo);
 	}
 	catch(Exception $e){
 		echo $e->getMessage();

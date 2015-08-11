@@ -23,4 +23,26 @@ class Register extends DB{
 		$_SESSION['id']=$this->id;
 	}
 
+
+
+	public function checkFbRegister($fbId){
+		$sql="SELECT * from fb_users WHERE user_fb_uid='$fbId' ";
+		$answer=$this->db->query($sql);
+		return $answer;
+	}
+
+	
+	public function register($FBInfo){
+		$sql="INSERT INTO users ( user_email, user_firstname, user_lastname)
+			 VALUES('$FBInfo->email','$FBInfo->firstname','$FBInfo->lastname')";
+		$answer=$this->db->query($sql);
+		if($answer){
+			$userId=$this->db->insert_id;
+			$sql="INSERT INTO  fb_users(user_id,user_fb_uid) VALUES('$userId','$FBInfo->fbId')";
+			$answer=$this->db->query($sql);
+		}
+		return $answer;
+	}
+
+
 }
