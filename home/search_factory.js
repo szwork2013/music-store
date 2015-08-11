@@ -11,6 +11,7 @@ app.factory('SearchFactory',function($http){
 
     SearchFactory.showAlbum=function(song){
         return $http.get(baseUrl+'getAlbum/'+song);
+        
     }
 
 

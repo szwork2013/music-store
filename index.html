@@ -7,14 +7,16 @@
 #results{
 	width:320px;
 	margin:0 auto;
-	margin-top:80px;
+	margin-top:70px;
 	left:+80px;
 	background-color:white;
 	z-index:1;
 	position:relative;
 }
 
-
+#results ul{
+	border:silver solid 1px;
+}
 </style>
 <head>
     <meta charset="UTF-8">
@@ -52,7 +54,7 @@
     <div id='main_search_div'>
 	    <input type="text" placeholder="Search" ng-model="word"  ng-keyup="search(word)"/>
 	    <div id='results' ng-init="hideSearch=true" ng-hide="hideSearch"  ng-mouseleave="mouseLeave()">
-            <ul>
+            <ul >
 	    	    <li ng-repeat='x in res' ng-bind='x'  ng-click='showAlbum(x)' ></li>
 	    	    
             </ul>

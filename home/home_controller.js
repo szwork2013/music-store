@@ -77,10 +77,11 @@ app.controller( 'homeController', function($scope,$timeout,$location,$routeParam
     
     
     $scope.showAlbum=function(song){
+    	  $scope.word=song;
         SearchFactory.showAlbum(song).
 		  success(function(response) {
 			  $location.url('/product/'+response);
-			  $scope.word=song;
+			
 		  });
    }
 
