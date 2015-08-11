@@ -3,8 +3,13 @@
 <head>
 	<link rel="stylesheet" href="login_style.css">
 	<script src='../app/lib/angular.min.js'></script>
+	<script src="lib/angular-facebook.js"></script>
 	<script src="login_app.js"></script>
+<<<<<<< HEAD
 	 <script  src="angular-facebook.js"></script>
+=======
+	<script src="login_factory.js"></script>
+>>>>>>> b2a67b5b1ba39fb10969b6a3f42860d80c23b67e
 	
 	
 </head>
@@ -40,6 +45,7 @@
 			<p class='gray'>shipping addresses,view and track your orders in your account and more.</p>
 			<br>
 			<button ng-click='openregister()'>Create An Account</button>
+			<img id="fb" src="../icons/fb.png" ng-click="FBlogin()">
 		</div>
 		
 		<div id='right'>
@@ -51,13 +57,17 @@
 			
 			
 			<form name="loginForm"   ng-show="flag" class="sample"  action=""  novalidate >
-				<p class='form-title'>Email Address<span style='color:red'> *</span></p>
-				<input type='email' name="loginEmail" ng-model="loginEmail" ng-class="{ 'notvalid': loginForm.loginEmail.$error.required && loginForm.loginEmail.$dirty}" required>
-				<p class='feedback' ng-show="loginForm.loginEmail.$error.required && loginForm.loginEmail.$dirty">Email is required.</p>
-				<p  class='feedback' ng-show="loginForm.loginEmail.$error.email  && loginForm.loginEmail.$dirty">Invalid email address.</p>
-				<p class='form-title'>Password<span style='color:red'> *</span></p>
-				<input type='password' name="loginPassword" ng-model="loginPassword" ng-class="{ 'notvalid':loginForm.loginPassword.$error.required && loginForm.loginPassword.$dirty}" required>
-					<p class='feedback' ng-show="loginForm.loginPassword.$error.required && loginForm.loginPassword.$dirty">Password is required.</p>
+				<div>
+					<p class='form-title'>Email Address<span style='color:red'> *</span></p>
+					<input type='email' name="loginEmail" ng-model="loginEmail" ng-class="{ 'notvalid': loginForm.loginEmail.$error.required && loginForm.loginEmail.$dirty}" required>
+					<span class='feedback' ng-show="loginForm.loginEmail.$error.required && loginForm.loginEmail.$dirty">Email is required.</span>
+					<span  class='feedback' ng-show="loginForm.loginEmail.$error.email  && loginForm.loginEmail.$dirty">Invalid email address.</span>
+				</div>
+				<div>
+					<p class='form-title'>Password<span style='color:red'> *</span></p>
+					<input type='password' name="loginPassword" ng-model="loginPassword" ng-class="{ 'notvalid':loginForm.loginPassword.$error.required && loginForm.loginPassword.$dirty}" required>
+					<span class='feedback' ng-show="loginForm.loginPassword.$error.required && loginForm.loginPassword.$dirty">Password is required.</span>
+				</div>
 			
 				<br>
 				<br>
@@ -70,50 +80,50 @@
 		
 		
 		<div id='register' ng-show='regist'>
-			<span ng-click='closeregistration()' id='close-registration'>X</span>
+			<div ng-click='closeregistration()' id='close-registration'>X</div>
 			<p style='text-align:center;color:gray;clear:both'>Resitration</p>
 			
-			
-			
+
 			<form name="formRegistration" action=""   novalidate >
 				<p class='register-title'>Profile Information</p>
-				
-				<input type='text'   placeholder='First Name' name='firstname' class='input-registration' ng-model='firstname' required >
-				<p class='feedback' ng-show="formRegistration.firstname.$error.required " >First name is required.</p>
-				
-				<div class='space'></div>
-				
-				<input type='text' placeholder='Last Name' name='lastname' class='input-registration' ng-model='lastname' required>
-				<p class='feedback' ng-show="formRegistration.lastname.$error.required ">Last name is required.</p>
-				
-				<p class='register-title'>Login Data</p>
-				<input type='email' placeholder='E-mail address' name='email' class='input-registration' ng-model='email' required>
-				
-				<p class='feedback' ng-show="formRegistration.email.$error.required ">Email is required.</p>
-				
-				<p class='feedback' ng-show="formRegistration.email.$error.email">Email is not valid.</p>
-				
-				<div class='space'></div>
-				
-				
-				<input type='password' placeholder='Password'  name='password' class='input-registration' ng-model='password' required ng-keyup="valdiateLengthPassword()" >
-				<p class='feedback' ng-show="formRegistration.password.$error.required ">Password is required.</p>
-				<p class='feedback' ng-show="toSmall" >Password has to be bigger than 5.</p>
-				<p class='feedback' ng-show="toBig" >Password has to be smaller than 9.</p>
 
-				<div class='space'></div>
-				<input type='password' placeholder='Password confirmation' name='repassword'  class='input-registration' ng-model='repassword' required  ng-keyup="valdiateRePassword()">
-				<p class='feedback' ng-show="formRegistration.repassword.$error.required ">Confirmation is required.</p>
-				<p class='feedback' ng-show="notEqual">password and repassword not equal.</p>
-				
-				<div class='space'></div>
-				<div class='space'></div>
-				<button id='submitregister' ng-click='registration()' ng-disabled="formRegistration.firstname.$error.required ||
-				formRegistration.lastname.$error.required  || formRegistration.email.$error.required || formRegistration.email.$error.email
-				|| formRegistration.password.$error.required || formRegistration.repassword.$error.required || toSmall || toBig || notEqual  "
-				>Register</button>
-				<div class='space'></div>
-				<div class='space'></div>
+				<div class="group">
+					<input type='text'   placeholder='First Name' name='firstname' class='input-registration' ng-model='firstname' required >
+					<span class='feedback' ng-show="formRegistration.firstname.$error.required " >First name is required.</span>
+				</div>
+
+				<div class="group">
+					<input type='text' placeholder='Last Name' name='lastname' class='input-registration' ng-model='lastname' required>
+					<span class='feedback' ng-show="formRegistration.lastname.$error.required ">Last name is required.</span>
+				</div>
+
+				<div class="group">
+					<p class='register-title'>Login Data</p>
+					<input type='email' placeholder='E-mail address' name='email' class='input-registration' ng-model='email' required>
+					<span class='feedback' ng-show="formRegistration.email.$error.required ">Email is required.</span>
+					<span class='feedback' ng-show="formRegistration.email.$error.email">Email is not valid.</span>
+				</div>
+
+				<div class="group">
+					<input type='password' placeholder='Password'  name='password' class='input-registration' ng-model='password' required ng-keyup="valdiateLengthPassword()" >
+					<span class='feedback' ng-show="formRegistration.password.$error.required ">Password is required.</span>
+					<span class='feedback' ng-show="toSmall" >Password has to be bigger than 5.</span>
+					<span class='feedback' ng-show="toBig" >Password has to be smaller than 9.</span>
+				</div>
+
+				<div class="group">
+					<input type='password' placeholder='Password confirmation' name='repassword'  class='input-registration' ng-model='repassword' required  ng-keyup="valdiateRePassword()">
+					<span class='feedback' ng-show="formRegistration.repassword.$error.required ">Confirmation is required.</span>
+					<span class='feedback' ng-show="notEqual">password and repassword not equal.</span>
+				</div>
+
+				<div class="group">
+					<button id='submitregister' ng-click='registration()' ng-disabled="formRegistration.firstname.$error.required ||
+					formRegistration.lastname.$error.required  || formRegistration.email.$error.required || formRegistration.email.$error.email
+					|| formRegistration.password.$error.required || formRegistration.repassword.$error.required || toSmall || toBig || notEqual  "
+					>Register</button>
+				</div>
+
 			</form>
 		</div>
 		

@@ -7,6 +7,11 @@ require 'Slim/Slim.php';
 $app = new \Slim\Slim();
 
 
+session_start();
+require_once 'autoload.php';
+use Facebook\FacebookSession;
+
+
 $reg=new RegisterController();
 $log=new LoginController();
 
@@ -25,6 +30,21 @@ $app->post('/login/', function() use ($log){
 
 $app->get('/checkLogin/', function() use ($log){
 	$log->checkLogin();
+});
+
+$app->post('/fbLogin/', function() use ($reg) {
+
+	$userFBInfo = json_decode(file_get_contents("php://input"));
+	FacebookSession::setDefaultApplication('1415931842065697', '85c1ca9512a00962dd82af6c616e6c88');
+	$session = new FacebookSession($userFBInfo->accessToken);
+	try {
+		$session->validate();
+		$reg->fbLogin($userFBInfo);
+	}
+	catch(Exception $e){
+		echo $e->getMessage();
+	}
+
 });
 
 

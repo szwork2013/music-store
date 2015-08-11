@@ -158,7 +158,7 @@ input{
 	cursor:pointer;
 	font-size:12px;
 	position:absolute;
-	top:320px;
+	top:2800px;
 	border: none;
 
 }
@@ -189,6 +189,7 @@ input{
 	position:relative;
 	margin:0 auto;
 	top:-350px;
+	padding-bottom: 20px;
 }
 
 
@@ -222,4 +223,15 @@ input{
 	font-size:12px;
 	margin:0 auto;
 	border: none;
+}
+
+.group{
+	margin-bottom: 10px;
+}
+#fb{
+	position: relative;
+	top:14px;
+	height: 40px;
+	cursor: pointer;
+	margin-left: 20px;
 }

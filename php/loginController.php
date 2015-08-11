@@ -1,7 +1,5 @@
 <?php
 include_once(dirname(__FILE__) . '/login.class.php');
-session_start();
-
 
 class LoginController{
 	private $login;
@@ -37,6 +35,8 @@ class LoginController{
 			echo false;
 		}
 	}
+
+
 
 
 	public function logout(){
