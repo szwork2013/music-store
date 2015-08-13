@@ -82,7 +82,7 @@
 				else {
 					console.log("You are not connected to Facebook")
 				}
-			});
+			},{scope:'email'});
 		}
 
 		$scope.getFbInfo = function() {
