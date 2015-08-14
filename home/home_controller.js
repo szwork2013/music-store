@@ -1,12 +1,11 @@
 
 
 
-app.controller( 'homeController', function($scope,$timeout,$location,$routeParams,HomeFactory,SearchFactory,$http) {
+app.controller( 'homeController', function($scope,$timeout,$location,$routeParams,HomeFactory,$http) {
 
 
     $scope.album={};
     $scope.albums=[];
-    $scope.login='Login'
 
     $scope.getAlbums=function(){
     HomeFactory.getAlbums().
@@ -50,34 +49,11 @@ app.controller( 'homeController', function($scope,$timeout,$location,$routeParam
     $scope.getCategories();
 
    
-    
-    $scope.search=function(word){
-        $scope.hideSearch=false;
-        if(word) {
-            SearchFactory.search(word).
-                success(function (response) {
-                    if (response) {
-                        $scope.res = response;
-                    }
-                });
-        }
-    }
-    
-    
-    $scope.showAlbum=function(song){
-        SearchFactory.showAlbum(song).
-		  success(function(response) {
-			  $location.url('/product/'+response);
-			  $scope.word=song;
-		  });
-   }
 
-    $scope.mouseLeave=function(){
-        $timeout(function () {
-            $scope.hideSearch = true;
-        }, 2000);
-    }
-    
+
+
+
+
     
     
 

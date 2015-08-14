@@ -32,8 +32,6 @@ class LoginController{
 	}
 
 
-
-
 	public function logout(){
 		$this->login->logout();
 	}

@@ -48,6 +48,11 @@ $app->post('/fbLogin/', function() use ($reg) {
 });
 
 
+$app->get('/logout/', function() use ($log){
+	$log->logout();
+});
+
+
 
 $app->run();
 ?>
