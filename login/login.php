@@ -1,3 +1,13 @@
+<?php
+include_once(dirname(__FILE__) . '/../php/loginController.php');
+session_start();
+
+if( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
+	$login = new LoginController();
+	$login->checkLogin();;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +50,7 @@
 			<p class='gray'>to move through the checkout process faster,store multiple </p>
 			<p class='gray'>shipping addresses,view and track your orders in your account and more.</p>
 			<br>
-			<button ng-click='openregister()'>Create An Account</button>
+			<button ng-click='regist=true'>Create An Account</button>
 			<img id="fb" src="../icons/fb.png" ng-click="FBlogin()">
 		</div>
 		
@@ -75,8 +85,8 @@
 		</div>
 		
 		
-		<div id='register' ng-show='regist'>
-			<div ng-click='closeregistration()' id='close-registration'>X</div>
+		<div id='register' ng-show='regist' ng-init="regist=false">
+			<div ng-click='regist=false' id='close-registration'>X</div>
 			<p style='text-align:center;color:gray;clear:both'>Resitration</p>
 			
 

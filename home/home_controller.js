@@ -15,17 +15,6 @@ app.controller( 'homeController', function($scope,$timeout,$location,$routeParam
         });
     }
 
-    $scope.checkLogin=function(){
-        HomeFactory.checkLogin().
-            success(function (ifLogin) {
-                if(ifLogin){
-                    $scope.login='Logout'
-                }
-                else{
-                    $scope.login='Login';
-                }
-            });
-    }
 
     $scope.changeBigPic=function(index){
         $scope.i=index;
@@ -57,7 +46,6 @@ app.controller( 'homeController', function($scope,$timeout,$location,$routeParam
     }
 
 
-    $scope.checkLogin();
     $scope.getWishlistData();
     $scope.getCategories();
 

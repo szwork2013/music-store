@@ -4,18 +4,9 @@
 		FacebookProvider.init('1415931842065697');
 	});
 
-	app.controller('ctrl',function($scope,$http,LoginFactory,Facebook){
+	app.controller('ctrl',function($scope,$http,$window,LoginFactory,Facebook){
 		$scope.flag=true;
-		$scope.regist=false;
 
-		
-		$scope.openregister=function(){
-				$scope.regist=true;
-		}
-		
-		$scope.closeregistration=function(){
-				$scope.regist=false;
-		}
 		
 		$scope.valdiateLengthPassword=function(){
 			if($scope.password.length <6 &&  $scope.password.length>0){
@@ -48,22 +39,23 @@
 			LoginFactory.login(loginInfo)
 				.success(function(response) {
 					console.log(response);
+					$window.location.reload();
 				});
 		}
 
 
 		$scope.registration=function(){
-			  var userInfo={'firstname': $scope.firstname,
+			var userInfo={'firstname': $scope.firstname,
 				  			'lastname': $scope.lastname,
 				  			'email': $scope.email,
 				  			'password':$scope.password,
 				  			'repassword':$scope.repassword};
-			LoginFactory.registration(userInfo)
+			LoginFactory.registration(userInfo).
 			  success(function(response) {
-				  console.log(response);
+				    console.log(response);
 			  });
-			  $scope.regist=false;
-			}
+			$scope.regist=false;
+		}
 
 
 
@@ -104,7 +96,7 @@
 
 			LoginFactory.fbLogin(userFBInfo)
 				.success(function(response) {
-					console.log(response);
+					$window.location.reload();
 				});
 		}
 
