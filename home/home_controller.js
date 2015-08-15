@@ -26,13 +26,6 @@ app.controller( 'homeController', function($scope,$timeout,$location,$routeParam
     }
 
 
-    $scope.getCategories=function(){
-        HomeFactory.getCategories().
-            success(function (categories) {
-                $scope.categories=categories;
-            });
-    }
-
 
     $scope.getWishlistData=function(){
         var myWishlist=localStorage.getItem("MyWishList");

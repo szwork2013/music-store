@@ -13,6 +13,9 @@ app.factory('mainFactory',function($http){
         return $http.get(baseUrl+'getAlbum/'+song);
     }
 
+    mainFactory.getCategories=function(){
+        return $http.get('php/album/album_view.php/categories/');
+    }
 
     mainFactory.logout=function(){
         return $http.get('php/register_view.php/logout');

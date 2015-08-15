@@ -26,7 +26,12 @@ app.controller( 'mainController', function($scope,$timeout,$location,$routeParam
     }
 
 
-
+    $scope.getCategories=function(){
+        mainFactory.getCategories().
+            success(function (categories) {
+                $scope.categories=categories;
+            });
+    }
 
     $scope.mouseLeave=function(){
         $timeout(function () {
