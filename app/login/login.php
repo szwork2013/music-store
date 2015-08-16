@@ -11,6 +11,8 @@ if( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Music Store - Login</title>
+	<link rel="shortcut icon" href="../../icons/Music-icon.png" />
 	<link rel="stylesheet" href="css/login_style.css">
 	<script src='../../lib/angularJs/angular.js'></script>
 	<script src="src/angular-facebook/angular-facebook.js"></script>
