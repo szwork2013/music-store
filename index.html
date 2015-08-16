@@ -1,39 +1,39 @@
 
 <!doctype html>
 <html ng-app="myApp">
-<style>
-
-
-#results{
-	width:320px;
-	margin:0 auto;
-	margin-top:80px;
-	left:+80px;
-	background-color:white;
-	z-index:1;
-	position:relative;
-}
-
-
-</style>
 <head>
     <meta charset="UTF-8">
     <title>Music Store</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="app/lib/angular.js"></script>
-    <script src="app/lib/angular-route.js"></script>
-	<script src="app/lib/angularAnimate.js"></script>
-    <script src="app/route.js"></script>
-    <script src="home/home_controller.js"></script>
-    <script src="home/home_factoryAndDirective.js"></script>
-    <script src="category/category_controller.js"></script>
-    <script src="category/category_factory.js"></script>
-    <script src="product/product_controller.js"></script>
-    <script src="product/product_factory.js"></script>
-	 <script src="product/product_service.js"></script>
-    <script src="checkout/checkout_controller.js"></script>
-    <script src="app/main_factory.js"></script>
-    <script src="app/main_controller.js"></script>
+
+    <!---------------  Libs ------------------->
+    <script src="lib/angularJs/angular.js"></script>
+    <script src="lib/angularJs/angular-route.js"></script>
+	<script src="lib/angularJs/angularAnimate.js"></script>
+
+
+    <!-- ------------- main js---------------->
+    <script src="app/main/route.js"></script>
+    <script src="app/main/main_controller.js"></script>
+    <script src="app/main/main_directive.js"></script>
+    <script src="app/main/main_factory.js"></script>
+
+    <!-- ---------------home js------------------->
+    <script src="app/home/home_controller.js"></script>
+    <script src="app/home/home_factory.js"></script>
+
+    <!--------------- category js ---------------->
+    <script src="app/category/category_controller.js"></script>
+    <script src="app/category/category_factory.js"></script>
+
+    <!------------------ product js ---------------->
+    <script src="app/product/product_controller.js"></script>
+    <script src="app/product/product_factory.js"></script>
+    <script src="app/product/product_service.js"></script>
+
+    <!------------------- checkout js-------->
+    <script src="app/checkout/checkout_controller.js"></script>
+
    
 </head>
 <body ng-controller="mainController">
@@ -45,7 +45,7 @@
             <li><a>My Account</a></li>
             <li><a>My Wishlist</a></li>
             <li><a href="#checkout">Checkout</a></li>
-            <li><a href="login/login.php">Login</a></li>
+            <li><a href="app\login\login.php">Login</a></li>
             <li ng-click="logout()">Logout</li>
         </ul>
     </nav>

@@ -1,7 +1,7 @@
 <?php
 
 include_once(dirname(__FILE__) . '/search.controller.php');
-include_once(dirname(__FILE__) . '/../Slim/Slim.php');
+include_once(dirname(__FILE__) . '/../../lib/Slim/Slim.php');
 
 $search=new searchController();
 

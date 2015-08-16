@@ -13,14 +13,14 @@ class AlbumController{
 
 
     private function toRows($success){
-        if($success) {
+        if( mysqli_num_rows($success) > 0 ) {
             while ($row = $success->fetch_assoc() ) {
                 $rows[] = $row;
             }
             return json_encode($rows);
         }
         else{
-            return "error";
+            return false;
         }
     }
 
@@ -30,7 +30,7 @@ class AlbumController{
             return json_encode($row);
         }
         else{
-            return "error";
+            return false;
         }
     }
 

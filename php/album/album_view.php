@@ -1,13 +1,13 @@
 <?php
 
 include_once(dirname(__FILE__) . '/album_Controller.php');
-include_once(dirname(__FILE__) . '/../Slim/Slim.php');
+include_once(dirname(__FILE__) . '/../../lib/Slim/Slim.php');
 
 \Slim\Slim::registerAutoloader();
 $app = new \Slim\Slim();
 
 $controller = new AlbumController();
-$registerController=new RegisterController();
+
 
 $app->response->headers->set('Content-Type', 'application/json');
 $app->get('/', function(){echo json_encode( array( "error" => "No method" ) );});

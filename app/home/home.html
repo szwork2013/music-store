@@ -1,0 +1,44 @@
+
+
+<div id="albumsFlow" ng-init="getAlbums()">
+    <div id="bigPic" ng-init="i=2">
+        <img ng-src="images/{{albums[i].image_path}}"/>
+    </div>
+    <div class="container" ng-repeat="album in albums|limitTo:9" ng-if="$index!=i">
+        <img ng-src="images/{{album.image_path}}" ng-click="changeBigPic($index)">
+        <div>
+            <section>{{album.album_name}}</section>
+            <section>{{album.album_artist}}</section>
+        </div>
+    </div>
+</div>
+
+
+<my-Menu></my-Menu>
+
+<div id="mainAlbum" ng-init="getAlbums()">
+    <div id="newProducts_container">
+        <h2>New Products</h2>
+        <div class="album_container" ng-repeat="album in albums|limitTo:6">
+            <img ng-src="images/{{album.image_path}}">
+                <div>
+                    <section>{{album.album_name}} - {{album.album_artist}}</section>
+                    <section>
+                        <span>
+                            {{album.album_price| currency}}
+                            <button></button>
+                            <button ng-click='goToProductPage(album.album_id)'></button>
+                        </span>
+                    </section>
+                </div>
+
+        </div>
+    </div>
+</div><!--close mainAlbum Div-->
+
+
+
+<div id="myCart" class="myCart">
+    <label>My Cart</label>
+    <my-Cart></my-Cart>
+</div>
