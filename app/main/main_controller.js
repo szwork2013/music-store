@@ -4,11 +4,12 @@ app.controller( 'mainController', function($scope,$timeout,$location,$routeParam
 
     $scope.search=function(word){
         $scope.hideSearch=false;
-        if(word) {
+        if(word.length > 2 ) {
             mainFactory.search(word).
                 success(function (response) {
                     if (response) {
-                        $scope.res = response;
+                        console.log(response)
+                        $scope.resuls = response;
                     }
                 });
         }

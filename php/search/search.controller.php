@@ -10,15 +10,16 @@ class searchController{
 	}
 	
 	public function getMatching ($word) {
-		$success=$this->search->getMatching($word);
-		if( mysqli_num_rows($success) > 0 ) {
-			while ( $row = $success->fetch_assoc() ) {
-				$rows[] = $row['song_name'];
+		if(strlen($word) > 2 ) {
+			$success = $this->search->getMatching($word);
+			if (mysqli_num_rows($success) > 0) {
+				while ($row = $success->fetch_assoc()) {
+					$rows[] = $row;
+				}
+				echo json_encode($rows);
+			} else {
+				echo false;
 			}
-			echo json_encode($rows);
-		}
-		else{
-			echo false;
 		}
 	}
 	
