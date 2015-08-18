@@ -1,7 +1,15 @@
-<div ng-repeat="wish in myWishlist|limitTo:3">
-    <img ng-src="images/{{wish.image_path}}">
-    <div>
-        <h4>{{wish.album_name}}</h4>
-        <p>{{wish.album_description}}</p>
-    </div>
+<div>
+    <p>There are <strong>{{numberCartItem}} items</strong> in your cart<p>
+    <hr/>
+    <p>Cart subtotal: <strong>$ {{subtotal()}}</strong><p>
+    <hr/>
+    <ul>
+        <p>Recently added item(s)</p>
+        <li ng-repeat="wish in myWishlist|limitTo:3">
+            <img ng-src="images/{{wish.image_path}}">
+            <p>{{wish.album_name}}</p>
+            <p>{{wish.album_artist}}</p>
+            <p>$ {{wish.album_price}}</p>
+        <li/>
+    </ul>
 </div>

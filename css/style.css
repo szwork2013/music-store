@@ -472,34 +472,40 @@ h3{
     position: absolute;
     top:580px;
     left:120px;
-
 }
 
 .myCart div{
-    margin-top: 5px;
+   width: 230px;
 }
+
+.myCart label{
+    font-weight: bold;
+    font-size: larger;
+    background-color: white;
+    padding: 5px 135px 5px 20px;
+}
+
+.myCart ul{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+.myCart ul li{
+    position: relative;
+    left:0px;
+    height: 80px;
+    width: 250px;
+    margin-bottom: 60px;
+}
+
 
 .myCart img{
-    width:230px;
-    height:230px;
+    width:90px;
+    height:90px;
+    float: left;
+    margin-right: 15px;
 }
 
-
-.myCart div{
-    background-color:#FD0002 ;
-    width:230px;
-}
-
-.myCart h4{
-    color:white;
-    margin-left: 15px;
-}
-
-.myCart p{
-    position: relative;
-    top:-10px;
-    margin:0px 15px 5px 15px;
-}
 
 #results{
     width:320px;

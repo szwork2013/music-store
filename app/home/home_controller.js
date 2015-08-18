@@ -26,31 +26,11 @@ app.controller( 'homeController', function($scope,$timeout,$location,$routeParam
     }
 
 
-
-    $scope.getWishlistData=function(){
-        var myWishlist=localStorage.getItem("MyWishList");
-        if(myWishlist==null){
-            //empty message
-        }
-        else{
-            $scope.myWishlist=angular.fromJson(myWishlist);
-        }
-    }
-
-
-    $scope.getWishlistData();
     $scope.getCategories();
 
-   
 
 
-
-
-
-    
-    
-
-}); //close formController
+}); //close homeController
 
 
 

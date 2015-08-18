@@ -47,6 +47,31 @@ app.controller( 'mainController', function($scope,$timeout,$location,$routeParam
     }
 
 
+
+    $scope.getWishlistData=function(){
+        var myWishlist=localStorage.getItem("MyWishList");
+        if(myWishlist==null){
+            //empty message
+        }
+        else{
+            myWishlist=angular.fromJson(myWishlist)
+            $scope.numberCartItem=myWishlist.length;
+            $scope.myWishlist=myWishlist;
+        }
+    }
+
+    $scope.subtotal=function(){
+        var total=0;
+        for(var key in $scope.myWishlist){
+            total=total + Number($scope.myWishlist[key].album_price);
+        }
+        return total;
+    }
+
+
+    $scope.getWishlistData();
+
+
 }); //close formController
 
 
