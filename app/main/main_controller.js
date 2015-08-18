@@ -2,6 +2,8 @@
 app.controller( 'mainController', function($scope,$timeout,$location,$routeParams,mainFactory,$http) {
 
 
+    $scope.numberCartItem=0;
+
     $scope.search=function(word){
         $scope.hideSearch=false;
         if(word.length > 2 ) {
@@ -48,28 +50,28 @@ app.controller( 'mainController', function($scope,$timeout,$location,$routeParam
 
 
 
-    $scope.getWishlistData=function(){
-        var myWishlist=localStorage.getItem("MyWishList");
-        if(myWishlist==null){
+    $scope.getMyCartData=function(){
+        var myCart=localStorage.getItem("MyCart");
+        if(myCart==null){
             //empty message
         }
         else{
-            myWishlist=angular.fromJson(myWishlist)
-            $scope.numberCartItem=myWishlist.length;
-            $scope.myWishlist=myWishlist;
+            myCart=angular.fromJson(myCart)
+            $scope.numberCartItem=myCart.length;
+            $scope.myCart=myCart;
         }
     }
 
     $scope.subtotal=function(){
         var total=0;
-        for(var key in $scope.myWishlist){
-            total=total + Number($scope.myWishlist[key].album_price);
+        for(var key in $scope.myCart){
+            total=total + Number($scope.myCart[key].album_price);
         }
         return total;
     }
 
 
-    $scope.getWishlistData();
+    $scope.getMyCartData();
 
 
 }); //close formController

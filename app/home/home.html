@@ -26,7 +26,7 @@
                     <section>
                         <span>
                             {{album.album_price| currency}}
-                            <button></button>
+                            <button ng-click="addToCart($index)"></button>
                             <button ng-click='goToProductPage(album.album_id)'></button>
                         </span>
                     </section>

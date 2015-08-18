@@ -5,11 +5,11 @@
     <hr/>
     <ul>
         <p>Recently added item(s)</p>
-        <li ng-repeat="wish in myWishlist|limitTo:3">
-            <img ng-src="images/{{wish.image_path}}">
-            <p>{{wish.album_name}}</p>
-            <p>{{wish.album_artist}}</p>
-            <p>$ {{wish.album_price}}</p>
+        <li ng-repeat="item in myCart|limitTo:3">
+            <img ng-src="images/{{item.image_path}}">
+            <p>{{item.album_name}}</p>
+            <p>{{item.album_artist}}</p>
+            <p>$ {{item.album_price}}</p>
         <li/>
     </ul>
 </div>

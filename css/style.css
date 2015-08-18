@@ -297,8 +297,30 @@ my-Menu a{
     padding: 10px 0px 10px 30px;
 }
 
+#main_cart_bar{
+    position: absolute;
+    right: 120px;
+    top:30px;
+}
+
+#main_cart_bar img{
+    height: 50px;width:50px;
+}
+
+#main_cart_bar div:nth-child(1){
+    float: left;
+    color: white;
+    width: 50%;
+    position: relative;
+    top:5px;
+}
 
 
+#main_cart_bar div:nth-child(2){
+    color:white;
+    position:absolute ;
+    right: 95px;top:10px;
+}
 
 
 /***************************** Category *********************************/
@@ -368,7 +390,10 @@ h3{
     width:450px;
     height:340px;
     float:right;
+}
 
+#product-right h1:nth-child(2){
+    color:red;
 }
 
 #product-title{

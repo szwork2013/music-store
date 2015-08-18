@@ -31,23 +31,19 @@ app.controller( 'productController', function($scope,$location,$routeParams,prod
 	//////////////////////////   Local Storage manage    /////////////////////////////////
 
 
-	$scope.addTo=function(addTo){
-		switch(addTo) {
-			case ('wish'):
+	$scope.addToWishlist=function(){
 				if($scope.disableHeartBtn==false) {
-					var localStorageName='MyWishList';
-					productService.mergeData($scope.album , localStorageName);
+					productService.mergeData($scope.album , 'MyWishList');
 					$scope.heart = 'fullHeart';
 					$scope.disableHeartBtn=true;
 				}
 				else{
 					alert('This product already in your wishlist.');
 				}
-			case('cart'):
-				var localStorageName='MyCart';
-				productService.mergeData($scope.album,localStorageName);
-		}
+	}
 
+	$scope.addToCart=function() {
+		productService.mergeData($scope.album, 'MyCart');
 	}
 
 

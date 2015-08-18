@@ -23,20 +23,20 @@
 		<h2>Availability: </h2><span id='product-in-stock'></span>
 		<hr>
 		<p>only 5 available...<p>
-		<h1 style='color:red' >{{album.price | currency}}</h1>
+		<h1>{{album.price | currency}}</h1>
 		<div>{{album.album_description}}</div>
 	</div>
 	
 	<div id='right-down'>
-		<h3 >{{album.album_price | currency}}</h3>
+		<h3>{{album.album_price | currency}}</h3>
 		<hr>
 		<span>Qty: </span>
 		<input type='text' id='product-qty' ng-model='Qty'>
 		<img class="QtyBtn" ng-src='icons/plus.jpg' ng-click="countQty('up')"/>
 		<img class="QtyBtn" ng-src='icons/minus.jpg' ng-click="countQty('down')">
 		<hr>
-		<img  id="heartIcon" ng-src="icons/{{heart}}.jpg"  ng-click="addTo('wish')" ><span> Add to Wishlist</span>
-		<button id='product-button' ng-click="addTo('cart')">Add To Cart</button>
+		<img  id="heartIcon" ng-src="icons/{{heart}}.jpg"  ng-click="addToWishlist()" ><span> Add to Wishlist</span>
+		<button id='product-button' ng-click="addToCart()">Add To Cart</button>
 	</div>
 	
 	<div id='product-details'  style='font-family:arial'>Details</div>

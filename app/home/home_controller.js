@@ -1,7 +1,7 @@
 
 
 
-app.controller( 'homeController', function($scope,$timeout,$location,$routeParams,HomeFactory,$http) {
+app.controller( 'homeController', function($scope,$timeout,$location,$routeParams,HomeFactory,productService,$http) {
 
 
     $scope.album={};
@@ -25,6 +25,11 @@ app.controller( 'homeController', function($scope,$timeout,$location,$routeParam
         $location.path('/product/' +id);
     }
 
+
+    $scope.addToCart=function(index) {
+        productService.mergeData($scope.albums[index], 'MyCart');
+        alert("This album added to your cart");
+    }
 
     $scope.getCategories();
 
