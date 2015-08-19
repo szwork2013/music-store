@@ -1,7 +1,7 @@
 
 
 
-app.controller( 'categoryController', function($scope,$route,$location,$routeParams,categoryFactory) {
+app.controller( 'categoryController', function($scope,$rootScope,$route,$location,$routeParams,categoryFactory,productService) {
 
     $scope.category_id;
     $scope.albumCategory=$routeParams.categoryName;
@@ -21,6 +21,12 @@ app.controller( 'categoryController', function($scope,$route,$location,$routePar
                 $scope.category=data;
             });
     }
+
+
+    $scope.addToCart=function(index) {
+        $rootScope.addToCart($scope.category[index].album_id , $scope.category[index]);
+    }
+
 
 
 

@@ -92,7 +92,7 @@ a{
 
 #myMenu{
     position: absolute;
-    top:120px;
+    top:60px;
 }
 
 
@@ -486,36 +486,30 @@ h3{
 
 /******************   wishList/Cart  **********************/
 
-#myCart{
-    position: absolute;
-    top:980px;
-    left:120px;
 
-}
-
-.myCart{
+my-Cart{
     position: absolute;
-    top:580px;
+    top:520px;
     left:120px;
 }
 
-.myCart div{
+my-Cart div{
    width: 230px;
 }
 
-.myCart label{
+my-Cart label{
     font-weight: bold;
     font-size: larger;
     background-color: white;
     padding: 5px 135px 5px 20px;
 }
 
-.myCart ul{
+my-Cart ul{
     list-style-type: none;
     padding: 0px;
     margin: 0px;
 }
-.myCart ul li{
+my-Cart ul li{
     position: relative;
     left:0px;
     height: 80px;
@@ -524,7 +518,7 @@ h3{
 }
 
 
-.myCart img{
+my-Cart img{
     width:90px;
     height:90px;
     float: left;

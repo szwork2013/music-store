@@ -1,6 +1,6 @@
 
 
-app.controller( 'productController', function($scope,$location,$routeParams,productFactory,productService) {
+app.controller( 'productController', function($scope,$rootScope,$location,$routeParams,productFactory,productService) {
 	
 	$scope.Qty=0;
 	$scope.heart='emptyHeart';
@@ -43,7 +43,7 @@ app.controller( 'productController', function($scope,$location,$routeParams,prod
 	}
 
 	$scope.addToCart=function() {
-		productService.mergeData($scope.album, 'MyCart');
+		$rootScope.addToCart($scope.album.album_id , $scope.album);
 	}
 
 

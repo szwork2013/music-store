@@ -1,5 +1,5 @@
 
-app.controller( 'mainController', function($scope,$timeout,$location,$routeParams,mainFactory,$http) {
+app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,$routeParams,mainFactory,productService) {
 
 
     $scope.numberCartItem=0;
@@ -50,7 +50,7 @@ app.controller( 'mainController', function($scope,$timeout,$location,$routeParam
 
 
 
-    $scope.getMyCartData=function(){
+    $rootScope.getMyCartData=function(){
         var myCart=localStorage.getItem("MyCart");
         if(myCart==null){
             //empty message
@@ -62,6 +62,31 @@ app.controller( 'mainController', function($scope,$timeout,$location,$routeParam
         }
     }
 
+
+    $rootScope.checkIfAlbumInCart=function(albumid){
+        var myCart=angular.fromJson(localStorage.getItem("MyCart"));
+        for(var key in myCart){
+            if( myCart[key].album_id==albumid ){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+    $rootScope.addToCart=function(albumId,album) {
+        checkIfAlbumInCart=$rootScope.checkIfAlbumInCart(albumId);
+        if(!checkIfAlbumInCart) {
+            productService.mergeData(album, 'MyCart');
+            alert("New album added to your cart");
+            $rootScope.getMyCartData();
+        }
+        else{
+            alert("This album already in your cart")
+        }
+    }
+
+
     $scope.subtotal=function(){
         var total=0;
         for(var key in $scope.myCart){
@@ -71,7 +96,8 @@ app.controller( 'mainController', function($scope,$timeout,$location,$routeParam
     }
 
 
-    $scope.getMyCartData();
+    $scope.getCategories();
+    $rootScope.getMyCartData();
 
 
 }); //close formController
