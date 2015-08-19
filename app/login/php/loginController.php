@@ -22,11 +22,16 @@ class LoginController{
 
 
 	public  function checkLogin(){
-		$success=$this->login->checking($_SESSION['email'],$_SESSION['password']);
-		if( mysqli_num_rows($success) > 0){
-			header('Location: ../../index.html');
+		if( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
+			$success = $this->login->checking($_SESSION['email'], $_SESSION['password']);
+			if (mysqli_num_rows($success) > 0) {
+				echo true;
+				header('Location: ../../index.html');
+			} else {
+				echo false;
+			}
 		}
-		else{
+		else {
 			echo false;
 		}
 	}

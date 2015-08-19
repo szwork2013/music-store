@@ -43,16 +43,18 @@
     <nav id="mainNav">
         <ul>
             <li><a href="#/">Home</a></li>
-            <li><a>My Account</a></li>
+            <li ng-hide="myAccountLi" ng-init="myAccountLi=true"><a>My Account</a></li>
             <li><a>My Wishlist</a></li>
             <li><a href="#checkout">Checkout</a></li>
-            <li><a href="app\login\login.php">Login</a></li>
-            <li ng-click="logout()">Logout</li>
+            <li ng-hide="loginLi" ng-init="loginLi=false"><a href="app\login\login.php">Login</a></li>
+            <li ng-hide="logoutLi" ng-init="logoutLi=true" ng-click="logout()">Logout</li>
         </ul>
     </nav>
 
     <header>
-        <label>MUSIC</label>
+        <div ng-click="goHome('/')">
+            <label>MUSIC</label>
+        </div>
         <div id='main_search_div'>
             <input type="text" placeholder="Search" ng-model="word"  ng-keyup="search(word)"/>
             <div id='results' ng-init="hideSearch=true" ng-hide="hideSearch"  ng-mouseleave="mouseLeave()">
@@ -70,8 +72,6 @@
             <div>Welcome to our online store!</div>
             <div>{{numberCartItem}}</div>
             <img src="icons/black-cart.png"/>
-
-
         </div>
     </header>
 

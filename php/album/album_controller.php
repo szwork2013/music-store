@@ -12,6 +12,14 @@ class AlbumController{
     }
 
 
+    /** toRows
+     *  get database return data , check if there is any result,
+     *  if true "rows" it and encode it to json format
+     *
+     *  @param data from database
+     *  @return json
+     *
+     */
     private function toRows($success){
         if( mysqli_num_rows($success) > 0 ) {
             while ($row = $success->fetch_assoc() ) {
@@ -24,6 +32,15 @@ class AlbumController{
         }
     }
 
+
+    /** toRow
+     *  get database return data , check if there is any result,
+     *  if true "row" it and encode it to json format
+     *
+     *  @param data from database
+     *  @return json
+     *
+     */
     private function  toRow($success){
         if($success) {
             $row = $success->fetch_assoc();

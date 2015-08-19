@@ -10,8 +10,16 @@ class Search extends DB{
 		$this->db = DB::getInstance();
 	}
 
+
+
+	/** Model getMatching
+	 *  Get a word and find o matching(like) in the databse
+	 *
+	 *  @param sting $word - the word for search for matching
+	 *  @return databse query result
+	 *
+	 */
 	public function getMatching($word){
-		//$sql="SELECT song_name FROM songs WHERE song_name like '$word%' ";
 		$sql="SELECT album_name,album_artist,album_release_year,song_name,image_path
 				FROM songs
 				INNER JOIN songs_to_albums
@@ -26,7 +34,14 @@ class Search extends DB{
 		$success=$this->db->query($sql);
 		return $success;
 	}
-	
+
+	/** getAlbum
+	 *  Get a song name and find the his album's id
+	 *
+	 *  @param sting $song - the song name
+	 *  @return the album id
+	 *
+	 */
 	public function getAlbum($song){
 		$sql="SELECT song_id FROM songs WHERE song_name ='$song' ";
 		$success=$this->db->query($sql);

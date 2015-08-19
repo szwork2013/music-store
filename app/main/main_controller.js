@@ -17,6 +17,9 @@ app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,
         }
     }
 
+    $scope.goHome=function(){
+        $location.url('/');
+    }
 
     $scope.showAlbum=function(song){
         mainFactory.showAlbum(song).
@@ -40,12 +43,31 @@ app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,
         }, 2000);
     }
 
+    $scope.checkLogin=function(){
+        mainFactory.checkLogin().
+            success(function(bool) {
+                if(bool){
+                    $scope.myAccountLi=false;
+                    $scope.loginLi=true;
+                    $scope.logoutLi=false;
+                }
+                else{
+                    $scope.myAccountLi=true;
+                    $scope.loginLi=false;
+                    $scope.logoutLi=true;
+                }
+            });
+    }
+
 
     $scope.logout=function(){
-        mainFactory.logout().
-            success(function(response) {
-
-            });
+        var r=confirm("Are you sure you want to log out ?");
+        if(r) {
+            mainFactory.logout().
+                success(function(response) {
+                    $scope.checkLogin();
+                });
+        }
     }
 
 
@@ -95,7 +117,7 @@ app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,
         return total;
     }
 
-
+    $scope.checkLogin();
     $scope.getCategories();
     $rootScope.getMyCartData();
 

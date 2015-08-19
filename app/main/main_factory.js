@@ -17,6 +17,10 @@ app.factory('mainFactory',function($http){
         return $http.get('php/album/album_view.php/categories/');
     }
 
+    mainFactory.checkLogin=function(){
+        return $http.get('app/login/php/register_view.php/checkLogin');
+    }
+
     mainFactory.logout=function(){
         return $http.get('app/login/php/register_view.php/logout');
     }

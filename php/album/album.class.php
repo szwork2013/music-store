@@ -13,6 +13,13 @@ class Album extends DB{
 	}
 
 
+	/** Model getAllAlbums
+	 *  get all albums information from the database
+	 *
+	 *  @param void
+	 *  @return databse query result
+	 *
+	 */
 	public function getAllAlbums(){
 		$sql="SELECT album_id,album_artist,album_price,album_name,image_path
 			  FROM albums
@@ -23,6 +30,13 @@ class Album extends DB{
 	}
 
 
+	/** Model getAlbum
+	 *  get specific album information from the database
+	 *
+	 *  @param int - album id
+	 *  @return databse query result
+	 *
+	 */
 	public  function getAlbum($id){
 		$sql="SELECT album_id,album_artist,album_description,album_long_description,album_name,album_price,image_path
 			FROM albums
@@ -33,6 +47,13 @@ class Album extends DB{
 		return $answer;
 	}
 
+	/** Model getCategories
+	 *  get all categories from the batabase
+	 *
+	 *  @param void
+	 *  @return databse query result
+	 *
+	 */
 	public  function getCategories(){
 		$sql="SELECT * FROM genres ";
 		$answer=$this->db->query($sql);
@@ -41,6 +62,13 @@ class Album extends DB{
 
 
 
+	/** Model getCategoryInfo
+	 *  get specific category information
+	 *
+	 *  @param int the category id
+	 *  @return databse query result
+	 *
+	 */
 	public  function getCategoryInfo($genre_id){
 		$sql="SELECT albums.album_id,album_name,image_path,album_artist,album_price
 				FROM images_to_albums
