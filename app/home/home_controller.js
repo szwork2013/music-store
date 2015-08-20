@@ -1,9 +1,23 @@
 
 
 
-app.controller( 'homeController', function($scope, $rootScope,$timeout,$location,$routeParams,HomeFactory,productService) {
+app.controller( 'homeController', function($scope, $rootScope,$timeout,$location,$routeParams,HomeFactory,productService,$http) {
 
-
+	$scope.id=0;
+	  $scope.items = [];
+	  $scope.getMore = function() {
+		  $scope.id++;
+	
+		  $http.get("php/album/album_view.php/album/" +$scope.id).success(function (items) { 	
+			 if(items!=null){
+				 console.log(items);
+				  $scope.albums = $scope.albums.concat(items);
+			 }
+		  
+		  });
+		  
+		  
+	  };
     $scope.album={};
     $scope.albums=[];
 

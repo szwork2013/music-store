@@ -14,6 +14,7 @@ $app->get('/', function(){echo json_encode( array( "error" => "No method" ) );})
 
 
 
+
 $app->get('/albums/', function() use ($controller){
     $controller->getAllAlbums();
 });
@@ -35,5 +36,8 @@ $app->get('/categoryInfo/:id', function($genre_id)use ($controller){
 $app->get('/getThisCategory/:id', function($genre_id)use ($controller){
     $controller->getThisCategory($genre_id);
 });
+
+
+
 
 $app->run();
