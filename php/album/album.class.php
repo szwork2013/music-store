@@ -70,7 +70,7 @@ class Album extends DB{
 	 *
 	 */
 	public  function getCategoryInfo($genre_id){
-		$sql="SELECT albums.album_id,album_name,image_path,album_artist,album_price
+		$sql="SELECT albums.album_id,album_name,image_path,album_artist,album_price,album_description
 				FROM images_to_albums
 				INNER JOIN genres_to_albums
 					ON images_to_albums.album_id = genres_to_albums.album_id

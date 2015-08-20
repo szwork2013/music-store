@@ -16,6 +16,7 @@
                         {{album.album_price| currency}}
                         <button ng-click="addToCart($index)"></button>
                          <button ng-click='goToProductPage(album.album_id)'></button>
+                         <span style='font-size:10px'>{{album.album_description | limitTo:30}}...</span>
                     </span>
                 </div>
             </div>

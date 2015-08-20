@@ -19,6 +19,7 @@ app.controller( 'categoryController', function($scope,$rootScope,$route,$locatio
         categoryFactory.categoryInfo($scope.category_id).
             success(function (data) {
                 $scope.category=data;
+                console.log(data);
             });
     }
 

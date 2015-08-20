@@ -32,14 +32,15 @@ app.controller( 'productController', function($scope,$rootScope,$location,$route
 
 
 	$scope.addToWishlist=function(){
-				if($scope.disableHeartBtn==false) {
-					productService.mergeData($scope.album , 'MyWishList');
-					$scope.heart = 'fullHeart';
-					$scope.disableHeartBtn=true;
-				}
-				else{
-					alert('This product already in your wishlist.');
-				}
+					if($scope.heart != 'fullHeart'){
+						productService.mergeData($scope.album , 'MyWishList');
+						$scope.heart = 'fullHeart';
+					}
+					else{
+						$scope.heart='emptyHeart';
+					}
+				
+				
 	}
 
 	$scope.addToCart=function() {

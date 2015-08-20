@@ -1,10 +1,14 @@
+<style>
 
+
+</style>
  
 <div id="albumsFlow" >
     <div id="bigPic" ng-init="i=2">
         <img ng-src="images/{{albums[i].image_path}}"/>
     </div>
-    <div class="container" ng-repeat="album in albums|limitTo:9" ng-if="$index!=i">
+    <div class="container" ng-repeat="album in albums|limitTo:9" ng-if="$index!=i" ng-mouseover='func()'>
+    	
         <img ng-src="images/{{album.image_path}}" ng-click="changeBigPic($index)">
         <div>
             <section>{{album.album_name}}</section>
