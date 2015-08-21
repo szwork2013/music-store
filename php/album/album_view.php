@@ -23,6 +23,10 @@ $app->get('/album/:id', function($id)use ($controller){
    $controller->getAlbum($id);
 });
 
+$app->get('/getMore/:offset', function($offset)use ($controller){
+    $controller->getMore($offset);
+});
+
 $app->get('/categories/', function()use ($controller){
     $controller->getCategories();
 });

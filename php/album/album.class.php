@@ -30,6 +30,27 @@ class Album extends DB{
 	}
 
 
+
+	/** Model getMore
+	 *  get all albums information from the database
+	 *
+	 *  @param void
+	 *  @return databse query result
+	 *
+	 */
+	public function getMore($offset){
+		$sql="SELECT album_id,album_artist,album_price,album_name,image_path
+			  FROM albums
+			  INNER JOIN images
+				  ON albums.album_id=images.image_id
+			   LIMIT 4 OFFSET $offset";
+		$answer=$this->db->query($sql);
+		return $answer;
+	}
+
+
+
+
 	/** Model getAlbum
 	 *  get specific album information from the database
 	 *

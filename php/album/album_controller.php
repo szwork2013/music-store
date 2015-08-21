@@ -62,6 +62,11 @@ class AlbumController{
         echo $this->toRow($success);
     }
 
+    public  function getMore($offset){
+        $success=$this->album->getMore($offset);
+        echo $this->toRows($success);
+    }
+
 
     public  function  getCategories(){
         $success=$this->album->getCategories();

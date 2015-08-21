@@ -16,15 +16,14 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
 
 
 	  $scope.getMore = function() {
-		  $scope.page++;
+          $scope.page++;
           $scope.fetching = true;
-          HomeFactory.getMore($scope.page).
+          HomeFactory.getMore(4*$scope.page).
               success(function (items) {
                   $scope.fetching = false;
                  if(items){
                      console.log(items);
                      $scope.albums = $scope.albums.concat(items);
-                     $scope.getMore();
                  }
                  else{
                      $scope.disabled = true;

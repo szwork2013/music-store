@@ -580,12 +580,15 @@ my-Cart img{
 
 }
 
-#block{
+#getMore{
    border: solid;
-    width:1320px;
-    height: 500px;
+    width:32px;
     position: absolute;
-    bottom: 0px;
-    left:-380px;
-
+    left: 300px;
+    bottom: 20px;
+    background-color: red;
+    padding: 10px;
+    border-radius:32px ;
+    -webkit-animation: scaleIt 1s infinite;
 }
+
