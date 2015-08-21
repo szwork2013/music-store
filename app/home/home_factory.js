@@ -9,7 +9,9 @@ app.factory('HomeFactory',function($http){
         return $http.get(baseUrl+'albums/');
     }
 
-
+    HomeFactory.getMore=function(scopeId){
+        return $http.get(baseUrl+'album/'+scopeId);
+    }
 
 
     return HomeFactory;

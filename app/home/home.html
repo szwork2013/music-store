@@ -1,8 +1,4 @@
-<style>
 
-
-</style>
- 
 <div id="albumsFlow" >
     <div id="bigPic" ng-init="i=2">
         <img ng-src="images/{{albums[i].image_path}}"/>
@@ -24,7 +20,7 @@
 <div id="mainAlbum" ng-init="getAlbums()">
     <div id="newProducts_container">
         <h2>New Products</h2>
-        <div class="album_container" ng-repeat="album in albums" tagged-infinite-scroll="getMore()">
+        <div class="album_container" ng-repeat="album in albums"  >
             <img ng-src="images/{{album.image_path}}">
                 <div>
                     <section>{{album.album_name}} - {{album.album_artist}}</section>
@@ -38,6 +34,7 @@
                 </div>
 
         </div>
+        <div id="block" ng-mouseover="getMore()" tagged-infinite-scroll-disabled="fetching || disabled" tagged-infinite-scroll-distance="100"></div>
     </div>
 </div><!--close mainAlbum Div-->
 

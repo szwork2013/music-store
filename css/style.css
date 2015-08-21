@@ -579,3 +579,13 @@ my-Cart img{
     float: left;
 
 }
+
+#block{
+   border: solid;
+    width:1320px;
+    height: 500px;
+    position: absolute;
+    bottom: 0px;
+    left:-380px;
+
+}

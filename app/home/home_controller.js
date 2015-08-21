@@ -3,23 +3,36 @@
 
 app.controller( 'homeController', function($scope, $rootScope,$timeout,$location,$routeParams,HomeFactory,productService,$http) {
 
-	$scope.id=0;
-	  $scope.items = [];
+
+    $scope.init=function() {
+        $scope.page= 0;
+        $scope.items = [];
+        $scope.album={};
+        $scope.albums=[];
+        $scope.getCategories();
+        $scope.fetching = false;
+        $scope.disabled = false;
+    }
+
+
 	  $scope.getMore = function() {
-		  $scope.id++;
-	
-		  $http.get("php/album/album_view.php/album/" +$scope.id).success(function (items) { 	
-			 if(items!=null){
-				 console.log(items);
-				  $scope.albums = $scope.albums.concat(items);
-			 }
-		  
+		  $scope.page++;
+          $scope.fetching = true;
+          HomeFactory.getMore($scope.page).
+              success(function (items) {
+                  $scope.fetching = false;
+                 if(items){
+                     console.log(items);
+                     $scope.albums = $scope.albums.concat(items);
+                     $scope.getMore();
+                 }
+                 else{
+                     $scope.disabled = true;
+                 }
 		  });
 		  
-		  
-	  };
-    $scope.album={};
-    $scope.albums=[];
+      };
+
 
     $scope.func=function(){
     	$scope.x=true;
@@ -74,9 +87,9 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
         $rootScope.addToCart($scope.albums[index].album_id , $scope.albums[index]);
     }
 
-    $scope.getCategories();
 
 
+    $scope.init();
 
 }); //close homeController
 
