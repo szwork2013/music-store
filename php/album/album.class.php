@@ -24,7 +24,7 @@ class Album extends DB{
 		$sql="SELECT album_id,album_artist,album_price,album_name,image_path
 			  FROM albums
 			  INNER JOIN images
-				  ON albums.album_id=images.image_id";
+				  ON albums.album_id=images.image_id LIMIT 6";
 		$answer=$this->db->query($sql);
 		return $answer;
 	}
@@ -43,7 +43,7 @@ class Album extends DB{
 			  FROM albums
 			  INNER JOIN images
 				  ON albums.album_id=images.image_id
-			   LIMIT 4 OFFSET $offset";
+			   LIMIT 3 OFFSET $offset";
 		$answer=$this->db->query($sql);
 		return $answer;
 	}

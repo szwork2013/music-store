@@ -5,7 +5,7 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
 
 
     $scope.init=function() {
-        $scope.page= 0;
+        $scope.page= 2;
         $scope.items = [];
         $scope.album={};
         $scope.albums=[];
@@ -18,7 +18,7 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
 	  $scope.getMore = function() {
           $scope.page++;
           $scope.fetching = true;
-          HomeFactory.getMore(4*$scope.page).
+          HomeFactory.getMore(3*$scope.page).
               success(function (items) {
                   $scope.fetching = false;
                  if(items){
