@@ -1,6 +1,6 @@
 
 <div id="albumsFlow" >
-    <div id="bigPic" ng-init="i=2">
+    <div id="bigPic" ng-init="i=0">
         <img ng-src="images/{{albums[i].image_path}}"/>
     </div>
     <div class="container" ng-repeat="album in albums|limitTo:9" ng-if="$index!=i" ng-mouseover='func()'>

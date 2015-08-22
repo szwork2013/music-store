@@ -21,10 +21,11 @@ class Album extends DB{
 	 *
 	 */
 	public function getAllAlbums(){
-		$sql="SELECT album_id,album_artist,album_price,album_name,image_path
+		$sql="SELECT album_id,album_artist,album_price,album_created,album_name,image_path
 			  FROM albums
 			  INNER JOIN images
-				  ON albums.album_id=images.image_id LIMIT 9";
+				  ON albums.album_id=images.image_id
+				  ORDER BY album_created ASC LIMIT 9 ";
 		$answer=$this->db->query($sql);
 		return $answer;
 	}
@@ -39,11 +40,11 @@ class Album extends DB{
 	 *
 	 */
 	public function getMore($offset){
-		$sql="SELECT album_id,album_artist,album_price,album_name,image_path
+		$sql="SELECT album_id,album_artist,album_price,album_name,album_created,image_path
 			  FROM albums
 			  INNER JOIN images
 				  ON albums.album_id=images.image_id
-			   LIMIT 3 OFFSET $offset";
+			   ORDER BY album_created ASC LIMIT 3 OFFSET $offset";
 		$answer=$this->db->query($sql);
 		return $answer;
 	}
