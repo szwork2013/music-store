@@ -590,5 +590,6 @@ my-Cart img{
     padding: 10px;
     border-radius:32px ;
     -webkit-animation: scaleIt 1s infinite;
+    cursor: pointer;
 }
 
