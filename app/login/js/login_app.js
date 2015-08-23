@@ -49,9 +49,6 @@
 
 		
 		
-		
-		
-		
 		$scope.login=function(){
 			var loginInfo={'email': $scope.loginEmail,
 				          'password':$scope.loginPassword};

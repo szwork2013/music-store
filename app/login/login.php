@@ -10,6 +10,14 @@ if( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
 
 <!DOCTYPE html>
 <html>
+<style>
+.error{
+	background-color:rgb(250,235,232);
+	border:red dotted 1px;
+}
+
+
+</style>
 <head>
 	<title>Music Store - Login</title>
 	<link rel="shortcut icon" href="../../icons/Music-icon.png" />
@@ -87,30 +95,38 @@ if( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
 			<p style='text-align:center;color:gray;clear:both'>Resitration</p>
 			
 
-			<form name="formRegistration" action=""   novalidate >
+			<form name="formRegistration"   novalidate >
 				<p class='register-title'>Profile Information</p>
 
 				<div class="group">
-					<input type='text'   placeholder='First Name' name='firstname' class='input-registration' ng-model='firstname' required  ng-keyup="valdiateFirstName()">
+					<input type='text'   placeholder='First Name' name='firstname' class='input-registration' ng-model='firstname' required  ng-keyup="valdiateFirstName()"
+					 ng-class="{ 'error': lengthFirstName || formRegistration.firstname.$error.required}">
+					 
 					<span class='feedback' ng-show="formRegistration.firstname.$error.required " >First name is required.</span>
 					<span class='feedback' ng-show="lengthFirstName">Has to be greater than 2 and smaller then 12.</span>
 				</div>
 
 				<div class="group">
-					<input type='text' placeholder='Last Name' name='lastname' class='input-registration' ng-model='lastname' required ng-keyup="valdiateLastName()">
+					<input type='text' placeholder='Last Name' name='lastname' class='input-registration' ng-model='lastname' required ng-keyup="valdiateLastName()"
+					 ng-class="{ 'error': lengthLastName || formRegistration.lastname.$error.required}">
+					 
 					<span class='feedback' ng-show="formRegistration.lastname.$error.required ">Last name is required.</span>
 					<span class='feedback' ng-show="lengthLastName">Has to be greater than 2 and smaller then 12.</span>
 				</div>
 
 				<div class="group">
 					<p class='register-title'>Login Data</p>
-					<input type='email' placeholder='E-mail address' name='email' class='input-registration' ng-model='email' required>
+					<input type='email' placeholder='E-mail address' name='email' class='input-registration' ng-model='email' required
+					 ng-class="{ 'error': formRegistration.email.$error.required|| formRegistration.email.$error.email}">
+					 
 					<span class='feedback' ng-show="formRegistration.email.$error.required ">Email is required.</span>
 					<span class='feedback' ng-show="formRegistration.email.$error.email">Email is not valid.</span>
 				</div>
 
 				<div class="group">
-					<input type='password' placeholder='Password'  name='password' class='input-registration' ng-model='password' required ng-keyup="valdiatePassword()" >
+					<input type='password' placeholder='Password'  name='password' class='input-registration' ng-model='password' required ng-keyup="valdiatePassword()" 
+					 ng-class="{ 'error': formRegistration.password.$error.required||toSmall || toBig || isOneCapital }">
+					
 					<span class='feedback' ng-show="formRegistration.password.$error.required ">Password is required.</span><br>
 					<span class='feedback' ng-show="toSmall" >Password has to be bigger than 5.</span>
 					<span class='feedback' ng-show="toBig" >Password has to be smaller than 9.</span><br>
@@ -118,7 +134,9 @@ if( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
 				</div>
 
 				<div class="group">
-					<input type='password' placeholder='Password confirmation' name='repassword'  class='input-registration' ng-model='repassword' required  ng-keyup="valdiateRePassword()">
+					<input type='password' placeholder='Password confirmation' name='repassword'  class='input-registration' ng-model='repassword' required  ng-keyup="valdiateRePassword()"
+					 ng-class="{ 'error': formRegistration.repassword.$error.required || notEqual }">
+					 
 					<span class='feedback' ng-show="formRegistration.repassword.$error.required ">Confirmation is required.</span>
 					<span class='feedback' ng-show="notEqual">password and repassword not equal.</span>
 				</div>
