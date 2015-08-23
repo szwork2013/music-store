@@ -17,6 +17,7 @@ class RegisterController{
 		$lengthPsw=strlen($data->password);
 		$pswGoodLength=($lengthPsw>5 AND $lengthPsw< 9 ? true : false);
 		echo  json_encode( array( "ivalidEmail" =>$invalidEmail, "existEmail" =>  $existEmail,"rePswEqual" =>$rePswEqual,"pswGoodLength"=>$pswGoodLength));
+	
 	}
 
 
