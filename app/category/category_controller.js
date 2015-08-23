@@ -3,10 +3,12 @@
 
 app.controller( 'categoryController', function($scope,$rootScope,$route,$location,$routeParams,categoryFactory,productService) {
 
-    $scope.category_id;
-    $scope.albumCategory=$routeParams.categoryName;
-    $scope.category_id=$routeParams.category_id
-
+    $scope.init=function() {
+        $scope.category_id;
+        $scope.albumCategory = $routeParams.categoryName;
+        $scope.category_id = $routeParams.category_id
+        $scope.categoryInfo();
+    }
 
 
     $scope.goToProductPage=function(id){
@@ -31,7 +33,7 @@ app.controller( 'categoryController', function($scope,$rootScope,$route,$locatio
 
 
 
-    $scope.categoryInfo();
+    $scope.init();
 
 
 }); //close categoryController

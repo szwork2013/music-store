@@ -3,30 +3,29 @@
 
 app.controller( 'homeController', function($scope, $rootScope,$timeout,$location,$routeParams,HomeFactory,productService,$http) {
 
-
+    
     $scope.init=function() {
-        $scope.page= 3;
+        $scope.page= 2;
         $scope.items = [];
         $scope.album={};
         $scope.albums=[];
         $scope.getCategories();
-        $scope.fetching = false;
-        $scope.disabled = false;
     }
 
 
+    /** getMore
+     *  ajax, http query for more albom information
+     *
+     *  @param voide
+     *  @return object of all more albums information
+     *
+     */
 	  $scope.getMore = function() {
           $scope.page++;
-          $scope.fetching = true;
           HomeFactory.getMore(3*$scope.page).
               success(function (items) {
-                  $scope.fetching = false;
                  if(items){
-                     console.log(items);
                      $scope.albums = $scope.albums.concat(items);
-                 }
-                 else{
-                     $scope.disabled = true;
                  }
 		  });
 		  

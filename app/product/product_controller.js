@@ -1,13 +1,16 @@
 
 
 app.controller( 'productController', function($scope,$rootScope,$location,$routeParams,productFactory,productService) {
-	
-	$scope.Qty=0;
-	$scope.heart='emptyHeart';
-	$scope.album={};
-	$scope.id;
-	$scope.disableHeartBtn=false;
 
+	$scope.init=function() {
+		$scope.Qty = 0;
+		$scope.heart = 'emptyHeart';
+		$scope.album = {};
+		$scope.id;
+		$scope.disableHeartBtn = false;
+		$scope.getProducts();
+		$scope.checkIfInWishlist();
+	}
 
 	$scope.countQty=function(upOrDown){
 		if(upOrDown=='up') {
@@ -39,8 +42,6 @@ app.controller( 'productController', function($scope,$rootScope,$location,$route
 					else{
 						$scope.heart='emptyHeart';
 					}
-				
-				
 	}
 
 	$scope.addToCart=function() {
@@ -55,14 +56,11 @@ app.controller( 'productController', function($scope,$rootScope,$location,$route
 				$scope.disableHeartBtn=true;
 			}
 	}
-
-
 	/////////////////////////////////////////////////////////////////////////////////////////
 
 
+	$scope.init();
 
-	$scope.getProducts();
-	$scope.checkIfInWishlist();
 
 
 }); //close productController

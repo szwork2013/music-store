@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ngRoute','ngAnimate','tagged.directives.infiniteScroll']);
+var app = angular.module('myApp', ['ngRoute','ngAnimate']);
 
 app.config( function( $routeProvider ) {
     $routeProvider
