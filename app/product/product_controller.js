@@ -18,9 +18,10 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 	
 	$scope.Avibility=function(){
 	  var baseUrl='php/album/album_view.php/';
-	 $http.get(baseUrl+'avibility/'+ $routeParams )
+	 $http.get(baseUrl+'avibility/'+ $routeParams.id )
 	    .success(function(response) {
-	    	if (response['instock']==0  ){
+	    	console.log(response);
+	    	if (response['instock']==0 || response['instock']==null  ){
 	    		$scope.noAvibility=true;
 	    	}
 	    	else{

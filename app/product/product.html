@@ -22,7 +22,7 @@
 		<span id='product-in-stock' ng-show='noAvibility' style='color:red'>out of stock</span>
 		<span id='product-in-stock' ng-show='inStock' style='color:green'>in Stock</span>
 		<hr>
-		<p>only <span ng-bind='quantity'> </span> available...<p>
+		<p ng-show='inStock'>only <span ng-bind='quantity'> </span> available...<p>
 		<h1>{{album.price | currency}}</h1>
 		<div>{{album.album_description}}</div>
 	</div>

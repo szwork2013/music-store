@@ -13,7 +13,7 @@ class Album extends DB{
 	}
 
 	public function avibility($id){
-		$sql="SELECT * FROM `albums_stock`";
+		$sql="SELECT * FROM `albums_stock` WHERE album_id='$id'";
 		$answer=$this->db->query($sql);
 		return $answer;
 	}
