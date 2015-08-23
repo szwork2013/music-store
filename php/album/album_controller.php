@@ -10,7 +10,14 @@ class AlbumController{
     public function __construct() {
         $this->album = new Album();
     }
-
+    
+    
+    public function avibility($id){
+    	$success=$this->album->avibility($id);
+    	$row = $success->fetch_assoc();
+    	$instock=$row['album_stock'];
+    	echo  json_encode( array( "instock" =>$instock));
+    }
 
     /** toRows
      *  get database return data , check if there is any result,

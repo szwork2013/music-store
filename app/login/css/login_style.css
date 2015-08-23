@@ -2,6 +2,11 @@ body{
 	overflow:hidden;
 }
 
+.error{
+	background-color:rgb(250,235,232);
+	border:red dotted 1px;
+}
+
 header{
 	background-color:#FD0002 ;
 	height: 105px;

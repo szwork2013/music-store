@@ -10,14 +10,7 @@ if( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
 
 <!DOCTYPE html>
 <html>
-<style>
-.error{
-	background-color:rgb(250,235,232);
-	border:red dotted 1px;
-}
 
-
-</style>
 <head>
 	<title>Music Store - Login</title>
 	<link rel="shortcut icon" href="../../icons/Music-icon.png" />

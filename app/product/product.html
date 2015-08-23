@@ -18,9 +18,11 @@
 	
 	<div id='product-right'>
 		<h1 ng-bind="album.album" id='product-title'></h1>
-		<h2>Availability: </h2><span id='product-in-stock'></span>
+		<h2>Availability: </h2>
+		<span id='product-in-stock' ng-show='noAvibility' style='color:red'>out of stock</span>
+		<span id='product-in-stock' ng-show='inStock' style='color:green'>in Stock</span>
 		<hr>
-		<p>only 5 available...<p>
+		<p>only <span ng-bind='quantity'> </span> available...<p>
 		<h1>{{album.price | currency}}</h1>
 		<div>{{album.album_description}}</div>
 	</div>

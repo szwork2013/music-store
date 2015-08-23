@@ -12,8 +12,11 @@ $controller = new AlbumController();
 $app->response->headers->set('Content-Type', 'application/json');
 $app->get('/', function(){echo json_encode( array( "error" => "No method" ) );});
 
-
-
+            
+$app->get('/avibility/:id', function($id) use ($controller) {
+	$controller->avibility($id);
+	
+});
 
 $app->get('/albums/', function() use ($controller){
     $controller->getAllAlbums();

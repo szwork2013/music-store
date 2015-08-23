@@ -1,7 +1,8 @@
 
 
-app.controller( 'productController', function($scope,$rootScope,$location,$routeParams,productFactory,productService) {
+app.controller( 'productController', function($http,$scope,$rootScope,$location,$routeParams,productFactory,productService) {
 
+	
 	$scope.init=function() {
 		$scope.Qty = 0;
 		$scope.heart = 'emptyHeart';
@@ -10,8 +11,25 @@ app.controller( 'productController', function($scope,$rootScope,$location,$route
 		$scope.disableHeartBtn = false;
 		$scope.getProducts();
 		$scope.checkIfInWishlist();
+		$scope.Avibility();
 	}
 
+	///Avibility Checking////////////////////////////
+	
+	$scope.Avibility=function(){
+	  var baseUrl='php/album/album_view.php/';
+	 $http.get(baseUrl+'avibility/'+ $routeParams )
+	    .success(function(response) {
+	    	if (response['instock']==0  ){
+	    		$scope.noAvibility=true;
+	    	}
+	    	else{
+	    		$scope.inStock=true;
+	    		$scope.quantity=response['instock'];
+	    	}
+	    });
+	}
+	
 	$scope.countQty=function(upOrDown){
 		if(upOrDown=='up') {
 			$scope.Qty++;
