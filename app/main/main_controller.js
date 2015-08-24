@@ -2,8 +2,30 @@
 app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,$routeParams,mainFactory,productService) {
 
 
-    $scope.numberCartItem=0;
 
+    /** init
+     *  create variables and calls function on the page loading
+     *
+     *  @param voide
+     *  @return voide
+     *
+     */
+    $scope.init=function() {
+        $scope.numberCartItem = 0;
+        $scope.checkLogin();
+        $scope.getCategories();
+        $rootScope.getMyCartData();
+    }
+
+
+
+    /** search
+     *  ajax, http query.Searching a song name in data base
+     *
+     *  @param sting  - the word the user is looking for
+     *  @return void - if the qury success return the seaching results
+     *
+     */
     $scope.search=function(word){
         $scope.hideSearch=false;
         if(word.length > 2 ) {
@@ -17,10 +39,27 @@ app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,
         }
     }
 
+
+
+    /** goHome
+     *  path to the home page
+     *
+     *  @param void
+     *  @return voide
+     *
+     */
     $scope.goHome=function(){
         $location.url('/');
     }
 
+
+    /** showAlbum
+     *  http query for an album id by a song in that album, path this id to product page
+     *
+     *  @param void
+     *  @return change path to the product page and send it the a prodect id
+     *
+     */
     $scope.showAlbum=function(song){
         mainFactory.showAlbum(song).
             success(function(response) {
@@ -30,6 +69,14 @@ app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,
     }
 
 
+
+    /** getCategories
+     *  ajax, http query from the data base for all the categories
+     *
+     *  @param void
+     *  @return voide
+     *
+     */
     $scope.getCategories=function(){
         mainFactory.getCategories().
             success(function (categories) {
@@ -37,12 +84,29 @@ app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,
             });
     }
 
+
+
+    /** mouseLeave
+     *  Hiding the search result menu after 2 sec the mouse curso leave the menu
+     *
+     *  @param void
+     *  @return voide
+     *
+     */
     $scope.mouseLeave=function(){
         $timeout(function () {
             $scope.hideSearch = true;
         }, 2000);
     }
 
+
+    /** checkLogin
+     *  Checking if the user is login or not.And show/hide a selected navigation item.
+     *
+     *  @param void
+     *  @return void
+     *
+     */
     $scope.checkLogin=function(){
         mainFactory.checkLogin().
             success(function(bool) {
@@ -60,6 +124,14 @@ app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,
     }
 
 
+
+    /** logout
+     *  Asking the user if he wants to logout, if he does it  delete the sessions.
+     *
+     *  @param void
+     *  @return voide
+     *
+     */
     $scope.logout=function(){
         var r=confirm("Are you sure you want to log out ?");
         if(r) {
@@ -71,7 +143,13 @@ app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,
     }
 
 
-
+    /** getMyCartData
+     *  Get the cart data from the local storage
+     *
+     *  @param void
+     *  @return voide
+     *
+     */
     $rootScope.getMyCartData=function(){
         var myCart=localStorage.getItem("MyCart");
         if(myCart==null){
@@ -85,6 +163,13 @@ app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,
     }
 
 
+    /** checkIfAlbumInCart
+     * Check if a selected album is aleady save in the local storge
+     *
+     *  @param int - the selected album id
+     *  @return bool
+     *
+     */
     $rootScope.checkIfAlbumInCart=function(albumid){
         var myCart=angular.fromJson(localStorage.getItem("MyCart"));
         for(var key in myCart){
@@ -97,7 +182,7 @@ app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,
 
 
     $rootScope.addToCart=function(albumId,album) {
-        checkIfAlbumInCart=$rootScope.checkIfAlbumInCart(albumId);
+        var checkIfAlbumInCart=$rootScope.checkIfAlbumInCart(albumId);
         if(!checkIfAlbumInCart) {
             productService.mergeData(album, 'MyCart');
             alert("New album added to your cart");
@@ -109,6 +194,13 @@ app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,
     }
 
 
+    /** subtotal
+     *  Subtotal the price of the products in the cart
+     *
+     *  @param void
+     *  @return number, the total price
+     *
+     */
     $scope.subtotal=function(){
         var total=0;
         for(var key in $scope.myCart){
@@ -117,10 +209,8 @@ app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,
         return total;
     }
 
-    $scope.checkLogin();
-    $scope.getCategories();
-    $rootScope.getMyCartData();
 
+    $scope.init();
 
 }); //close formController
 

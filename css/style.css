@@ -13,31 +13,18 @@ body{
 
 #main{
     position: relative;
-    top:105px;
+    top:-5px;
 }
 
-header div:nth-child(1){
-    background-color:#FD0002 ;
-    height: 105px;
-    width:1320px ;
+#main_search_div{
     position: absolute;
-    left:-2px;
-    top: 47px;
-    cursor: pointer;
-}
-
-header label{
-    position: absolute;
-    left:240px;
-    color: white;
-    font-size: 85px;
-    font-family: Arial;
-    cursor: pointer;
+    left:-40px;
+    top:45px;
 }
 
 header input{
     background-image:url("../icons/magnifying.png");
-    background-size: 28px 28px;
+    background-size: 22px 22px;
     background-repeat:no-repeat;
     background-position: calc(100% - 10px);
     position: absolute;
@@ -47,6 +34,10 @@ header input{
     width: 315px;
     font-size: x-large;
     font-family:arial;
+}
+
+header img{
+    cursor: pointer;
 }
 
 ::-webkit-input-placeholder{
@@ -305,30 +296,11 @@ my-Menu a{
 
 #main_cart_bar{
     position: absolute;
-    right: 120px;
-    top:75px;
-    height: 50px;
-}
-
-#main_cart_bar img{
-    height: 50px;width:50px;
-}
-
-#main_cart_bar div:nth-child(1){
-    float: left;
-    color: white;
-    width: 50%;
-    height: 50px;
-    position: relative;
-    top:5px;
-}
-
-
-#main_cart_bar div:nth-child(2){
+    right: 220px;
+    top:82px;
     color:white;
-    position:absolute ;
-    right: 95px;top:10px;
 }
+
 
 #main_search_div{
     position:absolute;

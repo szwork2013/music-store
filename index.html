@@ -51,9 +51,7 @@
     </nav>
 
     <header>
-        <div ng-click="goHome('/')">
-            <label>MUSIC</label>
-        </div>
+        <img  ng-click="goHome('/')" src="icons/header.png"/>
         <div id='main_search_div'>
             <input type="text" placeholder="Search" ng-model="word"  ng-keyup="search(word)"/>
             <div id='results' ng-init="hideSearch=true" ng-hide="hideSearch"  ng-mouseleave="mouseLeave()">
@@ -68,9 +66,7 @@
             </div>
         </div>
         <div id="main_cart_bar">
-            <div>Welcome to our online store!</div>
-            <div>{{numberCartItem}}</div>
-            <img src="icons/black-cart.png"/>
+           {{numberCartItem}}
         </div>
     </header>
 
