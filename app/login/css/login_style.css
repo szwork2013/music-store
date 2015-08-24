@@ -2,31 +2,43 @@ body{
 	overflow:hidden;
 }
 
+#main_container{
+	width:1320px ;
+	height: auto;
+	position: relative;
+	margin: auto;
+}
+#container{
+	position: absolute;
+	top:140px;
+	margin-left:100px;
+
+}
+
 .error{
 	background-color:rgb(250,235,232);
 	border:red dotted 1px;
 }
 
 header{
-	background-color:#FD0002 ;
-	height: 105px;
-	width: 100%;
 	position: absolute;
 	left:-2px;
-	top: 47px;
+	top:45px;
 }
 
-header label{
+header img{
+	cursor: pointer;
+}
+
+#main_search_div{
 	position: absolute;
-	left:240px;
-	color: white;
-	font-size: 85px;
-	font-family: Arial;
+	left:-40px;
+	top:-2px;
 }
 
 header input{
 	background-image:url("../../../icons/magnifying.png");
-	background-size: 28px 28px;
+	background-size: 22px 22px;
 	background-repeat:no-repeat;
 	background-position: calc(100% - 10px);
 	position: absolute;
@@ -35,6 +47,7 @@ header input{
 	height: 35px;
 	width: 315px;
 	font-size: x-large;
+	font-family:arial;
 }
 
 ::-webkit-input-placeholder{
@@ -44,18 +57,15 @@ header input{
 
 
 nav{
-	position: fixed;
-	top:0px;
-	left:-2px;
 	background: #FFFFFF;
 	height: 47px;
-	width: 100%;
+	width:1320px;
 	z-index: 1;
 }
 
 nav ul{
-	position: fixed;
-	left:357px;
+	position: absolute;
+	left:300px;
 }
 
 
@@ -66,6 +76,7 @@ nav li{
 	margin-left:15px;
 	list-style-type: none;
 	font-size: larger;
+	cursor: pointer;
 }
 
 a{
@@ -81,13 +92,7 @@ nav a:hover{
 	color:red
 }
 
-#container{
-	width:1100px;
-	height:400px;
-	margin:0 auto;
-	position: relative;
-	top:140px;
-}
+
 .header{
 	background-color:white;
 	font-family:arial;
@@ -159,7 +164,7 @@ form{
 	font-size:12px;
 
 }
-input{
+#right input{
 	width:350px;
 	height:25px;
 }
@@ -172,7 +177,7 @@ input{
 	cursor:pointer;
 	font-size:12px;
 	position:absolute;
-	top:280px;
+	top:300px;
 	border: none;
 
 }

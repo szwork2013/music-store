@@ -21,7 +21,7 @@ app.config( function( $routeProvider ) {
             controller  : 'productController'
         })
         
-        .when( '/checkout/', {
+        .when( '/checkout', {
             templateUrl : 'app/checkout/checkout.html',
             controller  : 'checkOutController'
         })

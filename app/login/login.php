@@ -20,23 +20,36 @@ $login->checkLogin();;
 <body ng-app='myApp' ng-controller='ctrl' >
 
 
+<div id="main_container">
 	<header>
-		<label>MUSIC</label>
-		<input type="text" placeholder="Search"/>
+		<img   src="../../icons/header.png"/>
+		<div id='main_search_div'>
+			<input type="text" placeholder="Search" ng-model="word"  ng-keyup="search(word)"/>
+			<div id='results' ng-init="hideSearch=true" ng-hide="hideSearch"  ng-mouseleave="mouseLeave()">
+				<ul>
+					<li ng-repeat='result in resuls'  ng-click='showAlbum(result.song_name)|limitTo:6' >
+						<img ng-src="images/{{result.image_path}}" />
+						<span><strong>{{result.song_name}}</strong></span><br/>
+						<span>{{result.album_artist}}</span><br/>
+						<span>Released on {{result.album_release_year}}</span>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</header>
 
 	<nav>
 		<ul>
 			<li><a href="../../index.html">Home</a></li>
 			<li><a>My Wishlist</a></li>
-			<li><a href="../#checkout">Checkout</a></li>
+			<li><a href="../../index.html#/checkout">Checkout</a></li>
 			<li><a href="login.php">Login</a></li>
 		</ul>
 	</nav>
 
 
 
-	<div id='container' ng-keydown="closeIt($event)">
+<div id='container' ng-keydown="closeIt($event)">
 		<div class='header'>
 			<p>Login or Create an Account</p>
 		</div>
@@ -140,6 +153,6 @@ $login->checkLogin();;
 		
 	</div>
 	<div class='footer'></div>
-	
+</div>
 </body>
 </html>

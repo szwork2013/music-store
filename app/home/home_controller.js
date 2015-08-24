@@ -90,7 +90,9 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
      *
      */
     $scope.addToCart=function(index) {
-        $rootScope.addToCart($scope.albums[index].album_id , $scope.albums[index]);
+        var album=$scope.albums[index];
+        album['qty']=1;
+        $rootScope.addToCart(album.album_id ,album);
     }
 
 
