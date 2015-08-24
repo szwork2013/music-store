@@ -26,7 +26,6 @@ class LoginController{
 			$success = $this->login->checking($_SESSION['email'], $_SESSION['password']);
 			if (mysqli_num_rows($success) > 0) {
 				echo true;
-				header('Location: ../../index.html');
 			} else {
 				echo false;
 			}

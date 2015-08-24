@@ -1,11 +1,8 @@
 <?php
-include_once(dirname(__FILE__) . '/php/loginController.php');
+include_once(dirname(__FILE__) . '/../../view_controller.php');
 session_start();
-
-if( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
-	$login = new LoginController();
-	$login->checkLogin();;
-}
+$login = new viewController();
+$login->checkLogin();;
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +28,6 @@ if( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
 	<nav>
 		<ul>
 			<li><a href="../../index.html">Home</a></li>
-			<li><a>My Account</a></li>
 			<li><a>My Wishlist</a></li>
 			<li><a href="../#checkout">Checkout</a></li>
 			<li><a href="login.php">Login</a></li>

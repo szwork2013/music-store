@@ -23,12 +23,8 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 
 
 
-
-
-
-	
 	$scope.Avibility=function(){
-		productFactory.Avibility($routeParams.id )
+		productFactory.avibility($routeParams.id )
 	    .success(function(response) {
 	    	console.log(response);
 	    	if (response['instock']==0 || response['instock']==null  ){

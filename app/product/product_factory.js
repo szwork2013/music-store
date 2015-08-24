@@ -8,7 +8,7 @@ app.factory('productFactory',function($http){
         return $http.get(baseUrl+'album/'+id);
     }
 
-    productFactory.Avibility=function(id){
+    productFactory.avibility=function(id){
         return $http.get(baseUrl+'avibility/'+ id );
     }
 
