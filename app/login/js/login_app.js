@@ -7,7 +7,7 @@
 	app.controller('ctrl',function($scope,$http,$window,LoginFactory,Facebook){
 		$scope.flag=true;
 
-		
+
 		//$scope.valdiateLengthPassword=function(){
 		//	if($scope.password.length <6 &&  $scope.password.length>0){
 		//		$scope.toSmall=true;
@@ -22,6 +22,28 @@
 		//		$scope.toBig=false;
 		//	}
 		//}
+
+		$scope.valdiatePassword=function(){
+			
+			if($scope.password.length <6 &&  $scope.password.length>0){
+				$scope.toSmall=true;
+			}
+			else{
+				$scope.toSmall=false;
+			}
+			if($scope.password.length >8){
+				$scope.toBig=true;
+			}
+			else{
+				$scope.toBig=false;
+			}
+			
+			
+			$scope.isOneCapital= (/[A-Z]/.test($scope.password)?false:true);
+			
+			
+		}
+
 		
 		$scope.valdiateRePassword=function(){
 			if ($scope.password!=$scope.repassword){
@@ -32,7 +54,17 @@
 			}
 		}
 
+		
+		$scope.valdiateFirstName=function(){
+			$scope.lengthFirstName = ($scope.firstname.length>=2 && $scope.firstname.length <=12 ? false : true);
+		}
 
+		$scope.valdiateLastName=function(){
+			$scope.lengthLastName = ($scope.lastname.length>=2 && $scope.lastname.length <=12 ? false : true);
+		}
+
+		
+		
 		$scope.login=function(){
 			var loginInfo={'email': $scope.loginEmail,
 				          'password':$scope.loginPassword};
@@ -45,6 +77,8 @@
 
 
 		$scope.registration=function(){
+			
+		
 			var userInfo={'firstname': $scope.firstname,
 				  			'lastname': $scope.lastname,
 				  			'email': $scope.email,
@@ -55,6 +89,7 @@
 				    console.log(response);
 			  });
 			$scope.regist=false;
+			
 		}
 
 

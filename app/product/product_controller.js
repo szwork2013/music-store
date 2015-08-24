@@ -1,6 +1,6 @@
 
 
-app.controller( 'productController', function($scope,$rootScope,$location,$routeParams,productFactory,productService) {
+app.controller( 'productController', function($http,$scope,$rootScope,$location,$routeParams,productFactory,productService) {
 
 
 	/** init
@@ -18,8 +18,30 @@ app.controller( 'productController', function($scope,$rootScope,$location,$route
 		$scope.disableHeartBtn = false;
 		$scope.getProducts();
 		$scope.checkIfInWishlist();
+		$scope.Avibility();
 	}
 
+
+
+
+
+
+	///Avibility Checking////////////////////////////
+	
+	$scope.Avibility=function(){
+	  var baseUrl='php/album/album_view.php/';
+	 $http.get(baseUrl+'avibility/'+ $routeParams.id )
+	    .success(function(response) {
+	    	console.log(response);
+	    	if (response['instock']==0 || response['instock']==null  ){
+	    		$scope.noAvibility=true;
+	    	}
+	    	else{
+	    		$scope.inStock=true;
+	    		$scope.quantity=response['instock'];
+	    	}
+	    });
+	}
 
 
 	/** countQty
@@ -58,8 +80,6 @@ app.controller( 'productController', function($scope,$rootScope,$location,$route
 
 
 	//////////////////////////   Local Storage manage    /////////////////////////////////
-
-
 
 	/** addToWishlist
 	 *  Add  a new selected produsct(album) to the wishlist
