@@ -1,0 +1,86 @@
+
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Store</title>
+    <link rel="shortcut icon" href="icons/Music-icon.png" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <!---------------  Libs ------------------->
+    <script src="lib/angularJs/angular.js"></script>
+    <script src="lib/angularJs/angular-route.js"></script>
+	<script src="lib/angularJs/angularAnimate.js"></script>
+
+    <!-- ------------- main js---------------->
+    <script src="app/main/route.js"></script>
+    <script src="app/main/main_controller.js"></script>
+    <script src="app/main/main_directive.js"></script>
+    <script src="app/main/main_factory.js"></script>
+
+    <!-- ---------------home js------------------->
+    <script src="app/home/home_controller.js"></script>
+    <script src="app/home/home_factory.js"></script>
+
+    <!--------------- category js ---------------->
+    <script src="app/category/category_controller.js"></script>
+    <script src="app/category/category_factory.js"></script>
+
+    <!------------------ product js ---------------->
+    <script src="app/product/product_controller.js"></script>
+    <script src="app/product/product_factory.js"></script>
+    <script src="app/product/product_service.js"></script>
+
+    <!------------------- checkout js-------->
+    <script src="app/checkout/checkout_controller.js"></script>
+
+   
+</head>
+<body ng-controller="mainController">
+
+<div id="full_container">
+    <nav id="mainNav">
+        <ul>
+            <li><a href="#/">Home</a></li>
+            <li><a>My Account</a></li>
+            <li><a>My Wishlist</a></li>
+            <li><a href="#checkout">Checkout</a></li>
+            <li><a href="app\login\login.php">Login</a></li>
+            <li>Logout</li>
+        </ul>
+    </nav>
+
+    <header>
+        <div>
+            <label>MUSIC</label>
+        </div>
+        <div id='main_search_div'>
+            <input type="text" placeholder="Search"/>
+            <div id='results'>
+                <ul>
+                    <li>
+                        <img ng-src=" " />
+                        <span><strong></strong></span><br/>
+                        <span></span><br/>
+                        <span>Released on </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="main_cart_bar">
+            <div>Welcome to our online store!</div>
+            <div></div>
+            <img src="icons/black-cart.png"/>
+        </div>
+    </header>
+
+
+
+    <div id="main" ng-view></div>
+
+
+
+</div>
+
+</body>
+</html>
