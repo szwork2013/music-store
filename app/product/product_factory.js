@@ -8,6 +8,9 @@ app.factory('productFactory',function($http){
         return $http.get(baseUrl+'album/'+id);
     }
 
+    productFactory.Avibility=function(id){
+        return $http.get(baseUrl+'avibility/'+ id );
+    }
 
     return productFactory;
 }); //close productFactory

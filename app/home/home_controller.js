@@ -3,7 +3,15 @@
 
 app.controller( 'homeController', function($scope, $rootScope,$timeout,$location,$routeParams,HomeFactory,productService,$http) {
 
-    
+
+
+    /** init
+     *  create variables and calls function on the page loading
+     *
+     *  @param voide
+     *  @return voide
+     *
+     */
     $scope.init=function() {
         $scope.page= 2;
         $scope.items = [];
@@ -63,7 +71,7 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
 
 
     /** goToProductPage
-     *  path to the product page
+     *  path to a selected product page
      *
      *  @param int the product id
      *  @return voide

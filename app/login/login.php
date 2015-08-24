@@ -33,7 +33,7 @@ if( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
 			<li><a href="../../index.html">Home</a></li>
 			<li><a>My Account</a></li>
 			<li><a>My Wishlist</a></li>
-			 <li><a href="../#checkout">Checkout</a></li>
+			<li><a href="../#checkout">Checkout</a></li>
 			<li><a href="login.php">Login</a></li>
 		</ul>
 	</nav>
@@ -46,7 +46,7 @@ if( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
 		</div>
 		<div id='left'>
 			<p class='title'>NEW CUSTOMERS</p>
-			<hr width="460">
+			<hr>
 			<p class='gray'>By creating an account with our store,you will be able</p>
 			<p class='gray'>to move through the checkout process faster,store multiple </p>
 			<p class='gray'>shipping addresses,view and track your orders in your account and more.</p>
@@ -72,9 +72,7 @@ if( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
 					<input type='password' name="loginPassword" ng-model="loginPassword" ng-class="{ 'notvalid':loginForm.loginPassword.$error.required && loginForm.loginPassword.$dirty}" required>
 					<span class='feedback' ng-show="loginForm.loginPassword.$error.required && loginForm.loginPassword.$dirty">Password is required.</span>
 				</div>
-			
-				<br>
-				<br>
+
 				<button  ng-disabled="loginForm.loginPassword.$dirty && loginForm.loginPassword.$invalid ||  
 				loginForm.loginEmail.$dirty && loginForm.loginEmail.$invalid || loginForm.loginPassword.$pristine 
 				|| loginForm.loginEmail.$pristine" class='submit' ng-click="login()" >Login</button> 
@@ -88,7 +86,8 @@ if( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
 			<p style='text-align:center;color:gray;clear:both'>Resitration</p>
 			
 
-			<form name="formRegistration"   novalidate >
+
+			<form name="formRegistration"  novalidate >
 				<p class='register-title'>Profile Information</p>
 
 				<div class="group">
@@ -140,7 +139,6 @@ if( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
 					|| formRegistration.password.$error.required || formRegistration.repassword.$error.required || toSmall || toBig || notEqual  || isOneCapital ||  lengthLastName || lengthFirstName "
 					>Register</button>
 				</div>
-
 			</form>
 		</div>
 		

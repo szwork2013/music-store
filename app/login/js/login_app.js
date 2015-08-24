@@ -7,7 +7,22 @@
 	app.controller('ctrl',function($scope,$http,$window,LoginFactory,Facebook){
 		$scope.flag=true;
 
-		
+
+		//$scope.valdiateLengthPassword=function(){
+		//	if($scope.password.length <6 &&  $scope.password.length>0){
+		//		$scope.toSmall=true;
+		//	}
+		//	else{
+		//		$scope.toSmall=false;
+		//	}
+		//	if($scope.password.length >8){
+		//		$scope.toBig=true;
+		//	}
+		//	else{
+		//		$scope.toBig=false;
+		//	}
+		//}
+
 		$scope.valdiatePassword=function(){
 			
 			if($scope.password.length <6 &&  $scope.password.length>0){
@@ -28,6 +43,7 @@
 			
 			
 		}
+
 		
 		$scope.valdiateRePassword=function(){
 			if ($scope.password!=$scope.repassword){
