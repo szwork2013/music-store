@@ -382,7 +382,7 @@ h3{
     color:red;
 }
 
-#product-title{
+#product-right h1{
     color:gray;
     font-family:arial;
 }
@@ -429,6 +429,7 @@ h3{
 }
 
 #product-details{
+    font-family:arial;
     width:900px;
     height:40px;
     background-color: white;

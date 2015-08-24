@@ -17,10 +17,10 @@
 	</div>
 	
 	<div id='product-right'>
-		<h1 ng-bind="album.album" id='product-title'></h1>
+		<h1 ng-bind="album.album_name"></h1>
 		<h2>Availability: </h2>
-		<span id='product-in-stock' ng-show='noAvibility' style='color:red'>out of stock</span>
-		<span id='product-in-stock' ng-show='inStock' style='color:green'>in Stock</span>
+		<span ng-show='noAvibility' style='color:red'>out of stock</span>
+		<span ng-show='inStock' style='color:green'>in Stock</span>
 		<hr>
 		<p ng-show='inStock'>only <span ng-bind='quantity'> </span> available...<p>
 		<h1>{{album.price | currency}}</h1>
@@ -39,7 +39,7 @@
 		<button id='product-button' ng-click="addToCart()">Add To Cart</button>
 	</div>
 	
-	<div id='product-details'  style='font-family:arial'>Details</div>
+	<div id='product-details'>Details</div>
 	<br>
 	<div id='product-down'>
 		<div>{{album.album_long_description}}</div>

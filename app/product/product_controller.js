@@ -26,11 +26,9 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 
 
 
-	///Avibility Checking////////////////////////////
 	
 	$scope.Avibility=function(){
-	  var baseUrl='php/album/album_view.php/';
-	 $http.get(baseUrl+'avibility/'+ $routeParams.id )
+		productFactory.Avibility($routeParams.id )
 	    .success(function(response) {
 	    	console.log(response);
 	    	if (response['instock']==0 || response['instock']==null  ){
@@ -73,6 +71,7 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 		$scope.id = $routeParams.id;
 		productFactory.getProducts($scope.id)
 			.success(function (album) {
+				console.log(album);
 				$scope.album= album;
 			});
 	}
