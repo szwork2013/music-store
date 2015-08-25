@@ -7,7 +7,7 @@
 <div>
     <h2 class="path"><a href="#/"> Home > </a><a id="youAreHere">{{albumCategory}}</a></h2>
         <div id="category_container">
-            <h3>{{albumCategory}} (item count)</h3>
+            <h3>{{albumCategory}} - Albums quantity :{{quantity}}</h3>
             <div class="album_container"  ng-repeat="album in category|limitTo:6">
                 <img  ng-src="images/{{album.image_path}}">
                 <div>
