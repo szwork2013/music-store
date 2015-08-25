@@ -9,6 +9,51 @@ $login->checkLogin();;
 <html>
 
 <head>
+<style>
+#preloader{
+	top:-200px;
+	left:50px;
+	position:relative;
+}
+
+@keyframes example {
+    from {width: 400px;height:300px}
+    to {width: 250px;height:100px}
+}
+.registration-third{
+    width: 100px;
+	height:100px;
+    background-color: silver;
+    animation-name: example;
+    animation-duration: 1s;
+	margin-top:100px;
+	margin:0 auto;
+}
+	.registration-second { 
+		opacity:0.5;
+		background-color:silver;
+		width:400px;
+		height:300px;
+		margin-top:100px;
+		margin:0 auto;
+		
+	}
+	.registration-first{
+		background-color:silver;
+		width:600px;
+		height:300px;
+		margin-top:100px;
+		margin:0 auto;
+	}
+	
+
+
+</style>
+
+
+
+
+
 	<title>Music Store - Login</title>
 	<link rel="shortcut icon" href="../../icons/Music-icon.png" />
 	<link rel="stylesheet" href="css/login_style.css">
@@ -60,7 +105,7 @@ $login->checkLogin();;
 			<p class='gray'>to move through the checkout process faster,store multiple </p>
 			<p class='gray'>shipping addresses,view and track your orders in your account and more.</p>
 			<br>
-			<button ng-click='regist=true'>Create An Account</button>
+			<button ng-click='start()'>Create An Account</button>
 			<img id="fb" src="icons/fb.png" ng-click="FBlogin()">
 		</div>
 		
@@ -72,13 +117,13 @@ $login->checkLogin();;
 			<form name="loginForm"   ng-show="flag" class="sample"  action=""  novalidate >
 				<div>
 					<p class='form-title'>Email Address<span style='color:red'> *</span></p>
-					<input type='email' name="loginEmail" ng-model="loginEmail" ng-class="{ 'notvalid': loginForm.loginEmail.$error.required && loginForm.loginEmail.$dirty}" required>
+					<input type='email' name="loginEmail"  ng-model="loginEmail" ng-class="{ 'notvalid': loginForm.loginEmail.$error.required && loginForm.loginEmail.$dirty}" required>
 					<span class='feedback' ng-show="loginForm.loginEmail.$error.required && loginForm.loginEmail.$dirty">Email is required.</span>
 					<span  class='feedback' ng-show="loginForm.loginEmail.$error.email  && loginForm.loginEmail.$dirty">Invalid email address.</span>
 				</div>
 				<div>
 					<p class='form-title'>Password<span style='color:red'> *</span></p>
-					<input type='password' name="loginPassword" ng-model="loginPassword" ng-class="{ 'notvalid':loginForm.loginPassword.$error.required && loginForm.loginPassword.$dirty}" required>
+					<input type='password'  id='loginpsw' name="loginPassword" ng-model="loginPassword" ng-class="{ 'notvalid':loginForm.loginPassword.$error.required && loginForm.loginPassword.$dirty}" required>
 					<span class='feedback' ng-show="loginForm.loginPassword.$error.required && loginForm.loginPassword.$dirty">Password is required.</span>
 				</div>
 
@@ -90,13 +135,13 @@ $login->checkLogin();;
 		</div>
 		
 		
-		<div id='register' ng-show='regist' ng-init="regist=false">
-			<div ng-click='regist=false'  id='close-registration'>X</div>
-			<p style='text-align:center;color:gray;clear:both'>Resitration</p>
+		<div id='register' ng-show='regist' ng-init="regist=false" ng-class="{ 'registration-first':regFirst, 'registration-second':regSecond ,'registration-third': regThird}">
+			<div ng-click='regist=false'  id='close-registration' ng-show='regist'>X</div>
+			<p style='text-align:center;color:gray;clear:both' ng-bind='msg'>Registration</p>
 			
 
-
-			<form name="formRegistration"  novalidate >
+			
+			<form name="formRegistration"  novalidate ng-show='form' >
 				<p class='register-title'>Profile Information</p>
 
 				<div class="group">
@@ -149,6 +194,7 @@ $login->checkLogin();;
 					>Register</button>
 				</div>
 			</form>
+			<img ng-src='icons/720.gif' ng-show='img' id='preloader'>
 		</div>
 		
 	</div>
