@@ -2,7 +2,11 @@
 
 
 app.controller( 'categoryController', function($scope,$rootScope,$route,$location,$routeParams,categoryFactory,productService) {
+	
+	 
 
+	
+	
     $scope.init=function() {
         $scope.category_id;
         $scope.albumCategory = $routeParams.categoryName;

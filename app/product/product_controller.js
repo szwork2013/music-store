@@ -3,6 +3,7 @@
 app.controller( 'productController', function($http,$scope,$rootScope,$location,$routeParams,productFactory,productService) {
 
 
+
 	/** init
 	 *  create variables and calls function on the page loading
 	 *
@@ -10,6 +11,7 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 	 *  @return voide
 	 *
 	 */
+
 	$scope.init=function() {
 		$scope.Qty = 0;
 		$scope.heart = 'emptyHeart';
@@ -68,6 +70,7 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 		productFactory.getProducts($scope.id)
 			.success(function (album) {
 				$scope.album= album;
+				console.log(album);
 			});
 	}
 

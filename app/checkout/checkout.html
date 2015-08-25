@@ -1,6 +1,9 @@
 <style>
 
-
+.error{
+	background-color:rgb(250,235,232);
+	border:red dotted 1px;
+}
 #checkout-ul li{
 	
 	width:680px;
@@ -87,8 +90,8 @@
 	margin-left:15px;
 }
 #checkout_digit{
-	left:350px;
-	margin-top:-100px;
+	left:550px;
+	margin-top:-200px;
 	position:absolute;
 }
 .black{
@@ -191,31 +194,45 @@
 					<form name='billingForm'   novalidate >
 						<p>Address<span style='color:red'>*</span></p>
 						
-						<input type='text' id='checkout-address' name='address' ng-model= 'address' required>
+						<input type='text' id='checkout-address' name='address' ng-model= 'address' required ng-keyup="valdiateAdress()"
+						ng-class="{ 'error':  billingForm.address.$error.required || addresserror}">
+						
 						<p class='feedback' style='font-size:8px' ng-show="billingForm.address.$error.required " >This is a required field.</p>
+						<p class='feedback' style='font-size:8px' ng-show="addresserror" >Has to contain street name and house number.</p>
 						
 						
 						<p>City<span style='color:red'>*</span><span style='margin-left:250px'>Zip/Postal Code</span><span style='color:red'>*</span></p>
 						
 						
-						<input type='text' id='checkout-city' name='city' ng-model= 'city' required>
+						<input type='text' id='checkout-city' name='city' ng-model= 'city' required ng-keyup="valdiateCity()" 
+						ng-class="{ 'error':  billingForm.city.$error.required || cityerror}">
 						
 						
-						<input type='text' id='checkout-zip' name='zip' ng-model= 'zip' required>
+						<input type='text' id='checkout-zip' name='zip' ng-model= 'zip' required
+						ng-class="{ 'error':  billingForm.zip.$error.required }">
+						
 						<p class='feedback' style='font-size:8px' ng-show="billingForm.zip.$error.required " id='checkout-zip-feedback' >This is a required field.</p>
 					
 						<p class='feedback' style='font-size:8px' ng-show="billingForm.city.$error.required " >This is a required field.</p>
+						<p class='feedback' style='font-size:8px' ng-show="cityerror" >Use only English and minimum 3 notes.</p>
 						
 						<p>Telephone<span style='color:red'>*</span></p>
 						
-						<input type='text' id='checkout-telephone' name='telephone'  ng-model='telephone' required>
+						<input type='text' id='checkout-telephone' name='telephone'  ng-model='telephone' required ng-keyup="valdiatePhone()"
+						ng-class="{ 'error': billingForm.telephone.$error.required || phoneerror }">
+						
 						<p class='feedback' style='font-size:8px' ng-show="billingForm.telephone.$error.required " >This is a required field.</p>
+						<p class='feedback' style='font-size:8px' ng-show="phoneerror" >Not a valid phone number.</p>
 						
 						<p style='color:red'>Requierd Fields*</p>
 						
 						<button class='checkout-continue' ng-click='billingFunc()'
 						ng-disabled='billingForm.address.$error.required || billingForm.zip.$error.required  || 
-						billingForm.city.$error.required || billingForm.telephone.$error.required'>Continue</button>
+						billingForm.city.$error.required || billingForm.telephone.$error.required     
+						|| addresserror || cityerror || phoneerror
+						
+						
+						'>Continue</button>
 					</form>
 						
 				</div>
@@ -235,38 +252,61 @@
 					
 					<form ng-show="content == 'credit_card'" name='paymentForm'>
 						<p>Name on Card<span style='color:red'> *</span></p>
-						<input type='text' name='name_on_card' ng-model='name_on_card' required>
+						<input type='text' name='name_on_card' ng-model='name_on_card' required ng-keyup="valdiateName()"
+						ng-class="{ 'error':  paymentForm.name_on_card.$error.required || nameerror }">
+						
 						<span ng-show='paymentForm.name_on_card.$error.required' class='feedback'>This field is required.</span>
+						<span ng-show='nameerror' class='feedback'>Must contain first and last name.</span>
+						
 						
 						<p>Credit Card Type<span style='color:red'> *</span></p>
-						<select id='checkout_card' name='card_type' ng-model='card_type'  >
+						<select id='checkout_card' name='card_type' ng-model='card_type'  required
+						ng-class="{ 'error':  paymentForm.card_type.$error.required}">
+						
+							<option value="" disabled selected>Chose credit company</option>
 							<option>Visa</option>
 							<option>Master Card</option>
 						</select>
+						<span ng-show='paymentForm.card_type.$error.required' class='feedback'>This field is required.</span>
 						
 						<p>Credit Card Number<span style='color:red'> *</span></p>
-						<input type='text' name='card_number' ng-model='card_number'  required >
-						<span ng-show='paymentForm.card_number.$error.required' class='feedback'>This field is required.</span><br>
+						<input type='text' name='card_number' ng-model='card_number'  required  ng-keyup="validateCardNumber()" 
+						ng-class="{ 'error': paymentForm.card_number.$error.required || carderror }">
+						
+						<span ng-show='paymentForm.card_number.$error.required' class='feedback'>This field is required.</span>
+						<span ng-show='carderror' class='feedback'>Must contain 16 digit.</span><br>
 						
 						<p>Expiration Date<span style='color:red'> *</span></p>
-						<input type='date' name='expiration' ng-model='expiration' required >
-						<span ng-show='paymentForm.expiration.$error.required' class='feedback'>This field is required.</span><br>
+						<input type='text' name='expiration' ng-model='expiration' required  ng-keyup="validateDate()"
+						ng-class="{ 'error': paymentForm.expiration.$error.required || dateerror }">
+						
+						<span ng-show='paymentForm.expiration.$error.required' class='feedback'>This field is required.</span>
+						<span ng-show='dateerror' class='feedback'>Use this format MM-YYYY.</span><br>
 						
 						<p>Card Verifaction<span style='color:red'> *</span></p>
-						<input type='text' name='verifaction' ng-model='verifaction' id='checkout_verifaction' required><span style='font-size:12px;cursor:help' ng-mouseover='x=true'> What is this?</span>
-						<span ng-show='paymentForm.verifaction.$error.required' class='feedback'>This field is required.</span><br>
+						<input type='text' name='verifaction' ng-model='verifaction' id='checkout_verifaction' required ng-keyup="validateVerifaction()"
+						ng-class="{ 'error': paymentForm.verifaction.$error.required || verifactionerror }">
+						
+						<span style='font-size:12px;cursor:help' ng-mouseover='x=true'> What is this?</span>
+						<span ng-show='paymentForm.verifaction.$error.required' class='feedback'>This field is required.</span>
+						<span ng-show='verifactionerror' class='feedback'>Has to be 3 digit.</span>
 						
 						<img ng-show='x' src='icons/digit.jpg' id='checkout_digit'>
+						
 						<button class='checkout-continue' ng-click='paymentFunc("credit")'
-					ng-disabled='paymentForm.name_on_card.$error.required || paymentForm.name_on_card.$error.required
-					||paymentForm.card_number.$error.required ||paymentForm.expiration.$error.required
-					||paymentForm.verifaction.$error.required'>Continue</button>
+					ng-disabled='paymentForm.name_on_card.$error.required ||
+								paymentForm.card_number.$error.required ||
+								paymentForm.expiration.$error.required ||
+								paymentForm.verifaction.$error.required ||
+								nameerror || carderror || verifactionerror||dateerror
+								||paymentForm.card_type.$error.required
+					'>Continue</button>
 						
 					</form>
 					
 					
 				</div>
-				
+			
 				
 			
 			
