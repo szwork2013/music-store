@@ -2,10 +2,7 @@
 
 
 app.controller( 'categoryController', function($scope,$rootScope,$route,$location,$routeParams,categoryFactory,productService) {
-	
-	 
 
-	
 	
     $scope.init=function() {
         $scope.category_id;
@@ -26,6 +23,10 @@ app.controller( 'categoryController', function($scope,$rootScope,$route,$locatio
         $location.path('/product/' +id);
     }
 
+
+
+
+
     /** categoryInfo
      *  Ajax http query for the selected category
      *
@@ -37,7 +38,6 @@ app.controller( 'categoryController', function($scope,$rootScope,$route,$locatio
         categoryFactory.categoryInfo($scope.category_id).
             success(function (data) {
                 $scope.category=data;
-                console.log(data);
             });
     }
 

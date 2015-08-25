@@ -70,7 +70,6 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 		productFactory.getProducts($scope.id)
 			.success(function (album) {
 				$scope.album= album;
-				console.log(album);
 			});
 	}
 

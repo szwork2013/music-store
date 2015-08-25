@@ -1,5 +1,5 @@
 
-app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,$routeParams,mainFactory,productService) {
+app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$location,$routeParams,mainFactory,productService) {
 
 
 
@@ -51,6 +51,14 @@ app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,
     $scope.goHome=function(){
         $location.url('/');
     }
+
+
+    $scope.goCategory=function(categoryName,categoryId,index){
+        $scope.liActive=index;
+        $location.url('/category/'+categoryName+'/'+categoryId);
+    }
+
+
 
 
     /** showAlbum

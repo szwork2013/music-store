@@ -1,15 +1,9 @@
-<style>
-
-
-</style>
-
-
-
-
 
 
 <nav id="myNav">
     <ul>
-        <li class='category' ng-repeat="category in categories" ><a href="#category/{{category.genre_name}}/{{category.genre_id}}">{{category.genre_name}}</a></li>
+        <li class='category' ng-repeat="category in categories"   ng-click="goCategory(category.genre_name,category.genre_id,$index)"  ng-class="{categoryLiActive:liActive==$index}">
+            {{category.genre_name}}
+        </li>
     </ul>
 </nav>

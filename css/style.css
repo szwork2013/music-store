@@ -108,13 +108,15 @@ my-Menu li{
     background-color:#FD0002 ;
     border-bottom: solid white 1px;
     padding: 7px;
+    color:white;
+    font-size: x-large;
 }
 
 my-Menu li:hover {
     -webkit-animation: PopIt 0.5s;
     -webkit-transform: scale(1.1,1.1);
     transform:scale(1.1,1.1);
-	background-color:black;
+    background-color: darkred;
 }
 
 @-webkit-keyframes PopIt {
@@ -123,11 +125,9 @@ my-Menu li:hover {
 }
 
 
-my-Menu a{
-    color:white;
-    font-size: x-large;
+.categoryLiActive{
+    background-color: black;
 }
-
 
 
 .container{
@@ -321,7 +321,6 @@ my-Menu a{
 .path a{
     color:black;
     font-family:Courier New;
-
 }
 
 #youAreHere{
