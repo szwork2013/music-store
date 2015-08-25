@@ -38,11 +38,6 @@ app.controller( 'categoryController', function($scope,$rootScope,$route,$locatio
         categoryFactory.categoryInfo($scope.category_id).
             success(function (data) {
                 $scope.category=data;
-<<<<<<< HEAD
-=======
-                $scope.quantity=data.length;
-                
->>>>>>> b71015118a5653211e3a2d208cd62b208fc392d7
             });
     }
 
