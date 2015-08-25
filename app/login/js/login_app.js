@@ -55,8 +55,14 @@
 			$scope.lengthLastName = ($scope.lastname.length>=2 && $scope.lastname.length <=12 ? false : true);
 		}
 
-		
-		
+
+		/** login
+		 *  Get the input values (password and email) and ajax ,http query, for check if the user is registered before.
+		 *
+		 *  @param voide
+		 *  @return refresh th page for check if there is any session created.
+		 *
+		 */
 		$scope.login=function(){
 			var loginInfo={'email': $scope.loginEmail,
 				          'password':$scope.loginPassword};
@@ -68,9 +74,21 @@
 		}
 
 
+
+		/** registration
+		 *  Get the input values and ajax ,http query, insert new user to the database.
+		 *
+		 *  @param voide
+		 *  @return refresh th page for check if there is any session created.
+		 *
+		 */
+
 		$scope.registration=function(){
+<<<<<<< HEAD
+=======
 			$scope.img=true;
 			$scope.regSecond=true;
+>>>>>>> b71015118a5653211e3a2d208cd62b208fc392d7
 			var userInfo={'firstname': $scope.firstname,
 				  			'lastname': $scope.lastname,
 				  			'email': $scope.email,
@@ -101,6 +119,10 @@
 					},4000);
 				  
 			  });
+<<<<<<< HEAD
+			$scope.regist=false;
+=======
+>>>>>>> b71015118a5653211e3a2d208cd62b208fc392d7
 		}
 
 
@@ -110,6 +132,16 @@
 
 		$scope.fbInfo={};
 
+
+
+
+		/** FBlogin
+		 *  Check if the user is connected with facebook or not.
+		 *
+		 *  @param voide
+		 *  @return void
+		 *
+		 */
 		$scope.FBlogin = function() {
 			Facebook.login(function(response) {
 				if(response.status === 'connected') {
@@ -123,6 +155,16 @@
 			},{scope:'email'});
 		}
 
+
+
+
+		/** getFbInfo
+		 *  Geting the user information from his facebook account.
+		 *
+		 *  @param voide
+		 *  @return void
+		 *
+		 */
 		$scope.getFbInfo = function() {
 			Facebook.api('/me', function(info) {
 				$scope.fbInfo=info;
@@ -130,6 +172,15 @@
 			});
 		};
 
+
+
+		/** fbLogin
+		 *  Geting the needed facebook user information , and http query for login .
+		 *
+		 *  @param voide
+		 *  @return void
+		 *
+		 */
 		$scope.fbLogin=function(){
 			var userFBInfo= {
 				'firstname': $scope.fbInfo.first_name,
@@ -138,8 +189,6 @@
 				'fbId':$scope.fbInfo.id,
 				'accessToken':$scope.accessToken
 			};
-
-
 			LoginFactory.fbLogin(userFBInfo)
 				.success(function(response) {
 					$window.location.reload();
@@ -147,11 +196,20 @@
 		}
 
 
+
+		/** closeIt
+		 *  Hide the registerion div when click esc key board button.
+		 *
+		 *  @param voide
+		 *  @return void
+		 *
+		 */
 		$scope.closeIt=function(evt){
 			if (evt.keyCode == 27) {
 				$scope.regist=false;
 			}
 		}
+
 
 
 		/** search
