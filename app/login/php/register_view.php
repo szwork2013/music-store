@@ -21,7 +21,6 @@ $app->response->headers->set('Content-Type', 'application/json');
 $app->get('/', function(){echo json_encode( array( "error" => "No method" ) );});
 
 $app->post('/register/', function()use ($reg){
-	sleep(3);
 	$data = json_decode(file_get_contents("php://input"));
 	$reg->insertNew($data);
 	
