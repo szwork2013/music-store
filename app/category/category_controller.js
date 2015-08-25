@@ -48,7 +48,6 @@ app.controller( 'categoryController', function($scope,$rootScope,$route,$locatio
     $scope.addToCart=function(index) {
         var album=$scope.category[index];
         album['qty']=1;
-        console.log(album);
         $rootScope.addToCart(album.album_id , album);
     }
 

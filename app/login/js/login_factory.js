@@ -20,5 +20,24 @@ app.factory('LoginFactory',function($http){
     }
 
 
+    LoginFactory.search=function(word){
+        return $http.get('../../php/search/search_view.php/search/'+word);
+    }
+
+    LoginFactory.showAlbum=function(song){
+        return $http.get('../../php/search/search_view.php/getAlbum/'+song);
+    }
+
+
+
+
     return LoginFactory;
+});
+
+
+app.directive('mySearch', function() {
+    return {
+        restrict: 'E',
+        templateUrl: '../../app/main/search.html'
+    };
 });

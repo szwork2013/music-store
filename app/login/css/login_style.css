@@ -254,3 +254,46 @@ form{
 	cursor: pointer;
 	margin-left: 20px;
 }
+
+#results{
+	width:320px;
+	margin:0 auto;
+	margin-top:80px;
+	position: absolute;
+	left:580px;
+	background-color:white;
+	z-index:1;
+}
+
+
+#results ul{
+	list-style-type:none;
+	padding: 0px;
+	margin: 0px;
+}
+
+#results li{
+	cursor:pointer;
+	color:black;
+	padding: 10px;
+	border-bottom: solid black 1px;
+	height: 80px;
+}
+
+#results label{
+	font-size: large;
+	border: solid black;
+}
+
+#results li:hover{
+	background-color: black;
+	color:white;
+}
+
+#results img{
+	width: 60px;
+	height: 60px;
+	margin: 5px 15px 5px 5px;
+	float: left;
+
+}

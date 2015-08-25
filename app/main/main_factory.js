@@ -30,3 +30,9 @@ app.factory('mainFactory',function($http){
 });
 
 
+app.directive('mySearch', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'app/main/search.html'
+    };
+});

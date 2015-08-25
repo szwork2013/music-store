@@ -4,7 +4,7 @@
 		FacebookProvider.init('1415931842065697');
 	});
 
-	app.controller('ctrl',function($scope,$http,$window,LoginFactory,Facebook){
+	app.controller('ctrl',function($scope,$http,$window,$location,LoginFactory,Facebook){
 		$scope.flag=true;
 
 
@@ -143,6 +143,53 @@
 		}
 
 
+		/** search
+		 *  ajax, http query.Searching a song name in data base
+		 *
+		 *  @param sting  - the word the user is looking for
+		 *  @return void - if the qury success return the seaching results
+		 *
+		 */
+		$scope.search=function(word){
+			$scope.hideSearch=false;
+			if(word.length > 2 ) {
+				LoginFactory.search(word).
+					success(function (response) {
+						if (response) {
+							console.log(response)
+							$scope.resuls = response;
+						}
+					});
+			}
+		}
+
+		/** showAlbum
+		 *  http query for an album id by a song in that album, path this id to product page
+		 *
+		 *  @param void
+		 *  @return change path to the product page and send it the a prodect id
+		 *
+		 */
+		$scope.showAlbum=function(song){
+			LoginFactory.showAlbum(song).
+				success(function(response) {
+					console.log(response);
+					$window.location.href='../../index.html#/product/'+response;
+					$scope.word=song;
+				});
+		}
+
+
+		/** goHome
+		 *  path to the home page
+		 *
+		 *  @param void
+		 *  @return voide
+		 *
+		 */
+		$scope.goHome=function(){
+			$window.location.href='../../index.html';
+		}
 
 
 

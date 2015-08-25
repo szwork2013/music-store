@@ -101,8 +101,8 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 	 *
 	 */
 	$scope.addToCart=function() {
-		$scope.album['qty']=$scope.Qty;
-		$rootScope.addToCart($scope.album.album_id , $scope.album);
+		$scope.album['qty'] = $scope.Qty;
+		$rootScope.addToCart($scope.album.album_id, $scope.album);
 	}
 
 

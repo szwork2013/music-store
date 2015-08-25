@@ -22,13 +22,13 @@ $login->checkLogin();;
 
 <div id="main_container">
 	<header>
-		<img   src="../../icons/header.png"/>
+		<img src="../../icons/header.png"  ng-click="goHome()"/>
 		<div id='main_search_div'>
 			<input type="text" placeholder="Search" ng-model="word"  ng-keyup="search(word)"/>
 			<div id='results' ng-init="hideSearch=true" ng-hide="hideSearch"  ng-mouseleave="mouseLeave()">
 				<ul>
 					<li ng-repeat='result in resuls'  ng-click='showAlbum(result.song_name)|limitTo:6' >
-						<img ng-src="images/{{result.image_path}}" />
+						<img ng-src="../../images/{{result.image_path}}" />
 						<span><strong>{{result.song_name}}</strong></span><br/>
 						<span>{{result.album_artist}}</span><br/>
 						<span>Released on {{result.album_release_year}}</span>

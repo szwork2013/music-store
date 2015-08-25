@@ -182,6 +182,10 @@ app.controller( 'mainController', function($scope,$rootScope,$timeout,$location,
 
 
     $rootScope.addToCart=function(albumId,album) {
+        if(album.qty <= 0){
+            alert('The quantity of this album should be greater than 0.')
+            return false;
+        }
         var checkIfAlbumInCart=$rootScope.checkIfAlbumInCart(albumId);
         if(!checkIfAlbumInCart) {
             productService.mergeData(album, 'MyCart');
