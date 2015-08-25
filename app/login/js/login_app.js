@@ -4,24 +4,16 @@
 		FacebookProvider.init('1415931842065697');
 	});
 
-	app.controller('ctrl',function($scope,$http,$window,$location,LoginFactory,Facebook){
-		$scope.flag=true;
+	app.controller('ctrl',function($scope,$http,$window,$location,LoginFactory,Facebook,$timeout){
+		
+		
+		$scope.start=function(){
+			$scope.regist=true;
+			$scope.form=true;
+			$scope.flag=true;
+		}
+		
 
-
-		//$scope.valdiateLengthPassword=function(){
-		//	if($scope.password.length <6 &&  $scope.password.length>0){
-		//		$scope.toSmall=true;
-		//	}
-		//	else{
-		//		$scope.toSmall=false;
-		//	}
-		//	if($scope.password.length >8){
-		//		$scope.toBig=true;
-		//	}
-		//	else{
-		//		$scope.toBig=false;
-		//	}
-		//}
 
 		$scope.valdiatePassword=function(){
 			
@@ -92,16 +84,45 @@
 		 */
 
 		$scope.registration=function(){
+<<<<<<< HEAD
+=======
+			$scope.img=true;
+			$scope.regSecond=true;
+>>>>>>> b71015118a5653211e3a2d208cd62b208fc392d7
 			var userInfo={'firstname': $scope.firstname,
 				  			'lastname': $scope.lastname,
 				  			'email': $scope.email,
 				  			'password':$scope.password,
 				  			'repassword':$scope.repassword};
 			LoginFactory.registration(userInfo).
-			  success(function(response) {
-				    console.log(response);
+			  success(function(response) {	  
+					$scope.img=true;
+					$scope.form=false;
+					$scope.img=false;
+					$scope.regThird=true;
+					$scope.regSecond=false;
+					$timeout(function() {
+						$scope.msg='Registration succeed!';
+						
+					},1000);
+					
+					$timeout(function() {
+						$scope.regThird=false;
+						$scope.regist=false;
+						var element = document.getElementById("loginpsw");
+						element.focus();
+						$scope.loginEmail=$scope.email;
+						$scope.regFirst=true;
+						$scope.regThird=false;
+						$scope.msg='';
+						$scope.form=true;
+					},4000);
+				  
 			  });
+<<<<<<< HEAD
 			$scope.regist=false;
+=======
+>>>>>>> b71015118a5653211e3a2d208cd62b208fc392d7
 		}
 
 
