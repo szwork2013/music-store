@@ -53,6 +53,15 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
     }
 
 
+
+
+    /** goCategory
+     *  Go to the category page (using route).
+     *
+     *  @param string,int,int - the category Name,the categoryId,the index of the category
+     *  @return void
+     *
+     */
     $scope.goCategory=function(categoryName,categoryId,index){
         $scope.liActive=index;
         $location.url('/category/'+categoryName+'/'+categoryId);
@@ -159,15 +168,8 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
      *
      */
     $rootScope.getMyCartData=function(){
-        var myCart=localStorage.getItem("MyCart");
-        if(myCart==null){
-            //empty message
-        }
-        else{
-            myCart=angular.fromJson(myCart)
-            $scope.numberCartItem=myCart.length;
-            $scope.myCart=myCart;
-        }
+        var myCart=productService.getData("MyCart");
+        $scope.myCart=myCart;
     }
 
 
@@ -189,6 +191,14 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
     }
 
 
+
+    /** addToCart main function
+     *  Checking if the product is aleary saved,alert,and save the new produsct to local storage.
+     *
+     *  @param int,object - the album id, the album(product) information
+     *  @return void
+     *
+     */
     $rootScope.addToCart=function(albumId,album) {
         if(album.qty <= 0){
             alert('The quantity of this album should be greater than 0.')

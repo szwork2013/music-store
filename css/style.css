@@ -110,6 +110,7 @@ my-Menu li{
     padding: 7px;
     color:white;
     font-size: x-large;
+    cursor: pointer;
 }
 
 my-Menu li:hover {
