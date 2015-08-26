@@ -1,12 +1,44 @@
 
 
-app.controller( 'checkOutController', function($scope,$route,$location,$routeParams,productService) {
+app.controller( 'checkOutController', function($scope,$route,$location,$routeParams,productService,$http) {
 
+	$scope.send=function(){
+		 var baseUrl="php/checkout/checkout_view.php/";
+		
+		 var data={'address': $scope.address,
+		  			'city':$scope.city,
+		  			'zip':$scope.zip,
+		  			'phone':$scope.telephone,
+		  			'paymentWay':$scope.paymentWay,
+		  			'name_on_card':$scope.name_on_card,
+		  			'card_number':$scope.card_number,
+		  			'verifaction':$scope.verifaction,
+		  			'expiration':$scope.expiration
+		  			};
+			 
+			 
+			 
+		 $http.post(baseUrl+'checkout/',angular.toJson(data))
+		    .success(function(response) {console.log(response);});
+	}
+	
+	
+	
+	
+	
+	
 	//just for developing
 	$scope.address="aaa 1";
 	$scope.city='Jerusalem';
 	$scope.zip='111';
 	$scope.telephone='039088437';
+	/////////////////////////////////////////////////////////
+	
+	
+	
+	
+	
+	
 	
 	x=localStorage.getItem('MyCart'); 
 	$scope.cart= angular.fromJson(x);
@@ -64,7 +96,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 	}
 	
 	$scope.paymentFunc=function(paymentWay){
-		alert(paymentWay);
+		$scope.paymentWay=paymentWay;
 		$scope.order=true;
 		$scope.payment=false;
 		$scope.payment_right=true;
