@@ -1,15 +1,55 @@
 
 
-app.controller( 'checkOutController', function($scope,$route,$location,$routeParams) {
+app.controller( 'checkOutController', function($scope,$route,$location,$routeParams,productService) {
 
+	//just for developing
+	$scope.address="aaa 1";
+	$scope.city='Jerusalem';
+	$scope.zip='111';
+	$scope.telephone='039088437';
+	
+	x=localStorage.getItem('MyCart'); 
+	$scope.cart= angular.fromJson(x);
+	temp=0;
+	for( i=0 ; i<$scope.cart.length ; i++ ){
+		
+		temp+=$scope.cart[i].album_price*$scope.cart[i].qty;
+	}
+	$scope.totalPrice=temp;
+	
+	///////////////////////////////////////////////////
+	
+	
 	$scope.func=function(){
 		$scope.billing=false;
 		
 	}
 	
-	$scope.billing=true;
+	$scope.changeBillingInfo=function(){
+		$scope.billing=true;
+		$scope.payment=false;
+		$scope.order=false;
+		$scope.x1="black";
+		$scope.x2="red";
+		$scope.x3="red";
+	}
+	
+	$scope.changePayment=function(){
+		if($scope.x3=="black" ||$scope.x2=="black" ){
+		$scope.billing=false;
+		$scope.payment=true;
+		$scope.order=false;
+		$scope.x1="red";
+		$scope.x2="black";
+		$scope.x3="red";
+		}
+	}
+	
+	
+	
+	$scope.billing=false;
 	$scope.payment=false;
-	$scope.order=false;
+	$scope.order=true;
 	
 	$scope.x1="black";
 	$scope.x2="red";

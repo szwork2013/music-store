@@ -12,7 +12,7 @@ $login->checkLogin();;
 <style>
 #preloader{
 	top:-200px;
-	left:50px;
+	left:70px;
 	position:relative;
 }
 
@@ -45,7 +45,12 @@ $login->checkLogin();;
 		margin-top:100px;
 		margin:0 auto;
 	}
-	
+	#preloader{
+		position:relative;
+		left:450px;
+		top:-500px;
+		z-index:2;
+	}
 
 
 </style>
@@ -194,9 +199,9 @@ $login->checkLogin();;
 					>Register</button>
 				</div>
 			</form>
-			<img ng-src='icons/720.gif' ng-show='img' id='preloader'>
+			
 		</div>
-		
+		<img ng-src='icons/720.gif' ng-show='img' id='preloader'>
 	</div>
 	<div class='footer'></div>
 </div>

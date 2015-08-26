@@ -1,4 +1,20 @@
 <style>
+table{
+font-size:13px;
+ border-collapse: collapse;
+ 
+ border:silver;
+}
+th{
+	width:100px;
+	height:50px;
+	color:black;
+}
+tr{
+	text-align:center;
+	color:gray;
+	height:30px;
+}
 
 .error{
 	background-color:rgb(250,235,232);
@@ -146,15 +162,17 @@
 	
 }
 
-.gray{
-	color:gray;
-}
+
 
 .change{
+	text-decoration: underline;
+	cursor:pointer;
 	
+}
+.billing_right p{
+color:gray;
 
 }
-
 </style>
 
 
@@ -168,14 +186,14 @@
 
 	<div id='checkout_container_right'>
 		<p id='checkout_container_right_title'>Your CheckOut Progress</p>
-		<p class='checkout_container_right_p'>Billing Information</p>
+		<p class='checkout_container_right_p'>Billing Information | <span class='change' ng-click='changeBillingInfo()'> change</span></p>
 			<div ng-show='billing_right' class='billing_right'>
-				<p class='gray' ng-bind=''></p>
-				<p class='gray' ng-bind='address'></p>
-				<p class='gray' ng-bind='city'></p>
-				<p class='gray' ng-bind='telephone'></p>
+				<p  ng-bind=''></p>
+				<p  ng-bind='address'></p>
+				<p  ng-bind='city'></p>
+				<p  ng-bind='telephone'></p>
 			</div>
-		<p class='checkout_container_right_p'>Payment Method</p>
+		<p class='checkout_container_right_p'>Payment Method | <span class='change' ng-click='changePayment()'> change</span></p>
 			<div   ng-show='payment_right' class='payment_right'>
 				<p >Credit Card (saved)</p>
 				<p >Credit Card type:</p>
@@ -193,7 +211,7 @@
 	<div id='checkout_container_left'>
 		<ul id='checkout-ul'>
 		
-			<li ng-class="x1">1-Billing Informaitionv <span class='change'>change</span></li>
+			<li ng-class="x1">1-Billing Informaitionv </li>
 				
 				<div id='checkout-billing' ng-show='billing' >
 					<form name='billingForm'   novalidate >
@@ -317,11 +335,24 @@
 			
 			<li ng-class="x3">3-Order Review</li>
 			
-				<div id='order' ng-show='order'>
+				<div id='order' ng-show='order' style='overflow:scroll'>
+					<table border='1'>
+					<tr>
+						<th style='width:400px;text-align:left;padding-left:20px'>Product Name</th><th>Price</th><th>Qty<th>Subtotal</th>
+					</tr>
+					<tr ng-repeat='i in cart' >
+						 <td style='text-align:left;padding-left:20px'>{{i.album_artist}}-{{i.album_name}} </td>
+						 <td>{{i.album_price | currency}}</td>
+						 <td>{{i.qty}}</td>
+						 <td>{{i.qty*i.album_price | currency}}</td>
+					</tr>
+					<tr>
+					<td colspan="3" style='text-align:right;color:black;font-weight:bold;padding-right:30px'>Total</td>
+					<td style='color:black;font-weight:bold'>{{totalPrice | currency}}</td>
+					</tr>
+					</table>
 					
-				
 				</div>
-		
 		</ul>
 	</div>
 	
