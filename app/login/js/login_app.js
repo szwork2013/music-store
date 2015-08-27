@@ -6,30 +6,9 @@
 
 	app.controller('ctrl',function($scope,$http,$window,$location,LoginFactory,Facebook,$timeout){
 		
-		
-		$scope.start=function(){
-			$scope.regist=true;
-		}
-		
-		
-		///just for developing
-		
-		$scope.firstname='ariel';
-		$scope.lastname='ariel';
-		$scope.email='a@gmail.com';
-		$scope.password='aA11111';
-		$scope.repassword='aA11111';
-		
-		
-		/////////////////////////////////////////////////////////////////
-		
-		
-		$scope.form=true;
-		$scope.flag=true;
 
 
 		$scope.valdiatePassword=function(){
-			
 			if($scope.password.length <6 &&  $scope.password.length>0){
 				$scope.toSmall=true;
 			}
@@ -42,11 +21,7 @@
 			else{
 				$scope.toBig=false;
 			}
-			
-			
 			$scope.isOneCapital= (/[A-Z]/.test($scope.password)?false:true);
-			
-			
 		}
 
 		

@@ -110,7 +110,7 @@ $login->checkLogin();;
 			<p class='gray'>to move through the checkout process faster,store multiple </p>
 			<p class='gray'>shipping addresses,view and track your orders in your account and more.</p>
 			<br>
-			<button ng-click='start()'>Create An Account</button>
+			<button ng-click=regist=true>Create An Account</button>
 			<img id="fb" src="icons/fb.png" ng-click="FBlogin()">
 		</div>
 		
@@ -119,7 +119,7 @@ $login->checkLogin();;
 			<hr width="460">
 			<p class='gray'>If you have an account with us,please log in. </p>
 
-			<form name="loginForm"   ng-show="flag" class="sample"  action=""  novalidate >
+			<form name="loginForm" class="sample"  action=""  novalidate >
 				<div>
 					<p class='form-title'>Email Address<span style='color:red'> *</span></p>
 					<input type='email' name="loginEmail"  ng-model="loginEmail" ng-class="{ 'notvalid': loginForm.loginEmail.$error.required && loginForm.loginEmail.$dirty}" required>
@@ -146,7 +146,7 @@ $login->checkLogin();;
 			
 
 			
-			<form name="formRegistration"  novalidate ng-show='form' >
+			<form name="formRegistration"  novalidate ng-show='form' ng-init="form=true">
 				<p class='register-title'>Profile Information</p>
 
 				<div class="group">

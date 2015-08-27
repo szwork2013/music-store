@@ -25,8 +25,6 @@ app.controller( 'categoryController', function($scope,$rootScope,$route,$locatio
 
 
 
-
-
     /** categoryInfo
      *  Ajax http query for the selected category
      *
