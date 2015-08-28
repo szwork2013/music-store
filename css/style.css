@@ -569,3 +569,177 @@ my-Cart img{
     cursor: pointer;
 }
 
+
+table{
+font-size:13px;
+ border-collapse: collapse;
+ 
+ border:silver;
+}
+th{
+	width:100px;
+	height:50px;
+	color:black;
+}
+tr{
+	text-align:center;
+	color:gray;
+	height:30px;
+}
+
+.error{
+	background-color:rgb(250,235,232);
+	border:red dotted 1px;
+}
+#checkout-ul li{
+	
+	width:680px;
+	height:20px;
+	border:black solid 1px;
+	color:white;
+	list-style-type: none;
+	font-size:12px;
+	padding-top:9px;
+	padding-left:20px;
+}
+#checkout-ul div{
+	height:300px;
+	border:silver solid 1px;
+	width:700px;
+
+}
+#checkout_container{
+	margin:0 auto;
+	border:black solid 1px;
+
+}
+#checkout-ul p{
+	font-size:13px;
+	font-weight:bold;
+	margin-left:10px;
+	line-height: 70%;
+}
+#checkout-address{
+	width:525px;
+	height:25px;
+	margin-left:10px;
+}
+#checkout-city{
+	width:250px;
+	height:25px;
+	margin-left:10px;
+}
+#checkout-zip{
+	width:250px;
+	height:25px;
+	float:right;
+	margin-right:160px;
+}
+#checkout-zip-feedback{
+	float:right;
+	margin-right:330px;
+}
+
+
+#checkout-telephone{
+	width:250px;
+	height:25px;
+	margin-left:10px;
+}
+.checkout-continue{
+	background-color:black;
+	color:white;
+	float:right;
+	width:90px;
+	height:30px;
+	margin-right:10px;
+	margin-top:-20px;
+}
+.feedback{
+	font-size:10px;
+	color:red;
+}
+#checkout-order label{
+	font-size:12px;
+}
+#checkout-order p{
+	font-size:12px;
+	 line-height: 20%;
+	
+}
+#checkout_card{
+	width:200px;
+}
+#checkout_verifaction{
+	width:30px;
+}
+#checkout-order input[type='text'],input[type='date'],select{
+	margin-left:15px;
+}
+#checkout_digit{
+	left:550px;
+	margin-top:-200px;
+	position:absolute;
+}
+.black{
+	background-color:rgb(58,58,58);
+}
+.red{
+	background-color:rgb(253,0,2);
+}
+.checkout_circle{
+	width:10px;
+	height:10px;
+	border-radius:5px;
+	background-color:white;
+}
+#checkout_container_right{
+	float:right;
+	width:200px;
+	
+	margin-right:120px;
+	margin-top:20px;
+}
+#checkout_container_right_title{
+	margin-top:1px;
+	width:200px;
+	height:50px;
+	background-color:white;
+	font-size:20px;
+}
+
+.checkout_container_right_p{
+	width:185px;
+	height:10px;
+	background-color:rgb(114,118,119);
+	color:white;
+	font-size:11px;
+	padding:8px;
+}
+#checkout_container_left{
+	margin-left:100px;
+}
+
+.checkout_container_right_p + div{
+	width:200px;
+	
+	border:silver solid 1px;
+}
+
+.payment_right p,.billing_right p{
+	color:siver;
+	font-size:13px;
+	 line-height: 40%;
+	
+}
+
+
+
+.change{
+	text-decoration: underline;
+	cursor:pointer;
+	
+}
+.billing_right p{
+color:gray;
+
