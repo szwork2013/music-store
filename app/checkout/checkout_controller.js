@@ -37,7 +37,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 			'card_number':$scope.card_number,
 			'verifaction':$scope.verifaction,
 			'expiration':$scope.expiration,
-			'totalPrice':$scope.subTotal(),
+			'totalPrice':$scope.totalPrice,
 			'albumsId':$scope.albumsIdArr
 		};
 	}
@@ -60,11 +60,11 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 
 	$scope.subTotal=function() {
 		$scope.cart = productService.getData("MyCart");
-		var subTotal = 0;
+		var totalPrice = 0;
 		for (var i = 0; i < $scope.cart.length; i++) {
-			subTotal += $scope.cart[i].album_price * $scope.cart[i].qty;
+			totalPrice += $scope.cart[i].album_price * $scope.cart[i].qty;
 		}
-		return subTotal;
+		$scope.totalPrice=totalPrice;
 	}
 	
 	
