@@ -70,7 +70,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 	
 	$scope.func=function(){
 		$scope.billing=false;
-		
 	}
 	
 	$scope.changeBillingInfo=function(){

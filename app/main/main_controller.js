@@ -15,6 +15,7 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
         $scope.checkLogin();
         $scope.getCategories();
         $rootScope.getMyCartData();
+        $scope.numberCartItem=$scope.myCart.length;
     }
 
 
@@ -209,6 +210,7 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
             productService.mergeData(album, 'MyCart');
             alert("New album added to your cart");
             $rootScope.getMyCartData();
+            $scope.numberCartItem=$scope.myCart.length;
         }
         else{
             alert("This album already in your cart")
@@ -225,9 +227,11 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
      */
     $scope.subtotal=function(){
         var total=0;
+        console.log($scope.myCart);
         for(var key in $scope.myCart){
             total=total + Number($scope.myCart[key].album_price);
         }
+
         return total;
     }
 
