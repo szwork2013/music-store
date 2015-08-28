@@ -2,8 +2,30 @@
 
 app.controller( 'checkOutController', function($scope,$route,$location,$routeParams,productService,CheckoutFactory,$rootScope) {
 
+	$scope.init=function() {
+		$scope.data = {};
+		$scope.subTotal();
+		$scope.billing=false;
+		$scope.payment=false;
+		$scope.order=true;
+		$scope.x1="black";
+		$scope.x2="red";
+		$scope.x3="red";
+	}
 
-	$scope.data={};
+
+	////just for developing
+	//$scope.address="aaa 1";
+	//$scope.city='Jerusalem';
+	//$scope.zip='111';
+	//$scope.telephone='0546827883';
+	//$scope.name_on_card="ariel avrani";
+	//$scope.card_type="Visa";
+	//$scope.card_number="1111111111111111";
+	//$scope.expiration="02-2015";
+	//$scope.verifaction="111";
+
+
 
 	$scope.getInputsData=function(){
 		$scope.data={'address': $scope.address,
@@ -15,7 +37,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 			'card_number':$scope.card_number,
 			'verifaction':$scope.verifaction,
 			'expiration':$scope.expiration,
-			'totalPrice':$scope.totalPrice,
+			'totalPrice':$scope.subTotal(),
 			'albumsId':$scope.albumsIdArr
 		};
 	}
@@ -28,38 +50,22 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 			$scope.albumsIdArr[i]=$scope.cart[i].album_id;
 		}
 		//$scope.albumsId = angular.toJson($scope.albumsIdArr);
-		$scope.getInputsData();
+		$scope.data;
 		CheckoutFactory.send($scope.data).
               success(function (response) {
                     console.log(response);
 		  });
 	}
 	
-	
-	//just for developing
-	$scope.address="aaa 1";
-	$scope.city='Jerusalem';
-	$scope.zip='111';
-	$scope.telephone='0546827883';
-	$scope.name_on_card="ariel avrani";
-	$scope.card_type="Visa";
-	$scope.card_number="1111111111111111";
-	$scope.expiration="02-2015";
-	$scope.verifaction="111";
-	
-	
-	
-	/////////////////////////////////////////////////////////
-	
-	$scope.cart=productService.getData("MyCart");
-	var temp=0;
-	for(var i=0 ; i<$scope.cart.length ; i++ ){
-		
-		temp+=$scope.cart[i].album_price*$scope.cart[i].qty;
+
+	$scope.subTotal=function() {
+		$scope.cart = productService.getData("MyCart");
+		var subTotal = 0;
+		for (var i = 0; i < $scope.cart.length; i++) {
+			subTotal += $scope.cart[i].album_price * $scope.cart[i].qty;
+		}
+		return subTotal;
 	}
-	$scope.totalPrice=temp;
-	
-	///////////////////////////////////////////////////
 	
 	
 	$scope.func=function(){
@@ -87,13 +93,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		}
 	}
 
-	$scope.billing=false;
-	$scope.payment=false;
-	$scope.order=true;
-	
-	$scope.x1="black";
-	$scope.x2="red";
-	$scope.x3="red";
 
 	$scope.billingFunc=function(){
 		$scope.billing=false;
@@ -101,6 +100,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.billing_right=true;
 		$scope.x1="red";
 		$scope.x2="black";
+		$scope.getInputsData();
 	}
 	
 	$scope.paymentFunc=function(paymentWay){
@@ -111,6 +111,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.x2="red";
 		$scope.x3="black";
 		$scope.the4last=$scope.card_number.slice(-4);
+		$scope.getInputsData();
 	}
 	
 	$scope.valdiateAdress=function(){
@@ -144,6 +145,8 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.dateerror=(/^([0-9]{2})-([0-9]{4})$/.test($scope.expiration)?false:true);
 	}
 	
-	
+
+
+	$scope.init();
 	
 }); 
