@@ -46,7 +46,7 @@
 						<p>City<span style='color:red'>*</span><span style='margin-left:250px'>Zip/Postal Code</span><span style='color:red'>*</span></p>
 						
 						
-						<input type='text' id='checkout-city' name='city' ng-model= 'city' required ng-keyup="valdiateCity()" 
+						<input type='text' id='checkout-city' name='city' ng-model= 'city' required ng-keyup="valdiateCity()"
 						ng-class="{ 'error':  billingForm.city.$error.required || cityerror}">
 						
 						
@@ -112,7 +112,7 @@
 						<span ng-show='paymentForm.card_type.$error.required' class='feedback'>This field is required.</span>
 						
 						<p>Credit Card Number<span style='color:red'> *</span></p>
-						<input type='text' name='card_number' ng-model='card_number'  required  ng-keyup="validateCardNumber()" 
+						<input type='text' name='card_number' ng-model='card_number'  required  ng-keyup="validateCardNumber()"
 						ng-class="{ 'error': paymentForm.card_number.$error.required || carderror }">
 						
 						<span ng-show='paymentForm.card_number.$error.required' class='feedback'>This field is required.</span>

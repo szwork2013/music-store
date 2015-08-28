@@ -1,38 +1,38 @@
 
 
 app.controller( 'checkOutController', function($scope,$route,$location,$routeParams,productService,CheckoutFactory,$rootScope) {
-	
-	
+
+
+	$scope.data={};
+
+	$scope.getInputsData=function(){
+		$scope.data={'address': $scope.address,
+			'city':$scope.city,
+			'zip':$scope.zip,
+			'phone':$scope.telephone,
+			'paymentWay':$scope.paymentWay,
+			'name_on_card':$scope.name_on_card,
+			'card_number':$scope.card_number,
+			'verifaction':$scope.verifaction,
+			'expiration':$scope.expiration,
+			'totalPrice':$scope.totalPrice,
+			'albumsId':$scope.albumsIdArr
+		};
+	}
+
+
+
 	$scope.send=function(){
 		$scope.albumsIdArr = new Array();
-		
 		for( var i=0 ; i<$scope.cart.length ; i++ ){
 			$scope.albumsIdArr[i]=$scope.cart[i].album_id;
 		}
-		
-		
 		//$scope.albumsId = angular.toJson($scope.albumsIdArr);
-		
-		 var data={'address': $scope.address,
-		  			'city':$scope.city,
-		  			'zip':$scope.zip,
-		  			'phone':$scope.telephone,
-		  			'paymentWay':$scope.paymentWay,
-		  			'name_on_card':$scope.name_on_card,
-		  			'card_number':$scope.card_number,
-		  			'verifaction':$scope.verifaction,
-		  			'expiration':$scope.expiration,
-		  			'totalPrice':$scope.totalPrice,
-		  			'albumsId':$scope.albumsIdArr
-		  			};
-			
-		 
-		
-			  CheckoutFactory.send(data).
+		$scope.getInputsData();
+		CheckoutFactory.send($scope.data).
               success(function (response) {
                     console.log(response);
 		  });
-		 
 	}
 	
 	
@@ -51,18 +51,9 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 	
 	/////////////////////////////////////////////////////////
 	
-	
-	
-	
-	
-	
-	
-	x=localStorage.getItem('MyCart'); 
-	
-	
-	$scope.cart= angular.fromJson(x);
-	temp=0;
-	for( i=0 ; i<$scope.cart.length ; i++ ){
+	$scope.cart=productService.getData("MyCart");
+	var temp=0;
+	for(var i=0 ; i<$scope.cart.length ; i++ ){
 		
 		temp+=$scope.cart[i].album_price*$scope.cart[i].qty;
 	}
@@ -95,9 +86,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.x3="red";
 		}
 	}
-	
-	
-	
+
 	$scope.billing=false;
 	$scope.payment=false;
 	$scope.order=true;
@@ -121,8 +110,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.payment_right=true;
 		$scope.x2="red";
 		$scope.x3="black";
-		
-	
 		$scope.the4last=$scope.card_number.slice(-4);
 	}
 	
