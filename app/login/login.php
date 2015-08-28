@@ -2,11 +2,63 @@
 include_once(dirname(__FILE__) . '/../../view_controller.php');
 session_start();
 $login = new viewController();
-$login->checkLogin();;
+$login->checkLogin();
 ?>
+
 <!DOCTYPE html>
 <html>
+
 <head>
+<style>
+#preloader{
+	top:-200px;
+	left:70px;
+	position:relative;
+}
+
+@keyframes example {
+    from {width: 400px;height:300px}
+    to {width: 250px;height:100px}
+}
+.registration-third{
+    width: 100px;
+	height:100px;
+    background-color: silver;
+    animation-name: example;
+    animation-duration: 1s;
+	margin-top:100px;
+	margin:0 auto;
+}
+	.registration-second { 
+		opacity:0.5;
+		background-color:silver;
+		width:400px;
+		height:300px;
+		margin-top:100px;
+		margin:0 auto;
+		
+	}
+	.registration-first{
+		background-color:silver;
+		width:600px;
+		height:300px;
+		margin-top:100px;
+		margin:0 auto;
+	}
+	#preloader{
+		position:relative;
+		left:450px;
+		top:-500px;
+		z-index:2;
+	}
+
+
+</style>
+
+
+
+
+
 	<title>Music Store - Login</title>
 	<link rel="shortcut icon" href="../../icons/Music-icon.png" />
 	<link rel="stylesheet" href="css/login_style.css">
@@ -16,6 +68,8 @@ $login->checkLogin();;
 	<script src="js/login_factory.js"></script>
 </head>
 <body ng-app='myApp' ng-controller='ctrl' >
+
+
 <div id="main_container">
 	<header>
 		<img src="../../icons/header.png"  ng-click="goHome()"/>
@@ -56,7 +110,7 @@ $login->checkLogin();;
 			<p class='gray'>to move through the checkout process faster,store multiple </p>
 			<p class='gray'>shipping addresses,view and track your orders in your account and more.</p>
 			<br>
-			<button ng-click=regist=true>Create An Account</button>
+			<button ng-click='start()'>Create An Account</button>
 			<img id="fb" src="icons/fb.png" ng-click="FBlogin()">
 		</div>
 		
@@ -65,15 +119,15 @@ $login->checkLogin();;
 			<hr width="460">
 			<p class='gray'>If you have an account with us,please log in. </p>
 
-			<form name="loginForm" class="sample"  action=""  novalidate >
+			<form name="loginForm"   ng-show="flag" class="sample"    novalidate >
 				<div>
-					<p class='form-title'>Email Address<span> *</span></p>
+					<p class='form-title'>Email Address<span style='color:red'> *</span></p>
 					<input type='email' name="loginEmail"  ng-model="loginEmail" ng-class="{ 'notvalid': loginForm.loginEmail.$error.required && loginForm.loginEmail.$dirty}" required>
 					<span class='feedback' ng-show="loginForm.loginEmail.$error.required && loginForm.loginEmail.$dirty">Email is required.</span>
 					<span  class='feedback' ng-show="loginForm.loginEmail.$error.email  && loginForm.loginEmail.$dirty">Invalid email address.</span>
 				</div>
 				<div>
-					<p class='form-title'>Password<span> *</span></p>
+					<p class='form-title'>Password<span style='color:red'> *</span></p>
 					<input type='password'  id='loginpsw' name="loginPassword" ng-model="loginPassword" ng-class="{ 'notvalid':loginForm.loginPassword.$error.required && loginForm.loginPassword.$dirty}" required>
 					<span class='feedback' ng-show="loginForm.loginPassword.$error.required && loginForm.loginPassword.$dirty">Password is required.</span>
 				</div>
@@ -90,7 +144,9 @@ $login->checkLogin();;
 			<div ng-click='regist=false'  id='close-registration' ng-show='regist'>X</div>
 			<p style='text-align:center;color:gray;clear:both' ng-bind='msg'>Registration</p>
 			
-			<form name="formRegistration"  novalidate ng-show='form' ng-init="form=true">
+
+			
+			<form name="formRegistration"  novalidate ng-show='form' >
 				<p class='register-title'>Profile Information</p>
 
 				<div class="group">
