@@ -6,7 +6,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 	$scope.send=function(){
 		$scope.albumsIdArr = new Array();
 		
-		for( i=0 ; i<$scope.cart.length ; i++ ){
+		for( var i=0 ; i<$scope.cart.length ; i++ ){
 			$scope.albumsIdArr[i]=$scope.cart[i].album_id;
 		}
 		
@@ -23,7 +23,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		  			'verifaction':$scope.verifaction,
 		  			'expiration':$scope.expiration,
 		  			'totalPrice':$scope.totalPrice,
-		  			'userId':'65',
 		  			'albumsId':$scope.albumsIdArr
 		  			};
 			

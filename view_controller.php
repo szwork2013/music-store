@@ -12,7 +12,7 @@ Class viewController{
     public function checkLogin(){
         if ( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
             $success = $this->login->checking($_SESSION['email'], $_SESSION['password']);
-            if (mysqli_num_rows($success) > 0) {
+            if ( mysqli_num_rows($success) > 0)  {
                 header('Location: ../../index.html');
             }
         }

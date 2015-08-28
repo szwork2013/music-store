@@ -29,7 +29,6 @@
 
 
 		$scope.valdiatePassword=function(){
-			
 			if($scope.password.length <6 &&  $scope.password.length>0){
 				$scope.toSmall=true;
 			}
@@ -42,11 +41,7 @@
 			else{
 				$scope.toBig=false;
 			}
-			
-			
 			$scope.isOneCapital= (/[A-Z]/.test($scope.password)?false:true);
-			
-			
 		}
 
 		
@@ -69,9 +64,7 @@
 		}
 
 		
-		
-		
-		
+
 		
 		$scope.login=function(){
 			var loginInfo={'email': $scope.loginEmail,
@@ -80,9 +73,6 @@
 				.success(function(response) {
 					$window.location.reload();
 				});
-			
-			
-			
 		}
 
 
@@ -125,9 +115,7 @@
 			  });
 		}
 
-
-
-			////////////////////////////////// Login with Facebook //////////////////////////
+		////////////////////////////////// Login with Facebook //////////////////////////
 
 
 		$scope.fbInfo={};
@@ -160,8 +148,6 @@
 				'fbId':$scope.fbInfo.id,
 				'accessToken':$scope.accessToken
 			};
-
-
 			LoginFactory.fbLogin(userFBInfo)
 				.success(function(response) {
 					$window.location.reload();
@@ -169,6 +155,14 @@
 		}
 
 
+
+		/** closeIt
+		 *  Hide the registion form using the Esc keyboard button
+		 *
+		 *  @param object  - the click keyboard event
+		 *  @return void
+		 *
+		 */
 		$scope.closeIt=function(evt){
 			if (evt.keyCode == 27) {
 				$scope.regist=false;

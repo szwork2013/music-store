@@ -9,11 +9,10 @@ class LoginController{
 	}
 
 	public function checking($data){
-		$success=$this->login->checking( $data->email , md5($data->password) );
-		if($success->num_rows){
+		$success =$this->login->checking( $data->email , md5($data->password) );
+		if( mysqli_num_rows($success)>0 ){
 			$this->login->createSession( $data->email , md5($data->password));
-			$row = $success->fetch_assoc();
-			echo 'hello ' . $row['user_firstname'] ;
+			echo 'Hello, You are now login'  ;
 		}
 		else{
 			echo "Worng email or password";

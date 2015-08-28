@@ -8,7 +8,18 @@ class Register extends DB{
 	public function __construct() {
 		$this->db = DB::getInstance();
 	}
-	
+
+
+
+
+
+	/** insertNew
+	 *  Save new user information to database, registion
+	 *
+	 *  @param object - the user data
+	 *  @return bool
+	 *
+	 */
 	public function insertNew($data){
 		$password=md5($data->password);
 		$sql="INSERT INTO users ( user_email, user_password, user_firstname, user_lastname) VALUES
@@ -17,13 +28,30 @@ class Register extends DB{
 		return $answer;
 	}
 
-	public function createSession($email,$password){
+
+	/** createSession
+	 *  Create new session with the server
+	 *
+	 *  @param sting,string- the user email and user password
+	 *  @return voide
+	 *
+	 */
+	public function createSession($email,$password,$id){
 		$_SESSION['email']=$email;
 		$_SESSION['password']=$password;
+		$_SESSION['id']=$id;
 	}
 
 
 
+
+	/** checkFbRegister
+	 *  Checking if the user is registerd using facebook before
+	 *
+	 *  @param int- facebook id
+	 *  @return bool
+	 *
+	 */
 	public function checkFbRegister($fbId){
 		$sql="SELECT * FROM fb_users INNER JOIN users ON users.user_id=fb_users.user_id WHERE user_fb_uid='$fbId' ";
 		$answer=$this->db->query($sql);
