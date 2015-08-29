@@ -3,40 +3,58 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Music Store - Login</title>
+	<link rel="shortcut icon" href="../../icons/Music-icon.png" />
 	<link rel="stylesheet" href="css/login_style.css">
+	<script src='../../lib/angularJs/angular.js'></script>
+	<script src="src/angular-facebook/angular-facebook.js"></script>
+	<script src="js/login_app.js"></script>
+	<script src="js/login_factory.js"></script>
 </head>
-<body>
+<body ng-app='myApp' ng-controller='ctrl' >
 
 
+<div id="main_container">
 	<header>
-		<label>MUSIC</label>
-		<input type="text" placeholder="Search"/>
+		<img src="../../icons/header.png" "/>
+		<div id='main_search_div'>
+			<input type="text" placeholder="Search"/>
+			<div id='results'>
+				<ul>
+					<li ng-repeat='result in resuls'  >
+						<img ng-src="../../images/{{result.image_path}}" />
+						<span><strong>{{result.song_name}}</strong></span><br/>
+						<span>{{result.album_artist}}</span><br/>
+						<span>Released on {{result.album_release_year}}</span>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</header>
 
 	<nav>
 		<ul>
 			<li><a href="../../index.html">Home</a></li>
-			<li><a>My Account</a></li>
 			<li><a>My Wishlist</a></li>
-			 <li><a href="../#checkout">Checkout</a></li>
+			<li><a href="../../index.html#/checkout">Checkout</a></li>
 			<li><a href="login.php">Login</a></li>
 		</ul>
 	</nav>
 
 
 
-	<div id='container'>
+<div id='container' ng-keydown="closeIt($event)">
 		<div class='header'>
 			<p>Login or Create an Account</p>
 		</div>
 		<div id='left'>
 			<p class='title'>NEW CUSTOMERS</p>
-			<hr width="460">
+			<hr>
 			<p class='gray'>By creating an account with our store,you will be able</p>
 			<p class='gray'>to move through the checkout process faster,store multiple </p>
 			<p class='gray'>shipping addresses,view and track your orders in your account and more.</p>
 			<br>
-			<button>Create An Account</button>
+			<button ng-click='start()'>Create An Account</button>
 			<img id="fb" src="icons/fb.png" ng-click="FBlogin()">
 		</div>
 		
@@ -45,20 +63,19 @@
 			<hr width="460">
 			<p class='gray'>If you have an account with us,please log in. </p>
 
-			<form name="loginForm"  class="sample"  action=""  novalidate >
+			<form name="loginForm"   ng-show="flag" class="sample"    novalidate >
 				<div>
 					<p class='form-title'>Email Address<span style='color:red'> *</span></p>
-					<input type='email' name="loginEmail">
+					<input type='email' name="loginEmail" required>
 					<span class='feedback'>Email is required.</span>
 					<span  class='feedback'>Invalid email address.</span>
 				</div>
 				<div>
-					<p> *</span></p>
-					<input type='password' name="loginPassword" required>
-					<span>Password is required.</span>
+					<p class='form-title'>Password<span style='color:red'> *</span></p>
+					<input type='password'  id='loginpsw' name="loginPassword"required>
+					<span class='feedback' >Password is required.</span>
 				</div>
-			
-		
+
 				<button>Login</button> 
 			</form>
 			<p id='note'>*Required fields</p>
@@ -67,49 +84,61 @@
 		
 		<div id='register'>
 			<div  id='close-registration'>X</div>
-			<p style='text-align:center;color:gray;clear:both'>Resitration</p>
+			<p style='text-align:center;color:gray;clear:both' ng-bind='msg'>Registration</p>
 			
-			<form name="formRegistration"  novalidate >
+
+			
+			<form name="formRegistration"  novalidate ng-show='form' >
 				<p class='register-title'>Profile Information</p>
 
 				<div class="group">
-					<input type='text'   placeholder='First Name' name='firstname' class='input-registration' required >
-					<span class='feedback'>First name is required.</span>
+					<input type='text'   placeholder='First Name' name='firstname' class='input-registration' required  >
+					 
+					<span class='feedback' >First name is required.</span>
+					<span class='feedback'>Has to be greater than 2 and smaller then 12.</span>
 				</div>
 
 				<div class="group">
-					<input type='text' placeholder='Last Name' name='lastname' class='input-registration' ng-model='lastname' required>
+					<input type='text' placeholder='Last Name' name='lastname' class='input-registration' >
+					 
 					<span class='feedback'>Last name is required.</span>
+					<span class='feedback'>Has to be greater than 2 and smaller then 12.</span>
 				</div>
 
 				<div class="group">
 					<p class='register-title'>Login Data</p>
 					<input type='email' placeholder='E-mail address' name='email' class='input-registration' required>
+					 
 					<span class='feedback' >Email is required.</span>
 					<span class='feedback' >Email is not valid.</span>
 				</div>
 
 				<div class="group">
-					<input type='password' placeholder='Password'  name='password' class='input-registration'>
-					<span class='feedback' >Password is required.</span>
+					<input type='password' placeholder='Password'  name='password' class='input-registration' ng-model='password' required ng-keyup="valdiatePassword()" 
+					 ng-class="{ 'error': formRegistration.password.$error.required||toSmall || toBig || isOneCapital }">
+					
+					<span class='feedback' >Password is required.</span><br>
 					<span class='feedback' >Password has to be bigger than 5.</span>
-					<span class='feedback' >Password has to be smaller than 9.</span>
+					<span class='feedback' >Password has to be smaller than 9.</span><br>
+					<span class='feedback' >Password has to contain one capital letter.</span>
 				</div>
 
 				<div class="group">
-					<input type='password' placeholder='Password confirmation' name='repassword'  class='input-registration' >
-					<span class='feedback'>Confirmation is required.</span>
-					<span class='feedback'>password and repassword not equal.</span>
+					<input type='password' placeholder='Password confirmation' name='repassword'  class='input-registration'  required >
+					 
+					<span class='feedback' >Confirmation is required.</span>
+					<span class='feedback' >password and repassword not equal.</span>
 				</div>
 
 				<div class="group">
 					<button id='submitregister'>Register</button>
 				</div>
 			</form>
+			
 		</div>
-		
+		<img ng-src='icons/720.gif' ng-show='img' id='preloader'>
 	</div>
 	<div class='footer'></div>
-	
+</div>
 </body>
 </html>

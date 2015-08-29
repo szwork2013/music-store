@@ -11,8 +11,6 @@ class Register extends DB{
 
 
 
-
-
 	/** insertNew
 	 *  Save new user information to database, registion
 	 *
@@ -43,8 +41,6 @@ class Register extends DB{
 	}
 
 
-
-
 	/** checkFbRegister
 	 *  Checking if the user is registerd using facebook before
 	 *
@@ -59,6 +55,13 @@ class Register extends DB{
 	}
 
 
+	/** register
+	 *  Saveing new user to database, using facebook
+	 *
+	 *  @param int- facebook id
+	 *  @return bool
+	 *
+	 */
 	public function register($FBInfo){
 		$password=md5(mt_rand(20,30));
 		$sql="INSERT INTO users ( user_email,user_password ,user_firstname, user_lastname)

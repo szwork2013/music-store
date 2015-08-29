@@ -12,10 +12,10 @@ class LoginController{
 		$success =$this->login->checking( $data->email , md5($data->password) );
 		if( mysqli_num_rows($success)>0 ){
 			$this->login->createSession( $data->email , md5($data->password));
-			echo 'Hello, You are now login'  ;
+			echo json_encode('Hello, You are now login')  ;
 		}
 		else{
-			echo "Worng email or password";
+			echo json_encode("Worng email or password");
 		}
 	}
 

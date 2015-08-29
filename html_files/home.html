@@ -1,13 +1,13 @@
 
 <div id="albumsFlow" >
-    <div id="bigPic" ng-init="i=0">
+    <div id="bigPic" >
         <img ng-src="images/{{albums[i].image_path}}"/>
     </div>
     <div class="container">
-        <img>
+        <img ng-src="images/{{album.image_path}}">
         <div>
-            <section></section>
-            <section></section>
+            <section>{{album.album_name}}</section>
+            <section>{{album.album_artist}}</section>
         </div>
     </div>
 </div>
@@ -15,20 +15,22 @@
 
 <my-Menu></my-Menu>
 
-<div id="mainAlbum" ng-init="getAlbums()">
+<div id="mainAlbum">
     <div id="newProducts_container">
         <h2>New Products</h2>
-        <div class="album_container">
-            <img>
+        <div class="album_container" ng-repeat="album in albums">
+            <img ng-src="images/{{album.image_path}}">
                 <div>
-                    <section></section>
+                    <section>{{album.album_name}} - {{album.album_artist}}</section>
                     <section>
                         <span>
-                            <button ></button>
-                            <button ></button>
+                            {{album.album_price| currency}}
+                            <button></button>
+                            <button></button>
                         </span>
                     </section>
-                </div
+                </div>
+
         </div>
         <img src="icons/fast44.png" id="getMore">
     </div>

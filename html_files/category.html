@@ -5,17 +5,18 @@
 
 
 <div>
-    <h2 class="path"><a href="#/"> Home > </a><a id="youAreHere"></a></h2>
+    <h2 class="path"><a href="#/"> Home > </a><a id="youAreHere">{{albumCategory}}</a></h2>
         <div id="category_container">
-            <h3></h3>
-            <div class="album_container" >
-                <img>
+            <h3>{{albumCategory}} - quantity: {{quantity}} </h3>
+            <div class="album_container">
+                <img  ng-src="images/{{album.image_path}}">
                 <div>
-                    <section</section>
+                    <section>{{album.album_name}} - {{album.album_artist}}</section>
                     <span>
+                        {{album.album_price| currency}}
                         <button></button>
-                         <button></button>
-                         <span style='font-size:10px'></span>
+                        <button></button>
+                        <span style='font-size:10px'>{{album.album_description | limitTo:30}}...</span>
                     </span>
                 </div>
             </div>
