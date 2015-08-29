@@ -7,12 +7,8 @@
 	app.controller('ctrl',function($scope,$http,$window,$location,LoginFactory,Facebook,$timeout,$rootScope){
 		
 
-
-
-
 		$scope.form=true;
 		$scope.flag=true;
-
 
 		$scope.valdiatePassword=function(){
 			if($scope.password.length <6 &&  $scope.password.length>0){

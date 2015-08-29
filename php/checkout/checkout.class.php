@@ -15,19 +15,21 @@ class Checkout extends DB{
 	
 	
 	public function Insert($data){
+	
 		$userId = $_SESSION['id'];
 		$sql = "INSERT INTO orders( user_id, order_shipping_address,
 				 order_shipping_city, order_shipping_zipcode, order_shipping_phone,
 				order_payment_method, order_total)
 				VALUES ( '$userId','$data->address','$data->city','$data->zip','$data->phone','$data->paymentWay','$data->totalPrice')";
 		$answer = $this->db->query($sql);
-		$this->newOrder = $this->db->insert_id;
-		return $answer;
+		return $this->db->insert_id;
+
+	
 	}
 
 	public function orderToAlbum($data){
 		$bool=true;
-		for($i=0; $i < 3; $i++){
+		for($i=0; $i < count($data->albumsId); $i++){
 			$tmp=$data->albumsId[$i];
 			$sql="INSERT INTO orders_to_albums(order_id, album_id) VALUES ('$this->newOrder','$tmp')";
 			$answer=$this->db->query($sql);
@@ -36,15 +38,14 @@ class Checkout extends DB{
 			}
 		}
 		if($bool){
-			echo "New Order has been saved.";
+			echo json_encode("New Order has been saved.");
 		}
 		else{
-			echo "Error, please try again.";
+			echo json_encode("Error, please try again.");
 		}
 	}
 	
-	
-	
+
 	
 	public function __destruct() {
 		$this->db->close();

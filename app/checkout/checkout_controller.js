@@ -5,41 +5,43 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 	$scope.init=function() {
 		$scope.data = {};
 		$scope.subTotal();
-		$scope.billing=false;
+		$scope.billing=true;
 		$scope.payment=false;
-		$scope.order=true;
+		$scope.order=false;
 		$scope.x1="black";
 		$scope.x2="red";
 		$scope.x3="red";
+	
 	}
 
 
-	////just for developing
-	//$scope.address="aaa 1";
-	//$scope.city='Jerusalem';
-	//$scope.zip='111';
-	//$scope.telephone='0546827883';
-	//$scope.name_on_card="ariel avrani";
-	//$scope.card_type="Visa";
-	//$scope.card_number="1111111111111111";
-	//$scope.expiration="02-2015";
-	//$scope.verifaction="111";
-
-
-
 	$scope.getInputsData=function(){
-		$scope.data={'address': $scope.address,
-			'city':$scope.city,
-			'zip':$scope.zip,
-			'phone':$scope.telephone,
-			'paymentWay':$scope.paymentWay,
-			'name_on_card':$scope.name_on_card,
-			'card_number':$scope.card_number,
-			'verifaction':$scope.verifaction,
-			'expiration':$scope.expiration,
-			'totalPrice':$scope.totalPrice,
-			'albumsId':$scope.albumsIdArr
-		};
+		
+		if($scope.paymentWay=='check'){
+			$scope.data={'address': $scope.address,
+					'city':$scope.city,
+					'zip':$scope.zip,
+					'phone':$scope.telephone,
+					'paymentWay':$scope.paymentWay,
+					'totalPrice':$scope.totalPrice,
+					'albumsId':$scope.albumsIdArr
+			};
+		}
+		else{
+			$scope.data={'address': $scope.address,
+					'city':$scope.city,
+					'zip':$scope.zip,
+					'phone':$scope.telephone,
+					'paymentWay':$scope.paymentWay,
+					'name_on_card':$scope.name_on_card,
+					'card_number':$scope.card_number,
+					'verifaction':$scope.verifaction,
+					'expiration':$scope.expiration,
+					'totalPrice':$scope.totalPrice,
+					'albumsId':$scope.albumsIdArr
+				};
+		}
+		
 	}
 
 
@@ -49,11 +51,10 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		for( var i=0 ; i<$scope.cart.length ; i++ ){
 			$scope.albumsIdArr[i]=$scope.cart[i].album_id;
 		}
-		//$scope.albumsId = angular.toJson($scope.albumsIdArr);
-		$scope.data;
+		$scope.getInputsData();
 		CheckoutFactory.send($scope.data).
               success(function (response) {
-                    console.log(response);
+				console.log(response);
 		  });
 	}
 	
@@ -99,7 +100,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.billing_right=true;
 		$scope.x1="red";
 		$scope.x2="black";
-		$scope.getInputsData();
 	}
 	
 	$scope.paymentFunc=function(paymentWay){
@@ -109,8 +109,10 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.payment_right=true;
 		$scope.x2="red";
 		$scope.x3="black";
-		$scope.the4last=$scope.card_number.slice(-4);
-		$scope.getInputsData();
+		if($scope.paymentWay!='check'){
+			$scope.the4last=$scope.card_number.slice(-4);
+		}
+		
 	}
 	
 	$scope.valdiateAdress=function(){

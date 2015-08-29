@@ -24,9 +24,7 @@ class checkoutController{
 
 		if($validAddress+$validCity+$validPhone==3){
 			$success=$this->checkout->Insert($data);
-			if($success){
-				$this->checkout->orderToAlbum($data);
-			}
+			$this->checkout->orderToAlbum($data);
 		}
 	}
 	
@@ -52,6 +50,7 @@ class checkoutController{
 		*/
 		if($validAddress+$validCity+$validPhone+$validNameOnCard+$validCardNumber+$validVerifaction+$validExpiration==7){
 			$this->checkout->Insert($data);
+			$this->checkout->orderToAlbum($data);
 		}
 		
 	}
