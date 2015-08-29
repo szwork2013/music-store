@@ -126,7 +126,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 	}
 	
 	$scope.valdiatePhone=function(){
-		$scope.phoneerror=  (/(02|03|04|08|09|072|073|074|076|077|050|052|055|054)[1-9]{7,8}/.test($scope.telephone)?false:true);
+		$scope.phoneerror=  (/(02|03|04|08|09|072|073|074|076|077|050|052|055|054)[1-9]{1}[0-9]{6,7}/.test($scope.telephone)?false:true);
 		 
 	}
 	
