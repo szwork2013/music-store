@@ -110,7 +110,7 @@ $login->checkLogin();
 			<p class='gray'>to move through the checkout process faster,store multiple </p>
 			<p class='gray'>shipping addresses,view and track your orders in your account and more.</p>
 			<br>
-			<button ng-click='start()'>Create An Account</button>
+			<button ng-click='regist=true'>Create An Account</button>
 			<img id="fb" src="icons/fb.png" ng-click="FBlogin()">
 		</div>
 		
