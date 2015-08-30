@@ -3,7 +3,13 @@
 
 app.controller( 'categoryController', function($scope,$rootScope,$route,$location,$routeParams,categoryFactory,productService) {
 
-	
+    /** init
+     *  create variables and calls function on the page loading
+     *
+     *  @param voide
+     *  @return voide
+     *
+     */
     $scope.init=function() {
         $scope.category_id;
         $scope.albumCategory = $routeParams.categoryName;

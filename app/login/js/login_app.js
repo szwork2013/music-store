@@ -10,6 +10,14 @@
 		$scope.form=true;
 		$scope.flag=true;
 
+
+		/** valdiatePassword
+		 *  Valdiate if the password is in the right format
+		 *
+		 *  @param void
+		 *  @return void
+		 *
+		 */
 		$scope.valdiatePassword=function(){
 			if($scope.password.length <6 &&  $scope.password.length>0){
 				$scope.toSmall=true;
@@ -26,7 +34,14 @@
 			$scope.isOneCapital= (/[A-Z]/.test($scope.password)?false:true);
 		}
 
-		
+
+		/** valdiateRePassword
+		 *  Valdiate if the re-password is in the right format
+		 *
+		 *  @param void
+		 *  @return void
+		 *
+		 */
 		$scope.valdiateRePassword=function(){
 			if ($scope.password!=$scope.repassword){
 				$scope.notEqual=true;
@@ -36,18 +51,38 @@
 			}
 		}
 
-		
+
+		/** valdiateFirstName
+		 *  Valdiate if the first name is in the right format
+		 *
+		 *  @param void
+		 *  @return void
+		 *
+		 */
 		$scope.valdiateFirstName=function(){
 			$scope.lengthFirstName = ($scope.firstname.length>=2 && $scope.firstname.length <=12 ? false : true);
 		}
 
+		/** valdiateFirstName
+		 *  Valdiate if the last name is in the right format
+		 *
+		 *  @param void
+		 *  @return void
+		 *
+		 */
 		$scope.valdiateLastName=function(){
 			$scope.lengthLastName = ($scope.lastname.length>=2 && $scope.lastname.length <=12 ? false : true);
 		}
 
-		
 
-		
+
+		/** login
+		 *  Login using email and password;
+		 *
+		 *  @param void
+		 *  @return void
+		 *
+		 */
 		$scope.login=function(){
 			var loginInfo={'email': $scope.loginEmail,
 				          'password':$scope.loginPassword};
@@ -58,50 +93,88 @@
 		}
 
 
+
+		/** gerUserInfo
+		 *  Get the user input value information
+		 *
+		 *  @param void
+		 *  @return create $scope.userInfo object
+		 *
+		 */
+		$scope.gerUserInfo=function(){
+			$scope.userInfo={'firstname': $scope.firstname,
+				'lastname': $scope.lastname,
+				'email': $scope.email,
+				'password':$scope.password,
+				'repassword':$scope.repassword
+			};
+		}
+
+
+		/** registration
+		 *  Registrat ajax , hhtp query for saving new user
+		 *
+		 *  @param void
+		 *  @return void
+		 *
+		 */
 		$scope.registration=function(){
 			$scope.img=true;
-		
-			var userInfo={'firstname': $scope.firstname,
-				  			'lastname': $scope.lastname,
-				  			'email': $scope.email,
-				  			'password':$scope.password,
-				  			'repassword':$scope.repassword};
-			LoginFactory.registration(userInfo).
-			  success(function(response) {	  
-				  $scope.regSecond=true;
-					$scope.img=true;
-					$timeout(function() {
-						$scope.form=false;
-						$scope.img=false;
-						$scope.regThird=true;
-						$scope.regSecond=false;
-					},3000),
-					
-					$timeout(function() {
-						$scope.msg='Registration succeed!';
-						
-					},4000);
-					
-					$timeout(function() {
-						$scope.regThird=false;
-						$scope.regist=false;
-						var element = document.getElementById("loginpsw");
-						element.focus();
-						$scope.loginEmail=$scope.email;
-						$scope.regFirst=true;
-						$scope.regThird=false;
-						$scope.msg='';
-						$scope.form=true;
-					},7000);
-				  
+			$scope.gerUserInfo();
+			LoginFactory.registration($scope.userInfo).
+			  success(function(response) {
+					$scope.registrationPageChanging(response);
 			  });
 		}
 
-		////////////////////////////////// Login with Facebook //////////////////////////
 
+
+
+		/** registrationPageChanging
+		 *  Create dynamic changes for registration option
+		 *
+		 *  @param void
+		 *  @return void
+		 *
+		 */
+		$scope.registrationPageChanging=function(response){
+			$scope.regSecond=true;
+			$scope.img=true;
+			$timeout(function() {
+				$scope.form=false;
+				$scope.img=false;
+				$scope.regThird=true;
+				$scope.regSecond=false;
+			},3000),
+				$timeout(function() {
+					$scope.msg='Registration succeed!';
+
+				},4000);
+			$timeout(function() {
+				$scope.regThird=false;
+				$scope.regist=false;
+				var element = document.getElementById("loginpsw");
+				element.focus();
+				$scope.loginEmail=$scope.email;
+				$scope.regFirst=true;
+				$scope.regThird=false;
+				$scope.msg='';
+				$scope.form=true;
+			},7000);
+		}
+
+
+		////////////////////////////////// Login with Facebook //////////////////////////
 
 		$scope.fbInfo={};
 
+		/** FBlogin
+		 *  Login using facebook login option
+		 *
+		 *  @param  Ff the user is login get the user information from facebook.
+		 *  @return void
+		 *
+		 */
 		$scope.FBlogin = function() {
 			Facebook.login(function(response) {
 				if(response.status === 'connected') {
@@ -115,14 +188,30 @@
 			},{scope:'email'});
 		}
 
+
+		/** getFbInfo
+		 *  Login using facebook login option
+		 *
+		 *  @param   Get the user information from facebook.
+		 *  @return void
+		 *
+		 */
 		$scope.getFbInfo = function() {
 			Facebook.api('/me', function(info) {
 				$scope.fbInfo=info;
-				$scope.fbLogin();
+				$scope.fbSend();
 			});
 		};
 
-		$scope.fbLogin=function(){
+
+		/** fbSend
+		 *  Ajax for saving to data base the facebook user information
+		 *
+		 *  @param   void
+		 *  @return void
+		 *
+		 */
+		$scope.fbSend=function(){
 			var userFBInfo= {
 				'firstname': $scope.fbInfo.first_name,
 				'lastname': $scope.fbInfo.last_name,
@@ -135,7 +224,6 @@
 					$window.location.reload();
 				});
 		}
-
 
 
 		/** closeIt
