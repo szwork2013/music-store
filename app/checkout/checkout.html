@@ -51,9 +51,10 @@
 						
 						
 						<input type='text' id='checkout-zip' name='zip' ng-model= 'zip' required
-						ng-class="{ 'error':  billingForm.zip.$error.required }">
+						ng-class="{ 'error':  billingForm.zip.$error.required || ziperror }" ng-keyup='valdiateZipCode()'>
 						
 						<p class='feedback' style='font-size:8px' ng-show="billingForm.zip.$error.required " id='checkout-zip-feedback' >This is a required field.</p>
+						<p class='feedback' style='font-size:8px;margin-left:287px' ng-show="ziperror " >Has to be only digits,from 1 to 7.</p>
 					
 						<p class='feedback' style='font-size:8px' ng-show="billingForm.city.$error.required " >This is a required field.</p>
 						<p class='feedback' style='font-size:8px' ng-show="cityerror" >Use only English and minimum 3 notes.</p>
@@ -170,7 +171,12 @@
 					<td style='color:black;font-weight:bold'>{{totalPrice | currency}}</td>
 					</tr>
 					</table>
-					<button class='checkout-continue' style='margin-top:100px' ng-click='send()'  >Place Order</button>
+					
+					
+					<button class='checkout-continue' style='margin-top:30px' ng-click='send()'  >Place Order</button>
+					
+					
+					<p  style='position:relative;top:65px;font-size:12px;cursor:pointer' ng-click='editCart()'><span style='color:gray;font-size:10px'>Forgot an item? </span> Edit Your Cart</p>
 				</div>
 		</ul>
 	</div>

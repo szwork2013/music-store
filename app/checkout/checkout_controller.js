@@ -13,7 +13,9 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.x3="red";
 
 	}
-
+	$scope.editCart=function(){
+		$location.path('/');
+	}
 
 	$scope.getInputsData=function(){
 		$scope.data={'address': $scope.address,
@@ -112,6 +114,14 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.cityerror=  (/[a-zA-Z]{3,}/.test($scope.city)?false:true);
 
 	}
+
+	
+	$scope.valdiateZipCode=function(){
+		$scope.ziperror=  (/[0-9]{1,7}/.test($scope.zip)?false:true);
+		
+		 
+	}
+	
 
 	$scope.valdiatePhone=function(){
 		$scope.phoneerror=  (/(02|03|04|08|09|072|073|074|076|077|050|052|055|054)[1-9]{7,8}/.test($scope.telephone)?false:true);

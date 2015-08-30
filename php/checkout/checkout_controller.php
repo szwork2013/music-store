@@ -14,7 +14,9 @@ class checkoutController{
 		$validAddress = preg_match('/[a-zA-Z]{3,}\s[0-9]{1,}/', $data->address);
 		$validCity= preg_match('/[a-zA-Z]{3,}/', $data->city);
 		$validPhone= preg_match('/(02|03|04|08|09|072|073|074|076|077|050|052|055|054)[1-9]{1}[0-9]{6,7}/', $data->phone);
-		if($validAddress+$validCity+$validPhone==3){
+		$validZip= preg_match('/[0-9]{1,7}/', $data->zip);
+		
+		if($validAddress+$validCity+$validPhone+$validZip==4){
 			$idOrder=$this->checkout->Insert($data);
 			$this->checkout->orderToAlbum($data,$idOrder);
 		}
@@ -23,6 +25,7 @@ class checkoutController{
 					"validAddress" =>$validAddress,
 					"validCity"=>$validCity,
 					"validPhone"=>$validPhone,
+					"validZip"=>$validZip,
 			) );
 		}
 		
@@ -36,8 +39,9 @@ class checkoutController{
 		$validCardNumber=preg_match('/^[0-9]{16}$/', $data->card_number);
 		$validVerifaction=preg_match('/^[0-9]{3}$/', $data->verifaction);
 		$validExpiration=preg_match('/^([0-9]{2})-([0-9]{4})$/', $data->expiration);
+		$validZip= preg_match('/[0-9]{1,7}/', $data->zip);
 	
-		if($validAddress+$validCity+$validPhone+$validNameOnCard+$validCardNumber+$validVerifaction+$validExpiration==7){
+		if($validAddress+$validCity+$validPhone+$validNameOnCard+$validCardNumber+$validVerifaction+$validExpiration+$validZip==8){
 			$idOrder=$this->checkout->Insert($data);
 			$this->checkout->orderToAlbum($data,$idOrder);
 		}
@@ -51,6 +55,7 @@ class checkoutController{
 					"validVerifaction"=>$validVerifaction,
 					"validNameOnCard"=>$validNameOnCard,
 					"validExpiration"=>$validExpiration,
+					"validZip"=>$validZip,
 			) );
 		}
 	}
