@@ -19,18 +19,21 @@
 		 *
 		 */
 		$scope.valdiatePassword=function(){
-			if($scope.password.length <6 &&  $scope.password.length>0){
-				$scope.toSmall=true;
+			if($scope.password!=null){
+				if($scope.password.length <6 &&  $scope.password.length>0){
+					$scope.toSmall=true;
+				}
+				else{
+					$scope.toSmall=false;
+				}
+				if($scope.password.length >8){
+					$scope.toBig=true;
+				}
+				else{
+					$scope.toBig=false;
+				}
 			}
-			else{
-				$scope.toSmall=false;
-			}
-			if($scope.password.length >8){
-				$scope.toBig=true;
-			}
-			else{
-				$scope.toBig=false;
-			}
+			
 			$scope.isOneCapital= (/[A-Z]/.test($scope.password)?false:true);
 		}
 
