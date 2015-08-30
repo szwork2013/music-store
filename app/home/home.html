@@ -1,24 +1,24 @@
 
 <div id="albumsFlow" >
     <div id="bigPic" ng-init="i=0">
-        <img ng-src="images/{{albums[i].image_path}}"/>
+        <img ng-src="images/{{albums[i].image_path}}"  ng-click="goToProductPage(albums[i].album_id)"/>
     </div>
-    <div class="container" ng-repeat="album in albums|limitTo:8">
-        <img ng-src="images/{{album.image_path}}" ng-mouseover="changeBigPic($index)" ng-click="goToProductPage(album.album_id)">
+    <div class="container" ng-repeat="album in albums|limitTo:9" ng-if="$index > 0">
+        <img ng-src="images/{{album.image_path}}"  ng-click="goToProductPage(album.album_id)">
         <div>
             <section>{{album.album_name}}</section>
             <section>{{album.album_artist}}</section>
         </div>
     </div>
 </div>
-	
+
 
 <my-Menu></my-Menu>
 
 <div id="mainAlbum" ng-init="getAlbums()">
     <div id="newProducts_container">
         <h2>New Products</h2>
-        <div class="album_container" ng-repeat="album in albums"  >
+        <div class="album_container" ng-repeat="album in albums"  ng-if="$index > 8">
             <img ng-src="images/{{album.image_path}}">
                 <div>
                     <section>{{album.album_name}} - {{album.album_artist}}</section>

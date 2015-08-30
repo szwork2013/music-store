@@ -30,7 +30,7 @@ class Album extends DB{
 			  FROM albums
 			  INNER JOIN images
 				  ON albums.album_id=images.image_id
-				  ORDER BY album_created ASC LIMIT 9 ";
+				  ORDER BY album_created ASC LIMIT 18 ";
 		$answer=$this->db->query($sql);
 		return $answer;
 	}

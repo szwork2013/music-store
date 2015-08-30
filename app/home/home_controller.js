@@ -13,7 +13,7 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
      *
      */
     $scope.init=function() {
-        $scope.page= 2;
+        $scope.page= 3;
         $scope.items = [];
         $scope.album={};
         $scope.albums=[];
@@ -63,9 +63,7 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
      *  @return void
      *
      */
-    $scope.changeBigPic=function(index){
-        $scope.i=index;
-    }
+
 
 
     /** goToProductPage
@@ -97,7 +95,20 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
 
     $scope.init();
 
+
+
+
+
 }); //close homeController
 
 
 
+//app.filter('startFrom', function() {
+//    return function(input, start) {
+//        if(input) {
+//            start = +start; //parse to int
+//            return input.slice(start);
+//        }
+//        return [];
+//    }
+//});

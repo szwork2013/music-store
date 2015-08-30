@@ -126,6 +126,7 @@
 			$scope.gerUserInfo();
 			LoginFactory.registration($scope.userInfo).
 			  success(function(response) {
+					console.log(response);
 					$scope.registrationPageChanging(response);
 			  });
 		}
