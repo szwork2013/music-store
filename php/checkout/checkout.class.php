@@ -6,7 +6,7 @@ session_start();
 class Checkout extends DB{
 
 	private $db;
-	private $newOrder;
+	
 
 	public function __construct() {
 		$this->db = DB::getInstance();
@@ -22,23 +22,24 @@ class Checkout extends DB{
 				order_payment_method, order_total)
 				VALUES ( '$userId','$data->address','$data->city','$data->zip','$data->phone','$data->paymentWay','$data->totalPrice')";
 		$answer = $this->db->query($sql);
+		
 		return $this->db->insert_id;
 
 	
 	}
 
-	public function orderToAlbum($data){
+	public function orderToAlbum($data,$idOrder){
 		$bool=true;
 		for($i=0; $i < count($data->albumsId); $i++){
 			$tmp=$data->albumsId[$i];
-			$sql="INSERT INTO orders_to_albums(order_id, album_id) VALUES ('$this->newOrder','$tmp')";
+			$sql="INSERT INTO orders_to_albums(order_id, album_id) VALUES ('$idOrder','$tmp')";
 			$answer=$this->db->query($sql);
 			if(!$answer){
 				$bool=false;
 			}
 		}
 		if($bool){
-			echo json_encode("New Order has been saved.");
+			echo json_encode("New Order has been saved". "$idOrder");
 		}
 		else{
 			echo json_encode("Error, please try again.");
