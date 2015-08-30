@@ -16,11 +16,8 @@ $app->post('/checkout/', function() use ($checkout) {
 	
 	if($data->paymentWay=='check'){
 		$checkout->validationForCheck($data);
-		//echo json_encode( array("validPhone"=>"check") );
-	
 	}
 	else{
-	//	echo json_encode( array("validPhone"=>"credit") );
 		$checkout->validationForCredit($data);
 	}
 	

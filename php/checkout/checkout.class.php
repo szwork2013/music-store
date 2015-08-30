@@ -39,7 +39,7 @@ class Checkout extends DB{
 			}
 		}
 		if($bool){
-			echo json_encode("New Order has been saved". "$idOrder");
+			echo json_encode("New Order has been saved");
 		}
 		else{
 			echo json_encode("Error, please try again.");

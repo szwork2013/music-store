@@ -13,7 +13,9 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.x3="red";
 	
 	}
-
+	$scope.editCart=function(){
+		$location.path('/');
+	}
 
 	$scope.getInputsData=function(){
 		
@@ -54,7 +56,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.getInputsData();
 		CheckoutFactory.send($scope.data).
               success(function (response) {
-				console.log(response);
+				alert(response);
 		  });
 	}
 	
@@ -122,6 +124,12 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 	
 	$scope.valdiateCity=function(){
 		$scope.cityerror=  (/[a-zA-Z]{3,}/.test($scope.city)?false:true);
+		 
+	}
+	
+	$scope.valdiateZipCode=function(){
+		$scope.ziperror=  (/[0-9]{1,7}/.test($scope.zip)?false:true);
+		
 		 
 	}
 	
