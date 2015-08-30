@@ -106,7 +106,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 
 	$scope.valdiateAdress=function(){
 		$scope.addresserror= (/[a-zA-Z]{3,}\s[0-9]{1,}/.test($scope.address)?false:true);
-
 	}
 
 	$scope.valdiateCity=function(){
