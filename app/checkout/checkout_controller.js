@@ -11,39 +11,28 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.x1="black";
 		$scope.x2="red";
 		$scope.x3="red";
-	
+
 	}
 	$scope.editCart=function(){
 		$location.path('/');
 	}
 
 	$scope.getInputsData=function(){
-		
-		if($scope.paymentWay=='check'){
-			$scope.data={'address': $scope.address,
-					'city':$scope.city,
-					'zip':$scope.zip,
-					'phone':$scope.telephone,
-					'paymentWay':$scope.paymentWay,
-					'totalPrice':$scope.totalPrice,
-					'albumsId':$scope.albumsIdArr
-			};
+		$scope.data={'address': $scope.address,
+			'city':$scope.city,
+			'zip':$scope.zip,
+			'phone':$scope.telephone,
+			'paymentWay':$scope.paymentWay,
+			'totalPrice':$scope.totalPrice,
+			'albumsId':$scope.albumsIdArr
+		};
+		if($scope.paymentWay!='check'){
+			$scope.data['address']= $scope.address;
+			$scope.data['name_on_card']=$scope.name_on_card;
+			$scope.data['card_number']=$scope.card_number;
+			$scope.data['verifaction']=$scope.verifaction;
+			$scope.data['expiration']=$scope.expiration;
 		}
-		else{
-			$scope.data={'address': $scope.address,
-					'city':$scope.city,
-					'zip':$scope.zip,
-					'phone':$scope.telephone,
-					'paymentWay':$scope.paymentWay,
-					'name_on_card':$scope.name_on_card,
-					'card_number':$scope.card_number,
-					'verifaction':$scope.verifaction,
-					'expiration':$scope.expiration,
-					'totalPrice':$scope.totalPrice,
-					'albumsId':$scope.albumsIdArr
-				};
-		}
-		
 	}
 
 
@@ -59,7 +48,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 				alert(response);
 		  });
 	}
-	
+
 
 	$scope.subTotal=function() {
 		$scope.cart = productService.getData("MyCart");
@@ -69,12 +58,12 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		}
 		$scope.totalPrice=totalPrice;
 	}
-	
-	
+
+
 	$scope.func=function(){
 		$scope.billing=false;
 	}
-	
+
 	$scope.changeBillingInfo=function(){
 		$scope.billing=true;
 		$scope.payment=false;
@@ -83,7 +72,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.x2="red";
 		$scope.x3="red";
 	}
-	
+
 	$scope.changePayment=function(){
 		if($scope.x3=="black" ||$scope.x2=="black" ){
 		$scope.billing=false;
@@ -103,7 +92,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.x1="red";
 		$scope.x2="black";
 	}
-	
+
 	$scope.paymentFunc=function(paymentWay){
 		$scope.paymentWay=paymentWay;
 		$scope.order=true;
@@ -114,18 +103,19 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		if($scope.paymentWay!='check'){
 			$scope.the4last=$scope.card_number.slice(-4);
 		}
-		
+
 	}
-	
+
 	$scope.valdiateAdress=function(){
 		$scope.addresserror= (/[a-zA-Z]{3,}\s[0-9]{1,}/.test($scope.address)?false:true);
-		 
+
 	}
-	
+
 	$scope.valdiateCity=function(){
 		$scope.cityerror=  (/[a-zA-Z]{3,}/.test($scope.city)?false:true);
-		 
+
 	}
+
 	
 	$scope.valdiateZipCode=function(){
 		$scope.ziperror=  (/[0-9]{1,7}/.test($scope.zip)?false:true);
@@ -133,29 +123,29 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		 
 	}
 	
+
 	$scope.valdiatePhone=function(){
-		$scope.phoneerror=  (/(02|03|04|08|09|072|073|074|076|077|050|052|055|054)[1-9]{1}[0-9]{6,7}/.test($scope.telephone)?false:true);
-		 
+		$scope.phoneerror=  (/(02|03|04|08|09|072|073|074|076|077|050|052|055|054)[1-9]{7,8}/.test($scope.telephone)?false:true);
 	}
-	
+
 	$scope.valdiateName=function(){
 		$scope.nameerror= (/[a-zA-Z]{2,}\s[a-zA-Z]{2,}/.test($scope.name_on_card)?false:true);
 	}
-	
+
 	$scope.validateCardNumber=function(){
 		$scope.carderror=(/^[0-9]{16}$/.test($scope.card_number)?false:true);
 	}
-	
+
 	$scope.validateVerifaction=function(){
 		$scope.verifactionerror=(/^[0-9]{3}$/.test($scope.verifaction)?false:true);
 	}
-	
+
 	$scope.validateDate=function(){
 		$scope.dateerror=(/^([0-9]{2})-([0-9]{4})$/.test($scope.expiration)?false:true);
 	}
-	
+
 
 
 	$scope.init();
-	
-}); 
+
+});
