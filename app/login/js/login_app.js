@@ -6,7 +6,7 @@
 
 	app.controller('ctrl',function($scope,$http,$window,$location,LoginFactory,Facebook,$timeout,$rootScope){
 		
-
+		
 		$scope.form=true;
 		$scope.flag=true;
 
@@ -63,7 +63,10 @@
 		 *
 		 */
 		$scope.valdiateFirstName=function(){
-			$scope.lengthFirstName = ($scope.firstname.length>=2 && $scope.firstname.length <=12 ? false : true);
+			if($scope.lengthFirstName!=null){
+				$scope.lengthFirstName = ($scope.firstname.length>=2 && $scope.firstname.length <=12 ? false : true);
+			}
+			
 		}
 
 		/** valdiateFirstName
@@ -74,7 +77,10 @@
 		 *
 		 */
 		$scope.valdiateLastName=function(){
-			$scope.lengthLastName = ($scope.lastname.length>=2 && $scope.lastname.length <=12 ? false : true);
+			if($scope.lengthLastName!=null){
+				$scope.lengthLastName = ($scope.lastname.length>=2 && $scope.lastname.length <=12 ? false : true);
+			}
+			
 		}
 
 
@@ -91,6 +97,7 @@
 				          'password':$scope.loginPassword};
 			LoginFactory.login(loginInfo)
 				.success(function(response) {
+					alert(response);
 					$window.location.reload();
 				});
 		}
@@ -122,12 +129,24 @@
 		 *
 		 */
 		$scope.registration=function(){
-			$scope.img=true;
+			
 			$scope.gerUserInfo();
 			LoginFactory.registration($scope.userInfo).
 			  success(function(response) {
+
+				  	console.log(response);
+				  	if(response.existEmail==true){
+				  		alert("this email is allready in use!");
+				  	}
+				  	else{
+				  		$scope.img=true;
+				  		$scope.registrationPageChanging(response);
+				  	}
+					
+
 					console.log(response);
 					$scope.registrationPageChanging(response);
+
 			  });
 		}
 
@@ -160,6 +179,7 @@
 				var element = document.getElementById("loginpsw");
 				element.focus();
 				$scope.loginEmail=$scope.email;
+				$scope.loginPassword='';
 				$scope.regFirst=true;
 				$scope.regThird=false;
 				$scope.msg='';

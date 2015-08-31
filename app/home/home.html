@@ -5,9 +5,13 @@
     </div>
     <div class="container" ng-repeat="album in albums|limitTo:9" ng-if="$index > 0" ng-mouseenter='checked=!checked' ng-mouseleave= 'checked=!checked'>
         <img ng-src="images/{{album.image_path}}"  >
-        <div ng-show="checked" ng-init="checked=false">
+        <div  ng-show="checked" ng-init="checked=false">
             <section>{{album.album_name}}</section>
             <section>{{album.album_artist}}</section>
+            <span>
+                <button ng-click="addToCart($index)"></button>
+                <button ng-click='goToProductPage(album.album_id)'></button>
+            </span>
         </div>
     </div>
 </div>

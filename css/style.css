@@ -146,15 +146,15 @@ my-Menu li:hover {
     transform:scale(1.1,1.1);
 }
 
-/*.container div:hover{*/
-    /*background-color:#FD0002 ;*/
-    /*opacity: 1;*/
-/*}*/
+.container div:hover{
+    background-color:#FD0002 ;
+    opacity: 1;
+}
 
-/*.container div:hover  section:nth-child(2){*/
-    /*color:black;*/
+.container div:hover  section:nth-child(2){
+    color:black;
 
-/*}*/
+}
 
 .container img:nth-child(1){
     width:220px;
@@ -176,12 +176,38 @@ my-Menu li:hover {
     height:70px;
     -webkit-transition:height .5s;
     transition:height .5s;
-
 }
 
 
 .container div.ng-hide {
     height:0px;
+}
+
+.container span{
+    position: absolute;
+    right:10px;
+    top:55px;
+    float: left;
+}
+
+.container span button{
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    background-size: 25px 25px;
+    width:30px;
+    height:30px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+
+.container span button:nth-child(1){
+    background-image:url("../icons/cart.png");
+}
+
+.container span button:nth-child(2){
+    background-image:url("../icons/info.png");
 }
 
 

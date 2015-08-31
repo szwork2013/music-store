@@ -23,13 +23,7 @@ class Login extends DB{
 	public function checking($email,$password){
 		$sql="SELECT * FROM users WHERE  user_email='$email' AND user_password='$password' ";
 		$answer=$this->db->query($sql);
-		if(mysqli_num_rows($answer)>0){
-			$this->id=$this->db->insert_id;
-			return $answer;
-		}
-		else{
-			return false;
-		}
+		return $answer;
 	}
 
 
