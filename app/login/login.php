@@ -7,58 +7,7 @@ $login->checkLogin();
 
 <!DOCTYPE html>
 <html>
-
 <head>
-<style>
-#preloader{
-	top:-200px;
-	left:70px;
-	position:relative;
-}
-
-@keyframes example {
-    from {width: 400px;height:300px}
-    to {width: 250px;height:100px}
-}
-.registration-third{
-    width: 100px;
-	height:100px;
-    background-color: silver;
-    animation-name: example;
-    animation-duration: 1s;
-	margin-top:100px;
-	margin:0 auto;
-}
-	.registration-second { 
-		opacity:0.5;
-		background-color:silver;
-		width:400px;
-		height:300px;
-		margin-top:100px;
-		margin:0 auto;
-		
-	}
-	.registration-first{
-		background-color:silver;
-		width:600px;
-		height:300px;
-		margin-top:100px;
-		margin:0 auto;
-	}
-	#preloader{
-		position:relative;
-		left:450px;
-		top:-500px;
-		z-index:2;
-	}
-
-
-</style>
-
-
-
-
-
 	<title>Music Store - Login</title>
 	<link rel="shortcut icon" href="../../icons/Music-icon.png" />
 	<link rel="stylesheet" href="css/login_style.css">

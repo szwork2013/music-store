@@ -1,9 +1,10 @@
 
 
-app.controller( 'checkOutController', function($scope,$route,$location,$routeParams,productService,CheckoutFactory,$rootScope) {
+app.controller( 'checkOutController', function($scope,$route,$location,$routeParams,productService,CheckoutFactory,$window,$rootScope) {
 
 	$scope.init=function() {
 		$scope.data = {};
+		$scope.checkLogin();
 		$scope.subTotal();
 		$scope.billing=true;
 		$scope.payment=false;
@@ -141,6 +142,17 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 
 	$scope.validateDate=function(){
 		$scope.dateerror=(/^([0-9]{2})-([0-9]{4})$/.test($scope.expiration)?false:true);
+	}
+
+
+
+	$scope.checkLogin=function(){
+		CheckoutFactory.checkLogin().
+			success(function(bool) {
+				if(!bool){
+					$window.location.href='app/login/login.php'
+				}
+			});
 	}
 
 

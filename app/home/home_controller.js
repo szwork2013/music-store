@@ -41,7 +41,6 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
 
 
 
-
     /** getAlbums
      *  ajax, http query for all album information
      *

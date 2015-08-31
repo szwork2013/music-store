@@ -1,7 +1,5 @@
 
-
 <div id='checkout_container'>
-
 
 	<div id='checkout_container_right'>
 		<p id='checkout_container_right_title'>Your CheckOut Progress</p>

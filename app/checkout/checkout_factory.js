@@ -9,6 +9,10 @@ app.factory('CheckoutFactory',function($http){
 		return $http.post(baseUrl+'checkout/',angular.toJson(data));
     }
 
+    CheckoutFactory.checkLogin=function(){
+        return $http.get('app/login/php/register_view.php/checkLogin');
+    }
+
 
     return CheckoutFactory;
 });
