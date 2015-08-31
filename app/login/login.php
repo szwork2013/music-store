@@ -11,7 +11,7 @@ $login->checkLogin();
 	<title>Music Store - Login</title>
 	<link rel="shortcut icon" href="../../icons/Music-icon.png" />
 	<link rel="stylesheet" href="css/login_style.css">
-	<script src='../../lib/angularJs/angular.js'></script>
+	<script src='../../lib/angularJs/angular.min.js'></script>
 	<script src="src/angular-facebook/angular-facebook.js"></script>
 	<script src="js/login_app.js"></script>
 	<script src="js/login_factory.js"></script>
