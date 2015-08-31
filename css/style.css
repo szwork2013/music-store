@@ -146,15 +146,15 @@ my-Menu li:hover {
     transform:scale(1.1,1.1);
 }
 
-.container div:hover{
-    background-color:#FD0002 ;
-    opacity: 1;
-}
+/*.container div:hover{*/
+    /*background-color:#FD0002 ;*/
+    /*opacity: 1;*/
+/*}*/
 
-.container div:hover  section:nth-child(2){
-    color:black;
+/*.container div:hover  section:nth-child(2){*/
+    /*color:black;*/
 
-}
+/*}*/
 
 .container img:nth-child(1){
     width:220px;
@@ -173,6 +173,15 @@ my-Menu li:hover {
     bottom: 0px;
     left:0px;
     padding:10px;
+    height:60px;
+    -webkit-transition:height .5s;
+    transition:height .5s;
+
+}
+
+
+.container div.ng-hide {
+    height:0px;
 }
 
 
@@ -727,12 +736,11 @@ tr{
 }
 
 .payment_right p,.billing_right p{
-	color:siver;
+	color:silver;
 	font-size:13px;
 	 line-height: 40%;
 	
 }
-
 
 
 .change{
@@ -740,6 +748,6 @@ tr{
 	cursor:pointer;
 	
 }
-.billing_right p{
-color:gray;
-
+.billing_right p {
+    color: gray;
+}
