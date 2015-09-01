@@ -20,7 +20,7 @@
 <my-Menu></my-Menu>
 
 <div id="mainAlbum" ng-init="getAlbums()">
-    <div id="newProducts_container" tagged-infinite-scroll="getMore()" tagged-infinite-scroll-distance="-500">
+    <div id="newProducts_container" tagged-infinite-scroll="getMore()" tagged-infinite-scroll-distance="-600">
         <h2>New Products</h2>
         <div class="album_container" ng-repeat="album in albums"  ng-if="$index > 8"  >
             <img ng-src="images/{{album.image_path}}"  >
