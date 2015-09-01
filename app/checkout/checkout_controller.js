@@ -9,9 +9,9 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.billing=true;
 		$scope.payment=false;
 		$scope.order=false;
-		$scope.x1="black";
-		$scope.x2="red";
-		$scope.x3="red";
+		$scope.x1="red";
+		$scope.x2="black";
+		$scope.x3="black";
 
 	}
 	$scope.editCart=function(){
@@ -69,9 +69,9 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.billing=true;
 		$scope.payment=false;
 		$scope.order=false;
-		$scope.x1="black";
-		$scope.x2="red";
-		$scope.x3="red";
+		$scope.x1="red";
+		$scope.x2="black";
+		$scope.x3="black";
 	}
 
 	$scope.changePayment=function(){
@@ -79,9 +79,9 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.billing=false;
 		$scope.payment=true;
 		$scope.order=false;
-		$scope.x1="red";
-		$scope.x2="black";
-		$scope.x3="red";
+		$scope.x1="black";
+		$scope.x2="red";
+		$scope.x3="black";
 		}
 	}
 
@@ -90,8 +90,8 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.billing=false;
 		$scope.payment=true;
 		$scope.billing_right=true;
-		$scope.x1="red";
-		$scope.x2="black";
+		$scope.x1="black";
+		$scope.x2="red";
 	}
 
 	$scope.paymentFunc=function(paymentWay){
@@ -99,8 +99,8 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.order=true;
 		$scope.payment=false;
 		$scope.payment_right=true;
-		$scope.x2="red";
-		$scope.x3="black";
+		$scope.x2="black";
+		$scope.x3="red";
 		if($scope.paymentWay!='check'){
 			$scope.the4last=$scope.card_number.slice(-4);
 		}

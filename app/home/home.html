@@ -20,10 +20,10 @@
 <my-Menu></my-Menu>
 
 <div id="mainAlbum" ng-init="getAlbums()">
-    <div id="newProducts_container">
+    <div id="newProducts_container" tagged-infinite-scroll="getMore()" tagged-infinite-scroll-distance="-500">
         <h2>New Products</h2>
-        <div class="album_container" ng-repeat="album in albums"  ng-if="$index > 8">
-            <img ng-src="images/{{album.image_path}}" >
+        <div class="album_container" ng-repeat="album in albums"  ng-if="$index > 8"  >
+            <img ng-src="images/{{album.image_path}}"  >
                 <div>
                     <section>{{album.album_name}} - {{album.album_artist}}</section>
                     <section>
@@ -35,7 +35,11 @@
                     </section>
                 </div>
         </div>
-        <img src="icons/fast44.png" id="getMore"  ng-mouseover="getMore()">
+        
+       
+      </li>
+    </ul>
+  </div>
     </div>
 </div><!--close mainAlbum Div-->
 

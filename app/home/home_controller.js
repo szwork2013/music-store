@@ -13,7 +13,7 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
      *
      */
     $scope.init=function() {
-        $scope.page= 5;
+        $scope.page= 0;
         $scope.items = [];
         $scope.album={};
         $scope.albums=[];
@@ -34,6 +34,7 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
               success(function (items) {
                  if(items){
                      $scope.albums = $scope.albums.concat(items);
+                     console.log(items);
                  }
 		  });
 		  
