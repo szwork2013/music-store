@@ -13,7 +13,7 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
      *
      */
     $scope.init=function() {
-        $scope.page= 0;
+        $scope.page= 5;
         $scope.items = [];
         $scope.album={};
         $scope.albums=[];

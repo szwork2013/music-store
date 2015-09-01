@@ -34,9 +34,12 @@ header input{
     left: 580px;
     top:35px;
     height: 35px;
-    width: 315px;
+    width: 280px;
     font-size: x-large;
     font-family:arial;
+    border:none;
+    outline: none;
+    padding-left:15px ;
 }
 
 header img{
