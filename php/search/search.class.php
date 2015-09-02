@@ -20,11 +20,6 @@ class Search extends DB{
 	 *
 	 */
 	public function getMatching($word){
-
-		//$sql="SELECT album_name FROM songs WHERE song_name like %the";
-		//$success=$this->db->query($sql);
-		//return $success;
-
 		$word = $this->db->real_escape_string($word);
 		$sql="SELECT album_name,album_artist,album_release_year,song_name,image_path
 				FROM songs
@@ -39,7 +34,6 @@ class Search extends DB{
 				WHERE song_name like '%$word%' ";
 		$success=$this->db->query($sql);
 		return $success;
-
 	}
 
 	/** getAlbum

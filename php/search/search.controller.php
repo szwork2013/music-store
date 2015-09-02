@@ -19,16 +19,17 @@ class searchController{
 	 *
 	 */
 	public function getMatching ($word) {
-		
+		if(strlen($word) > 2 ) {
 			$success = $this->search->getMatching($word);
 			if (mysqli_num_rows($success) > 0) {
 				while ($row = $success->fetch_assoc()) {
-					$rows[] = $row['song_name'];
+					$rows[] = $row;
 				}
 				echo json_encode($rows);
+			} else {
+				echo false;
 			}
-			
-		
+		}
 	}
 
 	/**Controlller getAlbum
