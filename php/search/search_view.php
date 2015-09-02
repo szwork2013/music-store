@@ -9,9 +9,13 @@ $search=new searchController();
 $app = new \Slim\Slim();
 
 
+$app->response->headers->set('Content-Type', 'application/json');
+
+
 
 $app->get('/search/:word', function($word)use($search){
 	$search->getMatching($word);
+	//echo $word;
 });
 
 $app->get('/getAlbum/:song', function($song)use($search){

@@ -10,10 +10,10 @@
 </h2>
 <div id='product-container'>
 	<div class='product-images'>
- 		<img id="big-img" ng-src="images/{{album.image_path}}" />
-		<img ng-src="images/{{album.image_path}}" />
-		<img ng-src="images/{{album.image_path}}"/>
-		<img ng-src="images/{{album.image_path}}"/>
+ 		<img id="big-img" ng-src="images/{{big_picture}}" />
+ 		
+		<img ng-repeat='album in albums' ng-src="images/{{album.image_path}}" ng-click='changePicture(album.image_path,$index)' />
+		
 	</div>
 	
 	<div id='product-right'>

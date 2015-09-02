@@ -1,8 +1,15 @@
 
 
 app.controller( 'productController', function($http,$scope,$rootScope,$location,$routeParams,productFactory,productService) {
-
-
+	
+	
+	
+	$scope.changePicture=function(image_path,index){
+		
+		tmp=$scope.big_picture;
+		$scope.big_picture=image_path;
+		$scope.albums[index].image_path=tmp;
+	}
 
 	/** init
 	 *  create variables and calls function on the page loading
@@ -23,7 +30,37 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 		$scope.Avibility();
 	}
 
+	/** getProducts
+	 *  Get a selected album(producted) information
+	 *
+	 *  @param void
+	 *  @return void
+	 *
+	 */
+	$scope.getProducts=function() {
+		$scope.id = $routeParams.id;
+		productFactory.getProducts($scope.id)
+			.success(function (album) {
 
+				$scope.albums = 
+					[
+					    {
+					        "image_path" : album.image_path 
+					       
+					    },
+					    {
+					    	"image_path" : album.image_path 
+					    },
+					    {
+					        "image_path" : album.image_path 
+					       
+					    }
+					];
+				$scope.big_picture=album.image_path;
+				
+			});
+	}
+	
 
 	$scope.Avibility=function(){
 		productFactory.avibility($routeParams.id )
@@ -58,20 +95,7 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 
 
 
-	/** getProducts
-	 *  Get a selected album(producted) information
-	 *
-	 *  @param void
-	 *  @return void
-	 *
-	 */
-	$scope.getProducts=function() {
-		$scope.id = $routeParams.id;
-		productFactory.getProducts($scope.id)
-			.success(function (album) {
-				$scope.album= album;
-			});
-	}
+	
 
 
 
