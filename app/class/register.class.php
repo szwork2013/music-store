@@ -22,8 +22,12 @@ class Register extends DB{
 	 */
 	public function insertNew($data){
 		$password=md5($data->password);
+		$firstName=strip_tags($data->firstname);
+		$firstName = $this->db->real_escape_string($firstName);
+		$lastName=strip_tags($data->lastname);
+		$lastName = $this->db->real_escape_string($lastName);
 		$sql="INSERT INTO users ( user_email, user_password, user_firstname, user_lastname) VALUES
-			('$data->email','$password','$data->firstname','$data->lastname')";
+			('$data->email','$password','$firstName','$lastName')";
 		$answer=$this->db->query($sql);
 		return $answer;
 	}
@@ -73,8 +77,10 @@ class Register extends DB{
 	 */
 	public function register($FBInfo){
 		$this->password=md5(mt_rand(20,30));
+		$firstName=$this->db->real_escape_string($FBInfo->firstname);
+		$lastName=$this->db->real_escape_string($FBInfo->lastname);
 		$sql="INSERT INTO users ( user_email,user_password ,user_firstname, user_lastname)
-			 VALUES('$FBInfo->email','$this->password','$FBInfo->firstname','$FBInfo->lastname')";
+			 VALUES('$FBInfo->email','$this->password','$firstName','$lastName')";
 		$answer=$this->db->query($sql);
 		if($answer){
 			$userId=$this->db->insert_id;

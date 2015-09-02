@@ -20,6 +20,7 @@ class Search extends DB{
 	 *
 	 */
 	public function getMatching($word){
+		$word = $this->db->real_escape_string($word);
 		$sql="SELECT album_name,album_artist,album_release_year,song_name,image_path
 				FROM songs
 				INNER JOIN songs_to_albums
