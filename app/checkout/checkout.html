@@ -118,8 +118,37 @@
 						<span ng-show='carderror' class='feedback'>Must contain 16 digit.</span><br>
 						
 						<p>Expiration Date<span style='color:red'> *</span></p>
-						<input type='text' name='expiration' ng-model='expiration' required  ng-keyup="validateDate()"
-						ng-class="{ 'error': paymentForm.expiration.$error.required || dateerror }">
+						<select required ng-class="{ 'error': paymentForm.expiration_month.$error.required }" name='expiration_month' ng-model='expiration_month'>
+							<option value="" disabled selected>month</option>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+							<option>9</option>
+							<option>10</option>
+							<option>11</option>
+							<option>12</option>
+						</select>
+						
+						<select required  ng-class="{ 'error': paymentForm.expiration_year.$error.required }" name='expiration_year' ng-model='expiration_year'>
+							<option value="" disabled selected>year</option>
+							<option>2015</option>
+							<option>2016</option>
+							<option>2017</option>
+							<option>2018</option>
+							<option>2019</option>
+							<option>2020</option>
+							<option>2021</option>
+							<option>2022</option>
+							<option>2023</option>
+							<option>2024</option>
+							<option>2025</option>
+							<option>2026</option>
+						</select>
 						
 						<span ng-show='paymentForm.expiration.$error.required' class='feedback'>This field is required.</span>
 						<span ng-show='dateerror' class='feedback'>Use this format MM-YYYY.</span><br>
@@ -137,9 +166,10 @@
 						<button class='checkout-continue' ng-click='paymentFunc("credit")'
 					ng-disabled='paymentForm.name_on_card.$error.required ||
 								paymentForm.card_number.$error.required ||
-								paymentForm.expiration.$error.required ||
+								paymentForm.expiration_month.$error.required ||
+								paymentForm.expiration_year.$error.required ||
 								paymentForm.verifaction.$error.required ||
-								nameerror || carderror || verifactionerror||dateerror
+								nameerror || carderror || verifactionerror
 								||paymentForm.card_type.$error.required
 					'>Continue</button>
 						

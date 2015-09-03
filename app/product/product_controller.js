@@ -2,7 +2,16 @@
 
 app.controller( 'productController', function($http,$scope,$rootScope,$location,$routeParams,productFactory,productService) {
 	
+	$scope.deleteFromCard=function(){
+		
+		alert();
+	}
 	
+	
+	$scope.goCheckOut=function(){
+		
+		$location.path('/checkout/');
+	}
 	
 	$scope.changePicture=function(image_path,index){
 		

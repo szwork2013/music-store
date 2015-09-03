@@ -1,4 +1,7 @@
-
+.x{
+	cursor:pointer;
+	margin-left:200px;
+}
 
 
 #full_container{
@@ -683,6 +686,15 @@ tr{
 	width:250px;
 	height:25px;
 	margin-left:10px;
+}
+#checkout_cart{
+	background-color:black;
+	color:white;
+	width:80px;
+	height:40px;
+	margin-right:-3px;
+	margin-top:-43px;
+	float:right;
 }
 .checkout-continue{
 	background-color:black;

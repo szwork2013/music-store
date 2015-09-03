@@ -18,7 +18,20 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$location.path('/');
 	}
 
+	
+	
+	
+	$scope.getExpiration=function(){
+		if($scope.expiration_month<10){
+			$scope.expiration_month='0'+$scope.expiration_month;
+		}
+		return $scope.expiration_month + '-' + $scope.expiration_year;
+	}
+	
+	
+	
 	$scope.getInputsData=function(){
+		
 		$scope.data={'address': $scope.address,
 			'city':$scope.city,
 			'zip':$scope.zip,
@@ -32,7 +45,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 			$scope.data['name_on_card']=$scope.name_on_card;
 			$scope.data['card_number']=$scope.card_number;
 			$scope.data['verifaction']=$scope.verifaction;
-			$scope.data['expiration']=$scope.expiration;
+			$scope.data['expiration']=$scope.getExpiration();
 		}
 	}
 
@@ -140,11 +153,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.verifactionerror=(/^[0-9]{3}$/.test($scope.verifaction)?false:true);
 	}
 
-	$scope.validateDate=function(){
-		$scope.dateerror=(/^([0-9]{2})-([0-9]{4})$/.test($scope.expiration)?false:true);
-	}
-
-
+	
 
 	$scope.checkLogin=function(){
 		CheckoutFactory.checkLogin().
