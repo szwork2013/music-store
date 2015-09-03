@@ -20,6 +20,12 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
 
 
 
+    $scope.deleteFromCard=function(){
+        //alert();
+    }
+
+
+
     /** search
      *  ajax, http query.Searching a song name in data base
      *
@@ -87,6 +93,10 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
             });
     }
 
+
+    $scope.goCheckOut=function(){
+        $location.url('/checkout')
+    }
 
 
     /** getCategories

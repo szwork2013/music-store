@@ -544,16 +544,15 @@ my-Cart ul li{
     width: 250px;
     margin-bottom: 60px;
 }
-
-
 my-Cart img{
     width:90px;
     height:90px;
     float: left;
     margin-right: 15px;
 }
-
-
+my-Cart button{
+    cursor: pointer;
+}
 #results{
     width:320px;
     margin:0 auto;
