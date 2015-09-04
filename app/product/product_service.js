@@ -48,6 +48,12 @@ app.service('productService', function() {
     }
 
 
+    this.deleteAlbum=function(localStorageName,index){
+        var localData=this.getData(localStorageName);
+        localData.splice(index,1);
+        this.updateData(localData,localStorageName);
+    }
+
 
 
     /** checkIfInWishlist

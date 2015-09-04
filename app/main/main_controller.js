@@ -20,8 +20,21 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
 
 
 
-    $scope.deleteFromCard=function(){
-        //alert();
+
+    /** deleteFromCard
+     *  Deleting a selected album from the cart.
+     *
+     *  @param int-the album index in cart
+     *  @return voide
+     *
+     */
+    $scope.deleteFromCard=function(index){
+        var r = confirm("Are you sure you want to delete this album from your cart ?");
+        if(r) {
+            productService.deleteAlbum("MyCart", index);
+            $rootScope.getMyCartData();
+            $scope.numberCartItem=$scope.myCart.length;
+        }
     }
 
 

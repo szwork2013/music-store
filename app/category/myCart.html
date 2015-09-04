@@ -6,8 +6,8 @@
     <hr/>
     <ul>
         <p>Recently added item(s)</p>
-        <li ng-repeat="item in myCart|limitTo:3">
-        	<span class='x' ng-click='deleteFromCard()'>x</span>
+        <li ng-repeat="item in myCart">
+        	<span class='x' ng-click='deleteFromCard($index)'>x</span>
             <img ng-src="images/{{item.image_path}}">
             <p>{{item.album_name}}</p>
             <p>{{item.album_artist}}</p>
