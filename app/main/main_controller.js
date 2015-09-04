@@ -194,17 +194,15 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
      */
     $rootScope.getMyCartData=function(){
         var myCart=productService.getData("MyCart");
+        $scope.myCart=myCart;
         if(myCart.length > 0 ){
-            $scope.myCart=myCart;
             $scope.numberCartItem=$scope.myCart.length;
             $scope.cartShow=true;
             $scope.cartEmpty=false;
-
         }
         else{
             $scope.cartShow=false;
             $scope.cartEmpty=true;
-            console.log(myCart);
         }
     }
 
