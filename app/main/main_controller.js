@@ -15,7 +15,8 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
         $scope.checkLogin();
         $scope.getCategories();
         $rootScope.getMyCartData();
-        $scope.numberCartItem=$scope.myCart.length;
+
+
     }
 
 
@@ -52,7 +53,6 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
             mainFactory.search(word).
                 success(function (response) {
                     if (response) {
-                        console.log(response)
                         $scope.resuls = response;
                     }
                 });
@@ -194,7 +194,18 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
      */
     $rootScope.getMyCartData=function(){
         var myCart=productService.getData("MyCart");
-        $scope.myCart=myCart;
+        if(myCart.length > 0 ){
+            $scope.myCart=myCart;
+            $scope.numberCartItem=$scope.myCart.length;
+            $scope.cartShow=true;
+            $scope.cartEmpty=false;
+
+        }
+        else{
+            $scope.cartShow=false;
+            $scope.cartEmpty=true;
+            console.log(myCart);
+        }
     }
 
 
@@ -252,7 +263,7 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
     $scope.subtotal=function(){
         var total=0;
         for(var key in $scope.myCart){
-            total=total + Number($scope.myCart[key].album_price);
+            total=total + Number($scope.myCart[key].album_price)*Number($scope.myCart[key].qty);
         }
 
         return total;

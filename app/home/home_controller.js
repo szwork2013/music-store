@@ -34,7 +34,6 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
               success(function (items) {
                  if(items){
                      $scope.albums = $scope.albums.concat(items);
-                     console.log(items);
                  }
 		  });
 		  

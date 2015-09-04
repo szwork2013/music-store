@@ -113,6 +113,7 @@ my-Menu li{
     color:white;
     font-size: x-large;
     cursor: pointer;
+    font-family:arial;
 }
 
 my-Menu li:hover {
@@ -519,7 +520,7 @@ my-Cart{
 my-Cart div{
    width: 230px;
     position: absolute;
-    top:0px;
+    top:20px;
     left: 0px;
 }
 my-Cart label{
@@ -539,6 +540,7 @@ my-Cart ul li{
     height: 80px;
     width: 250px;
     margin-bottom: 60px;
+
 }
 my-Cart img{
     width:90px;
@@ -549,11 +551,21 @@ my-Cart img{
 my-Cart button{
     cursor: pointer;
 }
+my-Cart .Cart_Price{
+    font-size: smaller;
+    color:gray;
+}
 .x{
     cursor:pointer;
     position: absolute;
     right: 10px;
     top:-20px;
+}
+my-Cart #emptyCart_message{
+    color:gray;
+    position: absolute;
+    width:230px ;
+    top:40px;
 }
 #myCart{
     position: absolute;
