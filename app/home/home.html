@@ -1,7 +1,15 @@
 
 <div id="albumsFlow" >
-    <div id="bigPic" ng-init="i=0">
+    <div id="bigPic" ng-init="i=0" ng-mouseenter='checked=!checked' ng-mouseleave= 'checked=!checked'>
         <img ng-src="images/{{albums[i].image_path}}" />
+        <div ng-show="checked" ng-init="checked=false">
+            <section>{{albums[i].album_name}}</section>
+            <section>{{albums[i].album_artist}}</section>
+            <span>
+                <button ng-click="addToCart(i)"></button>
+                <button ng-click='goToProductPage(albums[i].album_id)'></button>
+            </span>
+        </div>
     </div>
     <div class="container" ng-repeat="album in albums|limitTo:9" ng-if="$index > 0" ng-mouseenter='checked=!checked' ng-mouseleave= 'checked=!checked'>
         <img ng-src="images/{{album.image_path}}"  >
