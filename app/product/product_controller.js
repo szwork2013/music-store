@@ -6,8 +6,8 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 	/** init
 	 *  create variables and calls function on the page loading
 	 *
-	 *  @param voide
-	 *  @return voide
+	 *  @param void
+	 *  @return void
 	 *
 	 */
 	$scope.init=function() {
@@ -36,7 +36,11 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 			});
 	}
 
-
+	
+	/** goCheckOut
+	 *  Redirect to checkout page
+	 *
+	 */
 
 	$scope.goCheckOut=function(){
 		$location.path('/checkout/');
@@ -49,7 +53,13 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 		$scope.albums[index].image_path=tmp;
 	}
 
-
+	/** Avibility
+	 *  check the avibility of an album
+	 *
+	 *  @param void
+	 *  @return void
+	 *
+	 */
 
 	$scope.Avibility=function(){
 		productFactory.avibility($routeParams.id )
@@ -123,11 +133,12 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 	/** checkIfInWishlist
 	 * Calling the checkIfInWishlist service to check if a selected producted is already in the wishlist
 	 *
-	 *  @param void
-	 *  @return void
+	 *  @param int $routeParams.id - the id of selected album
+	 *  @return object
 	 */
 	$scope.checkIfInWishlist=function(){
 		var isInWishlist=productService.checkIfInWishlist($routeParams.id);
+		console.log()
 			if (isInWishlist) {
 				$scope.heart = 'fullHeart';
 				$scope.disableHeartBtn=true;

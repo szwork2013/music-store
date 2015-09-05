@@ -1,7 +1,14 @@
 
 
 app.controller( 'checkOutController', function($scope,$route,$location,$routeParams,productService,CheckoutFactory,$window,$rootScope) {
-
+	
+	 /** init
+     *  create variables and calls functions when  page loading
+     *
+     *  @param voide
+     *  @return voide
+     *
+     */
 	$scope.init=function() {
 		$scope.data = {};
 		$scope.checkLogin();
@@ -14,12 +21,27 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.x3="black";
 
 	}
+	
+	 /** editCart
+     *  Redirect to the home page
+     *
+     *  @param voide
+     *  @return voide
+     *
+     */
+	
 	$scope.editCart=function(){
 		$location.path('/');
 	}
 
 	
-	
+	 /** getExpiration
+     *  Make the date in proper format that could insert to the sql file
+     *
+     *  @param void
+     *  @return string - expiration month + expiration year with - between them
+     *
+     */
 	
 	$scope.getExpiration=function(){
 		if($scope.expiration_month<10){
@@ -28,6 +50,13 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		return $scope.expiration_month + '-' + $scope.expiration_year;
 	}
 	
+	 /** getInputsData
+     *  Collect all input fields(user and paymant information) for sending to the server
+     *
+     *  @param void
+     *  @return void
+     *
+     */
 	
 	
 	$scope.getInputsData=function(){
@@ -49,7 +78,13 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		}
 	}
 
-
+	 /** send
+     *  Send info of the user, paymant and the albums that user order
+     *
+     *  @param void
+     *  @return void
+     *
+     */
 
 	$scope.send=function(){
 		$scope.albumsIdArr = new Array();
@@ -63,6 +98,13 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		  });
 	}
 
+	 /** subTotal
+     *  Calculate the total price of user order
+     *
+     *  @param void
+     *  @return void
+     *
+     */
 
 	$scope.subTotal=function() {
 		$scope.cart = productService.getData("MyCart");
@@ -73,11 +115,30 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.totalPrice=totalPrice;
 	}
 
-
+	
+	
+	/** func
+     *  Close the billing form
+     *
+     *  @param void
+     *  @return void
+     *
+     */
+	
+	
 	$scope.func=function(){
 		$scope.billing=false;
 	}
 
+	
+	 /** changeBillingInfo
+     *  Return billing form to be active - user can change his billing info
+     *
+     *  @param void
+     *  @return void
+     *
+     */
+	
 	$scope.changeBillingInfo=function(){
 		$scope.billing=true;
 		$scope.payment=false;
@@ -87,6 +148,14 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.x3="black";
 	}
 
+	 /** changePayment
+     *  Return payment form to be active - user can change his payment info
+     *
+     *  @param void
+     *  @return void
+     *
+     */
+	
 	$scope.changePayment=function(){
 		if($scope.x3=="black" ||$scope.x2=="black" ){
 		$scope.billing=false;
@@ -98,7 +167,13 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		}
 	}
 
-
+	 /** billingFunc
+     *  Close billing form and open the payment form
+     *
+     *  @param void
+     *  @return void
+     *
+     */
 	$scope.billingFunc=function(){
 		$scope.billing=false;
 		$scope.payment=true;
@@ -107,6 +182,14 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.x2="red";
 	}
 
+	/** paymentFunc
+     *  Close payment form and open the order form
+     *
+     *  @param void
+     *  @return void
+     *
+     */
+	
 	$scope.paymentFunc=function(paymentWay){
 		$scope.paymentWay=paymentWay;
 		$scope.order=true;
@@ -120,15 +203,38 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 
 	}
 
+	/** valdiateAdress
+     *  Make validation to the address input
+     *
+     *  @param void
+     *  @return void
+     *
+     */
+	
 	$scope.valdiateAdress=function(){
 		$scope.addresserror= (/[a-zA-Z]{3,}\s[0-9]{1,}/.test($scope.address)?false:true);
 	}
 
+	/** valdiateCity
+     *  Make validation to the city input
+     *
+     *  @param void
+     *  @return void
+     *
+     */
+	
 	$scope.valdiateCity=function(){
 		$scope.cityerror=  (/[a-zA-Z]{3,}/.test($scope.city)?false:true);
 
 	}
 
+	/** valdiateZipCode
+     *  Make validation to the zip code input
+     *
+     *  @param void
+     *  @return void
+     *
+     */
 	
 	$scope.valdiateZipCode=function(){
 		$scope.ziperror=  (/[0-9]{1,7}/.test($scope.zip)?false:true);
@@ -136,25 +242,63 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		 
 	}
 	
+	/** valdiatePhone
+     *  Make validation to the phone number input
+     *
+     *  @param void
+     *  @return void
+     *
+     */
 
 	$scope.valdiatePhone=function(){
 		$scope.phoneerror=  (/(02|03|04|08|09|072|073|074|076|077|050|052|055|054)[1-9]{7,8}/.test($scope.telephone)?false:true);
 	}
+	
+	/** valdiateName
+     *  Make validation to the user name  input
+     *
+     *  @param void
+     *  @return void
+     *
+     */
 
 	$scope.valdiateName=function(){
 		$scope.nameerror= (/[a-zA-Z]{2,}\s[a-zA-Z]{2,}/.test($scope.name_on_card)?false:true);
 	}
 
+	/** validateCardNumber
+     *  Make validation to the Card Number input
+     *
+     *  @param void
+     *  @return void
+     *
+     */
+	
 	$scope.validateCardNumber=function(){
 		$scope.carderror=(/^[0-9]{16}$/.test($scope.card_number)?false:true);
 	}
 
+	/** validateVerifaction
+     *  Make validation to the verifaction of the  Card Number 
+     *
+     *  @param void
+     *  @return void
+     *
+     */
+	
 	$scope.validateVerifaction=function(){
 		$scope.verifactionerror=(/^[0-9]{3}$/.test($scope.verifaction)?false:true);
 	}
 
 	
-
+	/** checkLogin
+     *  Checking if the user log-in,if not -redirect to the login page
+     *
+     *  @param void
+     *  @return void
+     *
+     */
+	
 	$scope.checkLogin=function(){
 		CheckoutFactory.checkLogin().
 			success(function(bool) {

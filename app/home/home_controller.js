@@ -24,10 +24,11 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
     /** getMore
      *  ajax, http query for more albom information
      *
-     *  @param voide
-     *  @return object of all more albums information
+     *  @param void
+     *  @return void
      *
      */
+    
 	  $scope.getMore = function() {
           $scope.page++;
           HomeFactory.getMore(3*$scope.page).
@@ -44,8 +45,8 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
     /** getAlbums
      *  ajax, http query for all album information
      *
-     *  @param voide
-     *  @return object of all the albums information
+     *  @param void
+     *  @return void
      *
      */
     $scope.getAlbums=function(){
