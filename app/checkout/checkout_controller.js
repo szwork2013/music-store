@@ -157,7 +157,7 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      */
 	
 	$scope.changePayment=function(){
-		if($scope.x3=="black" ||$scope.x2=="black" ){
+		if($scope.x3=="red" ||$scope.x2=="red" ){
 		$scope.billing=false;
 		$scope.payment=true;
 		$scope.order=false;

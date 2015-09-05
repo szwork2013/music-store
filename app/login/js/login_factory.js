@@ -30,6 +30,7 @@ app.factory('LoginFactory',function($http){
     }
 
 
+    
     LoginFactory.fbLogin=function(userFBInfo){
         return  $http.post(baseUrl+'fbLogin',angular.toJson(userFBInfo) );
     }

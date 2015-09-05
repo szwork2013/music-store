@@ -20,6 +20,16 @@ $log=new LoginController();
 $app->response->headers->set('Content-Type', 'application/json');
 $app->get('/', function(){echo json_encode( array( "error" => "No method" ) );});
 
+
+/** register
+ *  register new user
+ *
+ *  @param void
+ *  @return void
+ *
+ */
+
+
 $app->post('/register/', function()use ($reg){
 	$data = json_decode(file_get_contents("php://input"));
 	$reg->insertNew($data);
@@ -27,14 +37,46 @@ $app->post('/register/', function()use ($reg){
 	
 });
 
+/** login
+ *  make the login with user email and password
+ *
+ *  @param object - LoginController object
+ *  @return void 
+ *
+ */
+
+
+
 $app->post('/login/', function() use ($log){
 	$data = json_decode(file_get_contents("php://input"));
 	$log->checking($data);
 });
 
+
+
+/** checkLogin 
+ *  check if user is allready log in 
+ *
+ *  @param object - LoginController object
+ *  @return void
+ *
+ */
+	
+
+
 $app->get('/checkLogin/', function() use ($log){
 	$log->checkLogin();
 });
+
+
+/** fbLogin
+ *  make the registration with facebook api
+ *
+ *  @param object - RegisterController object
+ *  @return void
+ *
+ */
+
 
 $app->post('/fbLogin/', function() use ($reg) {
 
@@ -51,6 +93,13 @@ $app->post('/fbLogin/', function() use ($reg) {
 
 });
 
+/** logout
+ *  making log out 
+ *
+ *  @param object - LoginController object
+ *  @return void
+ *
+ */
 
 $app->get('/logout/', function() use ($log){
 	$log->logout();
