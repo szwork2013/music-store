@@ -50,6 +50,15 @@ $app->post('/album/new/', function()use ($controller){
     $controller->insertNewAlbum($albumData);
 });
 
+$app->put('/album/', function()use ($controller){
+    $updateingInfo=json_decode(file_get_contents("php://input"));
+    $controller->updateAlbum($updateingInfo);
+});
+
+$app->delete('/album/:id', function($id)use ($controller){
+    $controller->deleteAlbum($id);
+});
+
 
 $app->post('/album/image/', function()use ($controller){
     $imageInfo=json_decode(file_get_contents("php://input"));

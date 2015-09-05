@@ -169,6 +169,35 @@ class Album extends DB{
 	}
 
 
+	/** updateAlbum
+	 *  Update a specific column in the album table in the data base
+	 *
+	 *  @param array - 3 elments -  index 0: column head key , index 1: update value , index 2 : the album id.
+	 *  @return bool
+	 *
+	 */
+	public function updateAlbum($col){
+		$sql="UPDATE albums SET '$col[0]'='$col[1]' WHERE album_id='$col[2]' ";
+		$answer=$this->db->query($sql);
+		return $answer;
+	}
+
+
+
+	/** deleteAlbum
+	 *  Delete a specific album
+	 *
+	 *  @param int - album id
+	 *  @return bool
+	 *
+	 */
+	public function deleteAlbum($albumId){
+		$sql ="DELETE FROM albums WHERE album_id='$albumId' ";
+		$answer=$this->db->query($sql);
+		return $answer;
+	}
+
+
 
 	public function __destruct() {
 		$this->db->close();

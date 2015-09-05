@@ -121,6 +121,37 @@ class AlbumController{
 
 
 
+    /** updateAlbum controller
+     *  Update a specific column in the album table in the data base
+     *
+     *  @param array - array of three elments array : [ [a,b,c],[d,e,f] ] .
+     *  @return void
+     *
+     */
+    public function updateAlbum($updateingInfo){
+        foreach ($updateingInfo as $col){
+            $success = $this->album->updateAlbum($col);
+            if ($success) {
+                json_encode("A new image successfully saved");
+            }
+        }
+    }
+
+    /** deleteAlbum controller
+     *  Delete a specific album
+     *
+     *  @param int - album id
+     *  @return void
+     *
+     */
+    public function deleteAlbum($albumId){
+        $success = $this->album->deleteAlbum($albumId);
+        if ($success) {
+            json_encode("Album has been deleted");
+        }
+    }
+
+
 
 }
 
