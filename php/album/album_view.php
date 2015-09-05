@@ -45,6 +45,16 @@ $app->get('/getThisCategory/:id', function($genre_id)use ($controller){
 });
 
 
+$app->post('/album/new/', function()use ($controller){
+    $albumData=json_decode(file_get_contents("php://input"));
+    $controller->insertNewAlbum($albumData);
+});
+
+
+$app->post('/album/image/', function()use ($controller){
+    $imageInfo=json_decode(file_get_contents("php://input"));
+    $controller->newAlbumImage($imageInfo);
+});
 
 
 $app->run();

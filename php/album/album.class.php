@@ -111,11 +111,16 @@ class Album extends DB{
 	}
 
 
-
-
-	public function insertNewAlbum($name,$artist, $duration, $release_year, $description, $long_description, $price,$genre_id){
+	/** insertNewAlbum
+	 *  Adding new album to data base
+	 *
+	 *  @param object - name,artist, duration,release_year, description, long_description, price,genre_id
+	 *  @return int - the  new  album id
+	 *
+	 */
+	public function insertNewAlbum($albumData){
 		$sql="INSERT INTO albums(album_name, album_artist,album_duration, album_release_year, album_description, album_long_description, album_price)
-			  VALUES ('$name', '$artist', '$duration', '$release_year', '$description', '$long_description', $price)";
+			  VALUES ('$albumData->name', '$albumData->artist', '$albumData->duration', '$albumData->release_year', '$albumData->description', '$albumData->long_description', $albumData->price)";
 		$answer=$this->db->query($sql);
 		if($answer){
 			$album_id=$this->db->insert_id;
@@ -123,8 +128,42 @@ class Album extends DB{
 		}
 	}
 
+
+	/** insertNewGenre
+	 *  Adding new genre to data base
+	 *
+	 *  @param int,int - the album id , the  genreid
+	 *  @return bool
+	 *
+	 */
 	public  function insertNewGenre($album_id,$genre_id){
 		$sql="INSERT INTO genres_to_albums(album_id,genre_id) VALUES ('$album_id','$genre_id') ";
+		$answer=$this->db->query($sql);
+		return $answer;
+	}
+
+
+
+	/** newAlbumImage
+	 *  Save new  album image information
+	 *
+	 *  @param object,string - image information , the new image saved path
+	 *  @return bool
+	 *
+	 */
+	public function newAlbumImage($imageInfo,$dir){
+		$sql="INSERT INTO images(image_path,image_title) VALUES ('$dir','$imageInfo->title') ";
+		$answer=$this->db->query($sql);
+		if($answer){
+			$imageId=$this->db->insert_id;
+			$this->imagesToAlbums($imageId,$imageInfo->albumId);
+		}
+		return false;
+	}
+
+
+	public function imagesToAlbums($imageId,$albumId){
+		$sql="INSERT INTO images_to_albums(image_id,album_id) VALUES ('$imageId','$albumId') ";
 		$answer=$this->db->query($sql);
 		return $answer;
 	}

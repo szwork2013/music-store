@@ -88,18 +88,38 @@ class AlbumController{
 
 
 
-    
-    public function insertNewAlbum($name,$artist, $duration, $release_year, $description, $long_description, $price,$genre_id){
-        $album_id=$this->album->insertNewAlbum($name,$artist, $duration, $release_year, $description, $long_description, $price);
-        $success=$this->album->insertNewGenre($album_id,$genre_id);
+
+    public function insertNewAlbum($albumData){
+        $album_id=$this->album->insertNewAlbum($albumData);
+        $success=$this->album->insertNewGenre($album_id,$albumData->genre_id);
         if($success){
-            echo "A new album successfully Created";
+            echo json_encode("A new album successfully created");
         }
         else{
-            echo "Failed to createa a new album";
+            echo json_encode("Failed to createa a new album");
         }
-
     }
+
+
+
+    /** newAlbumImage controller
+     *  Save and upload new  album's image.
+     *
+     *  @param object - image information
+     *  @return void
+     *
+     */
+    public function newAlbumImage($imageInfo){
+        $fileName=$_FILES['file']['name'];
+        $dir='images/'.$fileName;
+        move_uploaded_file( $_FILES['file']['tmp_name'] ,  $dir );
+        $success=$this->album->newAlbumImage($imageInfo,$dir);
+        if($success){
+            json_encode("A new image successfully saved");
+        }
+    }
+
+
 
 
 }
