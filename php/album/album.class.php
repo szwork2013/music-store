@@ -103,7 +103,7 @@ class Album extends DB{
 	 *  @return databse query result
 	 *
 	 */
-	public  function getCategoryInfo($genre_id){
+	public  function getCategoryInfo($genre_id,$offset){
 		$sql="SELECT albums.album_id,album_name,image_path,album_artist,album_price,album_description
 				FROM images_to_albums
 				INNER JOIN genres_to_albums
@@ -112,7 +112,7 @@ class Album extends DB{
 					ON images.image_id=images_to_albums.image_id
 				INNER JOIN albums
 					ON albums.album_id=images_to_albums.album_id
-				WHERE genre_id='$genre_id' ";
+				WHERE genre_id='$genre_id' ORDER BY albums.album_created desc LIMIT 3 OFFSET $offset";
 		$answer=$this->db->query($sql);
 		return $answer;
 	}

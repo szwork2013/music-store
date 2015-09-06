@@ -77,6 +77,12 @@ $app->get('/categories/', function()use ($controller){
 });
 
 
+
+
+
+
+
+
 	/**  categoryInfo
 	 * route to categoryInfo function 
 	 *
@@ -86,9 +92,23 @@ $app->get('/categories/', function()use ($controller){
 	 *
 	 */
 
-$app->get('/categoryInfo/:id', function($genre_id)use ($controller){
-   $controller->getCategoryInfo($genre_id);
+$app->get('/categoryInfo/:id/:offset', function($genre_id,$offset)use ($controller){
+   $controller->getCategoryInfo($genre_id,$offset);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
