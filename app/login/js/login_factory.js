@@ -29,17 +29,44 @@ app.factory('LoginFactory',function($http){
         return  $http.post(baseUrl+'login', angular.toJson(loginInfo) );
     }
 
-
+    
+    
+    /** fblogin
+	 *  Login using facebook 
+	 *
+	 *  @param object- the user information from facebook
+	 *  @return string - rsponse if login succeed or not
+	 *
+	 */
+    
+    
     
     LoginFactory.fbLogin=function(userFBInfo){
         return  $http.post(baseUrl+'fbLogin',angular.toJson(userFBInfo) );
     }
 
-
+    /** login
+	 *  ajax request -send charecters that typed in the search input
+	 *
+	 *  @param string -  charecters that typed in the search input
+	 *  @return object - all albums and songs name that was matched to the word 
+	 *
+	 */
     LoginFactory.search=function(word){
         return $http.get('../../php/search/search_view.php/search/'+word);
     }
 
+    
+    
+    /** showAlbum
+	 *  http query for an album id by a song in that album, path this id to product page
+	 *
+	 *  @param string - song name
+	 *  @return int-album id
+	 *
+	 */
+    
+    
     LoginFactory.showAlbum=function(song){
         return $http.get('../../php/search/search_view.php/getAlbum/'+song);
     }

@@ -22,7 +22,7 @@ $app->get('/', function(){echo json_encode( array( "error" => "No method" ) );})
 
 
 /** register
- *  register new user
+ *  route to insertNew function
  *
  *  @param void
  *  @return void
@@ -38,7 +38,7 @@ $app->post('/register/', function()use ($reg){
 });
 
 /** login
- *  make the login with user email and password
+ *  route to checking function
  *
  *  @param object - LoginController object
  *  @return void 
@@ -55,7 +55,7 @@ $app->post('/login/', function() use ($log){
 
 
 /** checkLogin 
- *  check if user is allready log in 
+ *  route to checkLogin function
  *
  *  @param object - LoginController object
  *  @return void
@@ -94,7 +94,7 @@ $app->post('/fbLogin/', function() use ($reg) {
 });
 
 /** logout
- *  making log out 
+ *  route to  logout function
  *
  *  @param object - LoginController object
  *  @return void

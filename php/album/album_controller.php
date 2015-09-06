@@ -10,7 +10,14 @@ class AlbumController{
     public function __construct() {
         $this->album = new Album();
     }
-    
+	
+    /**  avibility
+		 *  Checking the quantity of selected album
+		 *
+		 *  @param int - the id of the selected album
+		 *  @return object- with the quantity of selected album
+		 *
+		 */
     
     public function avibility($id){
     	$success=$this->album->avibility($id);
@@ -58,36 +65,79 @@ class AlbumController{
         }
     }
 
-
+/**  getAllAlbums
+	 *  get all albums information from the database
+	 *
+	 *  @param void
+	 *  @return databse query result
+	 *
+	 */
+	 
     public function getAllAlbums(){
         $success=$this->album->getAllAlbums();
         echo $this->toRows($success);
     }
-
+	
+	
+	/** getAlbum
+	 *  get specific album information from the database
+	 *
+	 *  @param int - album id
+	 *  @return databse query result
+	 *
+	 */
+	 
     public  function getAlbum($id){
         $success=$this->album->getAlbum($id);
         echo $this->toRow($success);
     }
 
+	
+	/**  getMore
+	 *  get all albums information from the database
+	 *
+	 *  @param void
+	 *  @return databse query result
+	 *
+	 */
     public  function getMore($offset){
         $success=$this->album->getMore($offset);
         echo $this->toRows($success);
     }
-
+	
+/**  getCategories
+	 *  get all categories from the batabase
+	 *
+	 *  @param void
+	 *  @return databse query result
+	 *
+	 */
 
     public  function  getCategories(){
         $success=$this->album->getCategories();
         echo $this->toRows($success);
     }
 
-
+/**  getCategoryInfo
+	 *  get specific category information
+	 *
+	 *  @param int the category id
+	 *  @return databse query result
+	 *
+	 */
     public function getCategoryInfo($genre_id){
         $success=$this->album->getCategoryInfo($genre_id);
         echo $this->toRows($success);
     }
 
 
-
+/** insertNewAlbum
+	 *  Adding new album to data base
+	 *
+	 *  @param object - name,artist, duration,release_year, description, long_description, price,genre_id
+	 *  @return string - "A new album successfully created" or "Failed to create a new album"
+	 *
+	 */
 
     public function insertNewAlbum($albumData){
         $album_id=$this->album->insertNewAlbum($albumData);
@@ -96,7 +146,7 @@ class AlbumController{
             echo json_encode("A new album successfully created");
         }
         else{
-            echo json_encode("Failed to createa a new album");
+            echo json_encode("Failed to create a new album");
         }
     }
 

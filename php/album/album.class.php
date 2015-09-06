@@ -11,7 +11,14 @@ class Album extends DB{
 	public function __construct() {
 		$this->db = DB::getInstance();
 	}
-
+	
+	/**  avibility
+		 *  Checking the quantity of selected album
+		 *
+		 *  @param int - the id of the selected album
+		 *  @return object- with the quantity of selected album
+		 *
+		 */
 	public function avibility($id){
 		$sql="SELECT * FROM albums_stock WHERE album_id='$id'";
 		$answer=$this->db->query($sql);
@@ -161,7 +168,15 @@ class Album extends DB{
 		return false;
 	}
 
-
+	
+	/** imagesToAlbums
+	 *  Adding to "images_to_albums" table -image id  with album id
+	 *
+	 *  @param int -image id,album id
+	 *  @return object - success or failed
+	 *
+	 */
+	 
 	public function imagesToAlbums($imageId,$albumId){
 		$sql="INSERT INTO images_to_albums(image_id,album_id) VALUES ('$imageId','$albumId') ";
 		$answer=$this->db->query($sql);

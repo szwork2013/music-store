@@ -8,8 +8,8 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
     /** init
      *  create variables and calls function on the page loading
      *
-     *  @param voide
-     *  @return voide
+     *  @param void
+     *  @return void
      *
      */
     $scope.init=function() {

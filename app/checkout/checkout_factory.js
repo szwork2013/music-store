@@ -19,7 +19,7 @@ app.factory('CheckoutFactory',function($http){
      *  Checking if the user log-in,if not -redirect to the login page
      *
      *  @param void
-     *  @return bool - ture if user is login , flase -if user not login
+     *  @return bool - ture if user is login , false -if user not login
      *
      */
     

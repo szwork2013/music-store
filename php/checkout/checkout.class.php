@@ -12,7 +12,15 @@ class Checkout extends DB{
 		$this->db = DB::getInstance();
 	}
 
-	
+	/** Insert
+	 * 
+	 *  Insert new order 
+	 *
+	 *  
+	 *  @param object- data of order
+	 *  @return int - id of new order
+	 *
+	 */
 	
 	public function Insert($data){
 	
@@ -28,6 +36,17 @@ class Checkout extends DB{
 	
 	}
 
+	/** orderToAlbum
+	 *
+	 *  Insert to sql table "order to album" the new id order and all albums that user ordered in this order
+	 *
+	 *
+	 *  @param object- data of order
+	 *  @param int- id of new order
+	 *  @return string - if success :"New Order has been saved" ,if failed :"Error, please try again."
+	 *
+	 */
+	
 	public function orderToAlbum($data,$idOrder){
 		$bool=true;
 		for($i=0; $i < count($data->albumsId); $i++){

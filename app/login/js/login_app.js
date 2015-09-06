@@ -287,8 +287,8 @@
 		/** showAlbum
 		 *  http query for an album id by a song in that album, path this id to product page
 		 *
-		 *  @param void
-		 *  @return change path to the product page and send it the a prodect id
+		 *  @param string
+		 *  @return void
 		 *
 		 */
 		$scope.showAlbum=function(song){

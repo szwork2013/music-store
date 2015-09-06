@@ -10,6 +10,17 @@ class checkoutController{
 		$this->checkout = new Checkout();
 	}
 
+	/** validationForCheck
+	 *
+	 *  makes validation of order data when order was with check payment
+	 *
+	 *
+	 *  @param object- data of order
+	 *  @return object - contains validation results in array
+	 *
+	 */
+	
+	
 	public function validationForCheck($data){
 		$validAddress = preg_match('/[a-zA-Z]{3,}\s[0-9]{1,}/', $data->address);
 		$validCity= preg_match('/[a-zA-Z]{3,}/', $data->city);
@@ -30,6 +41,17 @@ class checkoutController{
 		}
 		
 	}
+	
+	
+	/** validationForCheck
+	 *
+	 *  makes validation of order data when order was with credit card payment
+	 *
+	 *
+	 *  @param object- data of order
+	 *  @return object - contains validation results in array
+	 *
+	 */
 	
 	public function validationForCredit($data){
 		$validAddress = preg_match('/[a-zA-Z]{3,}\s[0-9]{1,}/', $data->address);
