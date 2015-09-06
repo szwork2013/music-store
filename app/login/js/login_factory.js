@@ -11,7 +11,6 @@ app.factory('LoginFactory',function($http){
 	 *  @return object - array of validate results , include if the registration succeed or not
 	 *
 	 */
-    
     LoginFactory.registration=function(userInfo){
         return  $http.post(baseUrl+'register' ,angular.toJson(userInfo) );
     }
@@ -24,13 +23,11 @@ app.factory('LoginFactory',function($http){
 	 *  @return string - response if login succeed or not
 	 *
 	 */
-
     LoginFactory.login=function(loginInfo){
         return  $http.post(baseUrl+'login', angular.toJson(loginInfo) );
     }
 
-    
-    
+
     /** fblogin
 	 *  Login using facebook 
 	 *
@@ -38,9 +35,6 @@ app.factory('LoginFactory',function($http){
 	 *  @return string - rsponse if login succeed or not
 	 *
 	 */
-    
-    
-    
     LoginFactory.fbLogin=function(userFBInfo){
         return  $http.post(baseUrl+'fbLogin',angular.toJson(userFBInfo) );
     }
@@ -56,8 +50,7 @@ app.factory('LoginFactory',function($http){
         return $http.get('../../php/search/search_view.php/search/'+word);
     }
 
-    
-    
+
     /** showAlbum
 	 *  http query for an album id by a song in that album, path this id to product page
 	 *
@@ -65,13 +58,9 @@ app.factory('LoginFactory',function($http){
 	 *  @return int-album id
 	 *
 	 */
-    
-    
     LoginFactory.showAlbum=function(song){
         return $http.get('../../php/search/search_view.php/getAlbum/'+song);
     }
-
-
 
 
     return LoginFactory;

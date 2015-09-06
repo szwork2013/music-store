@@ -41,7 +41,6 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 	 *  Redirect to checkout page
 	 *
 	 */
-
 	$scope.goCheckOut=function(){
 		$location.path('/checkout/');
 	}
@@ -60,7 +59,6 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 	 *  @return void
 	 *
 	 */
-
 	$scope.Avibility=function(){
 		productFactory.avibility($routeParams.id )
 	    .success(function(response) {
@@ -91,8 +89,6 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 			$scope.Qty--;
 		}
 	}
-
-
 
 
 	//////////////////////////   Local Storage manage    /////////////////////////////////
@@ -126,7 +122,6 @@ app.controller( 'productController', function($http,$scope,$rootScope,$location,
 		$scope.album['qty'] = $scope.Qty;
 		$rootScope.addToCart($scope.album.album_id, $scope.album);
 	}
-
 
 
 

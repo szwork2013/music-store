@@ -225,7 +225,6 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
     }
 
 
-
     /** addToCart main function
      *  Checking if the product is aleary saved,alert,and save the new produsct to local storage.
      *

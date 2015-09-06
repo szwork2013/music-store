@@ -28,8 +28,6 @@ $app->get('/', function(){echo json_encode( array( "error" => "No method" ) );})
  *  @return void
  *
  */
-
-
 $app->post('/register/', function()use ($reg){
 	$data = json_decode(file_get_contents("php://input"));
 	$reg->insertNew($data);
@@ -44,9 +42,6 @@ $app->post('/register/', function()use ($reg){
  *  @return void 
  *
  */
-
-
-
 $app->post('/login/', function() use ($log){
 	$data = json_decode(file_get_contents("php://input"));
 	$log->checking($data);
@@ -61,9 +56,6 @@ $app->post('/login/', function() use ($log){
  *  @return void
  *
  */
-	
-
-
 $app->get('/checkLogin/', function() use ($log){
 	$log->checkLogin();
 });
@@ -76,10 +68,7 @@ $app->get('/checkLogin/', function() use ($log){
  *  @return void
  *
  */
-
-
 $app->post('/fbLogin/', function() use ($reg) {
-
 	$userFBInfo = json_decode(file_get_contents("php://input"));
 	FacebookSession::setDefaultApplication('1415931842065697', '85c1ca9512a00962dd82af6c616e6c88');
 	$session = new FacebookSession($userFBInfo->accessToken);
@@ -90,7 +79,6 @@ $app->post('/fbLogin/', function() use ($reg) {
 	catch(Exception $e){
 		echo json_encode($e->getMessage());
 	}
-
 });
 
 /** logout
@@ -100,7 +88,6 @@ $app->post('/fbLogin/', function() use ($reg) {
  *  @return void
  *
  */
-
 $app->get('/logout/', function() use ($log){
 	$log->logout();
 });

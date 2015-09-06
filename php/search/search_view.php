@@ -17,7 +17,6 @@ $app = new \Slim\Slim();
  *  @return void
  *
  */
-
 $app->get('/search/:word', function($word)use($search){
 	$search->getMatching($word);
 });
@@ -30,7 +29,6 @@ $app->get('/search/:word', function($word)use($search){
  *  @return void
  *
  */
-
 $app->get('/getAlbum/:song', function($song)use($search){
 	$search->getAlbum($song);
 });	

@@ -17,7 +17,6 @@ class LoginController{
 	 *  @return string - response if succeed  or  email and passsword worng
 	 *
 	 */
-	
 	public function checking($data){
 		$success =$this->login->checking( $data->email , md5($data->password) );
 		if( mysqli_num_rows($success)>0 ){
@@ -36,7 +35,6 @@ class LoginController{
 	 *  @return boolean - response if user is allready login 
 	 *
 	 */
-	
 	public  function checkLogin(){
 		if( isset($_SESSION['email']) && isset($_SESSION['password']) ) {
 			$success = $this->login->checking($_SESSION['email'], $_SESSION['password']);

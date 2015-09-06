@@ -29,7 +29,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return voide
      *
      */
-	
 	$scope.editCart=function(){
 		$location.path('/');
 	}
@@ -42,14 +41,14 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return string - expiration month + expiration year with - between them
      *
      */
-	
 	$scope.getExpiration=function(){
 		if($scope.expiration_month<10){
 			$scope.expiration_month='0'+$scope.expiration_month;
 		}
 		return $scope.expiration_month + '-' + $scope.expiration_year;
 	}
-	
+
+
 	 /** getInputsData
      *  Collect all input fields(user and paymant information) for sending to the server
      *
@@ -57,8 +56,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return void
      *
      */
-	
-	
 	$scope.getInputsData=function(){
 		
 		$scope.data={'address': $scope.address,
@@ -85,7 +82,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return void
      *
      */
-
 	$scope.send=function(){
 		$scope.albumsIdArr = new Array();
 		for( var i=0 ; i<$scope.cart.length ; i++ ){
@@ -105,7 +101,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return void
      *
      */
-
 	$scope.subTotal=function() {
 		$scope.cart = productService.getData("MyCart");
 		var totalPrice = 0;
@@ -124,8 +119,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return void
      *
      */
-	
-	
 	$scope.func=function(){
 		$scope.billing=false;
 	}
@@ -155,7 +148,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return void
      *
      */
-	
 	$scope.changePayment=function(){
 		if($scope.x3=="red" ||$scope.x2=="red" ){
 		$scope.billing=false;
@@ -189,7 +181,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return void
      *
      */
-	
 	$scope.paymentFunc=function(paymentWay){
 		$scope.paymentWay=paymentWay;
 		$scope.order=true;
@@ -210,7 +201,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return void
      *
      */
-	
 	$scope.valdiateAdress=function(){
 		$scope.addresserror= (/[a-zA-Z]{3,}\s[0-9]{1,}/.test($scope.address)?false:true);
 	}
@@ -222,7 +212,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return void
      *
      */
-	
 	$scope.valdiateCity=function(){
 		$scope.cityerror=  (/[a-zA-Z]{3,}/.test($scope.city)?false:true);
 
@@ -235,7 +224,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return void
      *
      */
-	
 	$scope.valdiateZipCode=function(){
 		$scope.ziperror=  (/[0-9]{1,7}/.test($scope.zip)?false:true);
 		
@@ -249,11 +237,11 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return void
      *
      */
-
 	$scope.valdiatePhone=function(){
 		$scope.phoneerror=  (/(02|03|04|08|09|072|073|074|076|077|050|052|055|054)[1-9]{7,8}/.test($scope.telephone)?false:true);
 	}
-	
+
+
 	/** valdiateName
      *  Make validation to the user name  input
      *
@@ -261,10 +249,10 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return void
      *
      */
-
 	$scope.valdiateName=function(){
 		$scope.nameerror= (/[a-zA-Z]{2,}\s[a-zA-Z]{2,}/.test($scope.name_on_card)?false:true);
 	}
+
 
 	/** validateCardNumber
      *  Make validation to the Card Number input
@@ -273,7 +261,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return void
      *
      */
-	
 	$scope.validateCardNumber=function(){
 		$scope.carderror=(/^[0-9]{16}$/.test($scope.card_number)?false:true);
 	}
@@ -285,7 +272,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return void
      *
      */
-	
 	$scope.validateVerifaction=function(){
 		$scope.verifactionerror=(/^[0-9]{3}$/.test($scope.verifaction)?false:true);
 	}
@@ -298,7 +284,6 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
      *  @return void
      *
      */
-	
 	$scope.checkLogin=function(){
 		CheckoutFactory.checkLogin().
 			success(function(bool) {

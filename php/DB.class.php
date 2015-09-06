@@ -12,7 +12,6 @@ class DB {
 	 *  @return object - mysqli object for access the project database
 	 *
 	 */
-	
     public static function getInstance() {
 		if ( !self::$instance )
 			self::$instance = new mysqli( 'localhost', 'root', '', 'musicstore' );

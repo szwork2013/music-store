@@ -11,14 +11,9 @@ app.factory('categoryFactory',function($http){
      *  @return object - the category information
      *
      */
-
     categoryFactory.categoryInfo=function(genre_id){
         return $http.get(baseUrl+'categoryInfo/'+genre_id);
     }
-
-
-
-
 
     return categoryFactory;
 });
@@ -31,8 +26,6 @@ app.factory('categoryFactory',function($http){
  *  @return a html element
  *
  */
-
-
 app.directive('myCart', function() {
     return {
         restrict: 'E',
