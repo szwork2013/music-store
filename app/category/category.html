@@ -5,9 +5,9 @@
 
 <div>
     <h2 class="path"><a href="#/"> Home > </a><a id="youAreHere">{{albumCategory}}</a></h2>
-        <div id="category_container">
+        <div id="category_container" tagged-infinite-scroll="getMore()" tagged-infinite-scroll-distance="-200">
             <h3>{{albumCategory}} - quantity: {{quantity}} </h3>
-            <div class="album_container"  ng-repeat="album in category|limitTo:6">
+            <div class="album_container"  ng-repeat="album in category">
                 <img  ng-src="images/{{album.image_path}}">
                 <div>
                     <section>{{album.album_name}} - {{album.album_artist}}</section>

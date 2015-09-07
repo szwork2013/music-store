@@ -11,9 +11,13 @@ app.factory('categoryFactory',function($http){
      *  @return object - the category information
      *
      */
-    categoryFactory.categoryInfo=function(genre_id){
-        return $http.get(baseUrl+'categoryInfo/'+genre_id);
+
+
+    categoryFactory.categoryInfo=function(genre_id,offset){
+        return $http.get(baseUrl+'categoryInfo/'+genre_id+'/'+offset);
     }
+
+
 
     return categoryFactory;
 });

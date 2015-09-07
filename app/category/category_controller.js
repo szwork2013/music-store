@@ -15,6 +15,8 @@ app.controller( 'categoryController', function($scope,$rootScope,$route,$locatio
         $scope.albumCategory = $routeParams.categoryName;
         $scope.category_id = $routeParams.category_id
         $scope.categoryInfo();
+        $scope.offset=3;
+        $scope.category=[];
     }
 
 
@@ -38,10 +40,10 @@ app.controller( 'categoryController', function($scope,$rootScope,$route,$locatio
      *  @return object - the category information
      *
      */
-    $scope.categoryInfo=function(){
-        categoryFactory.categoryInfo($scope.category_id).
+    $scope.categoryInfo=function(offset){
+        categoryFactory.categoryInfo($scope.category_id,offset).
             success(function (data) {
-                $scope.category=data;
+                $scope.category=$scope.category.concat(data);
                 $scope.quantity=data.length;
             });
     }
@@ -60,7 +62,10 @@ app.controller( 'categoryController', function($scope,$rootScope,$route,$locatio
         $rootScope.addToCart(album.album_id , album);
     }
 
-
+    $scope.getMore=function(){
+    	$scope.offset+=3;
+    	 $scope.categoryInfo($scope.offset);
+    }
 
 
     $scope.init();

@@ -125,8 +125,8 @@ class AlbumController{
 	 *  @return databse query result
 	 *
 	 */
-    public function getCategoryInfo($genre_id){
-        $success=$this->album->getCategoryInfo($genre_id);
+    public function getCategoryInfo($genre_id,$offset){
+        $success=$this->album->getCategoryInfo($genre_id,$offset);
         echo $this->toRows($success);
     }
 
