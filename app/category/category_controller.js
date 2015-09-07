@@ -14,8 +14,8 @@ app.controller( 'categoryController', function($scope,$rootScope,$route,$locatio
         $scope.category_id;
         $scope.albumCategory = $routeParams.categoryName;
         $scope.category_id = $routeParams.category_id
+        $scope.page=0;
         $scope.categoryInfo();
-        $scope.offset=3;
         $scope.category=[];
     }
 
@@ -40,11 +40,14 @@ app.controller( 'categoryController', function($scope,$rootScope,$route,$locatio
      *  @return object - the category information
      *
      */
-    $scope.categoryInfo=function(offset){
+    $scope.categoryInfo=function(){
+        var offset=$scope.page*3;
         categoryFactory.categoryInfo($scope.category_id,offset).
             success(function (data) {
-                $scope.category=$scope.category.concat(data);
-                $scope.quantity=data.length;
+                if(data) {
+                    $scope.category = $scope.category.concat(data);
+                    $scope.quantity = data.length;
+                }
             });
     }
 
@@ -63,8 +66,8 @@ app.controller( 'categoryController', function($scope,$rootScope,$route,$locatio
     }
 
     $scope.getMore=function(){
-    	$scope.offset+=3;
-    	 $scope.categoryInfo($scope.offset);
+        $scope.page++;
+        $scope.categoryInfo();
     }
 
 
