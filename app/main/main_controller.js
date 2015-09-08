@@ -94,18 +94,23 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
     /** showAlbum
      *  http query for an album id by a song in that album, path this id to product page
      *
-     *  @param void
+     *  @param int -id of selected album
      *  @return change path to the product page and send it the a prodect id
      *
      */
-    $scope.showAlbum=function(song){
-        mainFactory.showAlbum(song).
-            success(function(response) {
-                $location.url('/product/'+response);
-                $scope.word=song;
-            });
+    
+    $scope.showAlbum=function(album_id){
+            $location.url('/product/'+album_id);
     }
-
+    
+    
+    /** goCheckOut
+     *  redirect to checkout page
+     *
+     *  @param void
+     *  @return void
+     *
+     */
 
     $scope.goCheckOut=function(){
         $location.url('/checkout')
@@ -129,16 +134,14 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
 
 
     /** mouseLeave
-     *  Hiding the search result menu after 2 sec the mouse curso leave the menu
+     *  Hiding the search result menu when the mouse curso leave the menu
      *
      *  @param void
      *  @return voide
      *
      */
     $scope.mouseLeave=function(){
-        $timeout(function () {
             $scope.hideSearch = true;
-        }, 2000);
     }
 
 

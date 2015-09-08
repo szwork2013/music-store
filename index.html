@@ -57,11 +57,12 @@
             <input type="text" placeholder="Search" ng-model="word"  ng-keyup="search(word)"/>
             <div id='results' ng-init="hideSearch=true" ng-hide="hideSearch"  ng-mouseleave="mouseLeave()">
                 <ul>
-                    <li ng-repeat='result in resuls'  ng-click='showAlbum(result.song_name)|limitTo:6' >
+                    <li ng-repeat='result in resuls'  ng-click='showAlbum(result.album_id)|limitTo:6' >
                         <img ng-src="images/{{result.image_path}}" />
-                        <span><strong>{{result.song_name}}</strong></span><br/>
+                        <span><strong>{{result.album_name}}</strong></span><br/>
                         <span>{{result.album_artist}}</span><br/>
-                        <span>Released on {{result.album_release_year}}</span>
+                         <span>Realeased {{result.album_release_year}}</span><br/>
+                        
                     </li>
                 </ul>
             </div>
