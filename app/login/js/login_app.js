@@ -145,7 +145,7 @@
 					
 
 					console.log(response);
-					$scope.registrationPageChanging(response);
+					//$scope.registrationPageChanging(response);
 
 			  });
 		}
@@ -161,15 +161,20 @@
 		 *
 		 */
 		$scope.registrationPageChanging=function(response){
+			
 			$scope.regSecond=true;
 			$scope.img=true;
 			$timeout(function() {
+				$scope.hide=true;
 				$scope.form=false;
 				$scope.img=false;
-				$scope.regThird=true;
+				
 				$scope.regSecond=false;
+				$scope.regThird=true;
 			},3000),
 				$timeout(function() {
+					$scope.regFirst=true;
+					
 					$scope.msg='Registration succeed!';
 
 				},4000);
@@ -183,7 +188,9 @@
 				$scope.regFirst=true;
 				$scope.regThird=false;
 				$scope.msg='';
+				$scope.regFirst=false;
 				$scope.form=true;
+				$scope.hide=false;
 			},7000);
 		}
 
