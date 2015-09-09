@@ -205,18 +205,7 @@ form{
 	float:right;
 	margin-right:10px;
 }
-#register{
-	clear:both;
-	background-color:white;
-	width:250px;
-	height:overflow;
-	border:gray solid 1px;
-	z-index:1;
-	position:relative;
-	margin:0 auto;
-	top:-350px;
-	padding-bottom: 20px;
-}
+
 
 
 .register-title{
@@ -337,10 +326,25 @@ form{
 .registration-first{
 	background-color:silver;
 	width:600px;
-	height:300px;
+	height:100px;
 	margin-top:100px;
 	margin:0 auto;
 }
+
+#register{
+	clear:both;
+	background-color:white;
+	width:250px;
+	height:overflow;
+	border:gray solid 1px;
+	z-index:1;
+	position:relative;
+	margin:0 auto;
+	top:-350px;
+	padding-bottom: 20px;
+}
+
+
 #preloader{
 	position:relative;
 	left:450px;

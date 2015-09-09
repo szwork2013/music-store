@@ -19,8 +19,10 @@ class LoginController{
 	 */
 	public function checking($data){
 		$success =$this->login->checking( $data->email , md5($data->password) );
+		$row = $success->fetch_assoc();
+		$idUser=$row['user_id'];
 		if( mysqli_num_rows($success)>0 ){
-			$this->login->createSession( $data->email , md5($data->password));
+			$this->login->createSession( $data->email , md5($data->password),$idUser);
 			echo json_encode('You have successfuly logged in.')  ;
 		}
 		else{

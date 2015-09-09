@@ -95,11 +95,11 @@ $login->checkLogin();
 			
 
 			
-			<form name="formRegistration"  novalidate ng-show='form' >
+			<form name="formRegistration"  novalidate ng-show='form' style=height:600px">
 				<p class='register-title'>Profile Information</p>
 
 				<div class="group">
-					<input type='text'   placeholder='First Name' name='firstname' class='input-registration' ng-model='firstname' required  ng-keyup="valdiateFirstName()"
+					<input type='text' ng-hide='hide'  placeholder='First Name' name='firstname' class='input-registration' ng-model='firstname' required  ng-keyup="valdiateFirstName()"
 					 ng-class="{ 'error': lengthFirstName || formRegistration.firstname.$error.required}">
 					 
 					<span class='feedback' ng-show="formRegistration.firstname.$error.required " >First name is required.</span>
@@ -107,7 +107,7 @@ $login->checkLogin();
 				</div>
 
 				<div class="group">
-					<input type='text' placeholder='Last Name' name='lastname' class='input-registration' ng-model='lastname' required ng-keyup="valdiateLastName()"
+					<input type='text' ng-hide='hide' placeholder='Last Name' name='lastname' class='input-registration' ng-model='lastname' required ng-keyup="valdiateLastName()"
 					 ng-class="{ 'error': lengthLastName || formRegistration.lastname.$error.required}">
 					 
 					<span class='feedback' ng-show="formRegistration.lastname.$error.required ">Last name is required.</span>
@@ -116,7 +116,7 @@ $login->checkLogin();
 
 				<div class="group">
 					<p class='register-title'>Login Data</p>
-					<input type='email' placeholder='E-mail address' name='email' class='input-registration' ng-model='email' required
+					<input type='email'  ng-hide='hide' placeholder='E-mail address' name='email' class='input-registration' ng-model='email' required
 					 ng-class="{ 'error': formRegistration.email.$error.required|| formRegistration.email.$error.email}">
 					 
 					<span class='feedback' ng-show="formRegistration.email.$error.required ">Email is required.</span>
