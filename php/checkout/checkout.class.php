@@ -25,12 +25,10 @@ class Checkout extends DB{
 	public function Insert($data){
 	
 		$userId = $_SESSION['id'];
-		$sql = "INSERT INTO orders( user_id, order_shipping_address,
-				 order_shipping_city, order_shipping_zipcode, order_shipping_phone,
-				order_payment_method, order_total)
-				VALUES ( '$userId','$data->address','$data->city','$data->zip','$data->phone','$data->paymentWay','$data->totalPrice')";
+		$sql = "INSERT INTO `orders`( `user_id`, `order_created`, `order_shipping_city`, `order_shipping_address`,
+		 `order_shipping_zipcode`, `order_total`) VALUES ( '$userId','$data->address','$data->city','$data->zip',
+		'$data->phone','$data->totalPrice')";
 		$answer = $this->db->query($sql);
-		
 		return $this->db->insert_id;
 
 	

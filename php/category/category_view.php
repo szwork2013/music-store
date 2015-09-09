@@ -11,14 +11,28 @@ $controller = new categoryController();
 
 $app->response->headers->set('Content-Type', 'application/json');
 
-
+/**  category (post)
+ *  route to insertNewCategory function
+ *
+ *  
+ *  @param object - categoryController object
+ *  @return void
+ *
+ */
 $app->post('/category/', function()use ($controller){
        $categoryData=json_decode(file_get_contents("php://input"));
        $controller->insertNewCategory($categoryData);
      
 });
 
-
+/**  category (delete)
+ *  route to deleteCategory function
+ *
+ *  @param int -the id of selected category
+ *  @param object - categoryController object
+ *  @return void
+ *
+ */
 
  $app->delete('/category/:id', function($id)use ($controller){
         $controller->deleteCategory($id);

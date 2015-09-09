@@ -35,10 +35,10 @@ class Login extends DB{
 	 *  @return voide
 	 *
 	 */
-	public function createSession($email,$password){
+	public function createSession($email,$password,$userId){
 		$_SESSION['email']=$email;
 		$_SESSION['password']=$password;
-		$_SESSION['id']=$this->id;
+		$_SESSION['id']=$userId;
 	}
 
 

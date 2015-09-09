@@ -14,6 +14,15 @@ class Order extends DB{
 		$this->db = DB::getInstance();
 	}
 	
+	
+	/** deleteOrder
+	 *  delete specific order from orders table and from orders_to_albums table
+	 *
+	 *  @param int - the id of the selected order
+	 *  @return void
+	 *
+	 */
+	
 	public function deleteOrder($id) {
 		$sql ="DELETE FROM orders WHERE order_id='$id' ";
 		$answer=$this->db->query($sql);
