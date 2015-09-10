@@ -13,29 +13,7 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
     $scope.init=function() {
         $scope.numberCartItem = 0;
         $scope.checkLogin();
-        $scope.getCategories();
         $rootScope.getMyCartData();
-
-
-    }
-
-
-
-
-    /** deleteFromCard
-     *  Deleting a selected album from the cart.
-     *
-     *  @param int-the album index in cart
-     *  @return voide
-     *
-     */
-    $scope.deleteFromCard=function(index){
-        var r = confirm("Are you sure you want to delete this album from your cart ?");
-        if(r) {
-            productService.deleteAlbum("MyCart", index);
-            $rootScope.getMyCartData();
-            $scope.numberCartItem=$scope.myCart.length;
-        }
     }
 
 
@@ -75,7 +53,6 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
 
 
 
-
     /** goCategory
      *  Go to the category page (using route).
      *
@@ -87,7 +64,6 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
         $scope.liActive=index;
         $location.url('/category/'+categoryName+'/'+categoryId);
     }
-
 
 
 
@@ -116,20 +92,6 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
         $location.url('/checkout')
     }
 
-
-    /** getCategories
-     *  ajax, http query from the data base for all the categories
-     *
-     *  @param void
-     *  @return voide
-     *
-     */
-    $scope.getCategories=function(){
-        mainFactory.getCategories().
-            success(function (categories) {
-                $scope.categories=categories;
-            });
-    }
 
 
 
@@ -209,50 +171,7 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
         }
     }
 
-
-    /** checkIfAlbumInCart
-     * Check if a selected album is aleady save in the local storge
-     *
-     *  @param int - the selected album id
-     *  @return bool
-     *
-     */
-    $rootScope.checkIfAlbumInCart=function(albumid){
-        var myCart=angular.fromJson(localStorage.getItem("MyCart"));
-        for(var key in myCart){
-            if( myCart[key].album_id==albumid ){
-                return true;
-            }
-        }
-        return false;
-    }
-
-
-    /** addToCart main function
-     *  Checking if the product is aleary saved,alert,and save the new produsct to local storage.
-     *
-     *  @param int,object - the album id, the album(product) information
-     *  @return void
-     *
-     */
-    $rootScope.addToCart=function(albumId,album) {
-        if(album.qty <= 0){
-            alert('The quantity of this album should be greater than 0.')
-            return false;
-        }
-        var checkIfAlbumInCart=$rootScope.checkIfAlbumInCart(albumId);
-        if(!checkIfAlbumInCart) {
-            productService.mergeData(album, 'MyCart');
-            alert("New album added to your cart");
-            $rootScope.getMyCartData();
-            $scope.numberCartItem=$scope.myCart.length;
-        }
-        else{
-            alert("This album already in your cart")
-        }
-    }
-
-
+    
     /** subtotal
      *  Subtotal the price of the products in the cart
      *

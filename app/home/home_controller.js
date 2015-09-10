@@ -17,7 +17,6 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
         $scope.items = [];
         $scope.album={};
         $scope.albums=[];
-        $scope.getCategories();
     }
 
 

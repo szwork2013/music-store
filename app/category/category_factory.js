@@ -23,17 +23,4 @@ app.factory('categoryFactory',function($http){
 });
 
 
-/** myCart
- *  Custom directive
- *
- *  @param void
- *  @return a html element
- *
- */
-app.directive('myCart', function() {
-    return {
-        restrict: 'E',
-        templateUrl: 'app/category/myCart.html'
-    };
-});
 

@@ -56,7 +56,7 @@ class Album extends DB{
 			  FROM albums
 			  INNER JOIN images
 				  ON albums.album_id=images.image_id
-			   ORDER BY album_created ASC LIMIT 3 OFFSET $offset";
+			   ORDER BY album_created DESC LIMIT 3 OFFSET $offset";
 		$answer=$this->db->query($sql);
 		return $answer;
 	}

@@ -143,11 +143,7 @@ my-Menu li:hover {
     overflow: hidden;
 }
 
-.container img:hover,#bigPic img:hover{
-    -webkit-animation: PopIt 0.5s;
-    -webkit-transform: scale(1.1,1.1);
-    transform:scale(1.1,1.1);
-}
+
 
 .container div:hover,#bigPic div:hover{
     background-color:#FD0002 ;
@@ -294,6 +290,15 @@ my-Menu li:hover {
     top:0;
     left:0;
 }
+
+.album_container img:hover{
+    filter: brightness(130%);
+    -webkit-filter: brightness(130%);
+    -moz-filter: brightness(130%);
+    -o-filter: brightness(130%);
+    -ms-filter: brightness(130%);
+}
+
 .album_container span{
     color:red;
     font-size: x-large;
