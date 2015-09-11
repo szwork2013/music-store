@@ -124,7 +124,6 @@ body{
 	float:left;
 }
 
-
 #left hr{
 	width: 460px;
 }
@@ -206,8 +205,6 @@ form{
 	margin-right:10px;
 }
 
-
-
 .register-title{
 	color:black;
 	font-size:12px;
@@ -216,7 +213,6 @@ form{
 .input-registration{
 	width:210px;
 	height:20px;
-
 }
 .space{
 	height:5px;
@@ -243,7 +239,7 @@ form{
 .group{
 	margin-bottom: 10px;
 }
-#fb{
+#left img{
 	position: relative;
 	top:14px;
 	height: 40px;
@@ -291,9 +287,7 @@ form{
 	height: 60px;
 	margin: 5px 15px 5px 5px;
 	float: left;
-
 }
-
 
 #preloader{
 	top:-200px;
@@ -343,7 +337,6 @@ form{
 	top:-350px;
 	padding-bottom: 20px;
 }
-
 
 #preloader{
 	position:relative;

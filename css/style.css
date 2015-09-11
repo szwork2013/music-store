@@ -87,13 +87,10 @@ a{
     color:red;
 }
 
-
-
 #myMenu{
     position: absolute;
     top:60px;
 }
-
 
 my-Menu{
     position: absolute;
@@ -395,7 +392,8 @@ h3{
     top:105px;
     left:380px;
     width:900px;
-    height:530px;
+    height: auto;
+    overflow: auto;
     position:absolute;
 }
 .product-images{
@@ -571,6 +569,8 @@ new-albums{
     top:990px;
     left:115px;
     width: 210px;
+    overflow: auto;
+    height:auto;
 }
 
 .twoNewAlbums{
@@ -831,10 +831,8 @@ tr{
 .payment_right p,.billing_right p{
 	color:silver;
 	font-size:13px;
-	 line-height: 40%;
-	
+    line-height: 40%;
 }
-
 
 .change{
 	text-decoration: underline;

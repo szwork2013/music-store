@@ -32,7 +32,7 @@
 <div id="mainAlbum" ng-init="getAlbums()">
     <div id="newProducts_container" tagged-infinite-scroll="getMore()" tagged-infinite-scroll-distance="-600">
         <h2>New Products</h2>
-        <div class="album_container" ng-repeat="album in albums"  ng-if="$index > 8"  >
+        <div class="album_container" ng-repeat="album in albums"  ng-if="$index >10"  >
             <img ng-src="images/{{album.image_path}}" ng-click='goToProductPage(album.album_id)' style='cursor:pointer' >
             <div>
                <section>{{album.album_name}} - {{album.album_artist}}</section>

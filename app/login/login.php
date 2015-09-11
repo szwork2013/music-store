@@ -60,7 +60,7 @@ $login->checkLogin();
 			<p class='gray'>shipping addresses,view and track your orders in your account and more.</p>
 			<br>
 			<button ng-click='regist=true'>Create An Account</button>
-			<img id="fb" src="icons/fb.png" ng-click="FBlogin()">
+			<img src="icons/fb.png" ng-click="FBlogin()">
 		</div>
 		
 		<div id='right'>
