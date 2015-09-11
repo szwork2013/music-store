@@ -13,10 +13,11 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
      *
      */
     $scope.init=function() {
-        $scope.page= 4;
+        $scope.page= 8;
         $scope.items = [];
         $scope.album={};
         $scope.albums=[];
+        $scope.albums2=[];
     }
 
 
@@ -29,11 +30,11 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
      */
     
 	  $scope.getMore = function() {
-          $scope.page++;
-          HomeFactory.getMore(3*$scope.page).
+          $scope.page= $scope.page+3;
+          HomeFactory.getMore($scope.page).
               success(function (items) {
                  if(items){
-                     $scope.albums = $scope.albums.concat(items);
+                     $scope.albums2 = $scope.albums2.concat(items);
                  }
 		  });
 		  
