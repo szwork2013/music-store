@@ -569,12 +569,10 @@ new-albums{
     top:990px;
     left:115px;
     width: 210px;
-    overflow: auto;
     height:auto;
 }
 
 .twoNewAlbums{
-    margin-bottom: 20px;
     position: relative;
     top:0;left:0;
 }
@@ -598,6 +596,7 @@ new-albums{
     color:white;
     overflow: auto;
     background-color: red;
+    margin-bottom: 20px;
 }
 
 .twoNewAlbums div section:nth-child(3){
@@ -609,7 +608,7 @@ new-albums{
 
 #myCart{
     position: absolute;
-    top:1670px;
+    top:1770px;
 }
 #results{
     width:295px;
