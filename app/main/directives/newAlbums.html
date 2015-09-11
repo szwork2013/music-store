@@ -1,5 +1,6 @@
-<div class="twoNewAlbums" ng-repeat="album in albums|limitTo:2"   >
-    <img ng-src="images/{{album.image_path}}" ng-click='goToProductPage(album.album_id)' style='cursor:pointer' >
+<div class="twoNewAlbums"    >
+    <img ng-src="images/{{albums[9].image_path}}" ng-click='goToProductPage(albums[9].album_id)' style='cursor:pointer' >
+     <img ng-src="images/{{albums[10].image_path}}" ng-click='goToProductPage(albums[10].album_id)' style='cursor:pointer' >
     <div>
         <section>{{album.album_name}}</section>
         <section>{{album.album_artist}}</section>
