@@ -509,13 +509,14 @@ h3{
 
 
 my-Cart{
-    position: relative;
+    position: absolute;
     top:520px;
     left:120px;
+    height: auto;
 }
 my-Cart div{
-   width: 230px;
-    position: absolute;
+    width: 230px;
+    position: relative;
     top:20px;
     left: 0px;
 }
@@ -579,6 +580,7 @@ new-albums{
 
 .twoNewAlbums img{
     width: 230px;
+    cursor: pointer;
 }
 
 .twoNewAlbums img:hover {
@@ -605,10 +607,9 @@ new-albums{
     color:black;
 }
 
-
 #myCart{
     position: absolute;
-    top:1770px;
+    top:1760px;
 }
 #results{
     width:295px;
