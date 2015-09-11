@@ -17,7 +17,6 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
     }
 
 
-
     /** search
      *  ajax, http query.Searching a song name in data base
      *
@@ -40,7 +39,6 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
 
 
     /** goHome
-    /** goHome
      *  path to the home page
      *
      *  @param void
@@ -50,7 +48,6 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
     $scope.goHome=function(){
         $location.url('/');
     }
-
 
 
     /** goCategory
@@ -74,7 +71,6 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
      *  @return change path to the product page and send it the a prodect id
      *
      */
-    
     $scope.showAlbum=function(album_id){
             $location.url('/product/'+album_id);
     }
@@ -87,12 +83,9 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
      *  @return void
      *
      */
-
     $scope.goCheckOut=function(){
         $location.url('/checkout')
     }
-
-
 
 
     /** mouseLeave
@@ -171,7 +164,7 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
         }
     }
 
-    
+
     /** subtotal
      *  Subtotal the price of the products in the cart
      *
@@ -184,7 +177,6 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
         for(var key in $scope.myCart){
             total=total + Number($scope.myCart[key].album_price)*Number($scope.myCart[key].qty);
         }
-
         return total;
     }
 

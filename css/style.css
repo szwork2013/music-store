@@ -1,16 +1,13 @@
-
+body{
+    background-color: #EDEDED;
+    font-family:arial;
+}
 
 #full_container{
     width:1320px ;
     height: auto;
     position: relative;
     margin: auto;
-}
-
-
-body{
-    background-color: #EDEDED;
-    font-family:arial;
 }
 
 #main{
@@ -521,7 +518,7 @@ h3{
 
 
 my-Cart{
-    position: absolute;
+    position: relative;
     top:520px;
     left:120px;
 }
@@ -575,9 +572,45 @@ my-Cart #emptyCart_message{
     width:230px ;
     top:40px;
 }
+
+
+new-albums{
+    position: absolute;
+    top:990px;
+    left:115px;
+    width: 210px;
+}
+
+
+.twoNewAlbums{
+    margin-bottom: 20px;
+    position: relative;
+    top:0;left:0;
+}
+
+.twoNewAlbums img{
+    width: 230px;
+}
+
+.twoNewAlbums div{
+    width: 210px;
+    font-size: large;
+    padding: 10px 10px;
+    color:white;
+    overflow: auto;
+    background-color: red;
+}
+
+.twoNewAlbums div section:nth-child(3){
+    margin-top: 5px;
+    font-size: small;
+    color:black;
+}
+
+
 #myCart{
     position: absolute;
-    top:985px;
+    top:1670px;
 }
 #results{
     width:295px;

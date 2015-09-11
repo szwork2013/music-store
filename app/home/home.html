@@ -26,7 +26,7 @@
 
 
 <my-Menu></my-Menu>
-
+<new-albums></new-albums>
 <my-Cart id="myCart"></my-Cart>
 
 <div id="mainAlbum" ng-init="getAlbums()">
@@ -34,23 +34,19 @@
         <h2>New Products</h2>
         <div class="album_container" ng-repeat="album in albums"  ng-if="$index > 8"  >
             <img ng-src="images/{{album.image_path}}" ng-click='goToProductPage(album.album_id)' style='cursor:pointer' >
-                <div>
-                    <section>{{album.album_name}} - {{album.album_artist}}</section>
-                    <section>
-                        <span>
-                            {{album.album_price| currency}}
-                            <button ng-click="addToCart($index)"></button>
-                            <button ng-click='goToProductPage(album.album_id)'></button>
-                        </span>
-                    </section>
-                </div>
+            <div>
+               <section>{{album.album_name}} - {{album.album_artist}}</section>
+                <section>
+                    <span>
+                        {{album.album_price| currency}}
+                        <button ng-click="addToCart($index)"></button>
+                        <button ng-click='goToProductPage(album.album_id)'></button>
+                    </span>
+                </section>
+            </div>
         </div>
-        
-       
-      </li>
-    </ul>
-  </div>
     </div>
+</div>
 </div><!--close mainAlbum Div-->
 
 

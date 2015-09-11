@@ -2,7 +2,6 @@
 <!doctype html>
 <html ng-app="myApp">
 <head>
-    <meta charset="UTF-8">
     <title>Music Store</title>
     <link rel="shortcut icon" href="icons/Music-icon.png" />
     <link rel="stylesheet" href="css/style.css">
@@ -21,6 +20,7 @@
             <!-- ------------- directivesjs---------------->
             <script src="app/main/directives/myMenu_directive.js"></script>
             <script src="app/main/directives/myCart_directive.js"></script>
+            <script src="app/main/directives/newAlbums_directive.js"></script>
 
 
     <!-- ---------------home js------------------->
@@ -67,7 +67,6 @@
                         <span><strong>{{result.album_name}}</strong></span><br/>
                         <span>{{result.album_artist}}</span><br/>
                          <span>Realeased {{result.album_release_year}}</span><br/>
-                        
                     </li>
                 </ul>
             </div>

@@ -33,7 +33,7 @@ class Album extends DB{
 	 *
 	 */
 	public function getAllAlbums(){
-		$sql="SELECT album_id,album_artist,album_price,album_created,album_name,image_path
+		$sql="SELECT album_id,album_artist,album_price,album_created,album_name,image_path,album_description
 			  FROM albums
 			  INNER JOIN images
 				  ON albums.album_id=images.image_id
