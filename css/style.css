@@ -288,13 +288,6 @@ my-Menu li:hover {
     left:0;
 }
 
-.album_container img:hover{
-    filter: brightness(130%);
-    -webkit-filter: brightness(130%);
-    -moz-filter: brightness(130%);
-    -o-filter: brightness(130%);
-    -ms-filter: brightness(130%);
-}
 
 .album_container span{
     color:red;
@@ -573,14 +566,12 @@ my-Cart #emptyCart_message{
     top:40px;
 }
 
-
 new-albums{
     position: absolute;
     top:990px;
     left:115px;
     width: 210px;
 }
-
 
 .twoNewAlbums{
     margin-bottom: 20px;
@@ -590,6 +581,14 @@ new-albums{
 
 .twoNewAlbums img{
     width: 230px;
+}
+
+.twoNewAlbums img:hover {
+    filter: brightness(130%);
+    -webkit-filter: brightness(130%);
+    -moz-filter: brightness(130%);
+    -o-filter: brightness(130%);
+    -ms-filter: brightness(130%);
 }
 
 .twoNewAlbums div{
