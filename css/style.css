@@ -3,6 +3,16 @@ body{
     font-family:arial;
 }
 
+
+@font-face {
+    font-family: 'IcoMoon';
+    src: url('../icons/IcoMoon/Font.ttf?-b7qzp2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 #full_container{
     width:1320px ;
     height: auto;
@@ -26,6 +36,7 @@ header input{
     background-size: 22px 22px;
     background-repeat:no-repeat;
     background-position: calc(100% - 10px);
+    content: "\e986";
     position: absolute;
     left: 580px;
     top:35px;
@@ -37,6 +48,8 @@ header input{
     outline: none;
     padding-left:15px ;
 }
+
+
 
 header img{
     cursor: pointer;
@@ -137,8 +150,6 @@ my-Menu li:hover {
     overflow: hidden;
 }
 
-
-
 .container div:hover,#bigPic div:hover{
     background-color:#FD0002 ;
     opacity: 1;
@@ -165,7 +176,7 @@ my-Menu li:hover {
     bottom: 0px;
     left:0px;
     padding:10px;
-    height:70px;
+    height:100px;
     -webkit-transition:height .5s;
     transition:height .5s;
 }
@@ -179,35 +190,6 @@ my-Menu li:hover {
     height:0px;
 }
 
-.container span,#bigPic span{
-    position: absolute;
-    right:10px;
-    top:55px;
-    float: left;
-}
-
-.container span button,#bigPic span button{
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
-    background-size: 25px 25px;
-    width:30px;
-    height:30px;
-    cursor: pointer;
-    margin-right: 10px;
-}
-
-
-.container span button:nth-child(1),#bigPic button:nth-child(1){
-    background-image:url("../icons/cart.png");
-}
-
-.container span button:nth-child(2),#bigPic button:nth-child(2){
-    background-image:url("../icons/info.png");
-}
-
-
-
 .container section:nth-child(1),#bigPic section:nth-child(1){
     color:white;
     font-size: x-large;
@@ -216,6 +198,17 @@ my-Menu li:hover {
 .container section,#bigPic section{
     color:red;
     font-size: larger;
+}
+.container section:nth-child(3),#bigPic section:nth-child(3){
+    position: absolute;
+    right: 20px;
+}
+
+.container span,#bigPic span{
+    font-size: 24px;
+    color:#555555;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
 #mainAlbum{
@@ -236,21 +229,8 @@ my-Menu li:hover {
     height: 440px;
 }
 
-.album_container button{
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
-    background-size: 25px 25px;
-    width:30px;
-    height:30px;
-    position: relative;
-    cursor: pointer;
-    left:5px;
-    top:7px;
-    margin-right: 10px;
-}
 
-.album_container button:hover{
+.album_container span:hover{
     -webkit-animation: scaleIt 1.5s;
     cursor:pointer;
 }
@@ -259,14 +239,6 @@ my-Menu li:hover {
     0% {-webkit-transform: scale(1,1);transform:scale(1,1);}
     50% {-webkit-transform: scale(1.2,1.2);transform:scale(1.2,1.2);}
     100% {-webkit-transform: scale(1,1);transform:scale(1,1);}
-}
-
-.album_container button:nth-child(1){
-    background-image:url("../icons/cart.png");
-}
-
-.album_container button:nth-child(2){
-    background-image:url("../icons/info.png");
 }
 
 .album_container{
@@ -287,10 +259,12 @@ my-Menu li:hover {
 
 
 .album_container span{
-    color:red;
-    font-size: x-large;
+    color:#555555;
+    font-size: 24px;
     position: relative;
-    top:-15px;
+    top:-25px;
+    left:80px;
+    margin-left: 10px;
 }
 
 .album_container div{
@@ -306,9 +280,11 @@ my-Menu li:hover {
     background-color:#FD0002 ;
 }
 
-.album_container div:hover span{
+
+.album_container div:hover section:nth-child(2){
     color:black;
 }
+
 
 .album_container section:nth-child(1){
     position: relative;
@@ -320,6 +296,20 @@ my-Menu li:hover {
     padding:15px 10px 0px 10px ;
 }
 
+
+
+.album_container section:nth-child(2){
+    position: relative;
+    top:0px;
+    color:red;
+    font-size: larger;
+}
+
+.album_container p{
+    position: absolute;
+    bottom:-5px;
+    left:15px;
+}
 
 #newProducts_container{
     position: absolute;
@@ -427,39 +417,53 @@ h3{
     float:right;
 }
 
-#right-down span, #right-down input, .QtyBtn{
+#right-down label, #right-down input{
     position: relative;
     left:36px;
+    display: inline-block;
 }
-#product-qty{
+
+.qtyBtn{
+    border: solid gray 1px;
+    display: inline-block;
+    width:20px;
+    height:20px;
+    position: relative;
+    left:36px;
+    cursor:pointer;
+}
+
+.qtyBtn span{
+    font-size: 10px;
+    color: gray;
+    text-align: center;
+    position: relative;
+    left:4px;
+}
+
+
+#right-down input{
     width:30px;
     height:20px;
     border:gray solid 3px;;
-
     text-align:center;
+}
 
-}
-#right-down img{
-    width:20px;
-    height:20px;
-    cursor:pointer;
-    position:relative;
-    top:5px;
-}
 #right-down h3{
     color:red;
 }
-#right-down label {
+#right-down label:nth-child(1) {
     clear:both;
     margin-left:20px;
 }
 #right-down hr{
     width:400px;
 }
-#heartIcon{
+#heartIcon,#right-down label:nth-child(2){
     cursor:pointer;
     position: relative;
     left:30px;
+
 }
 
 #product-details{
@@ -486,7 +490,7 @@ h3{
     padding: 0px;
 }
 
-#product-button{
+#right-down button{
     background-color:black;
     color:white;
     width:130px;

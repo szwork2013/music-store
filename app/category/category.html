@@ -11,12 +11,10 @@
                 <img  ng-src="images/{{album.image_path}}">
                 <div>
                     <section>{{album.album_name}} - {{album.album_artist}}</section>
-                    <span>
-                        {{album.album_price| currency}}
-                        <button ng-click="addToCart($index)"></button>
-                         <button ng-click='goToProductPage(album.album_id)'></button>
-                         <span style='font-size:10px'>{{album.album_description | limitTo:30}}...</span>
-                    </span>
+                    <section>{{album.album_price| currency}}</section>
+                    <span class="icon icon-cart" ng-click="addToCart($index)"></span>
+                    <span class="icon icon-info" ng-click='goToProductPage(album.album_id)'></span>
+                    <p style='font-size:10px'>{{album.album_description | limitTo:30}}...</p>
                 </div>
             </div>
         </div>
