@@ -17,7 +17,7 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
         $scope.items = [];
         $scope.album={};
         $scope.albums=[];
-        $scope.albums2=[];
+        $scope.moreAlbums=[];
     }
 
 
@@ -28,16 +28,15 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
      *  @return void
      *
      */
-    
+
 	  $scope.getMore = function() {
           $scope.page= $scope.page+3;
           HomeFactory.getMore($scope.page).
               success(function (items) {
                  if(items){
-                     $scope.albums2 = $scope.albums2.concat(items);
+                     $scope.moreAlbums = $scope.moreAlbums.concat(items);
                  }
 		  });
-		  
       };
 
 
@@ -91,6 +90,14 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
         $rootScope.addToCart(album.album_id ,album);
     }
 
+
+
+
+    $scope.addMoreToCart=function(index){
+        var album=$scope.moreAlbums[index];
+        album['qty']=1;
+        $rootScope.addToCart(album.album_id ,album);
+    }
 
 
     $scope.init();

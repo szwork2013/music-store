@@ -33,7 +33,7 @@
     <div id="newProducts_container" tagged-infinite-scroll="getMore()" tagged-infinite-scroll-distance="-700">
         <h2>New Products</h2>
 
-        <div class="album_container" ng-repeat="album in albums2"  >
+        <div class="album_container" ng-repeat="album in moreAlbums" >
 
             <img ng-src="images/{{album.image_path}}" ng-click='goToProductPage(album.album_id)' style='cursor:pointer' >
             <div>
@@ -41,7 +41,7 @@
                 <section>
                     <span>
                         {{album.album_price| currency}}
-                        <button ng-click="addToCart($index)"></button>
+                        <button ng-click="addMoreToCart($index)"></button>
                         <button ng-click='goToProductPage(album.album_id)'></button>
                     </span>
                 </section>
