@@ -1,6 +1,6 @@
 <?php
 
-include_once(dirname(__FILE__) . '/album_Controller.php');
+include_once(dirname(__FILE__) . '/album_controller.php');
 include_once(dirname(__FILE__) . '/../../lib/Slim/Slim.php');
 
 \Slim\Slim::registerAutoloader();
