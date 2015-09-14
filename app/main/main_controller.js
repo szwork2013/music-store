@@ -37,7 +37,6 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
     }
 
 
-
     /** goHome
      *  path to the home page
      *
@@ -48,20 +47,6 @@ app.controller( 'mainController', function($scope,$rootScope,$route,$timeout,$lo
     $scope.goHome=function(){
         $location.url('/');
     }
-
-
-    /** goCategory
-     *  Go to the category page (using route).
-     *
-     *  @param string,int,int - the category Name,the categoryId,the index of the category
-     *  @return void
-     *
-     */
-    $scope.goCategory=function(categoryName,categoryId,index){
-        $scope.liActive=index;
-        $location.url('/category/'+categoryName+'/'+categoryId);
-    }
-
 
 
     /** showAlbum

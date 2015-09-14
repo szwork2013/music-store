@@ -18,6 +18,7 @@ app.controller( 'homeController', function($scope, $rootScope,$timeout,$location
         $scope.album={};
         $scope.albums=[];
         $scope.moreAlbums=[];
+        $rootScope.liActive=null;
     }
 
 

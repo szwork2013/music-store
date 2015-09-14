@@ -4,7 +4,7 @@ app.directive('myMenu', function() {
         restrict: 'E',
         scope:true,
         templateUrl: 'app/main/directives/category_menu.html',
-        controller:function($scope,mainFactory,$location){
+        controller:function($scope,$rootScope,mainFactory,$location){
 
             $scope.init=function(){
                 $scope.getCategories();
@@ -34,7 +34,7 @@ app.directive('myMenu', function() {
              *
              */
             $scope.goCategory=function(categoryName,categoryId,index){
-                $scope.liActive=index;
+                $rootScope.liActive=index;
                 $location.url('/category/'+categoryName+'/'+categoryId);
             }
 

@@ -1,8 +1,6 @@
 
 
 <div id='checkout_container'>
-
-
 	<div id='checkout_container_right'>
 		<p id='checkout_container_right_title'>Your CheckOut Progress</p>
 		<p class='checkout_container_right_p'>Billing Information | <span class='change'> change</span></p>
@@ -23,9 +21,6 @@
 				<p class='gray'></p>
 			</div>
 	</div>
-	
-	
-	
 	<div id='checkout_container_left'>
 		<ul id='checkout-ul'>
 			<li>1-Billing Informaitionv </li>
@@ -47,29 +42,19 @@
 						<p class='feedback' style='font-size:8px'>Not a valid phone number.</p>
 						<p style='color:red'>Requierd Fields*</p>
 						<button class='checkout-continue'>Continue</button>
-					</form>
-						
+					</form>	
 				</div>
-				
-			
-			
 			<li>2-Payment Informaition</li>
-				
 				<div id='checkout-order' ng-show='payment' novalidate">
-					
 					<input type='radio' name='payment' value='check' ><label>Check/Money Order</label>
 					<br>
 					<input type='radio'  name='payment' value='credit_card' ><label>Credit Card(saved)</label>
 					<button class='checkout-continue' style='margin-top:235px'>Continue</button>
-					
-					
 					<form name='paymentForm'>
 						<p>Name on Card<span style='color:red'> *</span></p>
 						<input type='text' name='name_on_card'>
-						
 						<span class='feedback'>This field is required.</span>
 						<span ' class='feedback'>Must contain first and last name.</span>
-			
 						<p>Credit Card Type<span style='color:red'> *</span></p>
 						<select id='checkout_card' name='card_type' ng-model='card_type'  required>
 							<option value="">Chose credit company</option>
@@ -77,34 +62,24 @@
 							<option>Master Card</option>
 						</select>
 						<span class='feedback'>This field is required.</span>
-						
 						<p>Credit Card Number<span style='color:red'> *</span></p>
 						<input type='text' name='card_number' >
-						
 						<span  class='feedback'>This field is required.</span>
 						<span  class='feedback'>Must contain 16 digit.</span><br>
-						
 						<p>Expiration Date<span style='color:red'> *</span></p>
 						<input type='text' name='expiration' required>
-						
 						<span class='feedback'>This field is required.</span>
 						<span class='feedback'>Use this format MM-YYYY.</span><br>
-						
 						<p>Card Verifaction<span style='color:red'> *</span></p>
 						<input type='text' name='verifaction'  id='checkout_verifaction' required >
-						
 						<span style='font-size:12px;cursor:help' ng-mouseover='x=true'> What is this?</span>
 						<span class='feedback'>This field is required.</span>
 						<span class='feedback'>Has to be 3 digit.</span>
-						
 						<img ng-show='x' src='icons/digit.jpg' id='checkout_digit'>
-						
 						<button class='checkout-continue'>Continue</button>
 					</form>
 				</div>
-			
 			<li ng-class="x3">3-Order Review</li>
-			
 				<div id='order' ng-show='order' style='overflow:scroll'>
 					<table border='1'>
 					<tr>
@@ -125,6 +100,4 @@
 				</div>
 		</ul>
 	</div>
-	
-	
 </div>
