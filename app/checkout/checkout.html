@@ -11,15 +11,19 @@
 				<p  ng-bind='telephone'></p>
 			</div>
 		<p class='checkout_container_right_p'>Payment Method | <span class='change' ng-click='changePayment()'> change</span></p>
-			<div   ng-show='payment_right' class='payment_right'>
-				<p >Credit Card (saved)</p>
-				<p >Credit Card type:</p>
-				<p class='gray' ng-bind='card_type' ></p>
-				<p >Credit Card Number:</p>
-				<p class='gray'>****<span ng-bind='the4last'></span></p>
-				<p >Name On The Card:</p>
-				<p class='gray' ng-bind='name_on_card'></p>
-			
+			<div   ng-show='payment_right' class='payment_right' >
+				<div ng-show='credit'>
+					<p >Credit Card (saved)</p>
+					<p >Credit Card type:</p>
+					<p class='gray' ng-bind='card_type' ></p>
+					<p >Credit Card Number:</p>
+					<p class='gray'>****<span ng-bind='the4last'></span></p>
+					<p >Name On The Card:</p>
+					<p class='gray' ng-bind='name_on_card'></p>
+				</div>
+				<div ng-show='check'>
+					<p >Check/Money order</p>
+				</div>
 			</div>
 	</div>
 	

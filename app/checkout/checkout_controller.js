@@ -152,6 +152,8 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		if($scope.x3=="red" ||$scope.x2=="red" ){
 		$scope.billing=false;
 		$scope.payment=true;
+		$scope.credit=false;
+		$scope.check=false;
 		$scope.order=false;
 		$scope.x1="black";
 		$scope.x2="red";
@@ -186,6 +188,12 @@ app.controller( 'checkOutController', function($scope,$route,$location,$routePar
 		$scope.order=true;
 		$scope.payment=false;
 		$scope.payment_right=true;
+		if($scope.paymentWay=='check'){
+			$scope.check=true;
+		}
+		else{
+			$scope.credit=true;
+		}
 		$scope.x2="black";
 		$scope.x3="red";
 		if($scope.paymentWay!='check'){
