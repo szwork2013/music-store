@@ -1,11 +1,10 @@
-
 <!doctype html>
 <html ng-app="myApp">
 <head>
     <title>Music Store</title>
-    <link rel="shortcut icon" href="icons/Music-icon.png" />
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="icons/IcoMoon/IcoMoon-Style.css">
+    <link rel="shortcut icon" href="app/share/icons/Music-icon.png" />
+    <link rel="stylesheet" href="app/css/main-style.css">
+    <link rel="stylesheet" href="app/share/icons/IcoMoon/IcoMoon-Style.css">
 
     <!---------------  Libs ------------------->
     <script src="lib/angularJs/angular.min.js"></script>
@@ -14,39 +13,39 @@
 	<script src="lib/taggedInfiniteScroll.min.js"></script>
 
     <!-- ------------- main js---------------->
-    <script src="app/main/route.js"></script>
-    <script src="app/main/main_controller.js"></script>
-    <script src="app/main/main_factory.js"></script>
+    <script src="app/share/route.js"></script>
+    <script src="app/components/main/main_controller.js"></script>
+    <script src="app/components/main/main_factory.js"></script>
 
             <!-- ------------- directivesjs---------------->
-            <script src="app/main/directives/myMenu_directive.js"></script>
-            <script src="app/main/directives/myCart_directive.js"></script>
-            <script src="app/main/directives/newAlbums_directive.js"></script>
+            <script src="app/components/directives/catergory-menu/catergory-menu.js"></script>
+            <script src="app/components/directives/cart/cart.js"></script>
+            <script src="app/components/directives/new-albums/new-albums.js"></script>
 
 
     <!-- ---------------home js------------------->
-    <script src="app/home/home_controller.js"></script>
-    <script src="app/home/home_factory.js"></script>
+    <script src="app/components/home/home_controller.js"></script>
+    <script src="app/components/home/home_factory.js"></script>
 
     <!--------------- category js ---------------->
-    <script src="app/category/category_controller.js"></script>
-    <script src="app/category/category_factory.js"></script>
+    <script src="app/components/category/category_controller.js"></script>
+    <script src="app/components/category/category_factory.js"></script>
 
 
     <!------------------ product js ---------------->
-    <script src="app/product/product_controller.js"></script>
-    <script src="app/product/product_factory.js"></script>
-    <script src="app/product/product_service.js"></script>
+    <script src="app/components/product/product_controller.js"></script>
+    <script src="app/components/product/product_factory.js"></script>
+    <script src="app/components/product/product_service.js"></script>
 
     <!------------------- checkout js-------->
-    <script src="app/checkout/checkout_controller.js"></script>
- 	<script src="app/checkout/checkout_factory.js"></script>
+    <script src="app/components/checkout/checkout_controller.js"></script>
+ 	<script src="app/components/checkout/checkout_factory.js"></script>
    
 </head>
 <body ng-controller="mainController">
 
 <div id="full_container">
-    <nav id="mainNav">
+    <nav>
         <ul>
             <li><a href="#/">Home</a></li>
             <li ng-hide="myAccountLi" ng-init="myAccountLi=true"><a>My Account</a></li>
@@ -57,8 +56,7 @@
         </ul>
     </nav>
 
-    <header>
-        <img  ng-click="goHome('/')" src="icons/header.png"/>
+    <header ng-click="goHome('/')">
         <div id='main_search_div'>
             <input type="text" placeholder="Search" ng-model="word"  ng-keyup="search(word)"/>
             <div id='results' ng-init="hideSearch=true" ng-hide="hideSearch"  ng-mouseleave="mouseLeave()">
@@ -67,14 +65,12 @@
                         <img ng-src="images/{{result.image_path}}" />
                         <span><strong>{{result.album_name}}</strong></span><br/>
                         <span>{{result.album_artist}}</span><br/>
-                         <span>Realeased {{result.album_release_year}}</span><br/>
+                        <span>Realeased {{result.album_release_year}}</span><br/>
                     </li>
                 </ul>
             </div>
         </div>
-        <div id="main_cart_bar">
-           {{numberCartItem}}
-        </div>
+        <div id="main_cart_bar">{{numberCartItem}}</div>
     </header>
 
 
@@ -82,6 +78,11 @@
     <div id="main" ng-view></div>
 
 
+	<div class="side-menu">
+		<catergory-menu></catergory-menu>
+		<new-albums></new-albums>
+		<my-Cart></my-Cart>
+	</div>
 
 </div>
 

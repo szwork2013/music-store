@@ -1,6 +1,6 @@
 <?php
 
-include_once(dirname(__FILE__) . '/app/class/login.class.php');
+include_once(dirname(__FILE__) . '/server/login/class/login.class.php');
 
 
 Class viewController{

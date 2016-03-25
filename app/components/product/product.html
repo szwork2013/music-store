@@ -1,0 +1,51 @@
+<div class="product">
+    
+    <h2 class="path">
+        <a href="#/"> Home </a>  >  <a id="youAreHere" href="#product/{{album.album_id}}"> {{album.album_artist}}</a>
+    </h2>
+    <div class='product-images'>
+         <img id="big-img" ng-src="images/{{album.image_path}}" />
+         <img ng-repeat='i in [1,2,3]' ng-src="images/{{album.image_path}}" ng-click='changePicture(album.image_path,$index)' />
+    </div>
+        
+    <div id='product-right'>
+          <h1 ng-bind="album.album_name"></h1>
+          <h2>Availability: </h2>
+          <span ng-show='noAvibility' style='color:red'>out of stock</span>
+          <span ng-show='inStock' style='color:green'>in Stock</span>
+          <hr>
+          <p ng-show='inStock'>only <span ng-bind='quantity'> </span> available...<p>
+          <h1>{{album.price | currency}}</h1>
+          <div>{{album.album_description}}</div>
+    </div>
+        
+     <div id='right-down'>
+            <h3>{{album.album_price | currency}}</h3>
+            <hr>
+            <div>
+                <label>Qty: </label>
+                <input type='text' ng-model='Qty'>
+                <div class="qtyBtn">
+                    <span class="icon icon-plus" ng-click="countQty('up')"></span>
+                </div>
+                <div class="qtyBtn">
+                    <span class="icon icon-minus" ng-click="countQty('down')"></span>
+                </div>
+            </div>
+            <hr>
+            <img id="heartIcon" ng-src="icons/{{heart}}.jpg"  ng-click="addToWishlist()" ><label> Add to Wishlist</label>
+            <button ng-click="addToCart()">Add To Cart</button>
+      </div>
+        
+      <div id='product-details'>Details</div>
+      <br>
+      <div id='product-down'>
+            <div>{{album.album_long_description}}</div>
+       </div>
+
+</div>
+
+
+
+
+

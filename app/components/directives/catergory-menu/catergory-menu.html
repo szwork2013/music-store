@@ -1,0 +1,5 @@
+<ul>
+    <li class='category' ng-repeat="category in categories" ng-click="goCategory(category.genre_name,category.genre_id,$index)"  ng-class="{categoryLiActive:$index==liActive}">
+           {{category.genre_name}}
+     </li>
+</ul>

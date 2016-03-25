@@ -1,0 +1,22 @@
+<label>My Cart</label>
+<div ng-show="cartShow" ng-init="true">
+        <p>There are <strong>{{numberCartItem}} items</strong> in your cart</p>
+        <hr/>
+        <p>Cart subtotal: <strong>$ {{subtotal()}}</strong>
+			<button id='checkout_cart' ng-click='goCheckOut()'>checkout</button>
+		</p>
+        <hr/>
+        <ul>
+            <p>Recently added item(s)</p>
+            <li ng-repeat="item in myCart">
+                <span class='x' ng-click='deleteFromCard($index)'>x</span>
+                <img ng-src="images/{{item.image_path}}">
+                <p>{{item.album_name}}</p>
+                <p>{{item.album_artist}}</p>
+                <p class="Cart_Price">{{item.qty}} x $ {{item.album_price}}</p>
+                <hr style='width:230px;margin-left:-10px'>
+            <li/>
+        </ul>
+</div>
+
+<p id="emptyCart_message" ng-show="cartEmpty" ng-init="false">Your cart is empty</p>
